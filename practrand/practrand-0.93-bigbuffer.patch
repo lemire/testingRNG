@@ -1,0 +1,24 @@
+diff -ru ./tools/RNG_from_name.h /home/oneill/PractRand/tools/RNG_from_name.h
+--- tools/RNG_from_name.h.orig	2016-09-20 00:46:54.000000000 -0700
++++ tools/RNG_from_name.h	2017-07-02 16:14:14.081560302 -0700
+@@ -8,7 +8,7 @@
+ 			std::fprintf(stderr, "error reading standard input\n");
+ 			std::exit(0);
+ 		}
+-		enum { BUFF_SIZE = 4096 / sizeof(Word) };
++		enum { BUFF_SIZE = 1048576 / sizeof(Word) };
+ 		Word *pos, *end;
+ 		bool ended;
+ 		Word buffer[BUFF_SIZE];
+@@ -19,7 +19,10 @@
+ 			end = &buffer[n];
+ 		}
+ 	public:
+-		_stdin_reader() : ended(false) { refill(); }
++		_stdin_reader() : ended(false) {
++		    setvbuf(stdin, 0, _IOFBF, 1048576);
++		    refill();
++		}
+ 		Word read() { Word rv = *(pos++); if (pos == end) refill(); return rv; }
+ 	};
+ 	class RNG_stdin : public PractRand::RNGs::vRNG8 {
