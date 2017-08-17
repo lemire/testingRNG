@@ -119,7 +119,7 @@ int main(int argc, char **argv) {
     case 'r':
       z = 1;
       break;
-    case 'r':
+    case 'R':
       z = 2;
       break;
     case 's':
