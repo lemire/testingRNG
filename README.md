@@ -8,10 +8,19 @@ generators. Of particular interest are TestU01 and PractRand.
 
 We assume Linux or macOS.
 
+TestU01:
 ```
 cd testu01
 ./runtests.sh
 ```
+
+PractRand:
+```
+cd practrand
+./runtests.sh
+```
+
+
 
 ## Testing frameworks
 
