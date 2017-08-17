@@ -7,7 +7,7 @@
 
 
 /***
-* start of the code copied verbatim from O'Neill's
+* start of the code copied verbatim from O'Neill's, except that we declare some functions "static"
 ****/
 
 typedef __uint128_t pcg128_t;
@@ -28,7 +28,7 @@ static inline void pcg_setseq_128_step_r(struct pcg_state_setseq_128 *rng) {
   rng->state = rng->state * PCG_DEFAULT_MULTIPLIER_128 + rng->inc;
 }
 
-inline void pcg_setseq_128_srandom_r(struct pcg_state_setseq_128* rng,
+static inline void pcg_setseq_128_srandom_r(struct pcg_state_setseq_128* rng,
                                      pcg128_t initstate, pcg128_t initseq)
 {
     rng->state = 0U;
