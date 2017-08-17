@@ -8,17 +8,23 @@ generators. Of particular interest are TestU01 and PractRand.
 
 We assume Linux or macOS.
 
-TestU01:
-```
-cd testu01
-./runtests.sh
-```
 
 PractRand:
 ```
 cd practrand
 ./runtests.sh
 ```
+
+The PractRand benchmark is completed quickly.
+
+TestU01:
+```
+cd testu01
+./runtests.sh
+```
+
+The TestU01 benchmark might take days.
+
 
 
 
@@ -35,7 +41,7 @@ whereas many modern random number generators produce 64-bit numbers. In such cas
 a sensible approach is to "cast" the result of the 64-bit test to a 32-bit integer.
 (In C/C++, we do ``uint32_t x32 = (uint32_t) x;``.)
 However, as pointed out by [Vigna (2016)](https://arxiv.org/pdf/1402.6246.pdf), we should
-make sure that permuting the bit order does lead to a test failure.
+make sure that permuting the bit order does not lead to a test failure.
 
 ## Talks
 
