@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <unistd.h>
+#include <getopt.h>
 #include <string.h>
 
 #include "TestU01.h"
@@ -9,7 +10,7 @@ unsigned int rng_lsb(void) { return lsb64(thisrng()); }
 
 unsigned int rng_lsb_reverse(void) { return bytereverse32(lsb64(thisrng())); }
 
-const int number_of_rng = 2;
+#define number_of_rng  2
 unsigned int (*our_rng[number_of_rng])(void) = {rng_lsb, rng_lsb_reverse};
 const char *our_name[number_of_rng] = {" lsb 32-bits ", " lsb 32-bits (reverse) "};
 

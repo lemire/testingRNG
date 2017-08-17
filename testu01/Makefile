@@ -5,12 +5,8 @@
 
 
 .PHONY: clean cleandist
-UNAME := $(shell uname)
-ifeq ($(UNAME), Linux)
-OSFLAGS= -Wl,--no-as-needed
-endif
 
-CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow   $(OSFLAGS)
+CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow  
 
 LIBS=build/lib/libmylib.a build/lib/libprobdist.a build/lib/libtestu01.a
 LIBTARGET=build/lib/libmylib.a

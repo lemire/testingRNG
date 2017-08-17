@@ -4,6 +4,13 @@ Testing common random-number-generators
 There are several benchmarks that can be used to test (pseudo-)random number
 generators. Of particular interest are TestU01 and PractRand.
 
+## Usage
+
+```
+cd testu01
+./runtests.sh
+```
+
 ## Testing frameworks
 
 - [Practically Random](https://sourceforge.net/projects/pracrand/)
