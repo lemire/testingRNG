@@ -5,7 +5,7 @@ for order in  "-R" "-r" "" ; do
   for t in "${commands[@]}"; do
      filelog=$t$f$order.log
      echo "# RUNNING" $t $f $order "Outputting result to " $filelog
-    ./$t $f > $filelog
+    ./$t $f $order > $filelog
     RESULT=$?
     if [ $RESULT == 0 ]; then
      echo "Success!"
