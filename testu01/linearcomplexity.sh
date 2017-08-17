@@ -1,4 +1,7 @@
 make -s
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
 declare -a commands=('testxoroshiro128plus -H' 'testxoroshiro128plus' 'testxorshift128plus -H' 'testxorshift128plus' 'testpcg32' 'testpcg64 -H' 'testpcg64' 'testsplitmix64 -H' 'testsplitmix64' 'testxorshift32' );
 f="-l"
 for order in  "-R" "-r" "" ; do
@@ -11,9 +14,9 @@ for order in  "-R" "-r" "" ; do
     egrep -s "p-value of test (.*) \*\*\*\*\*" $filelog > /dev/null
     RESULT=$?
     if [ $RESULT == 0 ]; then
-     echo "Failure!"
+     echo -e "${RED}Failure!${NC}"
     else
-     echo "Success!"
+     echo -e "${GREEN}Success!${NC}"
     fi
   done
   echo

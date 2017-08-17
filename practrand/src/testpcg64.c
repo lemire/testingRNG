@@ -6,7 +6,7 @@
 #include "pcg64.h"
 
 #define buffer_size 512
-int main() {
+int main(int argc, char **argv) {
   int c;
   int castingtohigh32 = 0;
   while ((c = getopt(argc, argv, "H")) != -1)

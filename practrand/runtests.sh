@@ -1,5 +1,8 @@
 make -s
 MEM="2GB"
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m' # No Color
 echo "Testing "$MEM " of data per run"
 declare -a commands=('testxorshift128plus -H' 'testxorshift128plus' 'testxoroshiro128plus -H' 'testxoroshiro128plus' 'testpcg32' 'testpcg64 -H' 'testpcg64' 'testsplitmix64 -H' 'testsplitmix64' 'testxorshift32' );
 for t in "${commands[@]}"; do
@@ -10,8 +13,8 @@ for t in "${commands[@]}"; do
     grep -s "FAIL" $filelog > /dev/null
     RESULT=$?
     if [ $RESULT == 1 ]; then
-     echo "Success!"
+     echo -e "${GREEN}Success!${NC}"
     else
-     echo "Failure!"
+     echo -e "${RED}Failure!${NC}"
     fi
 done
