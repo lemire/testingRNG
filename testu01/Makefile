@@ -6,10 +6,10 @@
 
 .PHONY: clean cleandist
 
-CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow  
+CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow -Wno-implicit-function-declaration 
 
 LIBS=build/lib/libmylib.a build/lib/libprobdist.a build/lib/libtestu01.a
-LIBSCMD=-Wl,-Bstatic -L build/lib -ltestu01 -lprobdist -lmylib  -Wl,-Bdynamic -lm 
+LIBSCMD= build/lib/libtestu01.a  build/lib/libprobdist.a build/lib/libmylib.a  -lm 
 LIBTARGET=build/lib/libmylib.a
 EXECUTABLES=testsplitmix64 testxoroshiro128plus testxorshift32 testpcg32 testpcg64
 

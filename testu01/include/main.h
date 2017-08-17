@@ -1,7 +1,7 @@
-#ifndef _DEFAULT_SOURCE
 #define _DEFAULT_SOURCE
-#endif
 #define _BSD_SOURCE
+#define _XOPEN_SOURCE 10000
+#define _POSIX_C_SOURCE 200809L
 
 #include <stdio.h>
 #include <unistd.h>
@@ -30,7 +30,7 @@ void printusage(const char *command) {
   ;
 }
 const char *success_string = "All tests were passed";
-const int buffer_size = 1024 * 64;
+const int buffer_size = 64 * 1024 * 1024; // 64MB buffer ought to be enough to cover the output
 
 int small_crush(unif01_Gen *gen) {
   int returnval;
