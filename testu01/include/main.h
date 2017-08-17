@@ -40,6 +40,7 @@ int small_crush(unif01_Gen *gen) {
   strcpy(buffer, template);
   mktemp(buffer);
   FILE *fp = fopen(buffer, "w");
+  setvbuf( fp, (char *)NULL, _IONBF, 0 ); // no buffering please!
   printf("==Logging temporarily to %s \n", buffer);
   SwapIOB(stdout, fp);
   bbattery_SmallCrush(gen);
@@ -58,6 +59,7 @@ int just_crush(unif01_Gen *gen) {
   strcpy(buffer, template);
   mktemp(buffer);
   FILE *fp = fopen(buffer, "w");
+  setvbuf( fp, (char *)NULL, _IONBF, 0 ); // no buffering please!
   printf("==Logging temporarily to %s \n", buffer);
   SwapIOB(stdout, fp);
   bbattery_Crush(gen);
@@ -76,6 +78,7 @@ int big_crush(unif01_Gen *gen) {
   strcpy(buffer, template);
   mktemp(buffer);
   FILE *fp = fopen(buffer, "w");
+  setvbuf( fp, (char *)NULL, _IONBF, 0 ); // no buffering please!
   printf("==Logging temporarily to %s \n", buffer);
   SwapIOB(stdout, fp);
   bbattery_BigCrush(gen);
