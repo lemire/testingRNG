@@ -1,12 +1,12 @@
 # testingRNG
-Testing common random-number-generators
 
 There are several benchmarks that can be used to test (pseudo-)random number
-generators. Of particular interest are TestU01 and PractRand.
+generators (RNG). Of particular interest are TestU01 and PractRand. We want to easily
+test popular RNGs.
 
 ## Usage
 
-We assume Linux or macOS.
+We assume Linux or macOS. The code is essentially straight-forward C99.
 
 
 PractRand:
