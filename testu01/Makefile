@@ -6,12 +6,12 @@
 
 .PHONY: clean cleandist
 
-CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow -Wno-implicit-function-declaration 
+CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow -Wno-implicit-function-declaration
 
 LIBS=build/lib/libmylib.a build/lib/libprobdist.a build/lib/libtestu01.a
-LIBSCMD= build/lib/libtestu01.a  build/lib/libprobdist.a build/lib/libmylib.a  -lm 
+LIBSCMD= build/lib/libtestu01.a  build/lib/libprobdist.a build/lib/libmylib.a  -lm
 LIBTARGET=build/lib/libmylib.a
-EXECUTABLES=testsplitmix64 testxoroshiro128plus testxorshift32 testpcg32 testpcg64
+EXECUTABLES=testsplitmix64 testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64
 
 HEADERS=include/main.h
 
@@ -33,6 +33,10 @@ testsplitmix64 :  $(LIBTARGET) $(HEADERS)
 
 testxoroshiro128plus: $(LIBTARGET) $(HEADERS)
 	$(CC) $(CFLAGS) -o testxoroshiro128plus src/testxoroshiro128plus.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
+
+
+testxorshift128plus: $(LIBTARGET) $(HEADERS)
+	$(CC) $(CFLAGS) -o testxorshift128plus src/testxorshift128plus.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
 testxorshift32: $(LIBTARGET) $(HEADERS)
 	$(CC) $(CFLAGS) -o testxorshift32 src/testxorshift32.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude

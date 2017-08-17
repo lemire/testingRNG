@@ -7,20 +7,26 @@
 #include <unistd.h>
 #include <getopt.h>
 #include <string.h>
-#include "ioredirect.h"
 #include "TestU01.h"
 #include "util64bits32bits.h"
 
 unsigned int rng_lsb(void) { return lsb64(thisrng()); }
-
 unsigned int rng_lsb_reverse(void) { return bytereverse32(lsb64(thisrng())); }
 unsigned int rng_lsb_bitreverse(void) { return bitreverse32(lsb64(thisrng())); }
 
-#define number_of_rng 3
-unsigned int (*our_rng[number_of_rng])(void) = {rng_lsb, rng_lsb_reverse, rng_lsb_bitreverse};
+unsigned int rng_msb(void) { return msb64(thisrng()); }
+unsigned int rng_msb_reverse(void) { return bytereverse32(msb64(thisrng())); }
+unsigned int rng_msb_bitreverse(void) { return bitreverse32(msb64(thisrng())); }
+
+
+#define number_of_rng 6
+unsigned int (*our_rng[number_of_rng])(void) = {rng_lsb, rng_lsb_reverse, rng_lsb_bitreverse, rng_msb, rng_msb_reverse, rng_msb_bitreverse};
 const char *our_name[number_of_rng] = {" lsb 32-bits ",
                                        " lsb 32-bits (byte reverse) ",
-                                       " lsb 32-bits (bit reverse) ",};
+                                       " lsb 32-bits (bit reverse) ",
+                                       " msb 32-bits ",
+                                       " msb 32-bits (byte reverse) ",
+                                       " msb 32-bits (bit reverse) ",};
 
 void printusage(const char *command) {
   printf(" %s -s : small crush", command);
@@ -29,70 +35,17 @@ void printusage(const char *command) {
   ;
   printf(" %s -b : big crush", command);
   ;
+  printf(" %s -l : linear complexity", command);
+  ;
+
   printf(" %s : proceed until failure", command);
   ;
   printf(" The -r flag reverses the bytes.");
   ;
   printf(" The -R flag reverses the bits.");
   ;
-}
-const char *success_string = "All tests were passed";
-
-int small_crush(unif01_Gen *gen) {
-  static char template[] = "smallcrushXXXXXXXXX";
-  char buffer[24];
-  strcpy(buffer, template);
-  mktemp(buffer);
-  FILE *fp = fopen(buffer, "w");
-  setvbuf( fp, (char *)NULL, _IONBF, 0 ); // no buffering please!
-  printf("==Logging temporarily to %s \n", buffer);
-  SwapIOB(stdout, fp);
-  bbattery_SmallCrush(gen);
-  SwapIOB(fp, stdout);
-  fclose(fp);
-  int ret = printAndSeekSubstring(buffer, success_string);
-  // intentionally, we want the file to stick around till we are done processing
-  // it (in case of a crash)
-  unlink(buffer);
-  return ret;
-}
-
-int just_crush(unif01_Gen *gen) {
-  static char template[] = "crushXXXXXXXXX";
-  char buffer[24];
-  strcpy(buffer, template);
-  mktemp(buffer);
-  FILE *fp = fopen(buffer, "w");
-  setvbuf( fp, (char *)NULL, _IONBF, 0 ); // no buffering please!
-  printf("==Logging temporarily to %s \n", buffer);
-  SwapIOB(stdout, fp);
-  bbattery_Crush(gen);
-  SwapIOB(fp, stdout);
-  fclose(fp);
-  int ret = printAndSeekSubstring(buffer, success_string);
-  // intentionally, we want the file to stick around till we are done processing
-  // it (in case of a crash)
-  unlink(buffer);
-  return ret;
-}
-
-int big_crush(unif01_Gen *gen) {
-  static char template[] = "bigcrushXXXXXXXXX";
-  char buffer[24];
-  strcpy(buffer, template);
-  mktemp(buffer);
-  FILE *fp = fopen(buffer, "w");
-  setvbuf( fp, (char *)NULL, _IONBF, 0 ); // no buffering please!
-  printf("==Logging temporarily to %s \n", buffer);
-  SwapIOB(stdout, fp);
-  bbattery_BigCrush(gen);
-  SwapIOB(fp, stdout);
-  fclose(fp);
-  int ret = printAndSeekSubstring(buffer, success_string);
-  // intentionally, we want the file to stick around till we are done processing
-  // it (in case of a crash)
-  unlink(buffer);
-  return ret;
+  printf(" The -H flag select to most signficant 32 bits (as opposed to the least significant).");
+  ;
 }
 
 char *concat(const char *s1, const char *s2) {
@@ -110,12 +63,16 @@ int main(int argc, char **argv) {
   printf("==%s \n", name);
   int z = 0;
 
-  enum { SMALLCRUSH, CRUSH, BIGCRUSH, UNTILFAILURE };
-  int testroutine = UNTILFAILURE;
+  enum { SMALLCRUSH, CRUSH, BIGCRUSH, LINEARCOMP};
+  int use_msb = 0;
+  int testroutine = SMALLCRUSH;
   int c;
 
-  while ((c = getopt(argc, argv, "csbhrR")) != -1)
+  while ((c = getopt(argc, argv, "csbhrRHl")) != -1)
     switch (c) {
+    case 'l':
+      testroutine = LINEARCOMP;
+      break;
     case 'r':
       z = 1;
       break;
@@ -131,35 +88,43 @@ int main(int argc, char **argv) {
     case 'b':
       testroutine = BIGCRUSH;
       break;
+    case 'H':
+      use_msb = 1;
+      break;
     case 'h':
       printusage(argv[0]);
       return 0;
     default:
       abort();
     }
-  int returnval = 1;
-
+  if(use_msb) z += 3;
   char *tmpname = concat(name, our_name[z]);
   gen = unif01_CreateExternGenBits(tmpname, our_rng[z]);
 
   switch (testroutine) {
-  case UNTILFAILURE:
-    if (returnval)
-      returnval = small_crush(gen);
-    if (returnval)
-      returnval = just_crush(gen);
-    if (returnval)
-      returnval = big_crush(gen);
-    break;
   case SMALLCRUSH:
-    returnval = small_crush(gen);
+    bbattery_SmallCrush(gen);
     break;
   case CRUSH:
-    returnval = just_crush(gen);
+    bbattery_Crush(gen);
     break;
   case BIGCRUSH:
-    returnval = big_crush(gen);
+    bbattery_BigCrush(gen);
     break;
+  case LINEARCOMP:
+    // from O'Neill's
+    {
+    scomp_Res* res = scomp_CreateRes();
+    swrite_Basic = TRUE;
+    int size_array[] = {250, 500, 1000, 5000, 25000, 50000};
+    for (size_t k = 0; k < sizeof(size_array)/sizeof(int); k++) {
+        scomp_LinearComp(gen, res, 1, size_array[k], 0, 1);
+    }
+    scomp_DeleteRes(res);
+    fflush(stdout);
+    }
+    break;
+
   default:
     abort();
   }
@@ -167,11 +132,6 @@ int main(int argc, char **argv) {
   unif01_DeleteExternGenBits(gen);
   free(tmpname);
 
-  if (returnval) {
-    printf("==Good!\n");
-  } else {
-    printf("==Bad!\n");
-  }
 
-  return returnval == 1 ? EXIT_SUCCESS : EXIT_FAILURE;
+  return EXIT_SUCCESS;
 }

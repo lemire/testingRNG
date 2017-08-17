@@ -3,10 +3,10 @@
 #include <stdint.h>
 #include <getopt.h>
 
-#include "pcg64.h"
+#include "xorshift128plus.h"
 
 #define buffer_size 512
-int main() {
+int main(int argc, char **argv) {
   int c;
   int castingtohigh32 = 0;
   while ((c = getopt(argc, argv, "H")) != -1)
@@ -18,19 +18,19 @@ int main() {
       abort();
     }
   uint64_t seedvalue = 12345678;
-  pcg64_seed(seedvalue);
+  xorshift128plus_seed(seedvalue);
   if (castingtohigh32) {
     uint32_t buffer[buffer_size];
     while (1) {
       for (int k = 0; k < buffer_size; k++)
-        buffer[k] = (pcg64() >> 32);
+        buffer[k] = (xorshift128plus() >> 32);
       fwrite((void *)buffer, sizeof(buffer), 1, stdout);
     }
   } else {
     uint64_t buffer[buffer_size];
     while (1) {
       for (int k = 0; k < buffer_size; k++)
-        buffer[k] = pcg64();
+        buffer[k] = xorshift128plus();
       fwrite((void *)buffer, sizeof(buffer), 1, stdout);
     }
   }

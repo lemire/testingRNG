@@ -16,26 +16,23 @@ int main(int argc, char **argv) {
       break;
     default:
       abort();
-  }
+    }
   uint64_t seedvalue = 12345678;
   xoroshiro128plus_seed(seedvalue);
-  if(castingtohigh32) {
-  uint32_t buffer[buffer_size];
-
-  while (1) {
-    for (int k = 0; k < buffer_size; k++)
-      buffer[k] = (xoroshiro128plus() >> 32);
-    fwrite((void *)buffer, sizeof(buffer), 1, stdout);
-  }
+  if (castingtohigh32) {
+    uint32_t buffer[buffer_size];
+    while (1) {
+      for (int k = 0; k < buffer_size; k++)
+        buffer[k] = (xoroshiro128plus() >> 32);
+      fwrite((void *)buffer, sizeof(buffer), 1, stdout);
+    }
 
   } else {
-  uint64_t buffer[buffer_size];
-
-  while (1) {
-    for (int k = 0; k < buffer_size; k++)
-      buffer[k] = xoroshiro128plus();
-    fwrite((void *)buffer, sizeof(buffer), 1, stdout);
-  }
-
+    uint64_t buffer[buffer_size];
+    while (1) {
+      for (int k = 0; k < buffer_size; k++)
+        buffer[k] = xoroshiro128plus();
+      fwrite((void *)buffer, sizeof(buffer), 1, stdout);
+    }
   }
 }

@@ -20,6 +20,7 @@ The PractRand benchmark is completed quickly.
 TestU01:
 ```
 cd testu01
+./linearcomplexity.sh
 ./runtests.sh
 ```
 
