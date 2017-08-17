@@ -14,11 +14,13 @@
 unsigned int rng_lsb(void) { return lsb64(thisrng()); }
 
 unsigned int rng_lsb_reverse(void) { return bytereverse32(lsb64(thisrng())); }
+unsigned int rng_lsb_bitreverse(void) { return bitreverse32(lsb64(thisrng())); }
 
-#define number_of_rng 2
-unsigned int (*our_rng[number_of_rng])(void) = {rng_lsb, rng_lsb_reverse};
+#define number_of_rng 3
+unsigned int (*our_rng[number_of_rng])(void) = {rng_lsb, rng_lsb_reverse, rng_lsb_bitreverse};
 const char *our_name[number_of_rng] = {" lsb 32-bits ",
-                                       " lsb 32-bits (reverse) "};
+                                       " lsb 32-bits (byte reverse) ",
+                                       " lsb 32-bits (bit reverse) ",};
 
 void printusage(const char *command) {
   printf(" %s -s : small crush", command);
@@ -30,6 +32,8 @@ void printusage(const char *command) {
   printf(" %s : proceed until failure", command);
   ;
   printf(" The -r flag reverses the bytes.");
+  ;
+  printf(" The -R flag reverses the bits.");
   ;
 }
 const char *success_string = "All tests were passed";
@@ -110,10 +114,13 @@ int main(int argc, char **argv) {
   int testroutine = UNTILFAILURE;
   int c;
 
-  while ((c = getopt(argc, argv, "csbhr")) != -1)
+  while ((c = getopt(argc, argv, "csbhrR")) != -1)
     switch (c) {
     case 'r':
       z = 1;
+      break;
+    case 'r':
+      z = 2;
       break;
     case 's':
       testroutine = SMALLCRUSH;
