@@ -7,7 +7,7 @@
 #include <unistd.h>
 #include <getopt.h>
 #include <string.h>
-
+#include "ioredirect.h"
 #include "TestU01.h"
 #include "util64bits32bits.h"
 
@@ -28,59 +28,62 @@ void printusage(const char *command) {
   ;
   printf(" %s : proceed until failure", command);
   ;
+  printf(" The -r flag reverses the bytes.");
+  ;
+
 }
 const char *success_string = "All tests were passed";
-const int buffer_size = 64 * 1024 * 1024; // 64MB buffer ought to be enough to cover the output
 
 int small_crush(unif01_Gen *gen) {
-  int returnval;
-  char *outputstring = malloc(buffer_size);
-  memset(outputstring, 0, buffer_size);
-  setbuffer(stdout, outputstring, buffer_size);
-
-  printf("Starting small crush\n");
-  fflush(NULL);
-
+  static char template[] = "smallcrushXXXXXXXXX";
+  char  buffer[24];
+  strcpy(buffer, template);
+  mktemp(buffer);
+  FILE * fp = fopen(buffer, "w");
+  printf("==Logging temporarily to %s \n",buffer);
+  SwapIOB(stdout, fp);
   bbattery_SmallCrush(gen);
-  returnval = (strstr(outputstring, success_string) != NULL);
-  fflush(NULL);
-  free(outputstring);
-  setlinebuf(stdout);
-  return returnval;
+  SwapIOB(fp, stdout);
+  fclose(fp);
+  int ret = printAndSeekSubstring(buffer,success_string);
+  // intentionally, we want the file to stick around till we are done processing it (in case of a crash)
+  unlink(buffer);
+  return ret;
 }
 
 int just_crush(unif01_Gen *gen) {
-  int returnval;
-  char *outputstring = malloc(buffer_size);
-  memset(outputstring, 0, buffer_size);
-  setbuffer(stdout, outputstring, buffer_size);
-
-  printf("Starting crush\n");
-  fflush(NULL);
-
+  static char template[] = "crushXXXXXXXXX";
+  char  buffer[24];
+  strcpy(buffer, template);
+  mktemp(buffer);
+  FILE * fp = fopen(buffer, "w");
+  printf("==Logging temporarily to %s \n",buffer);
+  SwapIOB(stdout, fp);
   bbattery_Crush(gen);
-  returnval = (strstr(outputstring, success_string) != NULL);
-  fflush(NULL);
-  free(outputstring);
-  setlinebuf(stdout);
-  return returnval;
+  SwapIOB(fp, stdout);
+  fclose(fp);
+  int ret = printAndSeekSubstring(buffer,success_string);
+  // intentionally, we want the file to stick around till we are done processing it (in case of a crash)
+  unlink(buffer);
+  return ret;
 }
 
+
 int big_crush(unif01_Gen *gen) {
-  int returnval;
-  char *outputstring = malloc(buffer_size);
-  memset(outputstring, 0, buffer_size);
-  setbuffer(stdout, outputstring, buffer_size);
-
-  printf("Starting big crush\n");
-  fflush(NULL);
-
+  static char template[] = "bigcrushXXXXXXXXX";
+  char  buffer[24];
+  strcpy(buffer, template);
+  mktemp(buffer);
+  FILE * fp = fopen(buffer, "w");
+  printf("==Logging temporarily to %s \n",buffer);
+  SwapIOB(stdout, fp);
   bbattery_BigCrush(gen);
-  returnval = (strstr(outputstring, success_string) != NULL);
-  fflush(NULL);
-  free(outputstring);
-  setlinebuf(stdout);
-  return returnval;
+  SwapIOB(fp, stdout);
+  fclose(fp);
+  int ret = printAndSeekSubstring(buffer,success_string);
+  // intentionally, we want the file to stick around till we are done processing it (in case of a crash)
+  unlink(buffer);
+  return ret;
 }
 
 char* concat(const char *s1, const char *s2) {
@@ -93,16 +96,20 @@ char* concat(const char *s1, const char *s2) {
 int main(int argc, char **argv) {
   uint64_t seedvalue = 12345678;
   thisrng_seed(seedvalue);
-  printf("seed: %llu \n", (unsigned long long)seedvalue);
+  printf("==seed: %llu \n", (unsigned long long)seedvalue);
   unif01_Gen *gen;
-  printf("%s \n", name);
+  printf("==%s \n", name);
+  int z = 0;
 
   enum { SMALLCRUSH, CRUSH, BIGCRUSH, UNTILFAILURE };
   int testroutine = UNTILFAILURE;
   int c;
 
-  while ((c = getopt(argc, argv, "csbh")) != -1)
+  while ((c = getopt(argc, argv, "csbhr")) != -1)
     switch (c) {
+    case 'r':
+      z = 1;
+      break;
     case 's':
       testroutine = SMALLCRUSH;
       break;
@@ -120,7 +127,6 @@ int main(int argc, char **argv) {
     }
   int returnval = 1;
 
-  for (int z = 0; (z < number_of_rng) && returnval; z++) {
     char * tmpname = concat(name,our_name[z]);
     gen = unif01_CreateExternGenBits(tmpname, our_rng[z]);
 
@@ -148,12 +154,11 @@ int main(int argc, char **argv) {
 
     unif01_DeleteExternGenBits(gen);
     free(tmpname);
-  }
 
   if (returnval) {
-    printf("Good!\n");
+    printf("==Good!\n");
   } else {
-    printf("Bad!\n");
+    printf("==Bad!\n");
   }
 
   return returnval == 1 ? EXIT_SUCCESS : EXIT_FAILURE;
