@@ -6,6 +6,8 @@ generators. Of particular interest are TestU01 and PractRand.
 
 ## Usage
 
+We assume Linux or macOS.
+
 ```
 cd testu01
 ./runtests.sh
