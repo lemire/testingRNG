@@ -15,9 +15,10 @@ unsigned int rng_lsb(void) { return lsb64(thisrng()); }
 
 unsigned int rng_lsb_reverse(void) { return bytereverse32(lsb64(thisrng())); }
 
-#define number_of_rng  2
+#define number_of_rng 2
 unsigned int (*our_rng[number_of_rng])(void) = {rng_lsb, rng_lsb_reverse};
-const char *our_name[number_of_rng] = {" lsb 32-bits ", " lsb 32-bits (reverse) "};
+const char *our_name[number_of_rng] = {" lsb 32-bits ",
+                                       " lsb 32-bits (reverse) "};
 
 void printusage(const char *command) {
   printf(" %s -s : small crush", command);
@@ -30,67 +31,68 @@ void printusage(const char *command) {
   ;
   printf(" The -r flag reverses the bytes.");
   ;
-
 }
 const char *success_string = "All tests were passed";
 
 int small_crush(unif01_Gen *gen) {
   static char template[] = "smallcrushXXXXXXXXX";
-  char  buffer[24];
+  char buffer[24];
   strcpy(buffer, template);
   mktemp(buffer);
-  FILE * fp = fopen(buffer, "w");
-  printf("==Logging temporarily to %s \n",buffer);
+  FILE *fp = fopen(buffer, "w");
+  printf("==Logging temporarily to %s \n", buffer);
   SwapIOB(stdout, fp);
   bbattery_SmallCrush(gen);
   SwapIOB(fp, stdout);
   fclose(fp);
-  int ret = printAndSeekSubstring(buffer,success_string);
-  // intentionally, we want the file to stick around till we are done processing it (in case of a crash)
+  int ret = printAndSeekSubstring(buffer, success_string);
+  // intentionally, we want the file to stick around till we are done processing
+  // it (in case of a crash)
   unlink(buffer);
   return ret;
 }
 
 int just_crush(unif01_Gen *gen) {
   static char template[] = "crushXXXXXXXXX";
-  char  buffer[24];
+  char buffer[24];
   strcpy(buffer, template);
   mktemp(buffer);
-  FILE * fp = fopen(buffer, "w");
-  printf("==Logging temporarily to %s \n",buffer);
+  FILE *fp = fopen(buffer, "w");
+  printf("==Logging temporarily to %s \n", buffer);
   SwapIOB(stdout, fp);
   bbattery_Crush(gen);
   SwapIOB(fp, stdout);
   fclose(fp);
-  int ret = printAndSeekSubstring(buffer,success_string);
-  // intentionally, we want the file to stick around till we are done processing it (in case of a crash)
+  int ret = printAndSeekSubstring(buffer, success_string);
+  // intentionally, we want the file to stick around till we are done processing
+  // it (in case of a crash)
   unlink(buffer);
   return ret;
 }
 
-
 int big_crush(unif01_Gen *gen) {
   static char template[] = "bigcrushXXXXXXXXX";
-  char  buffer[24];
+  char buffer[24];
   strcpy(buffer, template);
   mktemp(buffer);
-  FILE * fp = fopen(buffer, "w");
-  printf("==Logging temporarily to %s \n",buffer);
+  FILE *fp = fopen(buffer, "w");
+  printf("==Logging temporarily to %s \n", buffer);
   SwapIOB(stdout, fp);
   bbattery_BigCrush(gen);
   SwapIOB(fp, stdout);
   fclose(fp);
-  int ret = printAndSeekSubstring(buffer,success_string);
-  // intentionally, we want the file to stick around till we are done processing it (in case of a crash)
+  int ret = printAndSeekSubstring(buffer, success_string);
+  // intentionally, we want the file to stick around till we are done processing
+  // it (in case of a crash)
   unlink(buffer);
   return ret;
 }
 
-char* concat(const char *s1, const char *s2) {
-    char *result = malloc(strlen(s1)+strlen(s2)+1);
-    strcpy(result, s1);
-    strcat(result, s2);
-    return result;
+char *concat(const char *s1, const char *s2) {
+  char *result = malloc(strlen(s1) + strlen(s2) + 1);
+  strcpy(result, s1);
+  strcat(result, s2);
+  return result;
 }
 
 int main(int argc, char **argv) {
@@ -127,33 +129,33 @@ int main(int argc, char **argv) {
     }
   int returnval = 1;
 
-    char * tmpname = concat(name,our_name[z]);
-    gen = unif01_CreateExternGenBits(tmpname, our_rng[z]);
+  char *tmpname = concat(name, our_name[z]);
+  gen = unif01_CreateExternGenBits(tmpname, our_rng[z]);
 
-    switch (testroutine) {
-    case UNTILFAILURE:
-      if (returnval)
-        returnval = small_crush(gen);
-      if (returnval)
-        returnval = just_crush(gen);
-      if (returnval)
-        returnval = big_crush(gen);
-      break;
-    case SMALLCRUSH:
+  switch (testroutine) {
+  case UNTILFAILURE:
+    if (returnval)
       returnval = small_crush(gen);
-      break;
-    case CRUSH:
+    if (returnval)
       returnval = just_crush(gen);
-      break;
-    case BIGCRUSH:
+    if (returnval)
       returnval = big_crush(gen);
-      break;
-    default:
-      abort();
-    }
+    break;
+  case SMALLCRUSH:
+    returnval = small_crush(gen);
+    break;
+  case CRUSH:
+    returnval = just_crush(gen);
+    break;
+  case BIGCRUSH:
+    returnval = big_crush(gen);
+    break;
+  default:
+    abort();
+  }
 
-    unif01_DeleteExternGenBits(gen);
-    free(tmpname);
+  unif01_DeleteExternGenBits(gen);
+  free(tmpname);
 
   if (returnval) {
     printf("==Good!\n");
