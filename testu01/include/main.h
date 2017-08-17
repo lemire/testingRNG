@@ -1,3 +1,8 @@
+#ifndef _DEFAULT_SOURCE
+#define _DEFAULT_SOURCE
+#endif
+#define _BSD_SOURCE
+
 #include <stdio.h>
 #include <unistd.h>
 #include <getopt.h>

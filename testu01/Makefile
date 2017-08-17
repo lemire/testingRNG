@@ -9,6 +9,7 @@
 CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow  
 
 LIBS=build/lib/libmylib.a build/lib/libprobdist.a build/lib/libtestu01.a
+LIBSCMD=-Wl,-Bstatic -L build/lib -ltestu01 -lprobdist -lmylib  -Wl,-Bdynamic -lm 
 LIBTARGET=build/lib/libmylib.a
 EXECUTABLES=testsplitmix64 testxoroshiro128plus testxorshift32 testpcg32 testpcg64
 
@@ -28,19 +29,19 @@ $(LIBTARGET): TestU01-1.2.3
 
 
 testsplitmix64 :  $(LIBTARGET) $(HEADERS)
-	$(CC) $(CFLAGS) -o testsplitmix64 src/testsplitmix64.c $(LIBS) -I../source -Ibuild/include/ -Iinclude
+	$(CC) $(CFLAGS) -o testsplitmix64 src/testsplitmix64.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
 testxoroshiro128plus: $(LIBTARGET) $(HEADERS)
-	$(CC) $(CFLAGS) -o testxoroshiro128plus src/testxoroshiro128plus.c $(LIBS) -I../source -Ibuild/include/ -Iinclude
+	$(CC) $(CFLAGS) -o testxoroshiro128plus src/testxoroshiro128plus.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
 testxorshift32: $(LIBTARGET) $(HEADERS)
-	$(CC) $(CFLAGS) -o testxorshift32 src/testxorshift32.c $(LIBS) -I../source -Ibuild/include/ -Iinclude
+	$(CC) $(CFLAGS) -o testxorshift32 src/testxorshift32.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
 testpcg32: $(LIBTARGET) $(HEADERS)
-	$(CC) $(CFLAGS) -o testpcg32 src/testpcg32.c $(LIBS) -I../source -Ibuild/include/ -Iinclude
+	$(CC) $(CFLAGS) -o testpcg32 src/testpcg32.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
 testpcg64: $(LIBTARGET) $(HEADERS)
-	$(CC) $(CFLAGS) -o testpcg64 src/testpcg64.c $(LIBS) -I../source -Ibuild/include/ -Iinclude
+	$(CC) $(CFLAGS) -o testpcg64 src/testpcg64.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
 
 
