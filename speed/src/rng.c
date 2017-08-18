@@ -87,7 +87,7 @@ void populate64(rand64fnc rand, uint64_t *answer, size_t size) {
     }                                                                          \
     uint64_t S = size;                                                         \
     float cycle_per_op = (min_diff) / (double)S;                               \
-    printf(" %.2f cycles per bytes", cycle_per_op);                            \
+    printf(" %.2f cycles per byte", cycle_per_op);                            \
     printf("\n");                                                              \
     fflush(NULL);                                                              \
   } while (0)
