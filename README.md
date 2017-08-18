@@ -4,10 +4,21 @@ There are several benchmarks that can be used to test (pseudo-)random number
 generators (RNG). Of particular interest are TestU01 and PractRand. We want to easily
 test popular RNGs.
 
+It is fine to say that we can, in theory run these tests, but few of us will if
+it requires too much labor. The purpose of this project is to make it ridiculously
+easy to run your own tests if you have a mac or a Linux box with a recent C compiler.
+
+## Prerequisites
+
+We assume Linux or macOS. 
+
+- Our scripts should work out of the box on  most Linux boxes, except maybe when they are configured to act as secure servers (e.g., without a C compiler).
+- If you have a mac, it is assumed that [you have installed a recent Xcode package](https://developer.apple.com/xcode/) to get
+the C (and C++) compiler. Make sure you have installed the command-line utilities.
+
 ## Usage
 
-We assume Linux or macOS. The code is essentially straight-forward C99.
-
+You can run the tests by going to a bash shell (Terminal) and executing a few commands.
 
 PractRand:
 ```
@@ -21,28 +32,44 @@ TestU01:
 ```
 cd testu01
 ./linearcomplexity.sh
-./runtests.sh
+./bigcrush.sh
 ```
 
-The TestU01 benchmark might take days.
-
-
+The TestU01 benchmark "big crush" (``bigcrush.sh``) might take days whereas
+the linear complexity test (``linearcomplexity.sh``), being narrow, completes quickly.
 
 
 ## Testing frameworks
 
+We use the following testing framework:
+
 - [Practically Random](https://sourceforge.net/projects/pracrand/)
 - [TestU01](http://simul.iro.umontreal.ca/testu01/)
 
+As of 2017, these represent the state-of-the-art.
 
-## Methodology
+## TestU01 Methodology
 
 For historical reasons, it appears that TestU01 is designed to test 32-bit numbers
-whereas many modern random number generators produce 64-bit numbers. In such cases,
+whereas many modern random number generators produce 64-bit numbers. Indeed, years ago,
+most random number generators would produce, at best 31-bit random values.
+
+How do we assess modern-day 64-bit random number generators? In such cases,
 a sensible approach is to "cast" the result of the 64-bit test to a 32-bit integer.
 (In C/C++, we do ``uint32_t x32 = (uint32_t) x;``.)
 However, as pointed out by [Vigna (2016)](https://arxiv.org/pdf/1402.6246.pdf), we should
-make sure that permuting the bit order does not lead to a test failure.
+make sure that permuting the bit order does not lead to a test failure. So we test with
+both the original, and reversed bit order. We also test with a reversed byte order.
+
+We can also test the most significant bits (msb) instead of the least significant bits (lsb)
+(In C/C++, we do ``uint32_t x32 = (uint32_t) (x >> 32)``.) By convention, we refer to this
+approach with the ``-H`` flag in our command-line executables. 
+
+There are other possibilities, but if a random number generator were to require a very 
+particular approach to extract good 32-bit values from a 64-bit value, then it would be 
+a good sign that something is not quite right with the original 64-bit values.
+
+For PractRand, we do not need to truncate the produced random bits.
 
 ## Talks
 
@@ -59,7 +86,7 @@ make sure that permuting the bit order does not lead to a test failure.
 - [Testing RNGs with PractRand](https://www.johndcook.com/blog/2017/08/14/testing-rngs-with-practrand/), [Manipulating a random number generator](https://www.johndcook.com/blog/2017/08/16/manipulating-a-random-number-generator/) by Cook
 - [PCG Passes PractRand](http://www.pcg-random.org/posts/pcg-passes-practrand.html)
 
-## More reading
+## More reading (interesting quotes)
 
 > A recent example shows the importance of testing the reverse generator. Saito and Matsumoto [2014] propose a different way to eliminate linear artifacts: instead of multiplying the output of an underlying xorshift generator (with 128 bits of state and based on 32-bit shifts) by a constant, they add it (in Z/232Z) with the previous output. Since the sum in Z/232Z is not linear over Z/2Z, the result should be free of linear artifacts. However, while their generator passes BigCrush, its reverse fails systematically the LinearComp, MatrixRank, MaxOft and Permutation test of BigCrush, which highlights a significant weakness in its lower bits. [Vigna, An experimental exploration of Marsaglia’s xorshift generators, scrambled, ACM Transactions on Mathematical Software (TOMS), 2016 ](https://arxiv.org/pdf/1402.6246.pdf)
 
