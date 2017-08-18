@@ -26,7 +26,7 @@ cd practrand
 ./runtests.sh
 ```
 
-The PractRand benchmark is completed quickly.
+The PractRand benchmark takes some time to complete because we analyze a large volume of random numbers.
 
 TestU01:
 ```
