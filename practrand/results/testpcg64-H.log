@@ -1,0 +1,40 @@
+RNG_test using PractRand version 0.93
+RNG = RNG_stdin64, seed = 0xbc783ad6
+test set = normal, folding = standard (64 bit)
+
+rng=RNG_stdin64, seed=0xbc783ad6
+length= 256 megabytes (2^28 bytes), time= 2.6 seconds
+  no anomalies in 159 test result(s)
+
+rng=RNG_stdin64, seed=0xbc783ad6
+length= 512 megabytes (2^29 bytes), time= 5.7 seconds
+  no anomalies in 169 test result(s)
+
+rng=RNG_stdin64, seed=0xbc783ad6
+length= 1 gigabyte (2^30 bytes), time= 11.5 seconds
+  no anomalies in 180 test result(s)
+
+rng=RNG_stdin64, seed=0xbc783ad6
+length= 2 gigabytes (2^31 bytes), time= 22.3 seconds
+  no anomalies in 191 test result(s)
+
+rng=RNG_stdin64, seed=0xbc783ad6
+length= 4 gigabytes (2^32 bytes), time= 42.9 seconds
+  no anomalies in 201 test result(s)
+
+rng=RNG_stdin64, seed=0xbc783ad6
+length= 8 gigabytes (2^33 bytes), time= 84.5 seconds
+  no anomalies in 212 test result(s)
+
+rng=RNG_stdin64, seed=0xbc783ad6
+length= 16 gigabytes (2^34 bytes), time= 165 seconds
+  no anomalies in 223 test result(s)
+
+rng=RNG_stdin64, seed=0xbc783ad6
+length= 32 gigabytes (2^35 bytes), time= 324 seconds
+  no anomalies in 233 test result(s)
+
+rng=RNG_stdin64, seed=0xbc783ad6
+length= 64 gigabytes (2^36 bytes), time= 648 seconds
+  no anomalies in 244 test result(s)
+

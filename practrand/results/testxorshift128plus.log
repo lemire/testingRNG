@@ -1,0 +1,13 @@
+RNG_test using PractRand version 0.93
+RNG = RNG_stdin64, seed = 0xd5062203
+test set = normal, folding = standard (64 bit)
+
+rng=RNG_stdin64, seed=0xd5062203
+length= 256 megabytes (2^28 bytes), time= 2.6 seconds
+  Test Name                         Raw       Processed     Evaluation
+  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!   
+  [Low1/64]BRank(12):256(2)         R= +3748  p~=  3e-1129    FAIL !!!!!!!!  
+  [Low1/64]BRank(12):384(1)         R= +5405  p~=  3e-1628    FAIL !!!!!!!!  
+  [Low1/64]BRank(12):512(1)         R= +8161  p~=  1e-2457    FAIL !!!!!!!!  
+  ...and 155 test result(s) without anomalies
+
