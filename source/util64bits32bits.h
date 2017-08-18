@@ -53,9 +53,9 @@ static const unsigned char BitReverseTable256[] =  {
 };
 
 static inline uint32_t bitreverse32(uint32_t v) {
-  return (BitReverseTable256[v & 0xff] << 24) |
-    (BitReverseTable256[(v >> 8) & 0xff] << 16) |
-    (BitReverseTable256[(v >> 16) & 0xff] << 8) |
-    (BitReverseTable256[(v >> 24) & 0xff]);
+  return ((uint32_t)BitReverseTable256[v & 0xff] << 24) |
+    ((uint32_t)BitReverseTable256[(v >> 8) & 0xff] << 16) |
+    ((uint32_t)BitReverseTable256[(v >> 16) & 0xff] << 8) |
+    ((uint32_t)BitReverseTable256[(v >> 24) & 0xff]);
 }
 #endif // UTIL64BITS32BITS_H
