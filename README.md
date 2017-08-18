@@ -20,7 +20,7 @@ the C (and C++) compiler. Make sure you have installed the command-line utilitie
 
 You can run the tests by going to a bash shell (Terminal) and executing a few commands.
 
-####PractRand:
+#### PractRand:
 ```
 cd practrand
 ./runtests.sh
@@ -28,7 +28,7 @@ cd practrand
 
 The PractRand benchmark takes some time to complete because we analyze a large volume of random numbers.
 
-####TestU01:
+#### TestU01:
 ```
 cd testu01
 ./bigcrush.sh
@@ -36,7 +36,7 @@ cd testu01
 
 The TestU01 benchmark "big crush" (``bigcrush.sh``) might take days.
 
-####Speed:
+#### Speed:
 It is interesting to assess running speed as well. This can be done quickly:
 
 ```
