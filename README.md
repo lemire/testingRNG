@@ -10,7 +10,7 @@ easy to run your own tests if you have a mac or a Linux box with a recent C comp
 
 ## Prerequisites
 
-We assume Linux or macOS. 
+We assume Linux or macOS.
 
 - Our scripts should work out of the box on  most Linux boxes, except maybe when they are configured to act as secure servers (e.g., without a C compiler).
 - If you have a mac, it is assumed that [you have installed a recent Xcode package](https://developer.apple.com/xcode/) to get
@@ -31,37 +31,32 @@ The PractRand benchmark takes some time to complete because we analyze a large v
 TestU01:
 ```
 cd testu01
-./linearcomplexity.sh
 ./bigcrush.sh
 ```
 
-The TestU01 benchmark "big crush" (``bigcrush.sh``) might take days whereas
-the linear complexity test (``linearcomplexity.sh``), being narrow, completes quickly.
+The TestU01 benchmark "big crush" (``bigcrush.sh``) might take days.
+
+It is interesting to assess running speed as well. This can be done quickly:
+
+```
+cd speed
+make
+make test
+```
+
+Note  that the speed tests assume a recent x64 processor (e.g., they would not work
+  on ARM processors).
+
+## The contenders
+
+- splitmix64 is a random number generator is widespread use and part of the standard Java API, we adapted a port to C produced by Vigna. It produces 64-bit numbers.
+- pcg32 and pcg64 are instances of the PCG family designed by O'Neill. They produce either 32-bit or 64-bit outputs.
+- xorshift32 is a classical xorshift random number generator. We do not expect it to do well.
+- xorshift128plus and xoroshiro128plus are recently proposed random number generator by Vigna.
+- rand is whatever random number number generator your C standard library provides. It is a useful point of reference when assessing speed.
 
 
-## Interpreting the results
-
-Tests are subject to both false positives and false negatives, and should be interpreted with care.
-
-- That your random number generator passes several statistical tests does not prove that it is of high quality. There might be other tests that it would fail. However, the more tests one passes, the greater the evidence is in favor of your random number generator, evidently.
-- A statistical test might fail even if the bits are indeed "random". Thus a fialed test is not "proof" that the random number generation is faulty. However, failing tests can be further investigated and evidence of a fault can be ascertained.
-
-One source of concern is that random number generators are initialized with a seed, and sometimes a "sequence" is selected. Testing successfully with a given seed does not preclude the possibility that there might be "bad seeds". 
-
-To summarize, caution is required when interpreting the results. It is not black and white, good and bad... One might say that a given generator passes a given test, but it is possible that with different seeds, it could fail, and so forth.
-
-Still, for convenience, it is necessary to express results in a comprehensible manner. Thus we often say that a generator "passes a given test" or does not.
-
-## Testing frameworks
-
-We use the following testing framework:
-
-- [Practically Random](https://sourceforge.net/projects/pracrand/)
-- [TestU01](http://simul.iro.umontreal.ca/testu01/)
-
-As of 2017, these represent the state-of-the-art.
-
-## TestU01 Methodology
+## Methodology
 
 For historical reasons, it appears that TestU01 is designed to test 32-bit numbers
 whereas many modern random number generators produce 64-bit numbers. Indeed, years ago,
@@ -76,13 +71,119 @@ both the original, and reversed bit order. We also test with a reversed byte ord
 
 We can also test the most significant bits (msb) instead of the least significant bits (lsb)
 (In C/C++, we do ``uint32_t x32 = (uint32_t) (x >> 32)``.) By convention, we refer to this
-approach with the ``-H`` flag in our command-line executables. 
+approach with the ``-H`` flag in our command-line executables.
 
-There are other possibilities, but if a random number generator were to require a very 
-particular approach to extract good 32-bit values from a 64-bit value, then it would be 
+There are other possibilities, but if a random number generator were to require a very
+particular approach to extract good 32-bit values from a 64-bit value, then it would be
 a good sign that something is not quite right with the original 64-bit values.
 
 For PractRand, we do not need to truncate the produced random bits.
+
+## TestU01 results
+
+- :-1: xorshift128plus fails (e.g., 32 lsb reversed: MatrixRank, LinearComp) (*).
+- :-1: xoroshiro128plus fails (e.g., 32 msb reversed: PeriodsInStrings; 32 lsb reversed: MatrixRank, LinearComp).
+- :+1: pcg32 pass the tests (so far).
+- :-1: pcg64 fails (e.g., 32 msb reversed: CouponCollector).
+- splitmix64 (upcoming).
+- testxorshift32 (upcoming).
+
+*- You can salvage xorshift128plus, if you just select the most significant bits (``-H``).
+
+See testu01/results for detailed outputs.
+
+## PractRand results
+
+- :-1: testxorshift128plus fails.
+- :-1: testxoroshiro128plus fails (*).
+- :+1: pcg32 pass the tests.
+- :+1: pcg64 pass the tests.
+- :+1: splitmix64 pass the tests.
+- :-1: testxorshift32 fails (as expected).
+
+*- You can salvage xoroshiro128plus, if you just select the most significant bits (``-H``).
+
+See practrand/results for detailed outputs.
+
+Raw output:
+
+```
+$ ./runtests.sh
+Testing 64GB  of data per run
+Note: running the tests longer could expose new failures.
+# RUNNING testxorshift128plus -H Outputting result to  testxorshift128plus-H.log
+Failure!
+# RUNNING testxorshift128plus Outputting result to  testxorshift128plus.log
+Failure!
+# RUNNING testxoroshiro128plus -H Outputting result to  testxoroshiro128plus-H.log
+Success!
+# RUNNING testxoroshiro128plus Outputting result to  testxoroshiro128plus.log
+Failure!
+# RUNNING testpcg32 Outputting result to  testpcg32.log
+Success!
+# RUNNING testpcg64 -H Outputting result to  testpcg64-H.log
+Success!
+# RUNNING testpcg64 Outputting result to  testpcg64.log
+Success!
+# RUNNING testsplitmix64 -H Outputting result to  testsplitmix64-H.log
+Success!
+# RUNNING testsplitmix64 Outputting result to  testsplitmix64.log
+Success!
+# RUNNING testxorshift32 Outputting result to  testxorshift32.log
+Failure!
+```
+
+## Speed results
+
+On a recent (Skylake) processor, on a Linux box, I got the following results:
+
+```
+xorshift32:  2.33 cycles per byte
+pcg32:  1.81 cycles per byte
+rand:  5.19 cycles per byte
+xorshift128plus:  0.91 cycles per byte
+xoroshiro128plus:  0.85 cycles per byte
+splitmix64:  0.89 cycles per byte
+pcg64:  1.27 cycles per byte
+```
+
+Sorting the results from the fastest to the slowest...
+
+```
+xoroshiro128plus:  0.85 cycles per byte
+splitmix64:  0.89 cycles per byte
+xorshift128plus:  0.91 cycles per byte
+pcg64:  1.27 cycles per byte
+pcg32:  1.81 cycles per byte
+xorshift32:  2.33 cycles per byte
+rand:  5.19 cycles per byte
+```
+
+Results will depend on your specific hardware and might be quite different on ARM processors. Tweaking the benchmark could also change the results. In particular, our benchmark stresses throughput as opposed to latency.
+
+
+
+## Interpreting the results
+
+Tests are subject to both false positives and false negatives, and should be interpreted with care.
+
+- That your random number generator passes several statistical tests does not prove that it is of high quality. There might be other tests that it would fail. However, the more tests one passes, the greater the evidence is in favor of your random number generator, evidently.
+- A statistical test might fail even if the bits are indeed "random". Thus a fialed test is not "proof" that the random number generation is faulty. However, failing tests can be further investigated and evidence of a fault can be ascertained.
+
+One source of concern is that random number generators are initialized with a seed, and sometimes a "sequence" is selected. Testing successfully with a given seed does not preclude the possibility that there might be "bad seeds".
+
+To summarize, caution is required when interpreting the results. It is not black and white, good and bad... One might say that a given generator passes a given test, but it is possible that with different seeds, it could fail, and so forth.
+
+Still, for convenience, it is necessary to express results in a comprehensible manner. Thus we often say that a generator "passes a given test" or does not.
+
+## Testing frameworks
+
+We use the following testing framework:
+
+- [Practically Random](https://sourceforge.net/projects/pracrand/)
+- [TestU01](http://simul.iro.umontreal.ca/testu01/)
+
+As of 2017, these represent the state-of-the-art.
 
 ## Talks
 
