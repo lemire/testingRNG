@@ -20,7 +20,7 @@ the C (and C++) compiler. Make sure you have installed the command-line utilitie
 
 You can run the tests by going to a bash shell (Terminal) and executing a few commands.
 
-PractRand:
+####PractRand:
 ```
 cd practrand
 ./runtests.sh
@@ -28,7 +28,7 @@ cd practrand
 
 The PractRand benchmark takes some time to complete because we analyze a large volume of random numbers.
 
-TestU01:
+####TestU01:
 ```
 cd testu01
 ./bigcrush.sh
@@ -36,6 +36,7 @@ cd testu01
 
 The TestU01 benchmark "big crush" (``bigcrush.sh``) might take days.
 
+####Speed:
 It is interesting to assess running speed as well. This can be done quickly:
 
 ```
@@ -81,10 +82,10 @@ For PractRand, we do not need to truncate the produced random bits.
 
 ## TestU01 results
 
-- :-1: xorshift128plus fails (e.g., 32 lsb reversed: MatrixRank, LinearComp) (*).
-- :-1: xoroshiro128plus fails (e.g., 32 msb reversed: PeriodsInStrings; 32 lsb reversed: MatrixRank, LinearComp).
+- :exclamation: xorshift128plus fails (e.g., 32 lsb reversed: MatrixRank, LinearComp) (*).
+- :exclamation: xoroshiro128plus fails (e.g., 32 msb reversed: PeriodsInStrings; 32 lsb reversed: MatrixRank, LinearComp).
 - :+1: pcg32 pass the tests (so far).
-- :-1: pcg64 fails (e.g., 32 msb reversed: CouponCollector).
+- :exclamation: pcg64 fails (e.g., 32 msb reversed: CouponCollector).
 - splitmix64 (upcoming).
 - testxorshift32 (upcoming).
 
@@ -94,12 +95,12 @@ See testu01/results for detailed outputs.
 
 ## PractRand results
 
-- :-1: testxorshift128plus fails.
-- :-1: testxoroshiro128plus fails (*).
+- :exclamation: testxorshift128plus fails.
+- :exclamation: testxoroshiro128plus fails (*).
 - :+1: pcg32 pass the tests.
 - :+1: pcg64 pass the tests.
 - :+1: splitmix64 pass the tests.
-- :-1: testxorshift32 fails (as expected).
+- :exclamation: testxorshift32 fails (as expected).
 
 *- You can salvage xoroshiro128plus, if you just select the most significant bits (``-H``).
 
