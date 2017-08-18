@@ -116,7 +116,7 @@ int main(int argc, char **argv) {
     {
     scomp_Res* res = scomp_CreateRes();
     swrite_Basic = TRUE;
-    int size_array[] = {500, 1000, 5000, 25000, 50000};
+    int size_array[] = {5000, 25000, 50000};
     for (size_t k = 0; k < sizeof(size_array)/sizeof(int); k++) {
         scomp_LinearComp(gen, res, 1, size_array[k], 0, 1);
     }
