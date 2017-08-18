@@ -84,7 +84,7 @@ For PractRand, we do not need to truncate the produced random bits.
 
 - :exclamation: xorshift128plus fails (e.g., 32 lsb reversed: MatrixRank, LinearComp) (*).
 - :exclamation: xoroshiro128plus fails (e.g., 32 msb reversed: PeriodsInStrings; 32 lsb reversed: MatrixRank, LinearComp).
-- :+1: pcg32 pass the tests (so far).
+- :+1: pcg32 passes the tests (so far).
 - :exclamation: pcg64 fails (e.g., 32 msb reversed: CouponCollector).
 - splitmix64 (upcoming).
 - testxorshift32 (upcoming).
@@ -97,9 +97,9 @@ See testu01/results for detailed outputs.
 
 - :exclamation: testxorshift128plus fails.
 - :exclamation: testxoroshiro128plus fails (*).
-- :+1: pcg32 pass the tests.
-- :+1: pcg64 pass the tests.
-- :+1: splitmix64 pass the tests.
+- :+1: pcg32 passes the tests.
+- :+1: pcg64 passes the tests.
+- :+1: splitmix64 passes the tests.
 - :exclamation: testxorshift32 fails (as expected).
 
 *- You can salvage xoroshiro128plus, if you just select the most significant bits (``-H``).
