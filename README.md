@@ -39,6 +39,19 @@ The TestU01 benchmark "big crush" (``bigcrush.sh``) might take days whereas
 the linear complexity test (``linearcomplexity.sh``), being narrow, completes quickly.
 
 
+## Interpreting the results
+
+Tests are subject to both false positives and false negatives, and should be interpreted with care.
+
+- That your random number generator passes several statistical tests does not prove that it is of high quality. There might be other tests that it would fail. However, the more tests one passes, the greater the evidence is in favor of your random number generator, evidently.
+- A statistical test might fail even if the bits are indeed "random". Thus a fialed test is not "proof" that the random number generation is faulty. However, failing tests can be further investigated and evidence of a fault can be ascertained.
+
+One source of concern is that random number generators are initialized with a seed, and sometimes a "sequence" is selected. Testing successfully with a given seed does not preclude the possibility that there might be "bad seeds". 
+
+To summarize, caution is required when interpreting the results. It is not black and white, good and bad... One might say that a given generator passes a given test, but it is possible that with different seeds, it could fail, and so forth.
+
+Still, for convenience, it is necessary to express results in a comprehensible manner. Thus we often say that a generator "passes a given test" or does not.
+
 ## Testing frameworks
 
 We use the following testing framework:
