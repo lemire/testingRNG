@@ -134,6 +134,8 @@ Success!
 Failure!
 ```
 
+
+
 ## Speed results
 
 On a recent (Skylake) processor, on a Linux box, I got the following results:
@@ -163,6 +165,18 @@ rand:  5.19 cycles per byte
 Results will depend on your specific hardware and might be quite different on ARM processors. Tweaking the benchmark could also change the results. In particular, our benchmark stresses throughput as opposed to latency.
 
 
+## Visual Summary
+
+|                  | TestU01        | PractRand      | time (cycles/byte) |
+|------------------|----------------|----------------|--------------------|
+| xoroshiro128plus |  :exclamation: | :exclamation:  | 0.9                |
+| splitmix64       |     :+1: (?)   |    :+1:        | 0.9                |
+| xorshift128plus  | :exclamation:  | :exclamation:  | 0.9                |
+| pcg64            | :exclamation:  |    :+1:        | 1.3                |
+| pcg32            |     :+1: (?)   |    :+1:        | 1.8                |
+| xorshift32       | :exclamation:  | :exclamation:  | 2.3                |
+
+Please interpret with care.
 
 ## Interpreting the results
 
