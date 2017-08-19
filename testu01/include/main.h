@@ -46,6 +46,9 @@ void printusage(const char *command) {
   ;
   printf(" The -H flag select to most signficant 32 bits (as opposed to the least significant).");
   ;
+  printf(" The -S flag allows you to pass a seed (e.g., -S 42132).");
+  ;
+
 }
 
 char *concat(const char *s1, const char *s2) {
@@ -58,9 +61,7 @@ char *concat(const char *s1, const char *s2) {
 int main(int argc, char **argv) {
   uint64_t seedvalue = 12345678;
   thisrng_seed(seedvalue);
-  printf("==seed: %llu \n", (unsigned long long)seedvalue);
   unif01_Gen *gen;
-  printf("==%s \n", name);
   int z = 0;
 
   enum { SMALLCRUSH, CRUSH, BIGCRUSH, LINEARCOMP};
@@ -68,10 +69,13 @@ int main(int argc, char **argv) {
   int testroutine = SMALLCRUSH;
   int c;
 
-  while ((c = getopt(argc, argv, "csbhrRHl")) != -1)
+  while ((c = getopt(argc, argv, "csbhrRHlS:")) != -1)
     switch (c) {
     case 'l':
       testroutine = LINEARCOMP;
+      break;
+    case 'S':
+      seedvalue = atoi(argv[optind++]);
       break;
     case 'r':
       z = 1;
@@ -97,6 +101,8 @@ int main(int argc, char **argv) {
     default:
       abort();
     }
+  printf("==seed: %llu \n", (unsigned long long)seedvalue);
+  printf("==%s \n", name);
   if(use_msb) z += 3;
   char *tmpname = concat(name, our_name[z]);
   gen = unif01_CreateExternGenBits(tmpname, our_rng[z]);
