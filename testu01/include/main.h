@@ -75,7 +75,7 @@ int main(int argc, char **argv) {
       testroutine = LINEARCOMP;
       break;
     case 'S':
-      seedvalue = atoi(argv[optind++]);
+      seedvalue = atoi(optarg);
       break;
     case 'r':
       z = 1;
