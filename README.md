@@ -10,7 +10,7 @@ easy to run your own tests if you have a mac or a Linux box with a recent C comp
 
 ## Prerequisites
 
-We assume Linux or macOS.
+We assume Linux or macOS. Under Windows 10, you can get the [Linux Subsystem](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
 
 - Our scripts should work out of the box on  most Linux boxes, except maybe when they are configured to act as secure servers (e.g., without a C compiler).
 - If you have a mac, it is assumed that [you have installed a recent Xcode package](https://developer.apple.com/xcode/) to get
@@ -87,6 +87,7 @@ For PractRand, we do not need to truncate the produced random bits.
 
 ## TestU01 results
 
+Note: I am updating these results as there was a mistake and the same seed is reused from run to run.
 
 - pcg32 fails CollisionOver
 - pcg64 fails Run
