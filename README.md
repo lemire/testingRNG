@@ -1,4 +1,4 @@
-# testingRNG
+# testingRNG : testing popular random-number generators
 
 There are several benchmarks that can be used to test (pseudo-)random number
 generators (RNG). Of particular interest are TestU01 and PractRand. We want to easily
