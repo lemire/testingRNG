@@ -60,7 +60,6 @@ char *concat(const char *s1, const char *s2) {
 
 int main(int argc, char **argv) {
   uint64_t seedvalue = 12345678;
-  thisrng_seed(seedvalue);
   unif01_Gen *gen;
   int z = 0;
 
@@ -102,6 +101,7 @@ int main(int argc, char **argv) {
       abort();
     }
   printf("==seed: %llu \n", (unsigned long long)seedvalue);
+  thisrng_seed(seedvalue);
   printf("==%s \n", name);
   if(use_msb) z += 3;
   char *tmpname = concat(name, our_name[z]);
