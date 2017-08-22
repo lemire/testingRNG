@@ -104,7 +104,7 @@ void demo(int size) {
     BEST_TIME(populate32(our32[k], prec, size / sizeof(uint32_t)), our32name[k],
               , repeat, size);
   for (int k = 0; k < NUMBEROF64; k++)
-    BEST_TIME(populate32(our64[k], prec, size / sizeof(uint64_t)), our64name[k],
+    BEST_TIME(populate64(our64[k], prec, size / sizeof(uint64_t)), our64name[k],
               , repeat, size);
 
   free(prec);
