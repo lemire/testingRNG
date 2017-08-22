@@ -32,6 +32,8 @@ The PractRand benchmark takes some time to complete because we analyze a large v
 ```
 cd testu01
 ./bigcrush.sh
+./bigcrush_seed2.sh
+./bigcrush_seed3.sh
 ```
 
 The TestU01 benchmark "big crush" (``bigcrush.sh``) might take days.
@@ -78,20 +80,23 @@ There are other possibilities, but if a random number generator were to require 
 particular approach to extract good 32-bit values from a 64-bit value, then it would be
 a good sign that something is not quite right with the original 64-bit values.
 
+A given tests might fail with one seed, but this tells us little. So we check that
+the test fails with at least two seeds.
+
 For PractRand, we do not need to truncate the produced random bits.
 
 ## TestU01 results
 
-- :exclamation: xorshift128plus fails (e.g., 32 lsb reversed: MatrixRank, LinearComp) (*).
-- :exclamation: xoroshiro128plus fails (e.g., 32 msb reversed: PeriodsInStrings; 32 lsb reversed: MatrixRank, LinearComp).
-- :+1: pcg32 passes the tests (so far).
-- :exclamation: pcg64 fails (e.g., 32 msb reversed: CouponCollector).
-- splitmix64 (upcoming).
-- testxorshift32 (upcoming).
 
-*- You can salvage xorshift128plus, if you just select the most significant bits (``-H``).
+- pcg32 fails CollisionOver
+- pcg64 fails Run
+- splitmix fails CollisionOver  and MaxOft
+- xoroshiro128+ fails CollisionOver, HammingIndep, MatrixRank and RandomWalk1
+- xorshift128+ fails CollisionOver and MatrixRank
+- xorshift32 fails at almost everything
 
 See testu01/results for detailed outputs.
+Type ``python process.py *.log |more``.
 
 ## PractRand results
 
