@@ -174,14 +174,14 @@ Results will depend on your specific hardware and might be quite different on AR
 
 |                  | TestU01        | PractRand      | time (cycles/byte) |
 |------------------|----------------|----------------|--------------------|
-| xoroshiro128plus |  :exclamation: | :exclamation:  | 0.9                |
-| splitmix64       |     :+1: (?)   |    :+1:        | 0.9                |
-| xorshift128plus  | :exclamation:  | :exclamation:  | 0.9                |
-| pcg64            | :exclamation:  |    :+1:        | 1.3                |
-| pcg32            |     :+1: (?)   |    :+1:        | 1.8                |
-| xorshift32       | :exclamation:  | :exclamation:  | 2.3                |
+| xoroshiro128plus |  fails 4 tests | fails!  | 0.9                |
+| splitmix64       |   fails 2 tests   |    :+1:        | 0.9                |
+| xorshift128plus  | fails 2 tests  | fails!  | 0.9                |
+| pcg64            | fails 1 test  |    :+1:        | 1.3                |
+| pcg32            |    fails 1 test   |    :+1:        | 1.8                |
+| xorshift32       | :exclamation:  | fails!  | 2.3                |
 
-Please interpret with care.
+
 
 ## Interpreting the results
 
@@ -195,6 +195,8 @@ One source of concern is that random number generators are initialized with a se
 To summarize, caution is required when interpreting the results. It is not black and white, good and bad... One might say that a given generator passes a given test, but it is possible that with different seeds, it could fail, and so forth.
 
 Still, for convenience, it is necessary to express results in a comprehensible manner. Thus we often say that a generator "passes a given test" or does not.
+
+Repeated test failures with different seeds gives us confidence that there is a fault.
 
 ## Testing frameworks
 
