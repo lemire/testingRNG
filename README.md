@@ -87,6 +87,7 @@ For PractRand, we do not need to truncate the produced random bits.
 
 ## TestU01 results
 
+Note: I am updating these results as there was a mistake and the same seed is reused from run to run.
 
 - pcg32 fails CollisionOver
 - pcg64 fails Run
