@@ -1,0 +1,1856 @@
+==seed: 848432 
+==xorshift128plus 
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+                 Starting BigCrush
+                 Version: TestU01 1.2.3
+xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+
+
+***********************************************************
+Test smarsa_SerialOver calling smultin_MultinomialOver
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_MultinomialOver test:
+-----------------------------------------------
+   N =  1,  n = 1000000000,  r =  0,   d =  256,   t =  3,
+       Sparse =  FALSE
+
+       GenerCell = smultin_GenerCellSerial
+       Number of cells = d^t =           16777216
+       Expected number per cell =   59.604645
+       Hashing =  FALSE
+
+   For Delta > -1, we use the ChiSquare approximation
+   Correction factor of the ChiSquare: 
+       Delta =     1,    Mu =   0.0083558402,    Sigma =          1
+
+-----------------------------------------------
+Test Results for Delta =   1.0000
+
+Number of degrees of freedom          : 16711680
+Value of the statistic                : 1.67e+7
+p-value of test                       :    0.60
+
+
+-----------------------------------------------
+CPU time used                    :  00:01:25.98
+
+Generator state:
+
+
+
+
+***********************************************************
+Test smarsa_SerialOver calling smultin_MultinomialOver
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_MultinomialOver test:
+-----------------------------------------------
+   N =  1,  n = 1000000000,  r = 22,   d =  256,   t =  3,
+       Sparse =  FALSE
+
+       GenerCell = smultin_GenerCellSerial
+       Number of cells = d^t =           16777216
+       Expected number per cell =   59.604645
+       Hashing =  FALSE
+
+   For Delta > -1, we use the ChiSquare approximation
+   Correction factor of the ChiSquare: 
+       Delta =     1,    Mu =   0.0083558402,    Sigma =          1
+
+-----------------------------------------------
+Test Results for Delta =   1.0000
+
+Number of degrees of freedom          : 16711680
+Value of the statistic                : 1.67e+7
+p-value of test                       :    0.72
+
+
+-----------------------------------------------
+CPU time used                    :  00:01:35.58
+
+Generator state:
+
+
+
+
+***********************************************************
+Test smarsa_CollisionOver calling smultin_MultinomialOver
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_MultinomialOver test:
+-----------------------------------------------
+   N = 30,  n = 20000000,  r =  0,   d = 2097152,   t =  2,
+       Sparse =   TRUE
+
+       GenerCell = smultin_GenerCellSerial
+       Number of cells = d^t =      4398046511104
+       Expected number per cell =  1 /  219902.33
+       EColl = n^2 / (2k) =  45.47473509
+       Hashing =   TRUE
+
+       Collision test
+
+       CollisionOver:   density = n / k =  1 /  219902.33
+       Expected number of collisions = Mu =      45.47
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :     1364.24
+Observed number of collisions         :     1351
+p-value of test                       :    0.63
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :  131940795334471
+  j =  1                              :        599997298
+  j =  2                              :             1351
+  j =  3                              :                0
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:02:49.77
+
+Generator state:
+
+
+
+
+***********************************************************
+Test smarsa_CollisionOver calling smultin_MultinomialOver
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_MultinomialOver test:
+-----------------------------------------------
+   N = 30,  n = 20000000,  r =  9,   d = 2097152,   t =  2,
+       Sparse =   TRUE
+
+       GenerCell = smultin_GenerCellSerial
+       Number of cells = d^t =      4398046511104
+       Expected number per cell =  1 /  219902.33
+       EColl = n^2 / (2k) =  45.47473509
+       Hashing =   TRUE
+
+       Collision test
+
+       CollisionOver:   density = n / k =  1 /  219902.33
+       Expected number of collisions = Mu =      45.47
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :     1364.24
+Observed number of collisions         :     1399
+p-value of test                       :    0.18
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :  131940795334519
+  j =  1                              :        599997202
+  j =  2                              :             1399
+  j =  3                              :                0
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:03:37.26
+
+Generator state:
+
+
+
+
+***********************************************************
+Test smarsa_CollisionOver calling smultin_MultinomialOver
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_MultinomialOver test:
+-----------------------------------------------
+   N = 30,  n = 20000000,  r =  0,   d = 16384,   t =  3,
+       Sparse =   TRUE
+
+       GenerCell = smultin_GenerCellSerial
+       Number of cells = d^t =      4398046511104
+       Expected number per cell =  1 /  219902.33
+       EColl = n^2 / (2k) =  45.47473509
+       Hashing =   TRUE
+
+       Collision test
+
+       CollisionOver:   density = n / k =  1 /  219902.33
+       Expected number of collisions = Mu =      45.47
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :     1364.24
+Observed number of collisions         :     1356
+p-value of test                       :    0.58
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :  131940795334476
+  j =  1                              :        599997288
+  j =  2                              :             1356
+  j =  3                              :                0
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:04:32.99
+
+Generator state:
+
+
+
+
+***********************************************************
+Test smarsa_CollisionOver calling smultin_MultinomialOver
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_MultinomialOver test:
+-----------------------------------------------
+   N = 30,  n = 20000000,  r = 16,   d = 16384,   t =  3,
+       Sparse =   TRUE
+
+       GenerCell = smultin_GenerCellSerial
+       Number of cells = d^t =      4398046511104
+       Expected number per cell =  1 /  219902.33
+       EColl = n^2 / (2k) =  45.47473509
+       Hashing =   TRUE
+
+       Collision test
+
+       CollisionOver:   density = n / k =  1 /  219902.33
+       Expected number of collisions = Mu =      45.47
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :     1364.24
+Observed number of collisions         :     1326
+p-value of test                       :    0.85
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :  131940795334446
+  j =  1                              :        599997348
+  j =  2                              :             1326
+  j =  3                              :                0
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:04:37.67
+
+Generator state:
+
+
+
+
+***********************************************************
+Test smarsa_CollisionOver calling smultin_MultinomialOver
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_MultinomialOver test:
+-----------------------------------------------
+   N = 30,  n = 20000000,  r =  0,   d =   64,   t =  7,
+       Sparse =   TRUE
+
+       GenerCell = smultin_GenerCellSerial
+       Number of cells = d^t =      4398046511104
+       Expected number per cell =  1 /  219902.33
+       EColl = n^2 / (2k) =  45.47473509
+       Hashing =   TRUE
+
+       Collision test
+
+       CollisionOver:   density = n / k =  1 /  219902.33
+       Expected number of collisions = Mu =      45.47
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :     1364.24
+Observed number of collisions         :     1354
+p-value of test                       :    0.60
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :  131940795334474
+  j =  1                              :        599997292
+  j =  2                              :             1354
+  j =  3                              :                0
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:04:38.06
+
+Generator state:
+
+
+
+
+***********************************************************
+Test smarsa_CollisionOver calling smultin_MultinomialOver
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_MultinomialOver test:
+-----------------------------------------------
+   N = 30,  n = 20000000,  r = 24,   d =   64,   t =  7,
+       Sparse =   TRUE
+
+       GenerCell = smultin_GenerCellSerial
+       Number of cells = d^t =      4398046511104
+       Expected number per cell =  1 /  219902.33
+       EColl = n^2 / (2k) =  45.47473509
+       Hashing =   TRUE
+
+       Collision test
+
+       CollisionOver:   density = n / k =  1 /  219902.33
+       Expected number of collisions = Mu =      45.47
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :     1364.24
+Observed number of collisions         :     1387
+p-value of test                       :    0.27
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :  131940795334507
+  j =  1                              :        599997226
+  j =  2                              :             1387
+  j =  3                              :                0
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:04:42.59
+
+Generator state:
+
+
+
+
+***********************************************************
+Test smarsa_CollisionOver calling smultin_MultinomialOver
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_MultinomialOver test:
+-----------------------------------------------
+   N = 30,  n = 20000000,  r =  0,   d =    8,   t = 14,
+       Sparse =   TRUE
+
+       GenerCell = smultin_GenerCellSerial
+       Number of cells = d^t =      4398046511104
+       Expected number per cell =  1 /  219902.33
+       EColl = n^2 / (2k) =  45.47473509
+       Hashing =   TRUE
+
+       Collision test
+
+       CollisionOver:   density = n / k =  1 /  219902.33
+       Expected number of collisions = Mu =      45.47
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :     1364.24
+Observed number of collisions         :     1370
+p-value of test                       :    0.44
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :  131940795334490
+  j =  1                              :        599997260
+  j =  2                              :             1370
+  j =  3                              :                0
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:04:38.04
+
+Generator state:
+
+
+
+
+***********************************************************
+Test smarsa_CollisionOver calling smultin_MultinomialOver
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_MultinomialOver test:
+-----------------------------------------------
+   N = 30,  n = 20000000,  r = 27,   d =    8,   t = 14,
+       Sparse =   TRUE
+
+       GenerCell = smultin_GenerCellSerial
+       Number of cells = d^t =      4398046511104
+       Expected number per cell =  1 /  219902.33
+       EColl = n^2 / (2k) =  45.47473509
+       Hashing =   TRUE
+
+       Collision test
+
+       CollisionOver:   density = n / k =  1 /  219902.33
+       Expected number of collisions = Mu =      45.47
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :     1364.24
+Observed number of collisions         :     1317
+p-value of test                       :    0.90
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :  131940795334437
+  j =  1                              :        599997366
+  j =  2                              :             1317
+  j =  3                              :                0
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:04:43.15
+
+Generator state:
+
+
+
+
+***********************************************************
+Test smarsa_CollisionOver calling smultin_MultinomialOver
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_MultinomialOver test:
+-----------------------------------------------
+   N = 30,  n = 20000000,  r =  0,   d =    4,   t = 21,
+       Sparse =   TRUE
+
+       GenerCell = smultin_GenerCellSerial
+       Number of cells = d^t =      4398046511104
+       Expected number per cell =  1 /  219902.33
+       EColl = n^2 / (2k) =  45.47473509
+       Hashing =   TRUE
+
+       Collision test
+
+       CollisionOver:   density = n / k =  1 /  219902.33
+       Expected number of collisions = Mu =      45.47
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :     1364.24
+Observed number of collisions         :     1367
+p-value of test                       :    0.47
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :  131940795334487
+  j =  1                              :        599997266
+  j =  2                              :             1367
+  j =  3                              :                0
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:04:37.00
+
+Generator state:
+
+
+
+
+***********************************************************
+Test smarsa_CollisionOver calling smultin_MultinomialOver
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_MultinomialOver test:
+-----------------------------------------------
+   N = 30,  n = 20000000,  r = 28,   d =    4,   t = 21,
+       Sparse =   TRUE
+
+       GenerCell = smultin_GenerCellSerial
+       Number of cells = d^t =      4398046511104
+       Expected number per cell =  1 /  219902.33
+       EColl = n^2 / (2k) =  45.47473509
+       Hashing =   TRUE
+
+       Collision test
+
+       CollisionOver:   density = n / k =  1 /  219902.33
+       Expected number of collisions = Mu =      45.47
+
+
+-----------------------------------------------
+Results of CollisionOver test:
+
+POISSON approximation                 :
+Expected number of collisions = N*Mu  :     1364.24
+Observed number of collisions         :     1404
+p-value of test                       :    0.14
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :  131940795334524
+  j =  1                              :        599997192
+  j =  2                              :             1404
+  j =  3                              :                0
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:04:42.13
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smarsa_BirthdaySpacings test:
+-----------------------------------------------
+   N = 100,  n = 10000000,  r =  0,    d = 2147483648,    t = 2,    p = 1
+
+
+      Number of cells = d^t = 4611686018427387904
+      Lambda = Poisson mean =      54.2101
+
+
+----------------------------------------------------
+Total expected number = N*Lambda      :    5421.01
+Total observed number                 :    5355
+p-value of test                       :    0.81
+
+
+-----------------------------------------------
+CPU time used                    :  00:03:40.15
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smarsa_BirthdaySpacings test:
+-----------------------------------------------
+   N = 20,  n = 20000000,  r =  0,    d = 2097152,    t = 3,    p = 1
+
+
+      Number of cells = d^t = 9223372036854775808
+      Lambda = Poisson mean =     216.8404
+
+
+----------------------------------------------------
+Total expected number = N*Lambda      :    4336.81
+Total observed number                 :    4336
+p-value of test                       :    0.50
+
+
+-----------------------------------------------
+CPU time used                    :  00:01:36.44
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smarsa_BirthdaySpacings test:
+-----------------------------------------------
+   N = 20,  n = 30000000,  r = 14,    d = 65536,    t = 4,    p = 1
+
+
+      Number of cells = d^t = 18446744073709551616
+      Lambda = Poisson mean =     365.9182
+
+
+----------------------------------------------------
+Total expected number = N*Lambda      :    7318.36
+Total observed number                 :    7358
+p-value of test                       :    0.32
+
+
+-----------------------------------------------
+CPU time used                    :  00:02:44.05
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smarsa_BirthdaySpacings test:
+-----------------------------------------------
+   N = 20,  n = 20000000,  r =  0,    d = 512,    t = 7,    p = 1
+
+
+      Number of cells = d^t = 9223372036854775808
+      Lambda = Poisson mean =     216.8404
+
+
+----------------------------------------------------
+Total expected number = N*Lambda      :    4336.81
+Total observed number                 :    4439
+p-value of test                       :    0.06
+
+
+-----------------------------------------------
+CPU time used                    :  00:01:55.26
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smarsa_BirthdaySpacings test:
+-----------------------------------------------
+   N = 20,  n = 20000000,  r =  7,    d = 512,    t = 7,    p = 1
+
+
+      Number of cells = d^t = 9223372036854775808
+      Lambda = Poisson mean =     216.8404
+
+
+----------------------------------------------------
+Total expected number = N*Lambda      :    4336.81
+Total observed number                 :    4465
+p-value of test                       :    0.03
+
+
+-----------------------------------------------
+CPU time used                    :  00:02:08.38
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smarsa_BirthdaySpacings test:
+-----------------------------------------------
+   N = 20,  n = 30000000,  r = 14,    d = 256,    t = 8,    p = 1
+
+
+      Number of cells = d^t = 18446744073709551616
+      Lambda = Poisson mean =     365.9182
+
+
+----------------------------------------------------
+Total expected number = N*Lambda      :    7318.36
+Total observed number                 :    7245
+p-value of test                       :    0.80
+
+
+-----------------------------------------------
+CPU time used                    :  00:03:22.17
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smarsa_BirthdaySpacings test:
+-----------------------------------------------
+   N = 20,  n = 30000000,  r = 22,    d = 256,    t = 8,    p = 1
+
+
+      Number of cells = d^t = 18446744073709551616
+      Lambda = Poisson mean =     365.9182
+
+
+----------------------------------------------------
+Total expected number = N*Lambda      :    7318.36
+Total observed number                 :    7339
+p-value of test                       :    0.41
+
+
+-----------------------------------------------
+CPU time used                    :  00:03:22.07
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smarsa_BirthdaySpacings test:
+-----------------------------------------------
+   N = 20,  n = 30000000,  r =  0,    d = 16,    t = 16,    p = 1
+
+
+      Number of cells = d^t = 18446744073709551616
+      Lambda = Poisson mean =     365.9182
+
+
+----------------------------------------------------
+Total expected number = N*Lambda      :    7318.36
+Total observed number                 :    7202
+p-value of test                       :    0.91
+
+
+-----------------------------------------------
+CPU time used                    :  00:03:56.68
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smarsa_BirthdaySpacings test:
+-----------------------------------------------
+   N = 20,  n = 30000000,  r = 26,    d = 16,    t = 16,    p = 1
+
+
+      Number of cells = d^t = 18446744073709551616
+      Lambda = Poisson mean =     365.9182
+
+
+----------------------------------------------------
+Total expected number = N*Lambda      :    7318.36
+Total observed number                 :    7271
+p-value of test                       :    0.71
+
+
+-----------------------------------------------
+CPU time used                    :  00:04:36.27
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+snpair_ClosePairs test:
+-----------------------------------------------
+   N = 30,  n = 6000000,  r =  0,  t = 3,  p = 0,  m = 30,  Torus =  TRUE
+
+
+---------------------------------------
+Test based on the 2 nearest points (NP):
+
+Stat. AD on the N values (NP)         :    1.56
+p-value of test                       :    0.16
+
+
+A2 test based on the spacings between the
+   successive jump times of process Y_n(t):
+
+A2 test on the values of A2 (m-NP)    :    0.46
+p-value of test                       :    0.78
+
+Test on the Nm values of W_{n,i}(mNP1):    0.32
+p-value of test                       :    0.93
+
+Test on the jump times of Y
+   (superposition of Yn):
+
+Expected number of jumps of Y = mN    :     900
+Number of jumps of Y                  :     913
+p-value of test                       :    0.34
+
+Stat. AD (mNP2)                       :    3.51
+p-value of test                       :    0.02
+
+Stat. AD after spacings (mNP2-S)      :    0.86
+p-value of test                       :    0.44
+
+-----------------------------------------------
+CPU time used                    :  00:02:20.81
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+snpair_ClosePairs test:
+-----------------------------------------------
+   N = 20,  n = 4000000,  r =  0,  t = 5,  p = 0,  m = 30,  Torus =  TRUE
+
+
+---------------------------------------
+Test based on the 2 nearest points (NP):
+
+Stat. AD on the N values (NP)         :    0.43
+p-value of test                       :    0.81
+
+
+A2 test based on the spacings between the
+   successive jump times of process Y_n(t):
+
+A2 test on the values of A2 (m-NP)    :    2.92
+p-value of test                       :    0.03
+
+Test on the Nm values of W_{n,i}(mNP1):    2.82
+p-value of test                       :    0.03
+
+Test on the jump times of Y
+   (superposition of Yn):
+
+Expected number of jumps of Y = mN    :     600
+Number of jumps of Y                  :     620
+p-value of test                       :    0.21
+
+Stat. AD (mNP2)                       :    1.81
+p-value of test                       :    0.12
+
+Stat. AD after spacings (mNP2-S)      :    0.56
+p-value of test                       :    0.69
+
+-----------------------------------------------
+CPU time used                    :  00:01:30.61
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+snpair_ClosePairs test:
+-----------------------------------------------
+   N = 10,  n = 3000000,  r =  0,  t = 9,  p = 0,  m = 30,  Torus =  TRUE
+
+
+---------------------------------------
+Test based on the 2 nearest points (NP):
+
+Stat. AD on the N values (NP)         :    3.18
+p-value of test                       :    0.02
+
+
+A2 test based on the spacings between the
+   successive jump times of process Y_n(t):
+
+A2 test on the values of A2 (m-NP)    :    1.54
+p-value of test                       :    0.17
+
+Test on the Nm values of W_{n,i}(mNP1):    0.41
+p-value of test                       :    0.84
+
+Test on the jump times of Y
+   (superposition of Yn):
+
+Expected number of jumps of Y = mN    :     300
+Number of jumps of Y                  :     275
+p-value of test                       :    0.92
+
+Stat. AD (mNP2)                       :    0.91
+p-value of test                       :    0.41
+
+Stat. AD after spacings (mNP2-S)      :    0.37
+p-value of test                       :    0.88
+
+-----------------------------------------------
+CPU time used                    :  00:02:30.55
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+snpair_ClosePairs test:
+-----------------------------------------------
+   N =  5,  n = 2000000,  r =  0,  t = 16,  p = 0,  m = 30,  Torus =  TRUE
+
+
+---------------------------------------
+Test based on the 2 nearest points (NP):
+
+Stat. AD on the N values (NP)         :    0.42
+p-value of test                       :    0.83
+
+
+A2 test based on the spacings between the
+   successive jump times of process Y_n(t):
+
+A2 test on the values of A2 (m-NP)    :    1.98
+p-value of test                       :    0.10
+
+Test on the Nm values of W_{n,i}(mNP1):    0.31
+p-value of test                       :    0.93
+
+Test on the jump times of Y
+   (superposition of Yn):
+
+Expected number of jumps of Y = mN    :     150
+Number of jumps of Y                  :     143
+p-value of test                       :    0.70
+
+Stat. AD (mNP2)                       :    0.25
+p-value of test                       :    0.97
+
+Stat. AD after spacings (mNP2-S)      :    1.29
+p-value of test                       :    0.24
+
+-----------------------------------------------
+CPU time used                    :  00:02:50.32
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_SimpPoker test:
+-----------------------------------------------
+   N =  1,  n = 400000000,  r =  0,   d =    8,   k =    8
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    7
+Chi-square statistic                  :   10.27
+p-value of test                       :    0.17
+
+-----------------------------------------------
+CPU time used                    :  00:00:54.31
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_SimpPoker test:
+-----------------------------------------------
+   N =  1,  n = 400000000,  r = 27,   d =    8,   k =    8
+
+
+-----------------------------------------------
+Number of degrees of freedom          :    7
+Chi-square statistic                  :    8.84
+p-value of test                       :    0.26
+
+-----------------------------------------------
+CPU time used                    :  00:01:19.32
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_SimpPoker test:
+-----------------------------------------------
+   N =  1,  n = 100000000,  r =  0,   d =   32,   k =   32
+
+
+-----------------------------------------------
+Number of degrees of freedom          :   18
+Chi-square statistic                  :   20.27
+p-value of test                       :    0.32
+
+-----------------------------------------------
+CPU time used                    :  00:00:54.05
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_SimpPoker test:
+-----------------------------------------------
+   N =  1,  n = 100000000,  r = 25,   d =   32,   k =   32
+
+
+-----------------------------------------------
+Number of degrees of freedom          :   18
+Chi-square statistic                  :   22.53
+p-value of test                       :    0.21
+
+-----------------------------------------------
+CPU time used                    :  00:01:17.31
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_CouponCollector test:
+-----------------------------------------------
+   N =  1,  n = 200000000,  r =  0,   d =    8
+
+
+-----------------------------------------------
+Number of degrees of freedom          :   54
+Chi-square statistic                  :   66.53
+p-value of test                       :    0.12
+
+-----------------------------------------------
+CPU time used                    :  00:01:10.94
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_CouponCollector test:
+-----------------------------------------------
+   N =  1,  n = 200000000,  r = 10,   d =    8
+
+
+-----------------------------------------------
+Number of degrees of freedom          :   54
+Chi-square statistic                  :   51.50
+p-value of test                       :    0.57
+
+-----------------------------------------------
+CPU time used                    :  00:01:34.88
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_CouponCollector test:
+-----------------------------------------------
+   N =  1,  n = 200000000,  r = 20,   d =    8
+
+
+-----------------------------------------------
+Number of degrees of freedom          :   54
+Chi-square statistic                  :   67.56
+p-value of test                       :    0.10
+
+-----------------------------------------------
+CPU time used                    :  00:01:34.92
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_CouponCollector test:
+-----------------------------------------------
+   N =  1,  n = 200000000,  r = 27,   d =    8
+
+
+-----------------------------------------------
+Number of degrees of freedom          :   54
+Chi-square statistic                  :   47.65
+p-value of test                       :    0.72
+
+-----------------------------------------------
+CPU time used                    :  00:01:37.48
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_Gap test:
+-----------------------------------------------
+   N =  1,  n = 500000000,  r =  0,   Alpha =        0,   Beta  =   0.0625
+
+
+-----------------------------------------------
+Number of degrees of freedom          :  232
+Chi-square statistic                  :  235.68
+p-value of test                       :    0.42
+
+-----------------------------------------------
+CPU time used                    :  00:01:11.28
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_Gap test:
+-----------------------------------------------
+   N =  1,  n = 300000000,  r = 25,   Alpha =        0,   Beta  =  0.03125
+
+
+-----------------------------------------------
+Number of degrees of freedom          :  434
+Chi-square statistic                  :  416.04
+p-value of test                       :    0.72
+
+-----------------------------------------------
+CPU time used                    :  00:02:24.89
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_Gap test:
+-----------------------------------------------
+   N =  1,  n = 100000000,  r =  0,   Alpha =        0,   Beta  = 0.0078125
+
+
+-----------------------------------------------
+Number of degrees of freedom          : 1437
+Chi-square statistic                  : 1401.68
+p-value of test                       :    0.74
+
+-----------------------------------------------
+CPU time used                    :  00:01:46.18
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_Gap test:
+-----------------------------------------------
+   N =  1,  n = 10000000,  r = 20,   Alpha =        0,   Beta  = 0.000976562
+
+
+-----------------------------------------------
+Number of degrees of freedom          : 7046
+Chi-square statistic                  : 6812.99
+p-value of test                       :    0.98
+
+-----------------------------------------------
+CPU time used                    :  00:02:29.89
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_Run test:
+-----------------------------------------------
+   N =  5,  n = 1000000000,  r =  0,   Up = FALSE
+
+
+-----------------------------------------------
+
+Kolmogorov-Smirnov+ statistic = D+    :    0.19
+p-value of test                       :    0.63
+
+Kolmogorov-Smirnov- statistic = D-    :    0.19
+p-value of test                       :    0.63
+
+Anderson-Darling statistic = A2       :    0.27
+p-value of test                       :    0.96
+
+Test on the sum of all N observations
+Number of degrees of freedom          :   30
+Chi-square statistic                  :   29.38
+p-value of test                       :    0.50
+
+-----------------------------------------------
+CPU time used                    :  00:01:06.88
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_Run test:
+-----------------------------------------------
+   N = 10,  n = 1000000000,  r = 15,   Up =  TRUE
+
+
+-----------------------------------------------
+
+Kolmogorov-Smirnov+ statistic = D+    :    0.25
+p-value of test                       :    0.25
+
+Kolmogorov-Smirnov- statistic = D-    :    0.12
+p-value of test                       :    0.69
+
+Anderson-Darling statistic = A2       :    0.61
+p-value of test                       :    0.64
+
+Test on the sum of all N observations
+Number of degrees of freedom          :   60
+Chi-square statistic                  :   51.70
+p-value of test                       :    0.77
+
+-----------------------------------------------
+CPU time used                    :  00:03:24.02
+
+Generator state:
+
+
+
+
+***********************************************************
+Test sknuth_Permutation calling smultin_Multinomial
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_Multinomial test:
+-----------------------------------------------
+   N =  1,  n = 1000000000,  r =  5,   t =  3,
+       Sparse =  FALSE
+
+       GenerCell = smultin_GenerCellPermut
+       Number of cells = t! =                  6
+       Expected number per cell =  1.6666667e+08
+       Hashing =  FALSE
+
+   For Delta > -1, we use the ChiSquare approximation
+   Correction factor of the ChiSquare: 
+       Delta =     1,    Mu =  2.5000002e-09,    Sigma =          1
+
+-----------------------------------------------
+Test Results for Delta =   1.0000
+
+Number of degrees of freedom          :    5
+Value of the statistic                :    8.76
+p-value of test                       :    0.12
+
+
+-----------------------------------------------
+CPU time used                    :  00:01:06.98
+
+Generator state:
+
+
+
+
+***********************************************************
+Test sknuth_Permutation calling smultin_Multinomial
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_Multinomial test:
+-----------------------------------------------
+   N =  1,  n = 1000000000,  r =  5,   t =  5,
+       Sparse =  FALSE
+
+       GenerCell = smultin_GenerCellPermut
+       Number of cells = t! =                120
+       Expected number per cell =   8333333.3
+       Hashing =  FALSE
+
+   For Delta > -1, we use the ChiSquare approximation
+   Correction factor of the ChiSquare: 
+       Delta =     1,    Mu =  5.9500005e-08,    Sigma =          1
+
+-----------------------------------------------
+Test Results for Delta =   1.0000
+
+Number of degrees of freedom          :  119
+Value of the statistic                :  125.38
+p-value of test                       :    0.33
+
+
+-----------------------------------------------
+CPU time used                    :  00:02:08.05
+
+Generator state:
+
+
+
+
+***********************************************************
+Test sknuth_Permutation calling smultin_Multinomial
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_Multinomial test:
+-----------------------------------------------
+   N =  1,  n = 500000000,  r =  5,   t =  7,
+       Sparse =  FALSE
+
+       GenerCell = smultin_GenerCellPermut
+       Number of cells = t! =               5040
+       Expected number per cell =   99206.349
+       Hashing =  FALSE
+
+   For Delta > -1, we use the ChiSquare approximation
+   Correction factor of the ChiSquare: 
+       Delta =     1,    Mu =  5.0390004e-06,    Sigma =          1
+
+-----------------------------------------------
+Test Results for Delta =   1.0000
+
+Number of degrees of freedom          : 5039
+Value of the statistic                : 5108.49
+p-value of test                       :    0.24
+
+
+-----------------------------------------------
+CPU time used                    :  00:01:48.55
+
+Generator state:
+
+
+
+
+***********************************************************
+Test sknuth_Permutation calling smultin_Multinomial
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_Multinomial test:
+-----------------------------------------------
+   N =  1,  n = 500000000,  r = 10,   t = 10,
+       Sparse =  FALSE
+
+       GenerCell = smultin_GenerCellPermut
+       Number of cells = t! =            3628800
+       Expected number per cell =    137.7866
+       Hashing =  FALSE
+
+   For Delta > -1, we use the ChiSquare approximation
+   Correction factor of the ChiSquare: 
+       Delta =     1,    Mu =   0.0036287993,    Sigma =          1
+
+-----------------------------------------------
+Test Results for Delta =   1.0000
+
+Number of degrees of freedom          : 3628799
+Value of the statistic                : 3.63e+6
+p-value of test                       :    0.15
+
+
+-----------------------------------------------
+CPU time used                    :  00:03:35.36
+
+Generator state:
+
+
+
+
+***********************************************************
+Test sknuth_CollisionPermut calling smultin_Multinomial
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_Multinomial test:
+-----------------------------------------------
+   N = 20,  n = 20000000,  r =  0,   t = 14,
+       Sparse =   TRUE
+
+       GenerCell = smultin_GenerCellPermut
+       Number of cells = t! =        87178291200
+       Expected number per cell =  1 /  4358.9146
+       EColl = n^2 / (2k) =   2294.14912
+       Hashing =   TRUE
+
+       Collision test,    Mu =      2293.9736,    Sigma =    47.8841
+
+-----------------------------------------------
+Test Results for Collisions
+
+For the total number of collisions, we use
+      the Poisson approximation:
+Expected number of collisions = N*Mu  :    45879.47
+Observed number of collisions         :    45883
+p-value of test                       :    0.49
+
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :    1743165869883
+  j =  1                              :        399908235
+  j =  2                              :            45881
+  j =  3                              :                1
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:04:50.61
+
+Generator state:
+
+
+
+
+***********************************************************
+Test sknuth_CollisionPermut calling smultin_Multinomial
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+smultin_Multinomial test:
+-----------------------------------------------
+   N = 20,  n = 20000000,  r = 10,   t = 14,
+       Sparse =   TRUE
+
+       GenerCell = smultin_GenerCellPermut
+       Number of cells = t! =        87178291200
+       Expected number per cell =  1 /  4358.9146
+       EColl = n^2 / (2k) =   2294.14912
+       Hashing =   TRUE
+
+       Collision test,    Mu =      2293.9736,    Sigma =    47.8841
+
+-----------------------------------------------
+Test Results for Collisions
+
+For the total number of collisions, we use
+      the Poisson approximation:
+Expected number of collisions = N*Mu  :    45879.47
+Observed number of collisions         :    46049
+p-value of test                       :    0.21
+
+
+-----------------------------
+Total number of cells containing j balls
+
+  j =  0                              :    1743165870049
+  j =  1                              :        399907905
+  j =  2                              :            46043
+  j =  3                              :                3
+  j =  4                              :                0
+  j =  5                              :                0
+
+-----------------------------------------------
+CPU time used                    :  00:05:26.64
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_MaxOft test:
+-----------------------------------------------
+   N = 40,  n = 10000000,  r =  0,   d = 100000,   t =  8
+
+      Number of categories = 100000
+      Expected number per category  = 100.00
+
+
+-----------------------------------------------
+Test results for chi2 with 99999 degrees of freedom:
+
+Kolmogorov-Smirnov+ statistic = D+    :    0.18
+p-value of test                       :    0.07
+
+Kolmogorov-Smirnov- statistic = D-    :   0.059
+p-value of test                       :    0.73
+
+Anderson-Darling statistic = A2       :    1.35
+p-value of test                       :    0.22
+
+Test on the sum of all N observations
+Number of degrees of freedom          : 3999960
+Chi-square statistic                  : 4.00e+6
+p-value of test                       :    0.81
+
+
+-----------------------------------------------
+Test results for Anderson-Darling:
+
+Kolmogorov-Smirnov+ statistic = D+    :    0.13
+p-value of test                       :    0.22
+
+Kolmogorov-Smirnov- statistic = D-    :   0.042
+p-value of test                       :    0.85
+
+Anderson-Darling statistic = A2       :    1.29
+p-value of test                       :    0.24
+
+
+-----------------------------------------------
+CPU time used                    :  00:02:56.50
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_MaxOft test:
+-----------------------------------------------
+   N = 30,  n = 10000000,  r =  0,   d = 100000,   t = 16
+
+      Number of categories = 100000
+      Expected number per category  = 100.00
+
+
+-----------------------------------------------
+Test results for chi2 with 99999 degrees of freedom:
+
+Kolmogorov-Smirnov+ statistic = D+    :   0.051
+p-value of test                       :    0.83
+
+Kolmogorov-Smirnov- statistic = D-    :    0.17
+p-value of test                       :    0.14
+
+Anderson-Darling statistic = A2       :    1.08
+p-value of test                       :    0.32
+
+Test on the sum of all N observations
+Number of degrees of freedom          : 2999970
+Chi-square statistic                  : 3.00e+6
+p-value of test                       :    0.10
+
+
+-----------------------------------------------
+Test results for Anderson-Darling:
+
+Kolmogorov-Smirnov+ statistic = D+    :    0.14
+p-value of test                       :    0.29
+
+Kolmogorov-Smirnov- statistic = D-    :   0.096
+p-value of test                       :    0.54
+
+Anderson-Darling statistic = A2       :    0.58
+p-value of test                       :    0.66
+
+
+-----------------------------------------------
+CPU time used                    :  00:02:30.26
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_MaxOft test:
+-----------------------------------------------
+   N = 20,  n = 10000000,  r =  0,   d = 100000,   t = 24
+
+      Number of categories = 100000
+      Expected number per category  = 100.00
+
+
+-----------------------------------------------
+Test results for chi2 with 99999 degrees of freedom:
+
+Kolmogorov-Smirnov+ statistic = D+    :   0.071
+p-value of test                       :    0.78
+
+Kolmogorov-Smirnov- statistic = D-    :    0.16
+p-value of test                       :    0.33
+
+Anderson-Darling statistic = A2       :    0.51
+p-value of test                       :    0.73
+
+Test on the sum of all N observations
+Number of degrees of freedom          : 1999980
+Chi-square statistic                  : 2.00e+6
+p-value of test                       :    0.23
+
+
+-----------------------------------------------
+Test results for Anderson-Darling:
+
+Kolmogorov-Smirnov+ statistic = D+    :    0.21
+p-value of test                       :    0.14
+
+Kolmogorov-Smirnov- statistic = D-    :   0.097
+p-value of test                       :    0.65
+
+Anderson-Darling statistic = A2       :    1.39
+p-value of test                       :    0.21
+
+
+-----------------------------------------------
+CPU time used                    :  00:01:51.63
+
+Generator state:
+
+
+
+
+***********************************************************
+HOST = tiziri, Linux
+
+xorshift128plus msb 32-bits 
+
+
+sknuth_MaxOft test:
+-----------------------------------------------
+   N = 20,  n = 10000000,  r =  0,   d = 100000,   t = 32
+
+      Number of categories = 100000
+      Expected number per category  = 100.00
+
+
+-----------------------------------------------
+Test results for chi2 with 99999 degrees of freedom:
+
+Kolmogorov-Smirnov+ statistic = D+    :   0.044
+p-value of test                       :    0.90
+
+Kolmogorov-Smirnov- statistic = D-    :    0.20
+p-value of test                       :    0.16
+
+Anderson-Darli
