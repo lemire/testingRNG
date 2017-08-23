@@ -8,7 +8,7 @@
 
 CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow -Wno-implicit-function-declaration
 
-EXECUTABLES=testsplitmix64 testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr
+EXECUTABLES=testlehmer64 testsplitmix64 testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr
 
 HEADERS=include/main.h
 
@@ -26,6 +26,10 @@ RNG_test: practrand-0.93-bigbuffer.patch PractRand_0.93.zip
 
 testaesctr: src/testaesctr.c
 	$(CC) $(CFLAGS) -o testaesctr src/testaesctr.c -I../source 
+
+
+testlehmer64 : src/testlehmer64.c
+	$(CC) $(CFLAGS) -o testlehmer64 src/testlehmer64.c -I../source
 
 
 testsplitmix64 : src/testsplitmix64.c
