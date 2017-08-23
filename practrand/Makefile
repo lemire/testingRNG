@@ -8,7 +8,7 @@
 
 CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow -Wno-implicit-function-declaration
 
-EXECUTABLES=testlehmer64 testsplitmix64 testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr
+EXECUTABLES=testwidynski testlehmer64 testsplitmix64 testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr
 
 HEADERS=include/main.h
 
@@ -23,6 +23,9 @@ practrand-0.93-bigbuffer.patch :
 
 RNG_test: practrand-0.93-bigbuffer.patch PractRand_0.93.zip
 	(unzip -qo PractRand_0.93.zip -d build && cd build &&  cat ../practrand-0.93-bigbuffer.patch | patch -p0 && $(CXX) -std=c++14 -c src/*.cpp src/RNGs/*.cpp src/RNGs/other/*.cpp -O3 -Iinclude -pthread &&  ar rcs libPractRand.a *.o &&  $(CXX) -std=c++14 -o RNG_test tools/RNG_test.cpp libPractRand.a -O3 -Iinclude -pthread && cp RNG_test ..)
+
+testwidynski: src/testwidynski.c
+	$(CC) $(CFLAGS) -o testwidynski src/testwidynski.c -I../source 
 
 testaesctr: src/testaesctr.c
 	$(CC) $(CFLAGS) -o testaesctr src/testaesctr.c -I../source 

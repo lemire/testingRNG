@@ -3,9 +3,9 @@
 
 #include <stdint.h>
 // based on https://arxiv.org/pdf/1704.00358.pdf
-static uin64_t g_widynski_x;
-static uin64_t g_widynski_w;
-static uin64_t g_widynski_s;
+static uint64_t g_widynski_x;
+static uint64_t g_widynski_w;
+static uint64_t g_widynski_s;
 
 static inline void widynski_seed(uint64_t seed) {
     g_widynski_w = 0;
