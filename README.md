@@ -1,4 +1,4 @@
-# testingRNG
+# testingRNG : testing popular random-number generators
 
 There are several benchmarks that can be used to test (pseudo-)random number
 generators (RNG). Of particular interest are TestU01 and PractRand. We want to easily
@@ -219,9 +219,11 @@ As of 2017, these represent the state-of-the-art.
 
 ## Blog posts
 
-- [On Melissa O’Neill’s PCG random number generator](http://lemire.me/blog/2017/08/15/on-melissa-oneills-pcg-random-number-generator/)
+- [Testing non-cryptographic random number generators: my results](https://lemire.me/blog/2017/08/22/testing-non-cryptographic-random-number-generators-my-results/) by Lemire
+- [Cracking random number generators (xoroshiro128+)](https://lemire.me/blog/2017/08/22/cracking-random-number-generators-xoroshiro128/) by Lemire
+- [On Melissa O’Neill’s PCG random number generator](http://lemire.me/blog/2017/08/15/on-melissa-oneills-pcg-random-number-generator/) by Lemire
 - [Testing RNGs with PractRand](https://www.johndcook.com/blog/2017/08/14/testing-rngs-with-practrand/), [Manipulating a random number generator](https://www.johndcook.com/blog/2017/08/16/manipulating-a-random-number-generator/) by Cook
-- [PCG Passes PractRand](http://www.pcg-random.org/posts/pcg-passes-practrand.html)
+- [PCG Passes PractRand](http://www.pcg-random.org/posts/pcg-passes-practrand.html) by O'Neill
 
 ## More reading (interesting quotes)
 
