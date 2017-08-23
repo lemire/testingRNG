@@ -4,7 +4,7 @@ GREEN='\033[0;32m'
 NC='\033[0m' # No Color
 declare -a commands=('testxoroshiro128plus -H' 'testxoroshiro128plus' 'testxorshift128plus -H' 'testxorshift128plus' 'testpcg32' 'testpcg64 -H' 'testpcg64' 'testsplitmix64 -H' 'testsplitmix64' 'testxorshift32' );
 for f in  "-s" "-c" "-b" ; do
- for order in  "-R" "-r" "" ; do
+ for order in  "-z" "-r" "" ; do
   echo "--- using bit order flag: " $order
   for t in "${commands[@]}"; do
      wf=$(echo $t | sed 's/ //g')

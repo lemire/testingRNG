@@ -42,7 +42,7 @@ void printusage(const char *command) {
   ;
   printf(" The -r flag reverses the bytes.");
   ;
-  printf(" The -R flag reverses the bits.");
+  printf(" The -R and the -z flags reverse the bits (they are synonymous).");
   ;
   printf(" The -H flag select to most signficant 32 bits (as opposed to the least significant).");
   ;
@@ -61,14 +61,14 @@ char *concat(const char *s1, const char *s2) {
 int main(int argc, char **argv) {
   uint64_t seedvalue = 12345678;
   unif01_Gen *gen;
-  int z = 0;
+  int z = 0;// selects the folding method
 
   enum { SMALLCRUSH, CRUSH, BIGCRUSH, LINEARCOMP};
   int use_msb = 0;
   int testroutine = SMALLCRUSH;
   int c;
 
-  while ((c = getopt(argc, argv, "csbhrRHlS:")) != -1)
+  while ((c = getopt(argc, argv, "csbhrzRHlS:")) != -1)
     switch (c) {
     case 'l':
       testroutine = LINEARCOMP;
@@ -80,6 +80,9 @@ int main(int argc, char **argv) {
       z = 1;
       break;
     case 'R':
+      z = 2;
+      break;
+    case 'z':
       z = 2;
       break;
     case 's':
