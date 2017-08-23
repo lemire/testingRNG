@@ -11,6 +11,7 @@
 #include "xoroshiro128plus.h"
 #include "splitmix64.h"
 #include "pcg64.h"
+#include "lehmer64.h"
 
 #ifndef __x86_64__
 #warning "Expecting an x64 processor."
@@ -22,10 +23,10 @@ typedef uint64_t (*rand64fnc)(void);
 rand32fnc our32[NUMBEROF32] = {aesctr, xorshift32, pcg32, rand};
 const char *our32name[NUMBEROF32] = {"aesctr","xorshift32", "pcg32", "rand"};
 
-#define NUMBEROF64 4
-rand64fnc our64[NUMBEROF64] = {xorshift128plus, xoroshiro128plus, splitmix64,
+#define NUMBEROF64 5
+rand64fnc our64[NUMBEROF64] = {lehmer64, xorshift128plus, xoroshiro128plus, splitmix64,
                                pcg64};
-const char *our64name[NUMBEROF64] = {"xorshift128plus", "xoroshiro128plus",
+const char *our64name[NUMBEROF64] = {"lehmer64", "xorshift128plus", "xoroshiro128plus",
                                      "splitmix64", "pcg64"};
 
 void populate32(rand32fnc rand, uint32_t *answer, size_t size) {
