@@ -148,6 +148,7 @@ Failure!
 On a recent (Skylake) processor, on a Linux box, I got the following results:
 
 ```
+aesctr:  1.72 cycles per byte
 xorshift32:  2.33 cycles per byte
 pcg32:  1.81 cycles per byte
 rand:  5.19 cycles per byte
@@ -164,6 +165,7 @@ xoroshiro128plus:  0.85 cycles per byte
 splitmix64:  0.89 cycles per byte
 xorshift128plus:  0.91 cycles per byte
 pcg64:  1.27 cycles per byte
+aesctr:  1.72 cycles per byte
 pcg32:  1.81 cycles per byte
 xorshift32:  2.33 cycles per byte
 rand:  5.19 cycles per byte
