@@ -4,6 +4,7 @@
 #include <math.h>
 #include <string.h>
 #include <assert.h>
+#include "aesctr.h"
 #include "xorshift32.h"
 #include "pcg32.h"
 #include "xorshift128plus.h"
@@ -17,9 +18,9 @@
 
 typedef uint32_t (*rand32fnc)(void);
 typedef uint64_t (*rand64fnc)(void);
-#define NUMBEROF32 3
-rand32fnc our32[NUMBEROF32] = {xorshift32, pcg32, rand};
-const char *our32name[NUMBEROF32] = {"xorshift32", "pcg32", "rand"};
+#define NUMBEROF32 4
+rand32fnc our32[NUMBEROF32] = {aesctr, xorshift32, pcg32, rand};
+const char *our32name[NUMBEROF32] = {"aesctr","xorshift32", "pcg32", "rand"};
 
 #define NUMBEROF64 4
 rand64fnc our64[NUMBEROF64] = {xorshift128plus, xoroshiro128plus, splitmix64,

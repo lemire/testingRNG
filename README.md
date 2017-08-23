@@ -52,6 +52,7 @@ Note  that the speed tests assume a recent x64 processor (e.g., they would not w
 
 ## The contenders
 
+- aesctr is a random number generator based on the AES cipher (contributed by Samuel Neves)
 - splitmix64 is a random number generator in widespread use and part of the standard Java API, we adapted a port to C produced by Vigna. It produces 64-bit numbers.
 - pcg32 and pcg64 are instances of the PCG family designed by O'Neill. They produce either 32-bit or 64-bit outputs.
 - xorshift32 is a classical xorshift random number generator. We do not expect it to do well.
