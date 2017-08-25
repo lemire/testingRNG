@@ -68,7 +68,7 @@ static inline void aesctr_seed_r(aesctr_state * state, uint64_t seed) {
 
 #undef AES_ROUND
 
-static inline uint32_t aesctr_r(aesctr_state * state) {
+static inline uint64_t aesctr_r(aesctr_state * state) {
     if( __builtin_expect(state->offset >= 16 * AESCTR_UNROLL, 0) ) {
         __m128i work[AESCTR_UNROLL];
         for(int i = 0; i < AESCTR_UNROLL; ++i) {
@@ -87,7 +87,7 @@ static inline uint32_t aesctr_r(aesctr_state * state) {
         }
         state->offset = 0;
     }
-    uint32_t output = 0;
+    uint64_t output = 0;
     memcpy(&output, &state->state[state->offset], sizeof(output));
     state->offset += sizeof(output);
     return output;
@@ -99,7 +99,7 @@ static inline void aesctr_seed(uint64_t seed) {
     aesctr_seed_r(&g_aesctr_state, seed);
 }
 
-static inline uint32_t aesctr() {
+static inline uint64_t aesctr() {
     return aesctr_r(&g_aesctr_state);
 }
 

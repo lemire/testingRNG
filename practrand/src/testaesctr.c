@@ -8,7 +8,7 @@
 int main() {
   uint64_t seedvalue = 12345678;
   aesctr_seed(seedvalue);
-  uint32_t buffer[buffer_size];
+  uint64_t buffer[buffer_size];
 
   while (1) {
     for (int k = 0; k < buffer_size; k++)
