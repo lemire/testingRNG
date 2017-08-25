@@ -12,6 +12,10 @@
 #include "splitmix64.h"
 #include "pcg64.h"
 #include "lehmer64.h"
+#include "mersennetwister.h"
+#include "mitchellmoore.h"
+#include "xorshift-k4.h"
+#include "xorshift-k5.h"
 
 #ifndef __x86_64__
 #warning "Expecting an x64 processor."
@@ -19,15 +23,21 @@
 
 typedef uint32_t (*rand32fnc)(void);
 typedef uint64_t (*rand64fnc)(void);
-#define NUMBEROF32 3
-rand32fnc our32[NUMBEROF32] = { xorshift32, pcg32, rand};
-const char *our32name[NUMBEROF32] = {"xorshift32", "pcg32", "rand"};
+#define NUMBEROF32 7
+rand32fnc our32[NUMBEROF32] = {xorshift_k4,   xorshift_k5, mersennetwister,
+                               mitchellmoore, xorshift32,  pcg32,
+                               rand};
+const char *our32name[NUMBEROF32] = {
+    "xorshift_k4",   "xorshift_k5", "mersennetwister",
+    "mitchellmoore", "xorshift32",  "pcg32",
+    "rand"};
 
 #define NUMBEROF64 6
-rand64fnc our64[NUMBEROF64] = {aesctr, lehmer64, xorshift128plus, xoroshiro128plus, splitmix64,
-                               pcg64};
-const char *our64name[NUMBEROF64] = {"aesctr","lehmer64", "xorshift128plus", "xoroshiro128plus",
-                                     "splitmix64", "pcg64"};
+rand64fnc our64[NUMBEROF64] = {aesctr,           lehmer64,   xorshift128plus,
+                               xoroshiro128plus, splitmix64, pcg64};
+const char *our64name[NUMBEROF64] = {"aesctr",          "lehmer64",
+                                     "xorshift128plus", "xoroshiro128plus",
+                                     "splitmix64",      "pcg64"};
 
 void populate32(rand32fnc rand, uint32_t *answer, size_t size) {
   for (size_t i = size; i != 0; i--) {
@@ -89,7 +99,7 @@ void populate64(rand64fnc rand, uint64_t *answer, size_t size) {
     }                                                                          \
     uint64_t S = size;                                                         \
     float cycle_per_op = (min_diff) / (double)S;                               \
-    printf(" %.2f cycles per byte", cycle_per_op);                            \
+    printf(" %.2f cycles per byte", cycle_per_op);                             \
     printf("\n");                                                              \
     fflush(NULL);                                                              \
   } while (0)
