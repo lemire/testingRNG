@@ -12,6 +12,7 @@
 #include "splitmix64.h"
 #include "pcg64.h"
 #include "lehmer64.h"
+#include "widynski.h"
 
 #ifndef __x86_64__
 #warning "Expecting an x64 processor."
@@ -19,9 +20,9 @@
 
 typedef uint32_t (*rand32fnc)(void);
 typedef uint64_t (*rand64fnc)(void);
-#define NUMBEROF32 3
-rand32fnc our32[NUMBEROF32] = { xorshift32, pcg32, rand};
-const char *our32name[NUMBEROF32] = {"xorshift32", "pcg32", "rand"};
+#define NUMBEROF32 4
+rand32fnc our32[NUMBEROF32] = { widynski, xorshift32, pcg32, rand};
+const char *our32name[NUMBEROF32] = {"widynski", "xorshift32", "pcg32", "rand"};
 
 #define NUMBEROF64 6
 rand64fnc our64[NUMBEROF64] = {aesctr, lehmer64, xorshift128plus, xoroshiro128plus, splitmix64,
