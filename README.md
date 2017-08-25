@@ -89,57 +89,230 @@ For PractRand, we do not need to truncate the produced random bits.
 
 ## TestU01 results
 
-Note: I am updating these results as there was a mistake and the same seed is reused from run to run.
-
-- pcg32 fails CollisionOver
-- pcg64 fails Run
-- splitmix fails CollisionOver  and MaxOft
-- xoroshiro128+ fails CollisionOver, HammingIndep, MatrixRank and RandomWalk1
-- xorshift128+ fails CollisionOver and MatrixRank
-- xorshift32 fails at almost everything
-
 See testu01/results for detailed outputs.
-Type ``python process.py *.log |more``.
+Type ``./summarize.pl *.log |more``.
+
+
+```
+
+- 2 unnoteworthy blips (#11, #47)
+
+Summary for pcg64 lsb 32-bits (byte reverse) (6 crushes):
+- #38: Run, r = 0: investigate? -- too many unusual p-values (0.9998, 0.9998, 0.9998)
+- 1 unnoteworthy blips (#22)
+
+Summary for splitmix64 lsb 32-bits (10 crushes):
+- #1: SerialOver, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #2: SerialOver, r = 22: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #3: CollisionOver, t = 2: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #4: CollisionOver, t = 2: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #5: CollisionOver, t = 3: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #6: CollisionOver, t = 3: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #7: CollisionOver, t = 7: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #8: CollisionOver, t = 7: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #9: CollisionOver, t = 14: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #10: CollisionOver, t = 14: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #11: CollisionOver, t = 21: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #12: CollisionOver, t = 21: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #13: BirthdaySpacings, t = 2: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #14: BirthdaySpacings, t = 3: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #15: BirthdaySpacings, t = 4: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #16: BirthdaySpacings, t = 7: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #17: BirthdaySpacings, t = 7: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #18: BirthdaySpacings, t = 8: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #19: BirthdaySpacings, t = 8: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #20: BirthdaySpacings, t = 16: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #21: BirthdaySpacings, t = 16: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #22: ClosePairs mNP2S, t = 3: FAIL!! -- p-values too unlikely (2.8e-192, 1.4e-300, 1.8e-300, 4.2e-16, 1 - eps1, 3.2e-73, 3.1e-241, eps, eps, 2.6e-18, 1 - eps1, 4.3e-91, 1.2e-297, 8.9e-273, 1.1e-278, 5.3e-26, 1 - eps1, 1.9e-94, 9.2e-231, 1.4e-263, 2.3e-277, 1.4e-22, 1 - eps1, 4.9e-105, 9.2e-231, 1.4e-263, 2.3e-277, 1.4e-22, 1 - eps1, 4.9e-105)
+- #23: ClosePairs mNP2S, t = 5: FAIL!! -- p-values too unlikely (2.3e-93, eps, eps, 1 - eps1, 9.4e-88, eps, eps, 1 - eps1, 1.3e-89, eps, eps, 1 - eps1, 3.4e-112, eps, eps, 1 - eps1, 3.4e-112, eps, eps, 1 - eps1)
+- #24: ClosePairs mNP2S, t = 9: FAIL!! -- p-values too unlikely (5.3e-39, 2.7e-39, 1.2e-79, 1.2e-194, 1.4e-39, 4.4e-43, 1.9e-76, 8.5e-208, 1.4e-31, 2.8e-36, 2.4e-74, 5.2e-229, 7.6e-41, 3.7e-44, 1.4e-95, 5.0e-251, 7.6e-41, 3.7e-44, 1.4e-95, 5.0e-251)
+- #25: ClosePairs NJumps, t = 16: investigate! -- too many unusual p-values (9.0e-5, 1.4e-5, 1 -  6.5e-5, 8.2e-4)
+- #34: Gap, r = 0: FAIL!! -- p-values too unlikely (4.5e-12, 3.7e-12)
+- #35: Gap, r = 25: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #36: Gap, r = 0: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #37: Gap, r = 20: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #42: Permutation, t = 7: FAIL!! -- p-values too unlikely (1 - 3.9e-13, 1 - 3.9e-13)
+- #43: Permutation, t = 10: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #46: MaxOft, t = 8: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #47: MaxOft, t = 16: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #48: MaxOft, t = 24: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #49: MaxOft, t = 32: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #65: SumCollector: investigate!! -- too many unusual p-values (2.4e-4, 5.8e-4, 3.7e-4, 6.8e-4, 6.8e-4)
+- #66: MatrixRank, L=30, r=0: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #67: MatrixRank, L=30, r=26: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #68: MatrixRank, L=1000, r=0: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #69: MatrixRank, L=1000, r=26: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #70: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps)
+- #80: LinearComp, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #81: LinearComp, r = 29: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1)
+- #84: Fourier3, r = 0: investigate? -- too many unusual p-values (1.7e-6, 1.1e-5, 7.7e-4)
+- #101: Run of bits, r = 0: investigate!! -- too many unusual p-values (1 -  3.8e-6, 1 -  4.1e-6, 1 -  6.1e-9, 1 -  3.0e-5, 1 -  3.0e-5)
+- #102: Run of bits, r = 27: investigate!! -- too many unusual p-values (0.9997, 0.9998, 0.9995, 1 -  4.9e-6, 1 -  4.9e-6)
+- 4 unnoteworthy blips (#39, #39, #45, #76)
+
+Summary for splitmix64 lsb 32-bits (bit reverse) (5 crushes):
+- #1: SerialOver, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #2: SerialOver, r = 22: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #3: CollisionOver, t = 2: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #4: CollisionOver, t = 2: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #5: CollisionOver, t = 3: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #6: CollisionOver, t = 3: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #7: CollisionOver, t = 7: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #8: CollisionOver, t = 7: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #9: CollisionOver, t = 14: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #10: CollisionOver, t = 14: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #11: CollisionOver, t = 21: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #12: CollisionOver, t = 21: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #13: BirthdaySpacings, t = 2: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #14: BirthdaySpacings, t = 3: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #15: BirthdaySpacings, t = 4: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #16: BirthdaySpacings, t = 7: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #17: BirthdaySpacings, t = 7: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #18: BirthdaySpacings, t = 8: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #19: BirthdaySpacings, t = 8: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #20: BirthdaySpacings, t = 16: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #21: BirthdaySpacings, t = 16: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #22: ClosePairs mNP2S, t = 3: FAIL!! -- p-values too unlikely (1.3e-40, eps, eps, eps, eps, eps, 3.7e-41, eps, eps, eps, eps, eps, 4.4e-41, eps, eps, eps, eps, eps)
+- #23: ClosePairs mNP2S, t = 5: FAIL!! -- p-values too unlikely (1.3e-235, 1.8e-253, 1.2e-267, 1 - eps1, 3.2e-174, 7.0e-231, 5.8e-245, 1 - eps1, 6.0e-223, 2.5e-232, 2.1e-230, 1 - eps1)
+- #24: ClosePairs mNP2S, t = 9: FAIL!! -- p-values too unlikely (4.5e-26, 3.6e-18, 9.9e-20, 1 - eps1, 1.5e-17, 2.1e-24, 4.3e-26, 1 - eps1, 2.2e-28, 1.5e-25, 3.1e-28, 1 - eps1)
+- #25: ClosePairs NJumps, t = 16: investigate? -- too many unusual p-values (1.4e-4, 9.5e-7, 1 -  3.8e-7)
+- #35: Gap, r = 25: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #36: Gap, r = 0: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #37: Gap, r = 20: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #42: Permutation, t = 7: investigate? -- too many unusual p-values (1 -  2.4e-7, 1 -  5.4e-6, 1 -  1.8e-8)
+- #43: Permutation, t = 10: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #46: MaxOft, t = 8: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #47: MaxOft, t = 16: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #48: MaxOft, t = 24: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #49: MaxOft, t = 32: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #65: SumCollector: investigate? -- too many unusual p-values (1.4e-6, 3.4e-6, 6.3e-7)
+- #66: MatrixRank, L=30, r=0: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #67: MatrixRank, L=30, r=26: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #68: MatrixRank, L=1000, r=0: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #69: MatrixRank, L=1000, r=26: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #70: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #80: LinearComp, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #81: LinearComp, r = 29: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #87: LongestHeadRun, r = 27: FAIL!! -- p-values too unlikely (eps, 1 - eps1, eps, 1 - eps1, eps, 1 - eps1)
+- #101: Run of bits, r = 0: investigate? -- too many unusual p-values (1 -  1.5e-8, 1 -  3.5e-7, 1 -  4.3e-5)
+- #102: Run of bits, r = 27: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- 6 unnoteworthy blips (#44, #44, #62, #74, #74, #85)
+
+Summary for splitmix64 lsb 32-bits (byte reverse) (7 crushes):
+- #1: SerialOver, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #2: SerialOver, r = 22: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #3: CollisionOver, t = 2: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #4: CollisionOver, t = 2: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #5: CollisionOver, t = 3: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #6: CollisionOver, t = 3: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #7: CollisionOver, t = 7: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #8: CollisionOver, t = 7: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #9: CollisionOver, t = 14: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #10: CollisionOver, t = 14: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #11: CollisionOver, t = 21: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #12: CollisionOver, t = 21: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #13: BirthdaySpacings, t = 2: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #14: BirthdaySpacings, t = 3: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #15: BirthdaySpacings, t = 4: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #16: BirthdaySpacings, t = 7: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #17: BirthdaySpacings, t = 7: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #18: BirthdaySpacings, t = 8: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #19: BirthdaySpacings, t = 8: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #20: BirthdaySpacings, t = 16: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #21: BirthdaySpacings, t = 16: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #22: ClosePairs mNP2S, t = 3: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps, eps, eps, eps, eps, eps, eps, eps, eps, eps, eps)
+- #23: ClosePairs mNP2S, t = 5: FAIL!! -- p-values too unlikely (7.3e-37, eps, eps, eps, eps, eps, 7.3e-37, eps, eps, eps, eps, eps, 7.3e-37, eps, eps, eps, eps, eps)
+- #24: ClosePairs mNP2S, t = 9: FAIL!! -- p-values too unlikely (4.4e-18, 1.8e-122, 1.9e-149, 5.8e-34, 5.4e-178, eps, 4.4e-18, 1.8e-122, 1.9e-149, 5.8e-34, 5.4e-178, eps, 4.4e-18, 1.8e-122, 1.9e-149, 5.8e-34, 5.4e-178, eps)
+- #25: ClosePairs NJumps, t = 16: investigate? -- too many unusual p-values (0.9993, 0.9993, 0.9993)
+- #34: Gap, r = 0: investigate? -- too many unusual p-values (1.1e-9, 1.1e-9, 1.1e-9)
+- #35: Gap, r = 25: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #36: Gap, r = 0: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #37: Gap, r = 20: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #42: Permutation, t = 7: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #43: Permutation, t = 10: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #44: CollisionPermut, r = 0: investigate? -- too many unusual p-values (1 -  1.3e-5, 1 -  1.3e-5, 1 -  1.3e-5)
+- #46: MaxOft, t = 8: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #47: MaxOft, t = 16: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #48: MaxOft, t = 24: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #49: MaxOft, t = 32: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #66: MatrixRank, L=30, r=0: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #67: MatrixRank, L=30, r=26: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #68: MatrixRank, L=1000, r=0: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #69: MatrixRank, L=1000, r=26: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #70: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps)
+- #76: RandomWalk1 M (L=1000, r=0): investigate? -- too many unusual p-values (1.3e-5, 1.3e-5, 1.3e-5)
+- #80: LinearComp, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #81: LinearComp, r = 29: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1)
+- #84: Fourier3, r = 0: investigate? -- too many unusual p-values (9.6e-4, 9.6e-4, 9.6e-4)
+- #101: Run of bits, r = 0: investigate? -- too many unusual p-values (1 -  3.4e-6, 1 -  3.4e-6, 1 -  3.4e-6)
+- #102: Run of bits, r = 27: investigate? -- too many unusual p-values (1 -  7.6e-8, 1 -  7.6e-8, 1 -  7.6e-8)
+- 1 unnoteworthy blips (#28)
+
+Summary for splitmix64 msb 32-bits (5 crushes):
+- 2 unnoteworthy blips (#29, #101)
+
+Summary for splitmix64 msb 32-bits (bit reverse) (3 crushes):
+- 1 unnoteworthy blips (#2)
+
+Summary for splitmix64 msb 32-bits (byte reverse) (3 crushes):
+- #11: CollisionOver, t = 21: investigate? -- too many unusual p-values (6.5e-4, 6.5e-4, 6.5e-4)
+
+Summary for xoroshiro128plus lsb 32-bits (6 crushes):
+- #76: RandomWalk1 M (L=1000, r=0): investigate? -- too many unusual p-values (4.7e-4, 4.7e-4, 4.7e-4)
+- 1 unnoteworthy blips (#19)
+
+Summary for xoroshiro128plus lsb 32-bits (bit reverse) (1 crushes):
+- #68: MatrixRank, L=1000, r=0: FAIL!! -- p-values too unlikely (eps)
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps)
+- #80: LinearComp, r = 0: FAIL!! -- p-values too unlikely (1 - eps1)
+
+Summary for xoroshiro128plus lsb 32-bits (byte reverse) (5 crushes):
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
+- 2 unnoteworthy blips (#29, #33)
+
+Summary for xoroshiro128plus msb 32-bits (6 crushes):
+- #11: CollisionOver, t = 21: investigate? -- too many unusual p-values (0.9996, 0.9996, 0.9996)
+- #97: HammingIndep, L=300, r=0: investigate? -- too many unusual p-values (0.9992, 0.9992, 0.9992)
+- #98: HammingIndep, L=300, r=26: investigate? -- too many unusual p-values (3.3e-5, 3.3e-5, 3.3e-5)
+- 1 unnoteworthy blips (#49)
+
+Summary for xoroshiro128plus msb 32-bits (byte reverse) (5 crushes):
+- 1 unnoteworthy blips (#45)
+
+Summary for xorshift128plus lsb 32-bits (5 crushes):
+- 3 unnoteworthy blips (#7, #7, #11)
+
+Summary for xorshift128plus lsb 32-bits (bit reverse) (2 crushes):
+- #68: MatrixRank, L=1000, r=0: FAIL!! -- p-values too unlikely (eps, eps) -- ALL CRUSHES FAIL!!
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps) -- ALL CRUSHES FAIL!!
+- #80: LinearComp, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1) -- ALL CRUSHES FAIL!!
+
+Summary for xorshift128plus lsb 32-bits (byte reverse) (4 crushes):
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
+- 1 unnoteworthy blips (#97)
+
+Summary for xorshift128plus msb 32-bits (5 crushes):
+- 2 unnoteworthy blips (#27, #94)
+```
 
 ## PractRand results
-
-- :exclamation: testxorshift128plus fails.
-- :exclamation: testxoroshiro128plus fails (*).
-- :+1: pcg32 passes the tests.
-- :+1: pcg64 passes the tests.
-- :+1: splitmix64 passes the tests.
-- :exclamation: testxorshift32 fails (as expected).
-
-*- You can salvage xoroshiro128plus, if you just select the most significant bits (``-H``).
 
 See practrand/results for detailed outputs.
 
 Raw output:
 
 ```
-$ ./runtests.sh
-Testing 64GB  of data per run
-Note: running the tests longer could expose new failures.
-# RUNNING testxorshift128plus -H Outputting result to  testxorshift128plus-H.log
-Failure!
-# RUNNING testxorshift128plus Outputting result to  testxorshift128plus.log
-Failure!
-# RUNNING testxoroshiro128plus -H Outputting result to  testxoroshiro128plus-H.log
-Success!
-# RUNNING testxoroshiro128plus Outputting result to  testxoroshiro128plus.log
-Failure!
-# RUNNING testpcg32 Outputting result to  testpcg32.log
-Success!
-# RUNNING testpcg64 -H Outputting result to  testpcg64-H.log
-Success!
-# RUNNING testpcg64 Outputting result to  testpcg64.log
-Success!
-# RUNNING testsplitmix64 -H Outputting result to  testsplitmix64-H.log
-Success!
-# RUNNING testsplitmix64 Outputting result to  testsplitmix64.log
-Success!
-# RUNNING testxorshift32 Outputting result to  testxorshift32.log
-Failure!
+$ ./summarize.sh
+testmitchellmoore.log:  [Low1/64]BRank(12):256(2)         R= +73.5  p~=  3.8e-23    FAIL !!
+testxoroshiro128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
+testxorshift-k4.log:  BRank(12):256(4)                  R= +5300  p~=  1e-2819    FAIL !!!!!!!!
+testxorshift-k5.log:  [Low4/64]BRank(12):768(1)         R=+583.3  p~=  1.2e-176   FAIL !!!!!!
+testxorshift128plus-H.log:  BCFN(2+1,13-0,T)                  R= +27.9  p =  1.9e-14    FAIL
+testxorshift128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
+testxorshift32.log:  BCFN(2+0,13-2,T)                  R=+179.4  p =  2.8e-91    FAIL !!!!!
 ```
 
 
@@ -179,12 +352,12 @@ Results will depend on your specific hardware and might be quite different on AR
 
 |                  | TestU01        | PractRand      | time (cycles/byte) |
 |------------------|----------------|----------------|--------------------|
-| xoroshiro128plus |  fails 4 tests | fails!  | 0.9                |
-| splitmix64       |   fails 2 tests   |    :+1:        | 0.9                |
-| xorshift128plus  | fails 2 tests  | fails!  | 0.9                |
-| pcg64            | fails 1 test  |    :+1:        | 1.3                |
-| pcg32            |    fails 1 test   |    :+1:        | 1.8                |
-| xorshift32       | :exclamation:  | fails!  | 2.3                |
+| xoroshiro128plus |  fails!  | fails!  | 0.9                |
+| splitmix64       |   fails!   |    :+1:        | 0.9                |
+| xorshift128plus  | fails! | fails!  | 0.9                |
+| pcg64            | possible issue with Run  |    :+1:        | 1.3                |
+| pcg32            |   passes   |    :+1:        | 1.8                |
+| xorshift32       | fails!  | fails!  | 2.3                |
 
 
 
