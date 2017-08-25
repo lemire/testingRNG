@@ -1,0 +1,29 @@
+RNG_test using PractRand version 0.93
+RNG = RNG_stdin64, seed = 0x831a0181
+test set = normal, folding = standard (64 bit)
+
+rng=RNG_stdin64, seed=0x831a0181
+length= 256 megabytes (2^28 bytes), time= 2.5 seconds
+  Test Name                         Raw       Processed     Evaluation
+  BRank(12):256(4)                  R= +5300  p~=  1e-2819    FAIL !!!!!!!!  
+  BRank(12):384(1)                  R= +5405  p~=  3e-1628    FAIL !!!!!!!!  
+  BRank(12):512(2)                  R=+11541  p~=  2e-3475    FAIL !!!!!!!!  
+  BRank(12):768(1)                  R=+13672  p~=  1e-4116    FAIL !!!!!!!!  
+  BRank(12):1K(2)                   R=+27129  p~=  1e-8167    FAIL !!!!!!!!  
+  BRank(12):1536(1)                 R=+30205  p~=  1e-9093    FAIL !!!!!!!!  
+  BRank(12):2K(1)                   R=+41227  p~= 0           FAIL !!!!!!!!  
+  [Low16/64]BRank(12):128(4)        R= +14.0  p~=  2.9e-8   very suspicious  
+  [Low16/64]BRank(12):256(2)        R= +3748  p~=  3e-1129    FAIL !!!!!!!!  
+  [Low16/64]BRank(12):384(1)        R= +5405  p~=  3e-1628    FAIL !!!!!!!!  
+  [Low16/64]BRank(12):512(2)        R=+11541  p~=  2e-3475    FAIL !!!!!!!!  
+  [Low16/64]BRank(12):768(1)        R=+13672  p~=  1e-4116    FAIL !!!!!!!!  
+  [Low16/64]BRank(12):1K(1)         R=+19183  p~=  1e-5775    FAIL !!!!!!!!  
+  [Low4/64]BRank(12):256(2)         R= +3748  p~=  3e-1129    FAIL !!!!!!!!  
+  [Low4/64]BRank(12):384(1)         R= +5405  p~=  3e-1628    FAIL !!!!!!!!  
+  [Low4/64]BRank(12):512(2)         R=+11541  p~=  2e-3475    FAIL !!!!!!!!  
+  [Low4/64]BRank(12):768(1)         R=+13672  p~=  1e-4116    FAIL !!!!!!!!  
+  [Low1/64]BRank(12):256(2)         R= +3748  p~=  3e-1129    FAIL !!!!!!!!  
+  [Low1/64]BRank(12):384(1)         R= +5405  p~=  3e-1628    FAIL !!!!!!!!  
+  [Low1/64]BRank(12):512(1)         R= +8161  p~=  1e-2457    FAIL !!!!!!!!  
+  ...and 139 test result(s) without anomalies
+
