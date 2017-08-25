@@ -16,6 +16,7 @@
 #include "mitchellmoore.h"
 #include "xorshift-k4.h"
 #include "xorshift-k5.h"
+#include "widynski.h"
 
 #ifndef __x86_64__
 #warning "Expecting an x64 processor."
@@ -23,13 +24,13 @@
 
 typedef uint32_t (*rand32fnc)(void);
 typedef uint64_t (*rand64fnc)(void);
-#define NUMBEROF32 7
+#define NUMBEROF32 8
 rand32fnc our32[NUMBEROF32] = {xorshift_k4,   xorshift_k5, mersennetwister,
-                               mitchellmoore, xorshift32,  pcg32,
+                               mitchellmoore, widynski, xorshift32,  pcg32,
                                rand};
 const char *our32name[NUMBEROF32] = {
     "xorshift_k4",   "xorshift_k5", "mersennetwister",
-    "mitchellmoore", "xorshift32",  "pcg32",
+    "mitchellmoore", "widynski", "xorshift32",  "pcg32",
     "rand"};
 
 #define NUMBEROF64 6
