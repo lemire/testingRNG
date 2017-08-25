@@ -356,7 +356,7 @@ Results will depend on your specific hardware and might be quite different on AR
 | splitmix64       |   fails!   |    :+1:        | 0.9                |
 | xorshift128plus  | fails! | fails!  | 0.9                |
 | pcg64            | possible issue with Run  |    :+1:        | 1.3                |
-| pcg32            |   passes   |    :+1:        | 1.8                |
+| pcg32            |   :+1:   |    :+1:        | 1.8                |
 | xorshift32       | fails!  | fails!  | 2.3                |
 
 
