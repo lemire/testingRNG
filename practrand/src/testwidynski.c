@@ -15,10 +15,10 @@ int main(int argc, char **argv) {
     }
   uint64_t seedvalue = 12345678;
   widynski_seed(seedvalue);
-  uint32_t buffer[buffer_size];
+  uint64_t buffer[buffer_size];
   while (1) {
       for (int k = 0; k < buffer_size; k++)
-        buffer[k] = (widynski() >> 32);
+        buffer[k] = widynski();
       fwrite((void *)buffer, sizeof(buffer), 1, stdout);
   }
 }
