@@ -11,7 +11,7 @@ CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow -Wno-implicit-f
 LIBS=build/lib/libmylib.a build/lib/libprobdist.a build/lib/libtestu01.a
 LIBSCMD= build/lib/libtestu01.a  build/lib/libprobdist.a build/lib/libmylib.a  -lm
 LIBTARGET=build/lib/libmylib.a
-EXECUTABLES=testlehmer64 testsplitmix64 testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr
+EXECUTABLES=testmersennetwister testlehmer64 testsplitmix64 testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr
 
 HEADERS=include/main.h
 
@@ -26,6 +26,10 @@ TestU01-1.2.3: TestU01.zip
 
 $(LIBTARGET): TestU01-1.2.3
 	(cd TestU01-1.2.3 && ./configure --prefix="$$(dirname "$$(pwd)")/build" && make -j 6 && make -j 6 install)
+
+testmersennetwister:  $(LIBTARGET) $(HEADERS)
+	$(CC) $(CFLAGS) -o testmersennetwister src/testmersennetwister.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
+
 
 testlehmer64:  $(LIBTARGET) $(HEADERS)
 	$(CC) $(CFLAGS) -o testlehmer64 src/testlehmer64.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
