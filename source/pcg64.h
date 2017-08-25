@@ -5,9 +5,9 @@
 #include <stdint.h>
 #include "splitmix64.h" // we are going to leverage splitmix64 to generate the seed
 
-
 /***
-* start of the code copied verbatim from O'Neill's, except that we declare some functions "static"
+* start of the code copied verbatim from O'Neill's, except that we declare some
+*functions "static"
 ****/
 
 typedef __uint128_t pcg128_t;
@@ -28,17 +28,15 @@ static inline void pcg_setseq_128_step_r(struct pcg_state_setseq_128 *rng) {
   rng->state = rng->state * PCG_DEFAULT_MULTIPLIER_128 + rng->inc;
 }
 
-static inline void pcg_setseq_128_srandom_r(struct pcg_state_setseq_128* rng,
-                                     pcg128_t initstate, pcg128_t initseq)
-{
-    rng->state = 0U;
-    rng->inc = (initseq << 1u) | 1u;
-    pcg_setseq_128_step_r(rng);
-    rng->state += initstate;
-    pcg_setseq_128_step_r(rng);
+static inline void pcg_setseq_128_srandom_r(struct pcg_state_setseq_128 *rng,
+                                            pcg128_t initstate,
+                                            pcg128_t initseq) {
+  rng->state = 0U;
+  rng->inc = (initseq << 1u) | 1u;
+  pcg_setseq_128_step_r(rng);
+  rng->state += initstate;
+  pcg_setseq_128_step_r(rng);
 }
-
-
 
 // verbatim from O'Neill's except that we skip her assembly:
 static inline uint64_t pcg_rotr_64(uint64_t value, unsigned int rot) {
@@ -63,18 +61,17 @@ pcg_setseq_128_xsl_rr_64_random_r(struct pcg_state_setseq_128 *rng) {
 // use use a global state:
 static pcg64_random_t pcg64_global; // global state
 
-
-
 // call this once before calling pcg64_random_r
 static inline void pcg64_seed(uint64_t seed) {
-  pcg128_t initstate = PCG_128BIT_CONSTANT(splitmix64_stateless(seed), splitmix64_stateless(seed+1));
+  pcg128_t initstate = PCG_128BIT_CONSTANT(splitmix64_stateless(seed),
+                                           splitmix64_stateless(seed + 1));
   // we pick a sequence at random
-  pcg128_t initseq = PCG_128BIT_CONSTANT(splitmix64_stateless(seed+2), splitmix64_stateless(seed+3));
+  pcg128_t initseq = PCG_128BIT_CONSTANT(splitmix64_stateless(seed + 2),
+                                         splitmix64_stateless(seed + 3));
   initseq |= 1; // should not be necessary, but let us be careful.
-  
-  pcg_setseq_128_srandom_r(&pcg64_global,initstate,initseq);
-}
 
+  pcg_setseq_128_srandom_r(&pcg64_global, initstate, initseq);
+}
 
 #define pcg64_random_r pcg_setseq_128_xsl_rr_64_random_r
 
