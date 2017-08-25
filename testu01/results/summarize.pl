@@ -29,7 +29,11 @@ foreach my $file (@ARGV) {
 	push @{$nonpassesFor{$generator}{$testNo}}, $pValue;
 	$testNameFor{$testNo} = $testName;
     }
-    ++$crushCountFor{$generator};
+    if($generator) {
+       ++$crushCountFor{$generator};
+    } else {
+      print "Warning: No generator in $file. \n";
+    }
 }
 
 foreach my $generator (sort keys %nonpassesFor) {
