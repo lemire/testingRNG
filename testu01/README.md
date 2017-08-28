@@ -1,9 +1,7 @@
 Assuming Linux or macOS. Go to a bash shell and type:
 
 ```
-./bigcrush.sh
-./bigcrush_seed2.sh
-./bigcrush_seed3.sh
+./bigcrushall.sh
 ```
 This runs for a very long time. Testing a single 
 RNG might take about 2 hours.

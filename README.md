@@ -31,9 +31,7 @@ The PractRand benchmark takes some time to complete because we analyze a large v
 #### TestU01:
 ```
 cd testu01
-./bigcrush.sh
-./bigcrush_seed2.sh
-./bigcrush_seed3.sh
+./bigcrushall.sh
 ```
 
 The TestU01 benchmark "big crush" (``bigcrush.sh``) might take days.
