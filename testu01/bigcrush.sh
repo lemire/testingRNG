@@ -11,7 +11,6 @@ for SEEDCMD in "${seeds[@]}"; do
  for order in  "-z" "-r" "" ; do
      echo "--- using bit order flag: " $order
      echo "--- using seed flag: " $SEEDCMD
-     echo "--- using order: " $order
      thiscommand=$t" "$SEEDCMD" "$order
      wf=$(echo $thiscommand | sed 's/ //g')
      filelog=$wf.log
