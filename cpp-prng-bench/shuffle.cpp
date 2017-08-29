@@ -28,6 +28,7 @@ auto bounded_rand(RngType& rng, typename RngType::result_type upper_bound)
 }
 
 template <typename Iter, typename RandType>
+__attribute__((noinline)) 
 void enshuffle(Iter from, Iter to, RandType&& rng)
 {
     typedef typename std::iterator_traits<Iter>::difference_type delta_t;

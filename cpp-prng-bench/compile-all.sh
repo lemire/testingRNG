@@ -2,7 +2,7 @@
 unzip -oq pcg-cpp-master.zip
 CXX="g++ -std=c++14"
 # CXX="clang++ -std=c++14"
-OPT="-O3 -march=native"
+OPT="-O3 -ggdb -march=native"
 
 for cmd in icksort shuffle micro-bench micro-bench2
 do 

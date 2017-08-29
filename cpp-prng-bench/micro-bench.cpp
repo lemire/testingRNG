@@ -151,10 +151,6 @@ void doit()
     printf("cycles: %g\n", cycles_delta/double(INNER_ROUNDS));
     printf("\tcount = %lu\n", size_t(count >> 1));
     printf("\ttotals: %zu\t%zu\t%zu\n", cycles_delta, cycles0, cycles1);
-//    printf("time = %zu cycles, %.2f bits/cycle, %.2f cycles/32bit\n", cycles,
-//           double(INNER_ROUNDS)*bits/double(cycles),
-//           double(cycles)/(double(INNER_ROUNDS)*bits/32.0));
-
 #else
     sort(begin(secs), end(secs));
     auto secs1 = secs[OUTER_ROUNDS/10];

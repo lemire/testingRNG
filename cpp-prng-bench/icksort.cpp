@@ -34,6 +34,7 @@ template <typename Iter, typename RNG>
 Iter qs_partition(Iter begin, Iter end, RNG& rng);
 
 template <typename Iter, typename RNG>
+__attribute__((noinline))
 void quicksort(Iter begin, Iter end, RNG& rng)
 {
     // Base case: arrays of size zero and one are already sorted, by definition
@@ -105,12 +106,6 @@ int main()
 	std::chrono::duration<double> diff = finish-start;
 	std::cout << diff.count() << ", " << std::flush;
 	times[j] = diff.count();
-#if 0
-	for (int i = 0; i < 100; ++i) {
-	    std::cout << vec[i] << ", ";
-	}
-	std::cout << std::endl;
-#endif
     }
     std::cout << "... seconds\n";
     std::sort(std::begin(times), std::end(times));
