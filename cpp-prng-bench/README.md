@@ -14,4 +14,4 @@ Ensure that your CPU runs at a flat frequency and disable turbo boost (on Intel 
 - catalog results
 - How do results vary per compiler (clang vs gcc)
 - How to results vary per flags (-O2, -O3...)
-- Compare O'Neill's implementation with other implementation to validate (important regarding, e.g., the shuffling... maybe compare with straight C implementations)
+- Compare O'Neill's implementation with other implementations to validate (important regarding, e.g., the shuffling... maybe compare with straight C implementations)
