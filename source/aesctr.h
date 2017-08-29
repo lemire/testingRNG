@@ -48,7 +48,6 @@ static inline void aesctr_seed_r(aesctr_state *state, uint64_t seed) {
       k = _mm_xor_si128(k, _mm_shuffle_epi32(k2, _MM_SHUFFLE(3,3,3,3)));
       state->seed[i] = k;
   }*/
-  AES_ROUND(0x8d, 0);
   AES_ROUND(0x01, 1);
   AES_ROUND(0x02, 2);
   AES_ROUND(0x04, 3);
