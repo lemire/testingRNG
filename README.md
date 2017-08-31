@@ -90,6 +90,27 @@ For PractRand, we do not need to truncate the produced random bits.
 See testu01/results for detailed outputs.
 Type ``./summarize.pl *.log |more``.
 
+```
+$ ./summarize.pl testsplitmix64-*.log
+Summary for splitmix64 lsb 32-bits (4 crushes):
+- 3 unnoteworthy blips (#31, #40, #87)
+
+Summary for splitmix64 lsb 32-bits (bit reverse) (4 crushes):
+- 1 unnoteworthy blips (#16)
+
+Summary for splitmix64 lsb 32-bits (byte reverse) (4 crushes):
+- 1 unnoteworthy blips (#49)
+
+Summary for splitmix64 msb 32-bits (4 crushes):
+- 2 unnoteworthy blips (#102, #102)
+
+Summary for splitmix64 msb 32-bits (bit reverse) (4 crushes):
+- 3 unnoteworthy blips (#11, #65, #87)
+
+Summary for splitmix64 msb 32-bits (byte reverse) (4 crushes):
+- 4 unnoteworthy blips (#11, #38, #58, #74)
+```
+
 (As of August 28th 2017, I am regenerating the results from scratch.)
 
 ## PractRand results (64 GB)
@@ -147,7 +168,7 @@ Results will depend on your specific hardware and might be quite different on AR
 |                  | TestU01 (big crush)| PractRand (64 GB)      | time (cycles/byte) |
 |------------------|--------------------|------------------------|--------------------|
 | xoroshiro128plus |  to be updated     | fails!                 | 0.9                |
-| splitmix64       |  to be updated     |    :+1:                | 0.9                |
+| splitmix64       |  passes     |    :+1:                | 0.9                |
 | xorshift128plus  |  to be updated     | fails!                 | 0.9                |
 | pcg64            |  to be updated     |    :+1:                | 1.3                |
 | pcg32            |  to be updated     |    :+1:                | 1.8                |
