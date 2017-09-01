@@ -111,6 +111,15 @@ Summary for splitmix64 msb 32-bits (byte reverse) (4 crushes):
 - 4 unnoteworthy blips (#11, #38, #58, #74)
 ```
 
+```
+$ ./summarize.pl testpcg32*.log
+Summary for pcg32 lsb 32-bits (4 crushes):
+- 1 unnoteworthy blips (#9)
+
+Summary for pcg32 lsb 32-bits (bit reverse) (4 crushes):
+- 1 unnoteworthy blips (#23)
+```
+
 (As of August 28th 2017, I am regenerating the results from scratch.)
 
 ## PractRand results (64 GB)
