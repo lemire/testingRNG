@@ -208,6 +208,11 @@ We use the following testing framework:
 
 As of 2017, these represent the state-of-the-art.
 
+## Academic references
+
+- D. H. Lehmer, Mathematical methods in large-scale computing units.  Proceedings of a Second Symposium on Large Scale Digital Calculating Machinery; Annals of the Computation Laboratory, Harvard Univ. 26 (1951), pp. 141-146.
+
+
 ## Talks
 
 - [Stanford Seminar - PCG: A Family of Better Random Number Generators](https://www.youtube.com/watch?v=45Oet5qjlms) (by O'Neill)
