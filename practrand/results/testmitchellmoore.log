@@ -1,9 +1,9 @@
 RNG_test using PractRand version 0.93
-RNG = RNG_stdin64, seed = 0xcb6c7e80
+RNG = RNG_stdin64, seed = 0xadfeb0e3
 test set = normal, folding = standard (64 bit)
 
-rng=RNG_stdin64, seed=0xcb6c7e80
-length= 256 megabytes (2^28 bytes), time= 2.7 seconds
+rng=RNG_stdin64, seed=0xadfeb0e3
+length= 256 megabytes (2^28 bytes), time= 2.9 seconds
   Test Name                         Raw       Processed     Evaluation
   [Low1/64]BRank(12):256(2)         R= +73.5  p~=  3.8e-23    FAIL !!        
   [Low1/64]BRank(12):384(1)         R= +2801  p~=  4.2e-844   FAIL !!!!!!!   

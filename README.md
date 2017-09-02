@@ -122,21 +122,22 @@ Summary for pcg32 lsb 32-bits (bit reverse) (4 crushes):
 
 (As of August 28th 2017, I am regenerating the results from scratch.)
 
-## PractRand results (64 GB)
+## PractRand results (512 GB)
 
 See practrand/results for detailed outputs.
 
 Raw output:
 
 ```
-$ ./summarize.sh
+$ ./summarize.sh 
+testmersennetwister.log:  [Low16/64]BRank(12):12K(1)        R= +3016  p~=  6.7e-909   FAIL !!!!!!!
 testmitchellmoore.log:  [Low1/64]BRank(12):256(2)         R= +73.5  p~=  3.8e-23    FAIL !!
 testxoroshiro128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
-testxorshift-k4.log:  BRank(12):256(4)                  R= +5300  p~=  1e-2819    FAIL !!!!!!!!
-testxorshift-k5.log:  [Low4/64]BRank(12):768(1)         R=+583.3  p~=  1.2e-176   FAIL !!!!!!
 testxorshift128plus-H.log:  BCFN(2+1,13-0,T)                  R= +27.9  p =  1.9e-14    FAIL
 testxorshift128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
 testxorshift32.log:  BCFN(2+0,13-2,T)                  R=+179.4  p =  2.8e-91    FAIL !!!!!
+testxorshift-k4.log:  BRank(12):256(4)                  R= +5300  p~=  1e-2819    FAIL !!!!!!!!
+testxorshift-k5.log:  [Low4/64]BRank(12):768(1)         R=+583.3  p~=  1.2e-176   FAIL !!!!!!
 ```
 
 

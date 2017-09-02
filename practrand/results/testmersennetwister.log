@@ -1,44 +1,54 @@
 RNG_test using PractRand version 0.93
-RNG = RNG_stdin64, seed = 0x8e3349e3
+RNG = RNG_stdin64, seed = 0xdbbf9249
 test set = normal, folding = standard (64 bit)
 
-rng=RNG_stdin64, seed=0x8e3349e3
-length= 256 megabytes (2^28 bytes), time= 2.7 seconds
+rng=RNG_stdin64, seed=0xdbbf9249
+length= 256 megabytes (2^28 bytes), time= 2.9 seconds
   no anomalies in 159 test result(s)
 
-rng=RNG_stdin64, seed=0x8e3349e3
-length= 512 megabytes (2^29 bytes), time= 6.0 seconds
+rng=RNG_stdin64, seed=0xdbbf9249
+length= 512 megabytes (2^29 bytes), time= 6.2 seconds
   Test Name                         Raw       Processed     Evaluation
   [Low4/64]Gap-16:A                 R=  +5.0  p =  1.1e-3   unusual          
   ...and 168 test result(s) without anomalies
 
-rng=RNG_stdin64, seed=0x8e3349e3
-length= 1 gigabyte (2^30 bytes), time= 12.0 seconds
+rng=RNG_stdin64, seed=0xdbbf9249
+length= 1 gigabyte (2^30 bytes), time= 12.5 seconds
   no anomalies in 180 test result(s)
 
-rng=RNG_stdin64, seed=0x8e3349e3
-length= 2 gigabytes (2^31 bytes), time= 23.4 seconds
+rng=RNG_stdin64, seed=0xdbbf9249
+length= 2 gigabytes (2^31 bytes), time= 24.4 seconds
   no anomalies in 191 test result(s)
 
-rng=RNG_stdin64, seed=0x8e3349e3
-length= 4 gigabytes (2^32 bytes), time= 45.2 seconds
+rng=RNG_stdin64, seed=0xdbbf9249
+length= 4 gigabytes (2^32 bytes), time= 47.3 seconds
   no anomalies in 201 test result(s)
 
-rng=RNG_stdin64, seed=0x8e3349e3
-length= 8 gigabytes (2^33 bytes), time= 89.3 seconds
+rng=RNG_stdin64, seed=0xdbbf9249
+length= 8 gigabytes (2^33 bytes), time= 93.5 seconds
   no anomalies in 212 test result(s)
 
-rng=RNG_stdin64, seed=0x8e3349e3
-length= 16 gigabytes (2^34 bytes), time= 176 seconds
+rng=RNG_stdin64, seed=0xdbbf9249
+length= 16 gigabytes (2^34 bytes), time= 184 seconds
   Test Name                         Raw       Processed     Evaluation
   [Low4/64]BCFN(2+0,13-1,T)         R=  -8.3  p =1-1.9e-4   mildly suspicious
   ...and 222 test result(s) without anomalies
 
-rng=RNG_stdin64, seed=0x8e3349e3
-length= 32 gigabytes (2^35 bytes), time= 343 seconds
+rng=RNG_stdin64, seed=0xdbbf9249
+length= 32 gigabytes (2^35 bytes), time= 363 seconds
   no anomalies in 233 test result(s)
 
-rng=RNG_stdin64, seed=0x8e3349e3
-length= 64 gigabytes (2^36 bytes), time= 685 seconds
+rng=RNG_stdin64, seed=0xdbbf9249
+length= 64 gigabytes (2^36 bytes), time= 727 seconds
   no anomalies in 244 test result(s)
+
+rng=RNG_stdin64, seed=0xdbbf9249
+length= 128 gigabytes (2^37 bytes), time= 1454 seconds
+  no anomalies in 255 test result(s)
+
+rng=RNG_stdin64, seed=0xdbbf9249
+length= 256 gigabytes (2^38 bytes), time= 2896 seconds
+  Test Name                         Raw       Processed     Evaluation
+  [Low16/64]BRank(12):12K(1)        R= +3016  p~=  6.7e-909   FAIL !!!!!!!   
+  ...and 264 test result(s) without anomalies
 
