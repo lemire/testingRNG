@@ -178,10 +178,10 @@ Results will depend on your specific hardware and might be quite different on AR
 |                  | TestU01 (big crush)| PractRand (64 GB)      | time (cycles/byte) |
 |------------------|--------------------|------------------------|--------------------|
 | xoroshiro128plus |  to be updated     | fails!                 | 0.9                |
-| splitmix64       |  passes     |    :+1:                | 0.9                |
+| splitmix64       |  :+1:      |    :+1:                | 0.9                |
 | xorshift128plus  |  to be updated     | fails!                 | 0.9                |
-| pcg64            |  to be updated     |    :+1:                | 1.3                |
-| pcg32            |  to be updated     |    :+1:                | 1.8                |
+| pcg64            |  :+1:     |    :+1:                | 1.3                |
+| pcg32            |  :+1:     |    :+1:                | 1.8                |
 | xorshift32       |  to be updated     | fails!                 | 2.3                |
 
 
