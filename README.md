@@ -120,7 +120,44 @@ Summary for pcg32 lsb 32-bits (bit reverse) (4 crushes):
 - 1 unnoteworthy blips (#23)
 ```
 
-(As of August 28th 2017, I am regenerating the results from scratch.)
+```
+$ ./summarize.pl testpcg64*.log
+Summary for pcg64 lsb 32-bits (bit reverse) (4 crushes):
+- 2 unnoteworthy blips (#49, #74)
+
+Summary for pcg64 lsb 32-bits (byte reverse) (4 crushes):
+- 1 unnoteworthy blips (#38)
+
+Summary for pcg64 msb 32-bits (4 crushes):
+- 1 unnoteworthy blips (#6)
+
+Summary for pcg64 msb 32-bits (bit reverse) (4 crushes):
+- 2 unnoteworthy blips (#33, #76)
+
+Summary for pcg64 msb 32-bits (byte reverse) (4 crushes):
+- 1 unnoteworthy blips (#7)
+```
+
+```
+$ ./summarize.pl testxoroshiro*.log
+Summary for xoroshiro128plus lsb 32-bits (4 crushes):
+- 1 unnoteworthy blips (#76)
+
+Summary for xoroshiro128plus lsb 32-bits (bit reverse) (4 crushes):
+- #68: MatrixRank, L=1000, r=0: FAIL!! -- p-values too unlikely (eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
+- #80: LinearComp, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1) -- ALL CRUSHES FAIL!!
+
+Summary for xoroshiro128plus lsb 32-bits (byte reverse) (4 crushes):
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
+
+Summary for xoroshiro128plus msb 32-bits (4 crushes):
+- 4 unnoteworthy blips (#11, #38, #97, #98)
+
+Summary for xoroshiro128plus msb 32-bits (bit reverse) (4 crushes):
+- 2 unnoteworthy blips (#48, #88)
+```
+
 
 ## PractRand results (512 GB)
 
@@ -177,12 +214,12 @@ Results will depend on your specific hardware and might be quite different on AR
 
 |                  | TestU01 (big crush)| PractRand (64 GB)      | time (cycles/byte) |
 |------------------|--------------------|------------------------|--------------------|
-| xoroshiro128plus |  to be updated     | fails!                 | 0.9                |
+| xoroshiro128plus |  fails     | fails!                 | 0.9                |
 | splitmix64       |  :+1:      |    :+1:                | 0.9                |
-| xorshift128plus  |  to be updated     | fails!                 | 0.9                |
+| xorshift128plus  |  to be updated (failure expected)     | fails!                 | 0.9                |
 | pcg64            |  :+1:     |    :+1:                | 1.3                |
 | pcg32            |  :+1:     |    :+1:                | 1.8                |
-| xorshift32       |  to be updated     | fails!                 | 2.3                |
+| xorshift32       |  to be updated (failure expected)    | fails!                 | 2.3                |
 
 
 ## Interpreting the results
