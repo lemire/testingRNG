@@ -160,6 +160,23 @@ Summary for xoroshiro128plus msb 32-bits (bit reverse) (4 crushes):
 - 2 unnoteworthy blips (#48, #88)
 ```
 
+```
+$ ./summarize.pl testxorshift128plus*.log
+reviewing xorshift128plus lsb 32-bits
+Summary for xorshift128plus lsb 32-bits (4 crushes):
+- 3 unnoteworthy blips (#7, #22, #59)
+
+reviewing xorshift128plus lsb 32-bits (bit reverse)
+Summary for xorshift128plus lsb 32-bits (bit reverse) (4 crushes):
+- #68: MatrixRank, L=1000, r=0: FAIL!! -- p-values too unlikely (eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
+- #80: LinearComp, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1) -- ALL CRUSHES FAIL!!
+- 2 unnoteworthy blips (#24, #24)
+
+reviewing xorshift128plus lsb 32-bits (byte reverse)
+Summary for xorshift128plus lsb 32-bits (byte reverse) (4 crushes):
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
+```
 
 ## PractRand results (512 GB)
 
@@ -218,7 +235,7 @@ Results will depend on your specific hardware and might be quite different on AR
 |------------------|--------------------|------------------------|--------------------|
 | xoroshiro128plus |  fails     | fails!                 | 0.9                |
 | splitmix64       |  :+1:      |    :+1:                | 0.9                |
-| xorshift128plus  |  to be updated (failure expected)     | fails!                 | 0.9                |
+| xorshift128plus  |  fails     | fails!                 | 0.9                |
 | pcg64            |  :+1:     |    :+1:                | 1.3                |
 | pcg32            |  :+1:     |    :+1:                | 1.8                |
 | xorshift32       |  to be updated (failure expected)    | fails!                 | 2.3                |
