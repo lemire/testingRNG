@@ -37,7 +37,12 @@ foreach my $file (@ARGV) {
     ++$crushCountFor{$generator};
 }
 
+if(scalar keys %nonpassesFor == 0) {
+  print "No failure detected !\n"
+}
+
 foreach my $generator (sort keys %nonpassesFor) {
+    print "reviewing $generator \n";
     my $tooManyThreshold = ceil(1 + $crushCountFor{$generator}/10);
     my $crushes = $crushCountFor{$generator};
     print "Summary for $generator ($crushes crushes):\n";
