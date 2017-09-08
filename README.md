@@ -16,6 +16,8 @@ We assume Linux or macOS. Under Windows 10, you can get the [Linux Subsystem](ht
 - If you have a mac, it is assumed that [you have installed a recent Xcode package](https://developer.apple.com/xcode/) to get
 the C (and C++) compiler. Make sure you have installed the command-line utilities.
 
+(Note: Some contributed schemes may assume a recent x64 processor. However, the bulk of the code is entirely portable.)
+
 ## Usage
 
 You can run the tests by going to a bash shell (Terminal) and executing a few commands.
@@ -50,13 +52,13 @@ Note  that the speed tests assume a recent x64 processor (e.g., they would not w
 
 ## The contenders
 
-- lehmer64 is a simple (but fast) Multiplicative Linear Congruential Generator
-- aesctr is a random number generator based on the AES cipher (contributed by Samuel Neves)
 - splitmix64 is a random number generator in widespread use and part of the standard Java API, we adapted a port to C produced by Vigna. It produces 64-bit numbers.
 - pcg32 and pcg64 are instances of the PCG family designed by O'Neill. They produce either 32-bit or 64-bit outputs.
 - xorshift32 is a classical xorshift random number generator. We do not expect it to do well.
 - xorshift128plus and xoroshiro128plus are recently proposed random number generator by Vigna.
 - rand is whatever random number number generator your C standard library provides. It is a useful point of reference when assessing speed.
+- lehmer64 is a simple (but fast) Multiplicative Linear Congruential Generator
+- aesctr is a random number generator based on the AES cipher (contributed by Samuel Neves)
 
 
 ## Methodology
@@ -81,7 +83,7 @@ particular approach to extract good 32-bit values from a 64-bit value, then it w
 a good sign that something is not quite right with the original 64-bit values.
 
 A given tests might fail with one seed, but this tells us little. So we check that
-the test fails with at least two seeds.
+the test fails with at least four seeds.
 
 For PractRand, we do not need to truncate the produced random bits.
 
@@ -227,15 +229,15 @@ Results will depend on your specific hardware and might be quite different on AR
 Tests are subject to both false positives and false negatives, and should be interpreted with care.
 
 - That your random number generator passes several statistical tests does not prove that it is of high quality. There might be other tests that it would fail. However, the more tests one passes, the greater the evidence is in favor of your random number generator, evidently.
-- A statistical test might fail even if the bits are indeed "random". Thus a fialed test is not "proof" that the random number generation is faulty. However, failing tests can be further investigated and evidence of a fault can be ascertained.
+- A statistical test might fail even if the bits are indeed "random". Thus a failed test is not "proof" that the random number generation is faulty. However, failing tests can be further investigated and evidence of a fault can be ascertained.
 
-One source of concern is that random number generators are initialized with a seed, and sometimes a "sequence" is selected. Testing successfully with a given seed does not preclude the possibility that there might be "bad seeds".
+One source of concern is that random number generators are initialized with a seed, and sometimes a "sequence" is selected. Testing successfully with a given seed does not preclude the possibility that there might be "bad seeds". However, if we pick different seeds an a failure keeps happening, we gain confidence that the failure is easily reproducible and thus problematic. Repeated test failures with different seeds gives us confidence that there is a fault.
 
 To summarize, caution is required when interpreting the results. It is not black and white, good and bad... One might say that a given generator passes a given test, but it is possible that with different seeds, it could fail, and so forth.
 
 Still, for convenience, it is necessary to express results in a comprehensible manner. Thus we often say that a generator "passes a given test" or does not.
 
-Repeated test failures with different seeds gives us confidence that there is a fault.
+
 
 ## Testing frameworks
 
