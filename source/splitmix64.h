@@ -2,6 +2,12 @@
 #define SPLITMIX64_H
 
 /* Modified by D. Lemire, August 2017 */
+/***
+Fast Splittable Pseudorandom Number Generators
+Steele Jr, Guy L., Doug Lea, and Christine H. Flood. "Fast splittable pseudorandom number generators." 
+ACM SIGPLAN Notices 49.10 (2014): 453-472.
+***/
+
 /*  Written in 2015 by Sebastiano Vigna (vigna@acm.org)
 
 To the extent possible under law, the author has dedicated all copyright
