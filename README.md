@@ -178,6 +178,39 @@ Summary for xorshift128plus lsb 32-bits (byte reverse) (4 crushes):
 - #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
 ```
 
+```
+$ ./summarize.pl testlehmer64*.log
+reviewing lehmer64 lsb 32-bits
+Summary for lehmer64 lsb 32-bits (4 crushes):
+- 2 unnoteworthy blips (#50, #74)
+
+reviewing lehmer64 lsb 32-bits (bit reverse)
+Summary for lehmer64 lsb 32-bits (bit reverse) (4 crushes):
+- 1 unnoteworthy blips (#77)
+
+reviewing lehmer64 lsb 32-bits (byte reverse)
+Summary for lehmer64 lsb 32-bits (byte reverse) (4 crushes):
+- 3 unnoteworthy blips (#59, #64, #76)
+
+reviewing lehmer64 msb 32-bits (bit reverse)
+Summary for lehmer64 msb 32-bits (bit reverse) (4 crushes):
+- 4 unnoteworthy blips (#10, #74, #80, #91)
+
+reviewing lehmer64 msb 32-bits (byte reverse)
+Summary for lehmer64 msb 32-bits (byte reverse) (4 crushes):
+- 1 unnoteworthy blips (#12)
+```
+```
+$ ./summarize.pl testaesctr*.log
+reviewing aesctr lsb 32-bits
+Summary for aesctr lsb 32-bits (4 crushes):
+- 3 unnoteworthy blips (#10, #22, #88)
+
+reviewing aesctr lsb 32-bits (bit reverse)
+Summary for aesctr lsb 32-bits (bit reverse) (4 crushes):
+- 1 unnoteworthy blips (#11)
+```
+
 ## PractRand results (512 GB)
 
 See practrand/results for detailed outputs.
@@ -200,30 +233,22 @@ testxorshift-k5.log:  [Low4/64]BRank(12):768(1)         R=+583.3  p~=  1.2e-176 
 
 ## Speed results
 
-On a recent (Skylake) processor, on a Linux box, I got the following results:
+On a recent (Haswell) processor, on a Linux box, I got the following results:
+
 
 ```
-aesctr:  1.72 cycles per byte
-xorshift32:  2.33 cycles per byte
-pcg32:  1.81 cycles per byte
-rand:  5.19 cycles per byte
-xorshift128plus:  0.91 cycles per byte
-xoroshiro128plus:  0.85 cycles per byte
-splitmix64:  0.89 cycles per byte
-pcg64:  1.27 cycles per byte
-```
-
-Sorting the results from the fastest to the slowest...
-
-```
-xoroshiro128plus:  0.85 cycles per byte
-splitmix64:  0.89 cycles per byte
-xorshift128plus:  0.91 cycles per byte
-pcg64:  1.27 cycles per byte
-aesctr:  1.72 cycles per byte
-pcg32:  1.81 cycles per byte
-xorshift32:  2.33 cycles per byte
-rand:  5.19 cycles per byte
+lehmer64:  1.04 cycles per byte
+splitmix64:  1.04 cycles per byte
+xorshift128plus:  1.04 cycles per byte
+aesctr:  1.07 cycles per byte
+xoroshiro128plus:  1.15 cycles per byte
+pcg64:  1.41 cycles per byte
+pcg32:  2.10 cycles per byte
+widynski:  2.30 cycles per byte
+xorshift32:  2.53 cycles per byte
+mersennetwister:  2.61 cycles per byte
+mitchellmoore:  3.80 cycles per byte
+rand:  5.48 cycles per byte
 ```
 
 Results will depend on your specific hardware and might be quite different on ARM processors. Tweaking the benchmark could also change the results. In particular, our benchmark stresses throughput as opposed to latency.
@@ -233,13 +258,14 @@ Results will depend on your specific hardware and might be quite different on AR
 
 |                  | TestU01 (big crush)| PractRand (64 GB)      | time (cycles/byte) |
 |------------------|--------------------|------------------------|--------------------|
-| xoroshiro128plus |  fails     | fails!                 | 0.9                |
-| splitmix64       |  :+1:      |    :+1:                | 0.9                |
-| xorshift128plus  |  fails     | fails!                 | 0.9                |
-| pcg64            |  :+1:     |    :+1:                | 1.3                |
-| pcg32            |  :+1:     |    :+1:                | 1.8                |
-| xorshift32       |  to be updated (failure expected)    | fails!                 | 2.3                |
-
+| lehmer64         | :+1:       |   :+1:                                       | 1.0 |
+| splitmix64       |  :+1:      |    :+1:                | 1.0                |
+| aes         | :+1:       |   :+1:                                       | 1.0 |
+| xorshift128plus  |  fails!     | fails!                 | 1.0                |
+| xoroshiro128plus |  fails!     | fails!                 | 1.1                |
+| pcg64            |  :+1:     |    :+1:                | 1.4                |
+| pcg32            |  :+1:     |    :+1:                | 2.1                |
+| xorshift32       |  to be updated (failure expected)    | fails!                 | 2.5                |
 
 ## Interpreting the results
 
