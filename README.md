@@ -55,7 +55,7 @@ Note  that the speed tests assume a recent x64 processor (e.g., they would not w
 - splitmix64 is a random number generator in widespread use and part of the standard Java API, we adapted a port to C produced by Vigna. It produces 64-bit numbers.
 - pcg32 and pcg64 are instances of the PCG family designed by O'Neill. They produce either 32-bit or 64-bit outputs.
 - xorshift32 is a classical xorshift random number generator. We do not expect it to do well.
-- xorshift128plus and xoroshiro128plus are recently proposed random number generator by Vigna.
+- xorshift128plus, xorshift1024star and xoroshiro128plus are recently proposed random number generator by Vigna.
 - rand is whatever random number number generator your C standard library provides. It is a useful point of reference when assessing speed.
 - lehmer64 is a simple (but fast) Multiplicative Linear Congruential Generator
 - aesctr is a random number generator based on the AES cipher (contributed by Samuel Neves)
@@ -224,6 +224,7 @@ $ ./summarize.sh
 testmersennetwister.log:  [Low16/64]BRank(12):12K(1)        R= +3016  p~=  6.7e-909   FAIL !!!!!!!
 testmitchellmoore.log:  [Low1/64]BRank(12):256(2)         R= +73.5  p~=  3.8e-23    FAIL !!
 testxoroshiro128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
+testxorshift1024star.log:  [Low4/64]BRank(12):1536(1)        R= +2650  p~=  9.8e-799   FAIL !!!!!!!
 testxorshift128plus-H.log:  BCFN(2+1,13-0,T)                  R= +27.9  p =  1.9e-14    FAIL
 testxorshift128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
 testxorshift32.log:  BCFN(2+0,13-2,T)                  R=+179.4  p =  2.8e-91    FAIL !!!!!
@@ -245,6 +246,7 @@ xorshift128plus:  1.04 cycles per byte
 aesctr:  1.07 cycles per byte
 xoroshiro128plus:  1.15 cycles per byte
 pcg64:  1.41 cycles per byte
+xorshift1024star:  1.51 cycles per byte
 pcg32:  2.10 cycles per byte
 widynski:  2.30 cycles per byte
 xorshift32:  2.53 cycles per byte
@@ -260,14 +262,15 @@ Results will depend on your specific hardware and might be quite different on AR
 
 |                  | TestU01 (big crush)| PractRand (64 GB)      | time (cycles/byte) |
 |------------------|--------------------|------------------------|--------------------|
-| lehmer64         | :+1:       |   :+1:                                       | 1.0 |
-| splitmix64       |  :+1:      |    :+1:                | 1.0                |
-| aes         | :+1:       |   :+1:                                       | 1.0 |
-| xorshift128plus  |  fails!     | fails!                 | 1.0                |
-| xoroshiro128plus |  fails!     | fails!                 | 1.1                |
-| pcg64            |  :+1:     |    :+1:                | 1.4                |
-| pcg32            |  :+1:     |    :+1:                | 2.1                |
-| xorshift32       |  fails   | fails!                 | 2.5                |
+| lehmer64         | :+1:               |   :+1:                 | 1.0                |
+| splitmix64       |  :+1:              |    :+1:                | 1.0                |
+| aes              | :+1:               |   :+1:                 | 1.0                |
+| xorshift128plus  |  fails!            | fails!                 | 1.0                |
+| xoroshiro128plus |  fails!            | fails!                 | 1.1                |
+| pcg64            |  :+1:              |    :+1:                | 1.4                |
+| xorshift1024star |  tests running     |    fails!              | 1.5                |
+| pcg32            |  :+1:              |    :+1:                | 2.1                |
+| xorshift32       |  fails!            | fails!                 | 2.5                |
 
 ## Interpreting the results
 
