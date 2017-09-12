@@ -1,5 +1,5 @@
-==seed: 848432 
-==xorshift128plus 
+==seed: 987654 
+==xorshift32 
 xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
                  Starting BigCrush
                  Version: TestU01 1.2.3
@@ -12,7 +12,7 @@ Test smarsa_SerialOver calling smultin_MultinomialOver
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_MultinomialOver test:
@@ -33,12 +33,12 @@ smultin_MultinomialOver test:
 Test Results for Delta =   1.0000
 
 Number of degrees of freedom          : 16711680
-Value of the statistic                : 1.67e+7
-p-value of test                       :    0.43
+Value of the statistic                : 1.28e+7
+p-value of test                       : 1 - eps1    *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:51.78
+CPU time used                    :  00:00:47.28
 
 Generator state:
 
@@ -51,7 +51,7 @@ Test smarsa_SerialOver calling smultin_MultinomialOver
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_MultinomialOver test:
@@ -72,12 +72,12 @@ smultin_MultinomialOver test:
 Test Results for Delta =   1.0000
 
 Number of degrees of freedom          : 16711680
-Value of the statistic                : 1.67e+7
-p-value of test                       :    0.04
+Value of the statistic                : 1.28e+7
+p-value of test                       : 1 - eps1    *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:52.84
+CPU time used                    :  00:00:48.71
 
 Generator state:
 
@@ -90,7 +90,7 @@ Test smarsa_CollisionOver calling smultin_MultinomialOver
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_MultinomialOver test:
@@ -115,21 +115,21 @@ Results of CollisionOver test:
 
 POISSON approximation                 :
 Expected number of collisions = N*Mu  :     1364.24
-Observed number of collisions         :     1372
-p-value of test                       :    0.42
+Observed number of collisions         :        0
+p-value of test                       : 1 - eps1    *****
 
 -----------------------------
 Total number of cells containing j balls
 
-  j =  0                              :  131940795334492
-  j =  1                              :        599997256
-  j =  2                              :             1372
+  j =  0                              :  131940795333120
+  j =  1                              :        600000000
+  j =  2                              :                0
   j =  3                              :                0
   j =  4                              :                0
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:01:49.56
+CPU time used                    :  00:01:45.11
 
 Generator state:
 
@@ -142,7 +142,7 @@ Test smarsa_CollisionOver calling smultin_MultinomialOver
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_MultinomialOver test:
@@ -167,21 +167,21 @@ Results of CollisionOver test:
 
 POISSON approximation                 :
 Expected number of collisions = N*Mu  :     1364.24
-Observed number of collisions         :     1302
-p-value of test                       :    0.95
+Observed number of collisions         :        0
+p-value of test                       : 1 - eps1    *****
 
 -----------------------------
 Total number of cells containing j balls
 
-  j =  0                              :  131940795334422
-  j =  1                              :        599997396
-  j =  2                              :             1302
+  j =  0                              :  131940795333120
+  j =  1                              :        600000000
+  j =  2                              :                0
   j =  3                              :                0
   j =  4                              :                0
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:01:56.87
+CPU time used                    :  00:01:47.31
 
 Generator state:
 
@@ -194,7 +194,7 @@ Test smarsa_CollisionOver calling smultin_MultinomialOver
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_MultinomialOver test:
@@ -219,21 +219,21 @@ Results of CollisionOver test:
 
 POISSON approximation                 :
 Expected number of collisions = N*Mu  :     1364.24
-Observed number of collisions         :     1366
-p-value of test                       :    0.48
+Observed number of collisions         :  4178531
+p-value of test                       :   eps      *****
 
 -----------------------------
 Total number of cells containing j balls
 
-  j =  0                              :  131940795334486
-  j =  1                              :        599997268
-  j =  2                              :             1366
-  j =  3                              :                0
-  j =  4                              :                0
+  j =  0                              :  131940799511651
+  j =  1                              :        591655965
+  j =  2                              :          4152486
+  j =  3                              :            13009
+  j =  4                              :                9
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:16.77
+CPU time used                    :  00:02:10.86
 
 Generator state:
 
@@ -246,7 +246,7 @@ Test smarsa_CollisionOver calling smultin_MultinomialOver
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_MultinomialOver test:
@@ -271,21 +271,21 @@ Results of CollisionOver test:
 
 POISSON approximation                 :
 Expected number of collisions = N*Mu  :     1364.24
-Observed number of collisions         :     1394
-p-value of test                       :    0.21
+Observed number of collisions         :        0
+p-value of test                       : 1 - eps1    *****
 
 -----------------------------
 Total number of cells containing j balls
 
-  j =  0                              :  131940795334514
-  j =  1                              :        599997212
-  j =  2                              :             1394
+  j =  0                              :  131940795333120
+  j =  1                              :        600000000
+  j =  2                              :                0
   j =  3                              :                0
   j =  4                              :                0
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:19.47
+CPU time used                    :  00:02:14.36
 
 Generator state:
 
@@ -298,7 +298,7 @@ Test smarsa_CollisionOver calling smultin_MultinomialOver
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_MultinomialOver test:
@@ -323,21 +323,21 @@ Results of CollisionOver test:
 
 POISSON approximation                 :
 Expected number of collisions = N*Mu  :     1364.24
-Observed number of collisions         :     1415
-p-value of test                       :    0.09
+Observed number of collisions         :        0
+p-value of test                       : 1 - eps1    *****
 
 -----------------------------
 Total number of cells containing j balls
 
-  j =  0                              :  131940795334535
-  j =  1                              :        599997170
-  j =  2                              :             1415
+  j =  0                              :  131940795333120
+  j =  1                              :        600000000
+  j =  2                              :                0
   j =  3                              :                0
   j =  4                              :                0
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:19.72
+CPU time used                    :  00:02:15.62
 
 Generator state:
 
@@ -350,7 +350,7 @@ Test smarsa_CollisionOver calling smultin_MultinomialOver
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_MultinomialOver test:
@@ -375,21 +375,21 @@ Results of CollisionOver test:
 
 POISSON approximation                 :
 Expected number of collisions = N*Mu  :     1364.24
-Observed number of collisions         :     1348
-p-value of test                       :    0.66
+Observed number of collisions         :        0
+p-value of test                       : 1 - eps1    *****
 
 -----------------------------
 Total number of cells containing j balls
 
-  j =  0                              :  131940795334468
-  j =  1                              :        599997304
-  j =  2                              :             1348
+  j =  0                              :  131940795333120
+  j =  1                              :        600000000
+  j =  2                              :                0
   j =  3                              :                0
   j =  4                              :                0
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:22.30
+CPU time used                    :  00:02:17.40
 
 Generator state:
 
@@ -402,7 +402,7 @@ Test smarsa_CollisionOver calling smultin_MultinomialOver
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_MultinomialOver test:
@@ -427,21 +427,21 @@ Results of CollisionOver test:
 
 POISSON approximation                 :
 Expected number of collisions = N*Mu  :     1364.24
-Observed number of collisions         :     1420
-p-value of test                       :    0.07
+Observed number of collisions         :        0
+p-value of test                       : 1 - eps1    *****
 
 -----------------------------
 Total number of cells containing j balls
 
-  j =  0                              :  131940795334540
-  j =  1                              :        599997160
-  j =  2                              :             1420
+  j =  0                              :  131940795333120
+  j =  1                              :        600000000
+  j =  2                              :                0
   j =  3                              :                0
   j =  4                              :                0
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:19.40
+CPU time used                    :  00:02:15.05
 
 Generator state:
 
@@ -454,7 +454,7 @@ Test smarsa_CollisionOver calling smultin_MultinomialOver
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_MultinomialOver test:
@@ -479,21 +479,21 @@ Results of CollisionOver test:
 
 POISSON approximation                 :
 Expected number of collisions = N*Mu  :     1364.24
-Observed number of collisions         :     1360
-p-value of test                       :    0.54
+Observed number of collisions         :        0
+p-value of test                       : 1 - eps1    *****
 
 -----------------------------
 Total number of cells containing j balls
 
-  j =  0                              :  131940795334480
-  j =  1                              :        599997280
-  j =  2                              :             1360
+  j =  0                              :  131940795333120
+  j =  1                              :        600000000
+  j =  2                              :                0
   j =  3                              :                0
   j =  4                              :                0
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:22.03
+CPU time used                    :  00:02:16.67
 
 Generator state:
 
@@ -506,7 +506,7 @@ Test smarsa_CollisionOver calling smultin_MultinomialOver
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_MultinomialOver test:
@@ -531,21 +531,21 @@ Results of CollisionOver test:
 
 POISSON approximation                 :
 Expected number of collisions = N*Mu  :     1364.24
-Observed number of collisions         :     1349
-p-value of test                       :    0.65
+Observed number of collisions         :        0
+p-value of test                       : 1 - eps1    *****
 
 -----------------------------
 Total number of cells containing j balls
 
-  j =  0                              :  131940795334469
-  j =  1                              :        599997302
-  j =  2                              :             1349
+  j =  0                              :  131940795333120
+  j =  1                              :        600000000
+  j =  2                              :                0
   j =  3                              :                0
   j =  4                              :                0
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:17.84
+CPU time used                    :  00:02:13.64
 
 Generator state:
 
@@ -558,7 +558,7 @@ Test smarsa_CollisionOver calling smultin_MultinomialOver
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_MultinomialOver test:
@@ -583,21 +583,21 @@ Results of CollisionOver test:
 
 POISSON approximation                 :
 Expected number of collisions = N*Mu  :     1364.24
-Observed number of collisions         :     1393
-p-value of test                       :    0.22
+Observed number of collisions         :        0
+p-value of test                       : 1 - eps1    *****
 
 -----------------------------
 Total number of cells containing j balls
 
-  j =  0                              :  131940795334513
-  j =  1                              :        599997214
-  j =  2                              :             1393
+  j =  0                              :  131940795333120
+  j =  1                              :        600000000
+  j =  2                              :                0
   j =  3                              :                0
   j =  4                              :                0
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:20.80
+CPU time used                    :  00:02:15.07
 
 Generator state:
 
@@ -607,7 +607,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_BirthdaySpacings test:
@@ -621,12 +621,12 @@ smarsa_BirthdaySpacings test:
 
 ----------------------------------------------------
 Total expected number = N*Lambda      :    5421.01
-Total observed number                 :    5373
-p-value of test                       :    0.74
+Total observed number                 : 214509321
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:03:02.59
+CPU time used                    :  00:02:58.49
 
 Generator state:
 
@@ -636,7 +636,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_BirthdaySpacings test:
@@ -650,12 +650,12 @@ smarsa_BirthdaySpacings test:
 
 ----------------------------------------------------
 Total expected number = N*Lambda      :    4336.81
-Total observed number                 :    4308
-p-value of test                       :    0.67
+Total observed number                 : 144212124
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:18.33
+CPU time used                    :  00:01:15.88
 
 Generator state:
 
@@ -665,7 +665,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_BirthdaySpacings test:
@@ -679,12 +679,12 @@ smarsa_BirthdaySpacings test:
 
 ----------------------------------------------------
 Total expected number = N*Lambda      :    7318.36
-Total observed number                 :    7398
-p-value of test                       :    0.18
+Total observed number                 : 117022333
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:06.94
+CPU time used                    :  00:02:03.69
 
 Generator state:
 
@@ -694,7 +694,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_BirthdaySpacings test:
@@ -708,12 +708,12 @@ smarsa_BirthdaySpacings test:
 
 ----------------------------------------------------
 Total expected number = N*Lambda      :    4336.81
-Total observed number                 :    4394
-p-value of test                       :    0.19
+Total observed number                 : 61166399
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:29.35
+CPU time used                    :  00:01:27.44
 
 Generator state:
 
@@ -723,7 +723,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_BirthdaySpacings test:
@@ -737,12 +737,12 @@ smarsa_BirthdaySpacings test:
 
 ----------------------------------------------------
 Total expected number = N*Lambda      :    4336.81
-Total observed number                 :    4327
-p-value of test                       :    0.56
+Total observed number                 : 57517896
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:32.86
+CPU time used                    :  00:01:29.88
 
 Generator state:
 
@@ -752,7 +752,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_BirthdaySpacings test:
@@ -766,12 +766,12 @@ smarsa_BirthdaySpacings test:
 
 ----------------------------------------------------
 Total expected number = N*Lambda      :    7318.36
-Total observed number                 :    7331
-p-value of test                       :    0.44
+Total observed number                 : 77909484
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:26.53
+CPU time used                    :  00:02:21.11
 
 Generator state:
 
@@ -781,7 +781,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_BirthdaySpacings test:
@@ -795,12 +795,12 @@ smarsa_BirthdaySpacings test:
 
 ----------------------------------------------------
 Total expected number = N*Lambda      :    7318.36
-Total observed number                 :    7409
-p-value of test                       :    0.15
+Total observed number                 : 74196921
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:26.50
+CPU time used                    :  00:02:21.32
 
 Generator state:
 
@@ -810,7 +810,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_BirthdaySpacings test:
@@ -824,12 +824,12 @@ smarsa_BirthdaySpacings test:
 
 ----------------------------------------------------
 Total expected number = N*Lambda      :    7318.36
-Total observed number                 :    7520
-p-value of test                       :  9.6e-3
+Total observed number                 : 68311662
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:54.61
+CPU time used                    :  00:02:51.55
 
 Generator state:
 
@@ -839,7 +839,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_BirthdaySpacings test:
@@ -853,12 +853,12 @@ smarsa_BirthdaySpacings test:
 
 ----------------------------------------------------
 Total expected number = N*Lambda      :    7318.36
-Total observed number                 :    7476
-p-value of test                       :    0.03
+Total observed number                 : 71874828
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:03:07.09
+CPU time used                    :  00:02:56.23
 
 Generator state:
 
@@ -868,7 +868,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 snpair_ClosePairs test:
@@ -879,34 +879,34 @@ snpair_ClosePairs test:
 ---------------------------------------
 Test based on the 2 nearest points (NP):
 
-Stat. AD on the N values (NP)         :    0.29
-p-value of test                       :    0.95
+Stat. AD on the N values (NP)         :   14.12
+p-value of test                       :  1.9e-7    *****
 
 
 A2 test based on the spacings between the
    successive jump times of process Y_n(t):
 
-A2 test on the values of A2 (m-NP)    :    1.83
-p-value of test                       :    0.11
+A2 test on the values of A2 (m-NP)    : 1072.10
+p-value of test                       :   eps      *****
 
-Test on the Nm values of W_{n,i}(mNP1):    0.69
-p-value of test                       :    0.57
+Test on the Nm values of W_{n,i}(mNP1):29635.43
+p-value of test                       :   eps      *****
 
 Test on the jump times of Y
    (superposition of Yn):
 
 Expected number of jumps of Y = mN    :     900
-Number of jumps of Y                  :     897
-p-value of test                       :    0.53
+Number of jumps of Y                  :  378738
+p-value of test                       :   eps      *****
 
-Stat. AD (mNP2)                       :    1.34
-p-value of test                       :    0.22
+Stat. AD (mNP2)                       : 2.88e+5
+p-value of test                       :   eps      *****
 
-Stat. AD after spacings (mNP2-S)      :    1.17
-p-value of test                       :    0.28
+Stat. AD after spacings (mNP2-S)      : 1.35e+7
+p-value of test                       :   eps      *****
 
 -----------------------------------------------
-CPU time used                    :  00:02:06.11
+CPU time used                    :  00:02:05.50
 
 Generator state:
 
@@ -916,7 +916,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 snpair_ClosePairs test:
@@ -927,34 +927,34 @@ snpair_ClosePairs test:
 ---------------------------------------
 Test based on the 2 nearest points (NP):
 
-Stat. AD on the N values (NP)         :    0.71
-p-value of test                       :    0.55
+Stat. AD on the N values (NP)         :   80.91
+p-value of test                       : 7.9e-37    *****
 
 
 A2 test based on the spacings between the
    successive jump times of process Y_n(t):
 
-A2 test on the values of A2 (m-NP)    :    1.00
-p-value of test                       :    0.36
+A2 test on the values of A2 (m-NP)    :  714.74
+p-value of test                       :   eps      *****
 
-Test on the Nm values of W_{n,i}(mNP1):    0.32
-p-value of test                       :    0.92
+Test on the Nm values of W_{n,i}(mNP1): 3938.35
+p-value of test                       :   eps      *****
 
 Test on the jump times of Y
    (superposition of Yn):
 
 Expected number of jumps of Y = mN    :     600
-Number of jumps of Y                  :     605
-p-value of test                       :    0.42
+Number of jumps of Y                  :   17215
+p-value of test                       :   eps      *****
 
-Stat. AD (mNP2)                       :    0.35
-p-value of test                       :    0.90
+Stat. AD (mNP2)                       : 6561.99
+p-value of test                       :   eps      *****
 
-Stat. AD after spacings (mNP2-S)      :    0.96
-p-value of test                       :    0.38
+Stat. AD after spacings (mNP2-S)      : 3.73e+5
+p-value of test                       :   eps      *****
 
 -----------------------------------------------
-CPU time used                    :  00:01:25.30
+CPU time used                    :  00:01:19.92
 
 Generator state:
 
@@ -964,7 +964,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 snpair_ClosePairs test:
@@ -975,34 +975,34 @@ snpair_ClosePairs test:
 ---------------------------------------
 Test based on the 2 nearest points (NP):
 
-Stat. AD on the N values (NP)         :    1.28
-p-value of test                       :    0.24
+Stat. AD on the N values (NP)         :   19.65
+p-value of test                       : 6.4e-10    *****
 
 
 A2 test based on the spacings between the
    successive jump times of process Y_n(t):
 
-A2 test on the values of A2 (m-NP)    :    3.14
-p-value of test                       :    0.02
+A2 test on the values of A2 (m-NP)    :  303.46
+p-value of test                       :9.1e-134    *****
 
-Test on the Nm values of W_{n,i}(mNP1):    8.24
-p-value of test                       :  9.2e-5    *****
+Test on the Nm values of W_{n,i}(mNP1):  350.40
+p-value of test                       :3.5e-154    *****
 
 Test on the jump times of Y
    (superposition of Yn):
 
 Expected number of jumps of Y = mN    :     300
-Number of jumps of Y                  :     367
-p-value of test                       :  1.0e-4    *****
+Number of jumps of Y                  :     960
+p-value of test                       :9.2e-201    *****
 
-Stat. AD (mNP2)                       :    1.15
-p-value of test                       :    0.29
+Stat. AD (mNP2)                       :   79.12
+p-value of test                       : 4.8e-36    *****
 
-Stat. AD after spacings (mNP2-S)      :    1.29
-p-value of test                       :    0.24
+Stat. AD after spacings (mNP2-S)      : 2400.56
+p-value of test                       :   eps      *****
 
 -----------------------------------------------
-CPU time used                    :  00:02:12.59
+CPU time used                    :  00:01:50.71
 
 Generator state:
 
@@ -1012,7 +1012,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 snpair_ClosePairs test:
@@ -1023,34 +1023,34 @@ snpair_ClosePairs test:
 ---------------------------------------
 Test based on the 2 nearest points (NP):
 
-Stat. AD on the N values (NP)         :    1.78
-p-value of test                       :    0.12
+Stat. AD on the N values (NP)         :    3.77
+p-value of test                       :    0.01
 
 
 A2 test based on the spacings between the
    successive jump times of process Y_n(t):
 
-A2 test on the values of A2 (m-NP)    :    0.68
-p-value of test                       :    0.57
+A2 test on the values of A2 (m-NP)    :    2.24
+p-value of test                       :    0.07
 
-Test on the Nm values of W_{n,i}(mNP1):    0.66
-p-value of test                       :    0.60
+Test on the Nm values of W_{n,i}(mNP1):    2.01
+p-value of test                       :    0.09
 
 Test on the jump times of Y
    (superposition of Yn):
 
 Expected number of jumps of Y = mN    :     150
-Number of jumps of Y                  :     151
-p-value of test                       :    0.48
+Number of jumps of Y                  :     113
+p-value of test                       :    0.9990    *****
 
-Stat. AD (mNP2)                       :    1.92
-p-value of test                       :    0.10
+Stat. AD (mNP2)                       :    2.58
+p-value of test                       :    0.05
 
-Stat. AD after spacings (mNP2-S)      :    0.92
-p-value of test                       :    0.40
+Stat. AD after spacings (mNP2-S)      :    4.18
+p-value of test                       :  7.2e-3
 
 -----------------------------------------------
-CPU time used                    :  00:02:28.38
+CPU time used                    :  00:02:15.11
 
 Generator state:
 
@@ -1060,7 +1060,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_SimpPoker test:
@@ -1070,11 +1070,11 @@ sknuth_SimpPoker test:
 
 -----------------------------------------------
 Number of degrees of freedom          :    7
-Chi-square statistic                  :    6.55
-p-value of test                       :    0.48
+Chi-square statistic                  :    8.51
+p-value of test                       :    0.29
 
 -----------------------------------------------
-CPU time used                    :  00:00:38.28
+CPU time used                    :  00:00:34.09
 
 Generator state:
 
@@ -1084,7 +1084,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_SimpPoker test:
@@ -1094,11 +1094,11 @@ sknuth_SimpPoker test:
 
 -----------------------------------------------
 Number of degrees of freedom          :    7
-Chi-square statistic                  :    7.18
-p-value of test                       :    0.41
+Chi-square statistic                  :    2.48
+p-value of test                       :    0.93
 
 -----------------------------------------------
-CPU time used                    :  00:00:45.15
+CPU time used                    :  00:00:40.09
 
 Generator state:
 
@@ -1108,7 +1108,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_SimpPoker test:
@@ -1118,11 +1118,11 @@ sknuth_SimpPoker test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   18
-Chi-square statistic                  :   16.17
-p-value of test                       :    0.58
+Chi-square statistic                  :   20.07
+p-value of test                       :    0.33
 
 -----------------------------------------------
-CPU time used                    :  00:00:39.78
+CPU time used                    :  00:00:34.98
 
 Generator state:
 
@@ -1132,7 +1132,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_SimpPoker test:
@@ -1142,11 +1142,11 @@ sknuth_SimpPoker test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   18
-Chi-square statistic                  :   21.41
-p-value of test                       :    0.26
+Chi-square statistic                  :   16.16
+p-value of test                       :    0.58
 
 -----------------------------------------------
-CPU time used                    :  00:00:47.03
+CPU time used                    :  00:00:41.26
 
 Generator state:
 
@@ -1156,7 +1156,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_CouponCollector test:
@@ -1166,11 +1166,11 @@ sknuth_CouponCollector test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   54
-Chi-square statistic                  :   56.23
-p-value of test                       :    0.39
+Chi-square statistic                  :   58.24
+p-value of test                       :    0.32
 
 -----------------------------------------------
-CPU time used                    :  00:00:49.00
+CPU time used                    :  00:00:43.13
 
 Generator state:
 
@@ -1180,7 +1180,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_CouponCollector test:
@@ -1190,11 +1190,11 @@ sknuth_CouponCollector test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   54
-Chi-square statistic                  :   57.43
-p-value of test                       :    0.35
+Chi-square statistic                  :   53.95
+p-value of test                       :    0.48
 
 -----------------------------------------------
-CPU time used                    :  00:00:57.32
+CPU time used                    :  00:00:50.03
 
 Generator state:
 
@@ -1204,7 +1204,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_CouponCollector test:
@@ -1214,11 +1214,11 @@ sknuth_CouponCollector test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   54
-Chi-square statistic                  :   75.64
-p-value of test                       :    0.03
+Chi-square statistic                  :   48.59
+p-value of test                       :    0.68
 
 -----------------------------------------------
-CPU time used                    :  00:00:57.32
+CPU time used                    :  00:00:50.03
 
 Generator state:
 
@@ -1228,7 +1228,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_CouponCollector test:
@@ -1238,11 +1238,11 @@ sknuth_CouponCollector test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   54
-Chi-square statistic                  :   69.41
-p-value of test                       :    0.08
+Chi-square statistic                  :   45.11
+p-value of test                       :    0.80
 
 -----------------------------------------------
-CPU time used                    :  00:00:57.32
+CPU time used                    :  00:00:50.03
 
 Generator state:
 
@@ -1252,7 +1252,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_Gap test:
@@ -1262,11 +1262,11 @@ sknuth_Gap test:
 
 -----------------------------------------------
 Number of degrees of freedom          :  232
-Chi-square statistic                  :  236.61
-p-value of test                       :    0.40
+Chi-square statistic                  :  400.76
+p-value of test                       : 3.9e-11    *****
 
 -----------------------------------------------
-CPU time used                    :  00:00:56.59
+CPU time used                    :  00:00:52.65
 
 Generator state:
 
@@ -1276,7 +1276,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_Gap test:
@@ -1286,11 +1286,11 @@ sknuth_Gap test:
 
 -----------------------------------------------
 Number of degrees of freedom          :  434
-Chi-square statistic                  :  437.84
-p-value of test                       :    0.44
+Chi-square statistic                  :  879.95
+p-value of test                       :   eps      *****
 
 -----------------------------------------------
-CPU time used                    :  00:01:20.90
+CPU time used                    :  00:01:08.67
 
 Generator state:
 
@@ -1300,7 +1300,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_Gap test:
@@ -1310,11 +1310,11 @@ sknuth_Gap test:
 
 -----------------------------------------------
 Number of degrees of freedom          : 1437
-Chi-square statistic                  : 1361.01
-p-value of test                       :    0.92
+Chi-square statistic                  : 4069.45
+p-value of test                       :   eps      *****
 
 -----------------------------------------------
-CPU time used                    :  00:01:21.13
+CPU time used                    :  00:01:17.48
 
 Generator state:
 
@@ -1324,7 +1324,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_Gap test:
@@ -1334,11 +1334,11 @@ sknuth_Gap test:
 
 -----------------------------------------------
 Number of degrees of freedom          : 7046
-Chi-square statistic                  : 6858.62
-p-value of test                       :    0.94
+Chi-square statistic                  :14966.18
+p-value of test                       :   eps      *****
 
 -----------------------------------------------
-CPU time used                    :  00:01:21.53
+CPU time used                    :  00:01:08.73
 
 Generator state:
 
@@ -1348,7 +1348,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_Run test:
@@ -1358,22 +1358,22 @@ sknuth_Run test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.66
-p-value of test                       :  6.3e-3
+Kolmogorov-Smirnov+ statistic = D+    :    0.16
+p-value of test                       :    0.72
 
-Kolmogorov-Smirnov- statistic = D-    :   0.012
-p-value of test                       :    0.99
+Kolmogorov-Smirnov- statistic = D-    :    0.31
+p-value of test                       :    0.31
 
-Anderson-Darling statistic = A2       :    4.51
-p-value of test                       :  5.4e-3
+Anderson-Darling statistic = A2       :    0.61
+p-value of test                       :    0.63
 
 Test on the sum of all N observations
 Number of degrees of freedom          :   30
-Chi-square statistic                  :   12.14
-p-value of test                       :    0.9984
+Chi-square statistic                  :   32.71
+p-value of test                       :    0.34
 
 -----------------------------------------------
-CPU time used                    :  00:00:57.03
+CPU time used                    :  00:00:49.05
 
 Generator state:
 
@@ -1383,7 +1383,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_Run test:
@@ -1393,22 +1393,22 @@ sknuth_Run test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.11
-p-value of test                       :    0.73
+Kolmogorov-Smirnov+ statistic = D+    :    0.38
+p-value of test                       :    0.04
 
-Kolmogorov-Smirnov- statistic = D-    :    0.23
-p-value of test                       :    0.30
+Kolmogorov-Smirnov- statistic = D-    :   0.014
+p-value of test                       :    0.98
 
-Anderson-Darling statistic = A2       :    0.63
-p-value of test                       :    0.62
+Anderson-Darling statistic = A2       :    1.71
+p-value of test                       :    0.14
 
 Test on the sum of all N observations
 Number of degrees of freedom          :   60
-Chi-square statistic                  :   63.68
-p-value of test                       :    0.35
+Chi-square statistic                  :   42.18
+p-value of test                       :    0.96
 
 -----------------------------------------------
-CPU time used                    :  00:02:13.73
+CPU time used                    :  00:01:55.59
 
 Generator state:
 
@@ -1421,7 +1421,7 @@ Test sknuth_Permutation calling smultin_Multinomial
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_Multinomial test:
@@ -1442,12 +1442,12 @@ smultin_Multinomial test:
 Test Results for Delta =   1.0000
 
 Number of degrees of freedom          :    5
-Value of the statistic                :    7.77
-p-value of test                       :    0.17
+Value of the statistic                :    3.52
+p-value of test                       :    0.62
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:41.78
+CPU time used                    :  00:00:37.01
 
 Generator state:
 
@@ -1460,7 +1460,7 @@ Test sknuth_Permutation calling smultin_Multinomial
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_Multinomial test:
@@ -1481,12 +1481,12 @@ smultin_Multinomial test:
 Test Results for Delta =   1.0000
 
 Number of degrees of freedom          :  119
-Value of the statistic                :  107.59
-p-value of test                       :    0.76
+Value of the statistic                :  214.34
+p-value of test                       :  2.0e-7    *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:16.80
+CPU time used                    :  00:01:09.65
 
 Generator state:
 
@@ -1499,7 +1499,7 @@ Test sknuth_Permutation calling smultin_Multinomial
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_Multinomial test:
@@ -1520,12 +1520,12 @@ smultin_Multinomial test:
 Test Results for Delta =   1.0000
 
 Number of degrees of freedom          : 5039
-Value of the statistic                : 4972.22
-p-value of test                       :    0.75
+Value of the statistic                :13173.32
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:59.17
+CPU time used                    :  00:00:55.44
 
 Generator state:
 
@@ -1538,7 +1538,7 @@ Test sknuth_Permutation calling smultin_Multinomial
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_Multinomial test:
@@ -1559,12 +1559,12 @@ smultin_Multinomial test:
 Test Results for Delta =   1.0000
 
 Number of degrees of freedom          : 3628799
-Value of the statistic                : 3.63e+6
-p-value of test                       :    0.39
+Value of the statistic                : 3.58e+6
+p-value of test                       : 1 - eps1    *****
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:17.89
+CPU time used                    :  00:02:14.60
 
 Generator state:
 
@@ -1577,7 +1577,7 @@ Test sknuth_CollisionPermut calling smultin_Multinomial
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_Multinomial test:
@@ -1599,22 +1599,22 @@ Test Results for Collisions
 For the total number of collisions, we use
       the Poisson approximation:
 Expected number of collisions = N*Mu  :    45879.47
-Observed number of collisions         :    45911
-p-value of test                       :    0.44
+Observed number of collisions         :    45048
+p-value of test                       : 1 -  5.0e-5    *****
 
 
 -----------------------------
 Total number of cells containing j balls
 
-  j =  0                              :    1743165869911
-  j =  1                              :        399908179
-  j =  2                              :            45909
-  j =  3                              :                1
+  j =  0                              :    1743165869048
+  j =  1                              :        399909908
+  j =  2                              :            45040
+  j =  3                              :                4
   j =  4                              :                0
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:03:35.60
+CPU time used                    :  00:03:34.77
 
 Generator state:
 
@@ -1627,7 +1627,7 @@ Test sknuth_CollisionPermut calling smultin_Multinomial
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smultin_Multinomial test:
@@ -1649,22 +1649,22 @@ Test Results for Collisions
 For the total number of collisions, we use
       the Poisson approximation:
 Expected number of collisions = N*Mu  :    45879.47
-Observed number of collisions         :    45982
-p-value of test                       :    0.32
+Observed number of collisions         :    46096
+p-value of test                       :    0.16
 
 
 -----------------------------
 Total number of cells containing j balls
 
-  j =  0                              :    1743165869982
-  j =  1                              :        399908039
-  j =  2                              :            45976
-  j =  3                              :                3
+  j =  0                              :    1743165870096
+  j =  1                              :        399907812
+  j =  2                              :            46088
+  j =  3                              :                4
   j =  4                              :                0
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:03:43.75
+CPU time used                    :  00:03:38.76
 
 Generator state:
 
@@ -1674,7 +1674,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_MaxOft test:
@@ -1688,36 +1688,36 @@ sknuth_MaxOft test:
 -----------------------------------------------
 Test results for chi2 with 99999 degrees of freedom:
 
-Kolmogorov-Smirnov+ statistic = D+    :   0.059
-p-value of test                       :    0.73
+Kolmogorov-Smirnov+ statistic = D+    :   0.000
+p-value of test                       : 1 - eps1    *****
 
-Kolmogorov-Smirnov- statistic = D-    :    0.13
-p-value of test                       :    0.25
+Kolmogorov-Smirnov- statistic = D-    :    1.00
+p-value of test                       :   eps      *****
 
-Anderson-Darling statistic = A2       :    0.92
-p-value of test                       :    0.40
+Anderson-Darling statistic = A2       : 1429.47
+p-value of test                       :   eps      *****
 
 Test on the sum of all N observations
 Number of degrees of freedom          : 3999960
-Chi-square statistic                  : 4.00e+6
-p-value of test                       :    0.19
+Chi-square statistic                  : 5.52e+6
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
 Test results for Anderson-Darling:
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.14
-p-value of test                       :    0.20
+Kolmogorov-Smirnov+ statistic = D+    :    0.10
+p-value of test                       :    0.40
 
-Kolmogorov-Smirnov- statistic = D-    :   0.026
-p-value of test                       :    0.93
+Kolmogorov-Smirnov- statistic = D-    :   0.020
+p-value of test                       :    0.96
 
-Anderson-Darling statistic = A2       :    0.95
-p-value of test                       :    0.38
+Anderson-Darling statistic = A2       :    0.49
+p-value of test                       :    0.76
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:02.96
+CPU time used                    :  00:02:01.85
 
 Generator state:
 
@@ -1727,7 +1727,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_MaxOft test:
@@ -1741,36 +1741,36 @@ sknuth_MaxOft test:
 -----------------------------------------------
 Test results for chi2 with 99999 degrees of freedom:
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.15
-p-value of test                       :    0.22
+Kolmogorov-Smirnov+ statistic = D+    :   0.000
+p-value of test                       : 1 - eps1    *****
 
-Kolmogorov-Smirnov- statistic = D-    :    0.16
-p-value of test                       :    0.19
+Kolmogorov-Smirnov- statistic = D-    :    1.00
+p-value of test                       :   eps      *****
 
-Anderson-Darling statistic = A2       :    1.23
-p-value of test                       :    0.26
+Anderson-Darling statistic = A2       : 1072.10
+p-value of test                       :   eps      *****
 
 Test on the sum of all N observations
 Number of degrees of freedom          : 2999970
-Chi-square statistic                  : 3.00e+6
-p-value of test                       :    0.75
+Chi-square statistic                  : 3.43e+6
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
 Test results for Anderson-Darling:
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.15
-p-value of test                       :    0.21
+Kolmogorov-Smirnov+ statistic = D+    :   0.064
+p-value of test                       :    0.75
 
-Kolmogorov-Smirnov- statistic = D-    :   0.080
-p-value of test                       :    0.65
+Kolmogorov-Smirnov- statistic = D-    :    0.13
+p-value of test                       :    0.32
 
-Anderson-Darling statistic = A2       :    0.58
-p-value of test                       :    0.66
+Anderson-Darling statistic = A2       :    0.92
+p-value of test                       :    0.40
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:47.98
+CPU time used                    :  00:01:46.06
 
 Generator state:
 
@@ -1780,7 +1780,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_MaxOft test:
@@ -1794,36 +1794,36 @@ sknuth_MaxOft test:
 -----------------------------------------------
 Test results for chi2 with 99999 degrees of freedom:
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.24
-p-value of test                       :    0.09
+Kolmogorov-Smirnov+ statistic = D+    :   0.000
+p-value of test                       : 1 - eps1    *****
 
-Kolmogorov-Smirnov- statistic = D-    :    0.12
-p-value of test                       :    0.54
+Kolmogorov-Smirnov- statistic = D-    :    1.00
+p-value of test                       :   eps      *****
 
-Anderson-Darling statistic = A2       :    0.81
-p-value of test                       :    0.47
+Anderson-Darling statistic = A2       :  714.74
+p-value of test                       :   eps      *****
 
 Test on the sum of all N observations
 Number of degrees of freedom          : 1999980
-Chi-square statistic                  : 2.00e+6
-p-value of test                       :    0.55
+Chi-square statistic                  : 2.26e+6
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
 Test results for Anderson-Darling:
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.17
-p-value of test                       :    0.27
+Kolmogorov-Smirnov+ statistic = D+    :    0.10
+p-value of test                       :    0.63
 
-Kolmogorov-Smirnov- statistic = D-    :   0.034
-p-value of test                       :    0.93
+Kolmogorov-Smirnov- statistic = D-    :    0.18
+p-value of test                       :    0.23
 
-Anderson-Darling statistic = A2       :    0.75
-p-value of test                       :    0.52
+Anderson-Darling statistic = A2       :    0.61
+p-value of test                       :    0.64
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:22.56
+CPU time used                    :  00:01:20.61
 
 Generator state:
 
@@ -1833,7 +1833,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sknuth_MaxOft test:
@@ -1847,36 +1847,36 @@ sknuth_MaxOft test:
 -----------------------------------------------
 Test results for chi2 with 99999 degrees of freedom:
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.22
-p-value of test                       :    0.13
+Kolmogorov-Smirnov+ statistic = D+    :   0.000
+p-value of test                       : 1 - eps1    *****
 
-Kolmogorov-Smirnov- statistic = D-    :   0.048
-p-value of test                       :    0.88
+Kolmogorov-Smirnov- statistic = D-    :    1.00
+p-value of test                       :   eps      *****
 
-Anderson-Darling statistic = A2       :    1.76
-p-value of test                       :    0.13
+Anderson-Darling statistic = A2       :  714.74
+p-value of test                       :   eps      *****
 
 Test on the sum of all N observations
 Number of degrees of freedom          : 1999980
-Chi-square statistic                  : 2.00e+6
-p-value of test                       :    0.96
+Chi-square statistic                  : 2.24e+6
+p-value of test                       :   eps      *****
 
 
 -----------------------------------------------
 Test results for Anderson-Darling:
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.15
-p-value of test                       :    0.37
+Kolmogorov-Smirnov+ statistic = D+    :   0.072
+p-value of test                       :    0.78
 
-Kolmogorov-Smirnov- statistic = D-    :   0.094
-p-value of test                       :    0.66
+Kolmogorov-Smirnov- statistic = D-    :    0.22
+p-value of test                       :    0.12
 
-Anderson-Darling statistic = A2       :    0.37
-p-value of test                       :    0.88
+Anderson-Darling statistic = A2       :    1.03
+p-value of test                       :    0.34
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:33.06
+CPU time used                    :  00:01:29.32
 
 Generator state:
 
@@ -1886,7 +1886,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_SampleProd test:
@@ -1896,17 +1896,17 @@ svaria_SampleProd test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :   0.070
-p-value of test                       :    0.65
+Kolmogorov-Smirnov+ statistic = D+    :    0.30
+p-value of test                       :  5.9e-4    *****
 
-Kolmogorov-Smirnov- statistic = D-    :    0.17
-p-value of test                       :    0.10
+Kolmogorov-Smirnov- statistic = D-    : 5.09e-3
+p-value of test                       :    0.9938
 
-Anderson-Darling statistic = A2       :    1.25
-p-value of test                       :    0.25
+Anderson-Darling statistic = A2       :    7.11
+p-value of test                       :  3.1e-4    *****
 
 -----------------------------------------------
-CPU time used                    :  00:01:27.85
+CPU time used                    :  00:01:26.57
 
 Generator state:
 
@@ -1916,7 +1916,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_SampleProd test:
@@ -1926,17 +1926,17 @@ svaria_SampleProd test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :   0.091
-p-value of test                       :    0.68
+Kolmogorov-Smirnov+ statistic = D+    :    0.19
+p-value of test                       :    0.20
 
-Kolmogorov-Smirnov- statistic = D-    :    0.12
-p-value of test                       :    0.54
+Kolmogorov-Smirnov- statistic = D-    :   0.045
+p-value of test                       :    0.90
 
-Anderson-Darling statistic = A2       :    0.32
-p-value of test                       :    0.92
+Anderson-Darling statistic = A2       :    1.47
+p-value of test                       :    0.18
 
 -----------------------------------------------
-CPU time used                    :  00:00:59.71
+CPU time used                    :  00:00:58.60
 
 Generator state:
 
@@ -1946,7 +1946,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_SampleProd test:
@@ -1956,17 +1956,17 @@ svaria_SampleProd test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    : 9.00e-4
-p-value of test                       :    0.9991    *****
+Kolmogorov-Smirnov+ statistic = D+    :    0.24
+p-value of test                       :    0.09
 
-Kolmogorov-Smirnov- statistic = D-    :    0.27
-p-value of test                       :    0.05
+Kolmogorov-Smirnov- statistic = D-    :    0.10
+p-value of test                       :    0.62
 
-Anderson-Darling statistic = A2       :    2.91
-p-value of test                       :    0.03
+Anderson-Darling statistic = A2       :    1.52
+p-value of test                       :    0.17
 
 -----------------------------------------------
-CPU time used                    :  00:01:15.93
+CPU time used                    :  00:01:13.85
 
 Generator state:
 
@@ -1976,7 +1976,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_SampleMean test:
@@ -1986,17 +1986,17 @@ svaria_SampleMean test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    : 2.22e-4
-p-value of test                       :    0.14
+Kolmogorov-Smirnov+ statistic = D+    : 5.81e-5
+p-value of test                       :    0.87
 
-Kolmogorov-Smirnov- statistic = D-    : 7.84e-5
-p-value of test                       :    0.78
+Kolmogorov-Smirnov- statistic = D-    : 2.12e-4
+p-value of test                       :    0.16
 
-Anderson-Darling statistic = A2       :    1.34
-p-value of test                       :    0.22
+Anderson-Darling statistic = A2       :    0.62
+p-value of test                       :    0.63
 
 -----------------------------------------------
-CPU time used                    :  00:00:21.10
+CPU time used                    :  00:00:20.76
 
 Generator state:
 
@@ -2006,7 +2006,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_SampleMean test:
@@ -2016,17 +2016,17 @@ svaria_SampleMean test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    : 2.01e-4
-p-value of test                       :    0.20
+Kolmogorov-Smirnov+ statistic = D+    : 1.13e-4
+p-value of test                       :    0.60
 
-Kolmogorov-Smirnov- statistic = D-    : 8.74e-5
-p-value of test                       :    0.74
+Kolmogorov-Smirnov- statistic = D-    : 2.25e-4
+p-value of test                       :    0.13
 
-Anderson-Darling statistic = A2       :    0.53
-p-value of test                       :    0.72
+Anderson-Darling statistic = A2       :    1.73
+p-value of test                       :    0.13
 
 -----------------------------------------------
-CPU time used                    :  00:00:21.64
+CPU time used                    :  00:00:21.03
 
 Generator state:
 
@@ -2036,7 +2036,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_SampleCorr test:
@@ -2045,11 +2045,11 @@ svaria_SampleCorr test:
 
 
 -----------------------------------------------
-Normal statistic                      :    1.71
-p-value of test                       :    0.04
+Normal statistic                      :   0.045
+p-value of test                       :    0.48
 
 -----------------------------------------------
-CPU time used                    :  00:00:15.18
+CPU time used                    :  00:00:13.56
 
 Generator state:
 
@@ -2059,7 +2059,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_SampleCorr test:
@@ -2068,11 +2068,11 @@ svaria_SampleCorr test:
 
 
 -----------------------------------------------
-Normal statistic                      :   -2.06
-p-value of test                       :    0.98
+Normal statistic                      :   -1.47
+p-value of test                       :    0.93
 
 -----------------------------------------------
-CPU time used                    :  00:00:15.17
+CPU time used                    :  00:00:14.25
 
 Generator state:
 
@@ -2082,7 +2082,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_AppearanceSpacings test:
@@ -2097,11 +2097,11 @@ svaria_AppearanceSpacings test:
 
 
 -----------------------------------------------
-Normal statistic                      :   -0.23
-p-value of test                       :    0.59
+Normal statistic                      :   -0.90
+p-value of test                       :    0.82
 
 -----------------------------------------------
-CPU time used                    :  00:01:07.60
+CPU time used                    :  00:01:08.67
 
 Generator state:
 
@@ -2111,7 +2111,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_AppearanceSpacings test:
@@ -2126,11 +2126,11 @@ svaria_AppearanceSpacings test:
 
 
 -----------------------------------------------
-Normal statistic                      :    0.70
-p-value of test                       :    0.24
+Normal statistic                      :    0.46
+p-value of test                       :    0.32
 
 -----------------------------------------------
-CPU time used                    :  00:01:08.55
+CPU time used                    :  00:01:09.18
 
 Generator state:
 
@@ -2140,7 +2140,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_WeightDistrib test:
@@ -2150,11 +2150,11 @@ svaria_WeightDistrib test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   67
-Chi-square statistic                  :   91.62
-p-value of test                       :    0.02
+Chi-square statistic                  :   88.92
+p-value of test                       :    0.04
 
 -----------------------------------------------
-CPU time used                    :  00:00:32.02
+CPU time used                    :  00:00:30.69
 
 Generator state:
 
@@ -2164,7 +2164,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_WeightDistrib test:
@@ -2174,11 +2174,11 @@ svaria_WeightDistrib test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   67
-Chi-square statistic                  :  106.57
-p-value of test                       :  1.5e-3
+Chi-square statistic                  :   75.11
+p-value of test                       :    0.23
 
 -----------------------------------------------
-CPU time used                    :  00:00:40.84
+CPU time used                    :  00:00:35.18
 
 Generator state:
 
@@ -2188,7 +2188,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_WeightDistrib test:
@@ -2198,11 +2198,11 @@ svaria_WeightDistrib test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   67
-Chi-square statistic                  :   69.78
-p-value of test                       :    0.38
+Chi-square statistic                  :   69.67
+p-value of test                       :    0.39
 
 -----------------------------------------------
-CPU time used                    :  00:00:40.85
+CPU time used                    :  00:00:35.18
 
 Generator state:
 
@@ -2212,7 +2212,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_WeightDistrib test:
@@ -2222,11 +2222,11 @@ svaria_WeightDistrib test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   37
-Chi-square statistic                  :   31.11
-p-value of test                       :    0.74
+Chi-square statistic                  :   30.44
+p-value of test                       :    0.77
 
 -----------------------------------------------
-CPU time used                    :  00:00:32.02
+CPU time used                    :  00:00:30.69
 
 Generator state:
 
@@ -2236,7 +2236,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_WeightDistrib test:
@@ -2246,11 +2246,11 @@ svaria_WeightDistrib test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   37
-Chi-square statistic                  :   25.44
-p-value of test                       :    0.92
+Chi-square statistic                  :   34.54
+p-value of test                       :    0.58
 
 -----------------------------------------------
-CPU time used                    :  00:00:40.85
+CPU time used                    :  00:00:35.18
 
 Generator state:
 
@@ -2260,7 +2260,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_WeightDistrib test:
@@ -2270,11 +2270,11 @@ svaria_WeightDistrib test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   37
-Chi-square statistic                  :   36.26
-p-value of test                       :    0.50
+Chi-square statistic                  :   35.32
+p-value of test                       :    0.55
 
 -----------------------------------------------
-CPU time used                    :  00:00:40.85
+CPU time used                    :  00:00:35.17
 
 Generator state:
 
@@ -2284,7 +2284,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 svaria_SumCollector test:
@@ -2294,11 +2294,11 @@ svaria_SumCollector test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   29
-Chi-square statistic                  :   24.39
-p-value of test                       :    0.71
+Chi-square statistic                  :   50.15
+p-value of test                       :  8.7e-3
 
 -----------------------------------------------
-CPU time used                    :  00:01:16.75
+CPU time used                    :  00:01:07.17
 
 Generator state:
 
@@ -2308,7 +2308,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_MatrixRank test:
@@ -2318,22 +2318,22 @@ smarsa_MatrixRank test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :   0.014
-p-value of test                       :    0.98
+Kolmogorov-Smirnov+ statistic = D+    :   0.000
+p-value of test                       : 1 - eps1    *****
 
-Kolmogorov-Smirnov- statistic = D-    :    0.38
-p-value of test                       :    0.04
+Kolmogorov-Smirnov- statistic = D-    :    1.00
+p-value of test                       :   eps      *****
 
-Anderson-Darling statistic = A2       :    2.31
-p-value of test                       :    0.06
+Anderson-Darling statistic = A2       :  357.37
+p-value of test                       :3.2e-157    *****
 
 Test on the sum of all N observations
 Number of degrees of freedom          :   40
-Chi-square statistic                  :   57.00
-p-value of test                       :    0.04
+Chi-square statistic                  : 6.30e+6
+p-value of test                       :   eps      *****
 
 -----------------------------------------------
-CPU time used                    :  00:00:54.93
+CPU time used                    :  00:00:52.19
 
 Generator state:
 
@@ -2343,7 +2343,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_MatrixRank test:
@@ -2353,22 +2353,22 @@ smarsa_MatrixRank test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :   0.054
-p-value of test                       :    0.91
+Kolmogorov-Smirnov+ statistic = D+    :   0.000
+p-value of test                       : 1 - eps1    *****
 
-Kolmogorov-Smirnov- statistic = D-    :    0.24
-p-value of test                       :    0.29
+Kolmogorov-Smirnov- statistic = D-    :    1.00
+p-value of test                       :   eps      *****
 
-Anderson-Darling statistic = A2       :    0.65
-p-value of test                       :    0.60
+Anderson-Darling statistic = A2       :  357.37
+p-value of test                       :3.2e-157    *****
 
 Test on the sum of all N observations
 Number of degrees of freedom          :   40
-Chi-square statistic                  :   47.28
-p-value of test                       :    0.20
+Chi-square statistic                  : 6.52e+5
+p-value of test                       :   eps      *****
 
 -----------------------------------------------
-CPU time used                    :  00:00:54.97
+CPU time used                    :  00:00:52.31
 
 Generator state:
 
@@ -2378,7 +2378,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_MatrixRank test:
@@ -2392,7 +2392,7 @@ Chi-square statistic                  : 9.41e+5
 p-value of test                       :   eps      *****
 
 -----------------------------------------------
-CPU time used                    :  00:01:43.92
+CPU time used                    :  00:01:13.97
 
 Generator state:
 
@@ -2402,7 +2402,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_MatrixRank test:
@@ -2412,11 +2412,11 @@ smarsa_MatrixRank test:
 
 -----------------------------------------------
 Number of degrees of freedom          :    3
-Chi-square statistic                  :    1.64
-p-value of test                       :    0.65
+Chi-square statistic                  : 9.41e+5
+p-value of test                       :   eps      *****
 
 -----------------------------------------------
-CPU time used                    :  00:01:44.71
+CPU time used                    :  00:01:13.68
 
 Generator state:
 
@@ -2426,7 +2426,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_MatrixRank test:
@@ -2436,11 +2436,11 @@ smarsa_MatrixRank test:
 
 -----------------------------------------------
 Number of degrees of freedom          :    2
-Chi-square statistic                  :    0.54
-p-value of test                       :    0.76
+Chi-square statistic                  :  518.64
+p-value of test                       :   eps      *****
 
 -----------------------------------------------
-CPU time used                    :  00:01:08.56
+CPU time used                    :  00:00:35.80
 
 Generator state:
 
@@ -2450,7 +2450,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_MatrixRank test:
@@ -2464,7 +2464,7 @@ Chi-square statistic                  :  518.64
 p-value of test                       :   eps      *****
 
 -----------------------------------------------
-CPU time used                    :  00:00:53.81
+CPU time used                    :  00:00:21.11
 
 Generator state:
 
@@ -2474,7 +2474,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_Savir2 test:
@@ -2484,22 +2484,22 @@ smarsa_Savir2 test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.21
-p-value of test                       :    0.37
+Kolmogorov-Smirnov+ statistic = D+    :    0.24
+p-value of test                       :    0.27
 
-Kolmogorov-Smirnov- statistic = D-    :   0.072
-p-value of test                       :    0.87
+Kolmogorov-Smirnov- statistic = D-    :    0.13
+p-value of test                       :    0.67
 
-Anderson-Darling statistic = A2       :    0.38
-p-value of test                       :    0.86
+Anderson-Darling statistic = A2       :    0.67
+p-value of test                       :    0.58
 
 Test on the sum of all N observations
 Number of degrees of freedom          :  130
-Chi-square statistic                  :  118.70
-p-value of test                       :    0.75
+Chi-square statistic                  :  116.66
+p-value of test                       :    0.79
 
 -----------------------------------------------
-CPU time used                    :  00:00:24.63
+CPU time used                    :  00:00:21.35
 
 Generator state:
 
@@ -2509,7 +2509,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 smarsa_GCD test:
@@ -2520,24 +2520,24 @@ smarsa_GCD test:
 -----------------------------------------------
 Test results for GCD values:
 
-Kolmogorov-Smirnov+ statistic = D+    :   0.093
-p-value of test                       :    0.79
+Kolmogorov-Smirnov+ statistic = D+    :    0.23
+p-value of test                       :    0.30
 
-Kolmogorov-Smirnov- statistic = D-    :    0.22
-p-value of test                       :    0.35
+Kolmogorov-Smirnov- statistic = D-    :    0.21
+p-value of test                       :    0.38
 
-Anderson-Darling statistic = A2       :    0.42
-p-value of test                       :    0.82
+Anderson-Darling statistic = A2       :    0.86
+p-value of test                       :    0.44
 
 Test on the sum of all N observations
 Number of degrees of freedom          : 17430
-Chi-square statistic                  :17543.53
-p-value of test                       :    0.27
+Chi-square statistic                  :17348.82
+p-value of test                       :    0.67
 
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:28.35
+CPU time used                    :  00:01:29.22
 
 Generator state:
 
@@ -2547,7 +2547,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 swalk_RandomWalk1 test:
@@ -2560,44 +2560,44 @@ swalk_RandomWalk1 test:
 Test on the values of the Statistic H
 
 Number of degrees of freedom          :   36
-ChiSquare statistic                   :   39.22
-p-value of test                       :    0.33
+ChiSquare statistic                   :   18.78
+p-value of test                       :    0.9920
 
 
 -----------------------------------------------
 Test on the values of the Statistic M
 
 Number of degrees of freedom          :   35
-ChiSquare statistic                   :   33.38
-p-value of test                       :    0.55
+ChiSquare statistic                   :   27.57
+p-value of test                       :    0.81
 
 
 -----------------------------------------------
 Test on the values of the Statistic J
 
 Number of degrees of freedom          :   25
-ChiSquare statistic                   :   28.77
-p-value of test                       :    0.27
+ChiSquare statistic                   :   25.42
+p-value of test                       :    0.44
 
 
 -----------------------------------------------
 Test on the values of the Statistic R
 
 Number of degrees of freedom          :   24
-ChiSquare statistic                   :   21.94
-p-value of test                       :    0.58
+ChiSquare statistic                   :   22.30
+p-value of test                       :    0.56
 
 
 -----------------------------------------------
 Test on the values of the Statistic C
 
 Number of degrees of freedom          :   17
-ChiSquare statistic                   :   16.98
-p-value of test                       :    0.46
+ChiSquare statistic                   :   24.95
+p-value of test                       :    0.10
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:31.09
+CPU time used                    :  00:00:32.32
 
 Generator state:
 
@@ -2607,7 +2607,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 swalk_RandomWalk1 test:
@@ -2620,44 +2620,44 @@ swalk_RandomWalk1 test:
 Test on the values of the Statistic H
 
 Number of degrees of freedom          :   36
-ChiSquare statistic                   :   48.32
-p-value of test                       :    0.08
+ChiSquare statistic                   :   28.49
+p-value of test                       :    0.81
 
 
 -----------------------------------------------
 Test on the values of the Statistic M
 
 Number of degrees of freedom          :   35
-ChiSquare statistic                   :   28.42
-p-value of test                       :    0.78
+ChiSquare statistic                   :   36.23
+p-value of test                       :    0.41
 
 
 -----------------------------------------------
 Test on the values of the Statistic J
 
 Number of degrees of freedom          :   25
-ChiSquare statistic                   :   38.37
-p-value of test                       :    0.04
+ChiSquare statistic                   :   19.46
+p-value of test                       :    0.77
 
 
 -----------------------------------------------
 Test on the values of the Statistic R
 
 Number of degrees of freedom          :   24
-ChiSquare statistic                   :   27.28
-p-value of test                       :    0.29
+ChiSquare statistic                   :   27.55
+p-value of test                       :    0.28
 
 
 -----------------------------------------------
 Test on the values of the Statistic C
 
 Number of degrees of freedom          :   17
-ChiSquare statistic                   :   22.41
-p-value of test                       :    0.17
+ChiSquare statistic                   :   18.99
+p-value of test                       :    0.33
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:31.56
+CPU time used                    :  00:00:31.88
 
 Generator state:
 
@@ -2667,7 +2667,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 swalk_RandomWalk1 test:
@@ -2680,44 +2680,44 @@ swalk_RandomWalk1 test:
 Test on the values of the Statistic H
 
 Number of degrees of freedom          :  146
-ChiSquare statistic                   :  158.75
-p-value of test                       :    0.22
+ChiSquare statistic                   :  144.28
+p-value of test                       :    0.52
 
 
 -----------------------------------------------
 Test on the values of the Statistic M
 
 Number of degrees of freedom          :  146
-ChiSquare statistic                   :  138.50
-p-value of test                       :    0.66
+ChiSquare statistic                   :  190.08
+p-value of test                       :  8.3e-3
 
 
 -----------------------------------------------
 Test on the values of the Statistic J
 
 Number of degrees of freedom          :  500
-ChiSquare statistic                   :  487.27
-p-value of test                       :    0.65
+ChiSquare statistic                   :  555.64
+p-value of test                       :    0.04
 
 
 -----------------------------------------------
 Test on the values of the Statistic R
 
 Number of degrees of freedom          :  136
-ChiSquare statistic                   :  117.64
-p-value of test                       :    0.87
+ChiSquare statistic                   :  130.09
+p-value of test                       :    0.63
 
 
 -----------------------------------------------
 Test on the values of the Statistic C
 
 Number of degrees of freedom          :   74
-ChiSquare statistic                   :   81.99
-p-value of test                       :    0.25
+ChiSquare statistic                   :   82.09
+p-value of test                       :    0.24
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:39.55
+CPU time used                    :  00:00:42.56
 
 Generator state:
 
@@ -2727,7 +2727,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 swalk_RandomWalk1 test:
@@ -2740,44 +2740,44 @@ swalk_RandomWalk1 test:
 Test on the values of the Statistic H
 
 Number of degrees of freedom          :  146
-ChiSquare statistic                   :  125.47
-p-value of test                       :    0.89
+ChiSquare statistic                   :  148.96
+p-value of test                       :    0.42
 
 
 -----------------------------------------------
 Test on the values of the Statistic M
 
 Number of degrees of freedom          :  146
-ChiSquare statistic                   :  151.45
-p-value of test                       :    0.36
+ChiSquare statistic                   :  163.23
+p-value of test                       :    0.16
 
 
 -----------------------------------------------
 Test on the values of the Statistic J
 
 Number of degrees of freedom          :  500
-ChiSquare statistic                   :  442.14
-p-value of test                       :    0.97
+ChiSquare statistic                   :  515.22
+p-value of test                       :    0.31
 
 
 -----------------------------------------------
 Test on the values of the Statistic R
 
 Number of degrees of freedom          :  136
-ChiSquare statistic                   :   94.56
-p-value of test                       :    0.9973
+ChiSquare statistic                   :  155.33
+p-value of test                       :    0.12
 
 
 -----------------------------------------------
 Test on the values of the Statistic C
 
 Number of degrees of freedom          :   74
-ChiSquare statistic                   :   73.93
-p-value of test                       :    0.48
+ChiSquare statistic                   :   79.23
+p-value of test                       :    0.32
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:39.67
+CPU time used                    :  00:00:41.68
 
 Generator state:
 
@@ -2787,7 +2787,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 swalk_RandomWalk1 test:
@@ -2800,44 +2800,44 @@ swalk_RandomWalk1 test:
 Test on the values of the Statistic H
 
 Number of degrees of freedom          :  384
-ChiSquare statistic                   :  381.00
-p-value of test                       :    0.53
+ChiSquare statistic                   :  382.61
+p-value of test                       :    0.51
 
 
 -----------------------------------------------
 Test on the values of the Statistic M
 
 Number of degrees of freedom          :  384
-ChiSquare statistic                   :  342.37
-p-value of test                       :    0.94
+ChiSquare statistic                   :  386.34
+p-value of test                       :    0.46
 
 
 -----------------------------------------------
 Test on the values of the Statistic J
 
 Number of degrees of freedom          : 5000
-ChiSquare statistic                   : 5086.92
-p-value of test                       :    0.19
+ChiSquare statistic                   : 5075.56
+p-value of test                       :    0.22
 
 
 -----------------------------------------------
 Test on the values of the Statistic R
 
 Number of degrees of freedom          :  378
-ChiSquare statistic                   :  406.81
-p-value of test                       :    0.15
+ChiSquare statistic                   :  321.49
+p-value of test                       :    0.98
 
 
 -----------------------------------------------
 Test on the values of the Statistic C
 
 Number of degrees of freedom          :  200
-ChiSquare statistic                   :  217.74
-p-value of test                       :    0.19
+ChiSquare statistic                   :  188.50
+p-value of test                       :    0.71
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:32.97
+CPU time used                    :  00:00:36.60
 
 Generator state:
 
@@ -2847,7 +2847,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 swalk_RandomWalk1 test:
@@ -2860,44 +2860,44 @@ swalk_RandomWalk1 test:
 Test on the values of the Statistic H
 
 Number of degrees of freedom          :  384
-ChiSquare statistic                   :  443.87
-p-value of test                       :    0.02
+ChiSquare statistic                   :  347.98
+p-value of test                       :    0.91
 
 
 -----------------------------------------------
 Test on the values of the Statistic M
 
 Number of degrees of freedom          :  384
-ChiSquare statistic                   :  440.31
-p-value of test                       :    0.02
+ChiSquare statistic                   :  347.24
+p-value of test                       :    0.91
 
 
 -----------------------------------------------
 Test on the values of the Statistic J
 
 Number of degrees of freedom          : 5000
-ChiSquare statistic                   : 4902.36
-p-value of test                       :    0.84
+ChiSquare statistic                   : 4851.87
+p-value of test                       :    0.93
 
 
 -----------------------------------------------
 Test on the values of the Statistic R
 
 Number of degrees of freedom          :  378
-ChiSquare statistic                   :  431.64
-p-value of test                       :    0.03
+ChiSquare statistic                   :  369.06
+p-value of test                       :    0.62
 
 
 -----------------------------------------------
 Test on the values of the Statistic C
 
 Number of degrees of freedom          :  200
-ChiSquare statistic                   :  213.82
-p-value of test                       :    0.24
+ChiSquare statistic                   :  210.99
+p-value of test                       :    0.28
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:33.02
+CPU time used                    :  00:00:35.81
 
 Generator state:
 
@@ -2907,7 +2907,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 scomp_LinearComp test:
@@ -2918,18 +2918,18 @@ scomp_LinearComp test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   12
-Chi2 statistic for size of jumps      :    9.88
-p-value of test                       :    0.63
+Chi2 statistic for size of jumps      :    6.00
+p-value of test                       :    0.92
 
 
 -----------------------------------------------
-Normal statistic for number of jumps  : -446.89
+Normal statistic for number of jumps  : -447.16
 p-value of test                       : 1 - eps1    *****
 
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:00.02
+CPU time used                    :  00:00:00.01
 
 Generator state:
 
@@ -2939,7 +2939,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 scomp_LinearComp test:
@@ -2950,18 +2950,18 @@ scomp_LinearComp test:
 
 -----------------------------------------------
 Number of degrees of freedom          :   12
-Chi2 statistic for size of jumps      :    5.47
-p-value of test                       :    0.94
+Chi2 statistic for size of jumps      :   18.08
+p-value of test                       :    0.11
 
 
 -----------------------------------------------
-Normal statistic for number of jumps  :   -0.11
-p-value of test                       :    0.54
+Normal statistic for number of jumps  : -447.17
+p-value of test                       : 1 - eps1    *****
 
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:32.93
+CPU time used                    :  00:00:00.01
 
 Generator state:
 
@@ -2971,7 +2971,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 scomp_LempelZiv test:
@@ -2981,24 +2981,24 @@ scomp_LempelZiv test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.42
-p-value of test                       :    0.02
+Kolmogorov-Smirnov+ statistic = D+    :    0.48
+p-value of test                       :  6.0e-3
 
-Kolmogorov-Smirnov- statistic = D-    :    0.14
-p-value of test                       :    0.64
+Kolmogorov-Smirnov- statistic = D-    :   0.022
+p-value of test                       :    0.97
 
-Anderson-Darling statistic = A2       :    1.42
-p-value of test                       :    0.20
+Anderson-Darling statistic = A2       :    3.98
+p-value of test                       :  9.3e-3
 
 Tests on the sum of all N observations
-Standardized normal statistic         :   -0.73
-p-value of test                       :    0.77
+Standardized normal statistic         :   -2.53
+p-value of test                       :    0.9942
 
-Sample variance                       :    0.78
-p-value of test                       :    0.63
+Sample variance                       :    0.49
+p-value of test                       :    0.88
 
 -----------------------------------------------
-CPU time used                    :  00:00:51.93
+CPU time used                    :  00:00:51.65
 
 Generator state:
 
@@ -3008,7 +3008,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 scomp_LempelZiv test:
@@ -3018,24 +3018,24 @@ scomp_LempelZiv test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.14
-p-value of test                       :    0.64
+Kolmogorov-Smirnov+ statistic = D+    :    0.27
+p-value of test                       :    0.20
 
 Kolmogorov-Smirnov- statistic = D-    :    0.11
-p-value of test                       :    0.71
+p-value of test                       :    0.73
 
-Anderson-Darling statistic = A2       :    0.21
-p-value of test                       :    0.99
+Anderson-Darling statistic = A2       :    1.05
+p-value of test                       :    0.33
 
 Tests on the sum of all N observations
-Standardized normal statistic         :   -0.36
-p-value of test                       :    0.64
+Standardized normal statistic         :   -0.90
+p-value of test                       :    0.82
 
-Sample variance                       :    0.96
-p-value of test                       :    0.47
+Sample variance                       :    1.70
+p-value of test                       :    0.08
 
 -----------------------------------------------
-CPU time used                    :  00:00:53.64
+CPU time used                    :  00:00:53.31
 
 Generator state:
 
@@ -3045,7 +3045,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sspectral_Fourier3 test:
@@ -3055,17 +3055,17 @@ sspectral_Fourier3 test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    : 9.29e-3
-p-value of test                       :    0.49
+Kolmogorov-Smirnov+ statistic = D+    : 7.66e-3
+p-value of test                       :    0.62
 
-Kolmogorov-Smirnov- statistic = D-    : 5.81e-3
-p-value of test                       :    0.76
+Kolmogorov-Smirnov- statistic = D-    :   0.012
+p-value of test                       :    0.31
 
-Anderson-Darling statistic = A2       :    0.28
-p-value of test                       :    0.95
+Anderson-Darling statistic = A2       :    1.45
+p-value of test                       :    0.19
 
 -----------------------------------------------
-CPU time used                    :  00:00:32.31
+CPU time used                    :  00:00:32.43
 
 Generator state:
 
@@ -3075,7 +3075,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sspectral_Fourier3 test:
@@ -3085,17 +3085,17 @@ sspectral_Fourier3 test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    : 5.38e-3
-p-value of test                       :    0.79
+Kolmogorov-Smirnov+ statistic = D+    :   0.030
+p-value of test                       :  7.3e-4    *****
 
-Kolmogorov-Smirnov- statistic = D-    :   0.010
-p-value of test                       :    0.43
+Kolmogorov-Smirnov- statistic = D-    :   0.016
+p-value of test                       :    0.11
 
-Anderson-Darling statistic = A2       :    0.42
-p-value of test                       :    0.83
+Anderson-Darling statistic = A2       :    8.66
+p-value of test                       :  5.9e-5    *****
 
 -----------------------------------------------
-CPU time used                    :  00:00:30.96
+CPU time used                    :  00:00:30.94
 
 Generator state:
 
@@ -3105,7 +3105,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_LongestHeadRun test:
@@ -3115,17 +3115,17 @@ sstring_LongestHeadRun test:
 
 -----------------------------------------------
 Number of degrees of freedom          :    8
-Chi-square statistic                  :    4.76
-p-value of test                       :    0.78
+Chi-square statistic                  :    2.15
+p-value of test                       :    0.98
 
 -----------------------------------------------
-Global longest run of 1               :   31.00
-p-value of test                       :    0.69
+Global longest run of 1               :   33.00
+p-value of test                       :    0.44
 
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:11.56
+CPU time used                    :  00:01:17.07
 
 Generator state:
 
@@ -3135,7 +3135,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_LongestHeadRun test:
@@ -3145,17 +3145,17 @@ sstring_LongestHeadRun test:
 
 -----------------------------------------------
 Number of degrees of freedom          :    8
-Chi-square statistic                  :    8.90
-p-value of test                       :    0.35
+Chi-square statistic                  :    1.63
+p-value of test                       :    0.9903
 
 -----------------------------------------------
-Global longest run of 1               :   32.00
-p-value of test                       :    0.50
+Global longest run of 1               :   33.00
+p-value of test                       :    0.44
 
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:12.46
+CPU time used                    :  00:01:17.36
 
 Generator state:
 
@@ -3165,7 +3165,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_PeriodsInStrings test:
@@ -3175,22 +3175,22 @@ sstring_PeriodsInStrings test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :   0.082
-p-value of test                       :    0.83
+Kolmogorov-Smirnov+ statistic = D+    :    0.32
+p-value of test                       :    0.10
 
-Kolmogorov-Smirnov- statistic = D-    :    0.19
-p-value of test                       :    0.43
+Kolmogorov-Smirnov- statistic = D-    :   0.077
+p-value of test                       :    0.85
 
-Anderson-Darling statistic = A2       :    0.42
-p-value of test                       :    0.82
+Anderson-Darling statistic = A2       :    0.80
+p-value of test                       :    0.48
 
 Test on the sum of all N observations
 Number of degrees of freedom          :  200
-Chi-square statistic                  :  209.27
-p-value of test                       :    0.31
+Chi-square statistic                  :  181.52
+p-value of test                       :    0.82
 
 -----------------------------------------------
-CPU time used                    :  00:01:42.93
+CPU time used                    :  00:01:47.77
 
 Generator state:
 
@@ -3200,7 +3200,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_PeriodsInStrings test:
@@ -3210,22 +3210,22 @@ sstring_PeriodsInStrings test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.18
-p-value of test                       :    0.49
+Kolmogorov-Smirnov+ statistic = D+    :    0.41
+p-value of test                       :    0.02
 
-Kolmogorov-Smirnov- statistic = D-    :    0.17
-p-value of test                       :    0.50
+Kolmogorov-Smirnov- statistic = D-    :   0.032
+p-value of test                       :    0.96
 
-Anderson-Darling statistic = A2       :    0.47
-p-value of test                       :    0.78
+Anderson-Darling statistic = A2       :    1.93
+p-value of test                       :    0.10
 
 Test on the sum of all N observations
 Number of degrees of freedom          :  200
-Chi-square statistic                  :  195.19
-p-value of test                       :    0.58
+Chi-square statistic                  :  164.99
+p-value of test                       :    0.97
 
 -----------------------------------------------
-CPU time used                    :  00:01:43.19
+CPU time used                    :  00:01:47.06
 
 Generator state:
 
@@ -3235,7 +3235,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_HammingWeight2 test:
@@ -3245,22 +3245,22 @@ sstring_HammingWeight2 test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.14
-p-value of test                       :    0.63
+Kolmogorov-Smirnov+ statistic = D+    :    0.20
+p-value of test                       :    0.38
 
-Kolmogorov-Smirnov- statistic = D-    :    0.20
-p-value of test                       :    0.40
+Kolmogorov-Smirnov- statistic = D-    :    0.15
+p-value of test                       :    0.58
 
-Anderson-Darling statistic = A2       :    0.48
-p-value of test                       :    0.77
+Anderson-Darling statistic = A2       :    0.57
+p-value of test                       :    0.67
 
 Test on the sum of all N observations
 Number of degrees of freedom          : 10000
-Chi-square statistic                  :10088.17
-p-value of test                       :    0.27
+Chi-square statistic                  : 9976.40
+p-value of test                       :    0.56
 
 -----------------------------------------------
-CPU time used                    :  00:00:39.57
+CPU time used                    :  00:00:39.28
 
 Generator state:
 
@@ -3270,7 +3270,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_HammingWeight2 test:
@@ -3280,22 +3280,22 @@ sstring_HammingWeight2 test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.20
-p-value of test                       :    0.38
+Kolmogorov-Smirnov+ statistic = D+    :    0.18
+p-value of test                       :    0.46
 
-Kolmogorov-Smirnov- statistic = D-    :    0.18
-p-value of test                       :    0.49
+Kolmogorov-Smirnov- statistic = D-    :    0.12
+p-value of test                       :    0.69
 
-Anderson-Darling statistic = A2       :    0.51
-p-value of test                       :    0.73
+Anderson-Darling statistic = A2       :    0.55
+p-value of test                       :    0.70
 
 Test on the sum of all N observations
 Number of degrees of freedom          : 10000
-Chi-square statistic                  : 9968.23
-p-value of test                       :    0.59
+Chi-square statistic                  :10045.16
+p-value of test                       :    0.37
 
 -----------------------------------------------
-CPU time used                    :  00:00:40.81
+CPU time used                    :  00:00:38.21
 
 Generator state:
 
@@ -3305,7 +3305,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_HammingCorr test:
@@ -3315,11 +3315,11 @@ sstring_HammingCorr test:
 
 
 -----------------------------------------------
-Normal statistic                      :    2.02
-p-value of test                       :    0.02
+Normal statistic                      :   -0.34
+p-value of test                       :    0.63
 
 -----------------------------------------------
-CPU time used                    :  00:00:50.77
+CPU time used                    :  00:00:48.30
 
 Generator state:
 
@@ -3329,7 +3329,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_HammingCorr test:
@@ -3339,11 +3339,11 @@ sstring_HammingCorr test:
 
 
 -----------------------------------------------
-Normal statistic                      :    1.42
-p-value of test                       :    0.08
+Normal statistic                      :   -1.06
+p-value of test                       :    0.86
 
 -----------------------------------------------
-CPU time used                    :  00:00:46.92
+CPU time used                    :  00:00:44.96
 
 Generator state:
 
@@ -3353,7 +3353,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_HammingCorr test:
@@ -3363,11 +3363,11 @@ sstring_HammingCorr test:
 
 
 -----------------------------------------------
-Normal statistic                      :   -0.78
-p-value of test                       :    0.78
+Normal statistic                      :   -0.66
+p-value of test                       :    0.74
 
 -----------------------------------------------
-CPU time used                    :  00:03:06.18
+CPU time used                    :  00:02:58.03
 
 Generator state:
 
@@ -3377,7 +3377,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_HammingIndep test:
@@ -3389,22 +3389,22 @@ sstring_HammingIndep test:
 Counters with expected numbers >= 10
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.22
-p-value of test                       :    0.32
+Kolmogorov-Smirnov+ statistic = D+    :    0.18
+p-value of test                       :    0.46
 
-Kolmogorov-Smirnov- statistic = D-    :    0.12
-p-value of test                       :    0.68
+Kolmogorov-Smirnov- statistic = D-    :    0.18
+p-value of test                       :    0.46
 
-Anderson-Darling statistic = A2       :    0.81
-p-value of test                       :    0.47
+Anderson-Darling statistic = A2       :    0.90
+p-value of test                       :    0.41
 
 Test on the sum of all N observations
 Number of degrees of freedom          : 4890
-Chi-square statistic                  : 4780.23
-p-value of test                       :    0.87
+Chi-square statistic                  : 4872.66
+p-value of test                       :    0.57
 
 -----------------------------------------------
-CPU time used                    :  00:01:16.26
+CPU time used                    :  00:01:14.82
 
 Generator state:
 
@@ -3414,7 +3414,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_HammingIndep test:
@@ -3426,22 +3426,22 @@ sstring_HammingIndep test:
 Counters with expected numbers >= 10
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.12
-p-value of test                       :    0.68
+Kolmogorov-Smirnov+ statistic = D+    :    0.30
+p-value of test                       :    0.14
 
-Kolmogorov-Smirnov- statistic = D-    :    0.36
-p-value of test                       :    0.06
+Kolmogorov-Smirnov- statistic = D-    :    0.14
+p-value of test                       :    0.63
 
-Anderson-Darling statistic = A2       :    2.37
-p-value of test                       :    0.06
+Anderson-Darling statistic = A2       :    0.71
+p-value of test                       :    0.55
 
 Test on the sum of all N observations
 Number of degrees of freedom          : 4890
-Chi-square statistic                  : 5056.68
-p-value of test                       :    0.05
+Chi-square statistic                  : 4821.31
+p-value of test                       :    0.76
 
 -----------------------------------------------
-CPU time used                    :  00:01:17.64
+CPU time used                    :  00:01:13.42
 
 Generator state:
 
@@ -3451,7 +3451,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_HammingIndep test:
@@ -3463,11 +3463,11 @@ sstring_HammingIndep test:
 Counters with expected numbers >= 10
 -----------------------------------------------
 Number of degrees of freedom          : 4117
-Chi-square statistic                  : 4146.40
-p-value of test                       :    0.37
+Chi-square statistic                  : 4109.75
+p-value of test                       :    0.53
 
 -----------------------------------------------
-CPU time used                    :  00:00:56.10
+CPU time used                    :  00:00:55.96
 
 Generator state:
 
@@ -3477,7 +3477,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_HammingIndep test:
@@ -3489,11 +3489,11 @@ sstring_HammingIndep test:
 Counters with expected numbers >= 10
 -----------------------------------------------
 Number of degrees of freedom          : 4117
-Chi-square statistic                  : 4056.72
-p-value of test                       :    0.75
+Chi-square statistic                  : 4017.44
+p-value of test                       :    0.86
 
 -----------------------------------------------
-CPU time used                    :  00:00:57.11
+CPU time used                    :  00:00:54.64
 
 Generator state:
 
@@ -3503,7 +3503,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_HammingIndep test:
@@ -3515,11 +3515,11 @@ sstring_HammingIndep test:
 Counters with expected numbers >= 10
 -----------------------------------------------
 Number of degrees of freedom          : 11825
-Chi-square statistic                  :11686.23
-p-value of test                       :    0.82
+Chi-square statistic                  :11831.93
+p-value of test                       :    0.48
 
 -----------------------------------------------
-CPU time used                    :  00:01:02.44
+CPU time used                    :  00:01:01.77
 
 Generator state:
 
@@ -3529,7 +3529,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_HammingIndep test:
@@ -3541,11 +3541,11 @@ sstring_HammingIndep test:
 Counters with expected numbers >= 10
 -----------------------------------------------
 Number of degrees of freedom          : 11825
-Chi-square statistic                  :12052.34
-p-value of test                       :    0.07
+Chi-square statistic                  :12041.13
+p-value of test                       :    0.08
 
 -----------------------------------------------
-CPU time used                    :  00:01:03.13
+CPU time used                    :  00:01:00.30
 
 Generator state:
 
@@ -3555,7 +3555,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_Run test:
@@ -3567,20 +3567,20 @@ sstring_Run test:
 Total number of 1 runs:  2000000000
 
 Number of degrees of freedom          :   54
-Chi2 statistic for number of runs     :   46.70
-p-value of test                       :    0.75
+Chi2 statistic for number of runs     :   21.97
+p-value of test                       : 1 -  3.2e-5    *****
 
 
 -----------------------------------------------
-Total number of bits:  8000007396
+Total number of bits:  8000049333
 
-Normal statistic for number of bits   :   0.058
-p-value of test                       :    0.48
+Normal statistic for number of bits   :    0.39
+p-value of test                       :    0.35
 
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:52.39
+CPU time used                    :  00:00:55.34
 
 Generator state:
 
@@ -3590,7 +3590,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_Run test:
@@ -3602,20 +3602,20 @@ sstring_Run test:
 Total number of 1 runs:  2000000000
 
 Number of degrees of freedom          :   54
-Chi2 statistic for number of runs     :   44.07
-p-value of test                       :    0.83
+Chi2 statistic for number of runs     :   20.25
+p-value of test                       : 1 -  8.0e-6    *****
 
 
 -----------------------------------------------
-Total number of bits:  8000201652
+Total number of bits:  7999896387
 
-Normal statistic for number of bits   :    1.59
-p-value of test                       :    0.06
+Normal statistic for number of bits   :   -0.82
+p-value of test                       :    0.79
 
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:53.18
+CPU time used                    :  00:00:55.38
 
 Generator state:
 
@@ -3625,7 +3625,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_AutoCor test:
@@ -3635,24 +3635,24 @@ sstring_AutoCor test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.16
-p-value of test                       :    0.54
-
-Kolmogorov-Smirnov- statistic = D-    :    0.23
+Kolmogorov-Smirnov+ statistic = D+    :    0.23
 p-value of test                       :    0.31
 
-Anderson-Darling statistic = A2       :    0.52
-p-value of test                       :    0.72
+Kolmogorov-Smirnov- statistic = D-    :    0.19
+p-value of test                       :    0.44
+
+Anderson-Darling statistic = A2       :    0.75
+p-value of test                       :    0.51
 
 Tests on the sum of all N observations
-Standardized normal statistic         :    0.31
-p-value of test                       :    0.38
+Standardized normal statistic         :   -0.35
+p-value of test                       :    0.64
 
-Sample variance                       :    0.85
-p-value of test                       :    0.57
+Sample variance                       :    0.74
+p-value of test                       :    0.68
 
 -----------------------------------------------
-CPU time used                    :  00:02:02.45
+CPU time used                    :  00:02:05.03
 
 Generator state:
 
@@ -3662,7 +3662,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_AutoCor test:
@@ -3672,24 +3672,24 @@ sstring_AutoCor test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.45
-p-value of test                       :    0.01
+Kolmogorov-Smirnov+ statistic = D+    :    0.19
+p-value of test                       :    0.42
 
-Kolmogorov-Smirnov- statistic = D-    :   0.014
-p-value of test                       :    0.98
+Kolmogorov-Smirnov- statistic = D-    :    0.16
+p-value of test                       :    0.54
 
-Anderson-Darling statistic = A2       :    3.39
-p-value of test                       :    0.02
+Anderson-Darling statistic = A2       :    0.44
+p-value of test                       :    0.81
 
 Tests on the sum of all N observations
-Standardized normal statistic         :   -2.45
-p-value of test                       :    0.9929
+Standardized normal statistic         :   0.063
+p-value of test                       :    0.47
 
-Sample variance                       :    1.78
-p-value of test                       :    0.07
+Sample variance                       :    1.44
+p-value of test                       :    0.16
 
 -----------------------------------------------
-CPU time used                    :  00:01:47.87
+CPU time used                    :  00:01:45.84
 
 Generator state:
 
@@ -3699,7 +3699,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_AutoCor test:
@@ -3709,24 +3709,24 @@ sstring_AutoCor test:
 
 -----------------------------------------------
 
-Kolmogorov-Smirnov+ statistic = D+    :    0.20
-p-value of test                       :    0.39
+Kolmogorov-Smirnov+ statistic = D+    :    0.15
+p-value of test                       :    0.56
 
-Kolmogorov-Smirnov- statistic = D-    :   0.098
-p-value of test                       :    0.77
+Kolmogorov-Smirnov- statistic = D-    :    0.10
+p-value of test                       :    0.76
 
-Anderson-Darling statistic = A2       :    0.64
-p-value of test                       :    0.61
+Anderson-Darling statistic = A2       :    0.28
+p-value of test                       :    0.95
 
 Tests on the sum of all N observations
-Standardized normal statistic         :   -0.83
-p-value of test                       :    0.80
+Standardized normal statistic         :   -0.20
+p-value of test                       :    0.58
 
-Sample variance                       :    1.21
-p-value of test                       :    0.29
+Sample variance                       :    1.16
+p-value of test                       :    0.31
 
 -----------------------------------------------
-CPU time used                    :  00:02:03.14
+CPU time used                    :  00:02:05.89
 
 Generator state:
 
@@ -3736,7 +3736,7 @@ Generator state:
 ***********************************************************
 HOST = haswell, Linux
 
-xorshift128plus lsb 32-bits (bit reverse) 
+xorshift32 lsb 32-bits (byte reverse) 
 
 
 sstring_AutoCor test:
@@ -3747,23 +3747,23 @@ sstring_AutoCor test:
 -----------------------------------------------
 
 Kolmogorov-Smirnov+ statistic = D+    :    0.25
-p-value of test                       :    0.24
+p-value of test                       :    0.23
 
-Kolmogorov-Smirnov- statistic = D-    :    0.13
-p-value of test                       :    0.66
+Kolmogorov-Smirnov- statistic = D-    :    0.16
+p-value of test                       :    0.56
 
-Anderson-Darling statistic = A2       :    0.56
-p-value of test                       :    0.68
+Anderson-Darling statistic = A2       :    0.82
+p-value of test                       :    0.47
 
 Tests on the sum of all N observations
-Standardized normal statistic         :   -0.50
-p-value of test                       :    0.69
+Standardized normal statistic         :   -0.35
+p-value of test                       :    0.64
 
-Sample variance                       :    0.70
-p-value of test                       :    0.71
+Sample variance                       :    1.34
+p-value of test                       :    0.21
 
 -----------------------------------------------
-CPU time used                    :  00:01:49.37
+CPU time used                    :  00:01:47.55
 
 Generator state:
 
@@ -3774,20 +3774,79 @@ Generator state:
 ========= Summary results of BigCrush =========
 
  Version:          TestU01 1.2.3
- Generator:        xorshift128plus lsb 32-bits (bit reverse) 
+ Generator:        xorshift32 lsb 32-bits (byte reverse) 
  Number of statistics:  160
- Total CPU time:   02:24:07.05
+ Total CPU time:   02:15:07.10
  The following tests gave p-values outside [0.001, 0.9990]:
  (eps  means a value < 1.0e-300):
  (eps1 means a value < 1.0e-15):
 
        Test                          p-value
  ----------------------------------------------
- 24  ClosePairs mNP1, t = 9          9.2e-5
- 24  ClosePairs NJumps, t = 9        1.0e-4
+  1  SerialOver, r = 0              1 - eps1
+  2  SerialOver, r = 22             1 - eps1
+  3  CollisionOver, t = 2           1 - eps1
+  4  CollisionOver, t = 2           1 - eps1
+  5  CollisionOver, t = 3             eps  
+  6  CollisionOver, t = 3           1 - eps1
+  7  CollisionOver, t = 7           1 - eps1
+  8  CollisionOver, t = 7           1 - eps1
+  9  CollisionOver, t = 14          1 - eps1
+ 10  CollisionOver, t = 14          1 - eps1
+ 11  CollisionOver, t = 21          1 - eps1
+ 12  CollisionOver, t = 21          1 - eps1
+ 13  BirthdaySpacings, t = 2          eps  
+ 14  BirthdaySpacings, t = 3          eps  
+ 15  BirthdaySpacings, t = 4          eps  
+ 16  BirthdaySpacings, t = 7          eps  
+ 17  BirthdaySpacings, t = 7          eps  
+ 18  BirthdaySpacings, t = 8          eps  
+ 19  BirthdaySpacings, t = 8          eps  
+ 20  BirthdaySpacings, t = 16         eps  
+ 21  BirthdaySpacings, t = 16         eps  
+ 22  ClosePairs NP, t = 3            1.9e-7
+ 22  ClosePairs mNP, t = 3            eps  
+ 22  ClosePairs mNP1, t = 3           eps  
+ 22  ClosePairs mNP2, t = 3           eps  
+ 22  ClosePairs NJumps, t = 3         eps  
+ 22  ClosePairs mNP2S, t = 3          eps  
+ 23  ClosePairs NP, t = 5           7.9e-37
+ 23  ClosePairs mNP, t = 5            eps  
+ 23  ClosePairs mNP1, t = 5           eps  
+ 23  ClosePairs mNP2, t = 5           eps  
+ 23  ClosePairs NJumps, t = 5         eps  
+ 23  ClosePairs mNP2S, t = 5          eps  
+ 24  ClosePairs NP, t = 9           6.4e-10
+ 24  ClosePairs mNP, t = 9         9.1e-134
+ 24  ClosePairs mNP1, t = 9        3.5e-154
+ 24  ClosePairs mNP2, t = 9         4.8e-36
+ 24  ClosePairs NJumps, t = 9      9.2e-201
+ 24  ClosePairs mNP2S, t = 9          eps  
+ 25  ClosePairs NJumps, t = 16       0.9990 
+ 34  Gap, r = 0                     3.9e-11
+ 35  Gap, r = 25                      eps  
+ 36  Gap, r = 0                       eps  
+ 37  Gap, r = 20                      eps  
+ 41  Permutation, t = 5              2.0e-7
+ 42  Permutation, t = 7               eps  
+ 43  Permutation, t = 10            1 - eps1
+ 44  CollisionPermut, r = 0         1 -  5.0e-5
+ 46  MaxOft, t = 8                    eps  
+ 47  MaxOft, t = 16                   eps  
+ 48  MaxOft, t = 24                   eps  
+ 49  MaxOft, t = 32                   eps  
+ 50  SampleProd, t = 8               3.1e-4
+ 66  MatrixRank, L=30, r=0            eps  
+ 67  MatrixRank, L=30, r=26           eps  
  68  MatrixRank, L=1000, r=0          eps  
+ 69  MatrixRank, L=1000, r=26         eps  
+ 70  MatrixRank, L=5000               eps  
  71  MatrixRank, L=5000               eps  
  80  LinearComp, r = 0              1 - eps1
+ 81  LinearComp, r = 29             1 - eps1
+ 85  Fourier3, r = 27                5.9e-5
+ 101  Run of bits, r = 0             1 -  3.2e-5
+ 102  Run of bits, r = 27            1 -  8.0e-6
  ----------------------------------------------
  All other tests were passed
 

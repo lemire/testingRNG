@@ -38,7 +38,7 @@ p-value of test                       :    0.37
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:48.71
+CPU time used                    :  00:00:48.60
 
 Generator state:
 
@@ -77,7 +77,7 @@ p-value of test                       :    0.53
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:50.06
+CPU time used                    :  00:00:50.15
 
 Generator state:
 
@@ -129,7 +129,7 @@ Total number of cells containing j balls
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:01:46.62
+CPU time used                    :  00:01:46.87
 
 Generator state:
 
@@ -181,7 +181,7 @@ Total number of cells containing j balls
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:01:49.42
+CPU time used                    :  00:01:49.87
 
 Generator state:
 
@@ -233,7 +233,7 @@ Total number of cells containing j balls
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:15.20
+CPU time used                    :  00:02:15.22
 
 Generator state:
 
@@ -285,7 +285,7 @@ Total number of cells containing j balls
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:17.60
+CPU time used                    :  00:02:16.87
 
 Generator state:
 
@@ -337,7 +337,7 @@ Total number of cells containing j balls
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:18.23
+CPU time used                    :  00:02:18.44
 
 Generator state:
 
@@ -389,7 +389,7 @@ Total number of cells containing j balls
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:19.03
+CPU time used                    :  00:02:20.10
 
 Generator state:
 
@@ -441,7 +441,7 @@ Total number of cells containing j balls
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:16.50
+CPU time used                    :  00:02:17.66
 
 Generator state:
 
@@ -493,7 +493,7 @@ Total number of cells containing j balls
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:17.13
+CPU time used                    :  00:02:19.25
 
 Generator state:
 
@@ -545,7 +545,7 @@ Total number of cells containing j balls
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:14.18
+CPU time used                    :  00:02:15.97
 
 Generator state:
 
@@ -597,7 +597,7 @@ Total number of cells containing j balls
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:02:15.47
+CPU time used                    :  00:02:17.42
 
 Generator state:
 
@@ -626,7 +626,7 @@ p-value of test                       :    0.45
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:59.08
+CPU time used                    :  00:02:59.86
 
 Generator state:
 
@@ -655,7 +655,7 @@ p-value of test                       :    0.30
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:16.45
+CPU time used                    :  00:01:16.69
 
 Generator state:
 
@@ -684,7 +684,7 @@ p-value of test                       :    0.87
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:02.11
+CPU time used                    :  00:02:02.41
 
 Generator state:
 
@@ -713,7 +713,7 @@ p-value of test                       :    0.77
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:25.51
+CPU time used                    :  00:01:25.75
 
 Generator state:
 
@@ -742,7 +742,7 @@ p-value of test                       :    0.98
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:27.59
+CPU time used                    :  00:01:27.78
 
 Generator state:
 
@@ -771,7 +771,7 @@ p-value of test                       :    0.41
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:18.01
+CPU time used                    :  00:02:18.50
 
 Generator state:
 
@@ -800,7 +800,7 @@ p-value of test                       :    0.81
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:18.13
+CPU time used                    :  00:02:18.78
 
 Generator state:
 
@@ -829,7 +829,7 @@ p-value of test                       :    0.9938
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:43.59
+CPU time used                    :  00:02:43.92
 
 Generator state:
 
@@ -858,7 +858,7 @@ p-value of test                       :    0.35
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:51.82
+CPU time used                    :  00:02:51.96
 
 Generator state:
 
@@ -954,7 +954,7 @@ Stat. AD after spacings (mNP2-S)      :    1.49
 p-value of test                       :    0.18
 
 -----------------------------------------------
-CPU time used                    :  00:01:23.36
+CPU time used                    :  00:01:23.19
 
 Generator state:
 
@@ -1002,7 +1002,7 @@ Stat. AD after spacings (mNP2-S)      :    0.93
 p-value of test                       :    0.40
 
 -----------------------------------------------
-CPU time used                    :  00:02:13.65
+CPU time used                    :  00:02:12.92
 
 Generator state:
 
@@ -1050,7 +1050,7 @@ Stat. AD after spacings (mNP2-S)      :    0.30
 p-value of test                       :    0.94
 
 -----------------------------------------------
-CPU time used                    :  00:02:31.17
+CPU time used                    :  00:02:28.00
 
 Generator state:
 
@@ -1074,7 +1074,7 @@ Chi-square statistic                  :    3.76
 p-value of test                       :    0.81
 
 -----------------------------------------------
-CPU time used                    :  00:00:32.78
+CPU time used                    :  00:00:32.90
 
 Generator state:
 
@@ -1098,7 +1098,7 @@ Chi-square statistic                  :    2.78
 p-value of test                       :    0.90
 
 -----------------------------------------------
-CPU time used                    :  00:00:38.48
+CPU time used                    :  00:00:38.38
 
 Generator state:
 
@@ -1122,7 +1122,7 @@ Chi-square statistic                  :   12.58
 p-value of test                       :    0.82
 
 -----------------------------------------------
-CPU time used                    :  00:00:34.07
+CPU time used                    :  00:00:34.23
 
 Generator state:
 
@@ -1146,7 +1146,7 @@ Chi-square statistic                  :   22.97
 p-value of test                       :    0.19
 
 -----------------------------------------------
-CPU time used                    :  00:00:40.11
+CPU time used                    :  00:00:40.13
 
 Generator state:
 
@@ -1170,7 +1170,7 @@ Chi-square statistic                  :   54.17
 p-value of test                       :    0.47
 
 -----------------------------------------------
-CPU time used                    :  00:00:41.76
+CPU time used                    :  00:00:41.34
 
 Generator state:
 
@@ -1194,7 +1194,7 @@ Chi-square statistic                  :   41.73
 p-value of test                       :    0.89
 
 -----------------------------------------------
-CPU time used                    :  00:00:51.32
+CPU time used                    :  00:00:47.90
 
 Generator state:
 
@@ -1218,7 +1218,7 @@ Chi-square statistic                  :   64.41
 p-value of test                       :    0.16
 
 -----------------------------------------------
-CPU time used                    :  00:00:51.30
+CPU time used                    :  00:00:47.90
 
 Generator state:
 
@@ -1242,7 +1242,7 @@ Chi-square statistic                  :   45.26
 p-value of test                       :    0.80
 
 -----------------------------------------------
-CPU time used                    :  00:00:51.25
+CPU time used                    :  00:00:47.90
 
 Generator state:
 
@@ -1314,7 +1314,7 @@ Chi-square statistic                  : 1424.55
 p-value of test                       :    0.59
 
 -----------------------------------------------
-CPU time used                    :  00:01:07.09
+CPU time used                    :  00:01:07.11
 
 Generator state:
 
@@ -1338,7 +1338,7 @@ Chi-square statistic                  : 6941.01
 p-value of test                       :    0.81
 
 -----------------------------------------------
-CPU time used                    :  00:01:02.96
+CPU time used                    :  00:01:03.03
 
 Generator state:
 
@@ -1373,7 +1373,7 @@ Chi-square statistic                  :   49.85
 p-value of test                       :    0.01
 
 -----------------------------------------------
-CPU time used                    :  00:00:47.07
+CPU time used                    :  00:00:47.09
 
 Generator state:
 
@@ -1408,7 +1408,7 @@ Chi-square statistic                  :   84.93
 p-value of test                       :    0.02
 
 -----------------------------------------------
-CPU time used                    :  00:01:52.67
+CPU time used                    :  00:01:52.76
 
 Generator state:
 
@@ -1447,7 +1447,7 @@ p-value of test                       :    0.12
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:35.23
+CPU time used                    :  00:00:35.25
 
 Generator state:
 
@@ -1486,7 +1486,7 @@ p-value of test                       :    0.19
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:07.03
+CPU time used                    :  00:01:07.09
 
 Generator state:
 
@@ -1525,7 +1525,7 @@ p-value of test                       :    0.73
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:54.11
+CPU time used                    :  00:00:54.28
 
 Generator state:
 
@@ -1564,7 +1564,7 @@ p-value of test                       :    0.06
 
 
 -----------------------------------------------
-CPU time used                    :  00:02:07.11
+CPU time used                    :  00:02:06.00
 
 Generator state:
 
@@ -1614,7 +1614,7 @@ Total number of cells containing j balls
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:03:27.10
+CPU time used                    :  00:03:29.18
 
 Generator state:
 
@@ -1664,7 +1664,7 @@ Total number of cells containing j balls
   j =  5                              :                0
 
 -----------------------------------------------
-CPU time used                    :  00:03:32.25
+CPU time used                    :  00:03:33.51
 
 Generator state:
 
@@ -1717,7 +1717,7 @@ p-value of test                       :    0.94
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:58.14
+CPU time used                    :  00:01:58.27
 
 Generator state:
 
@@ -1770,7 +1770,7 @@ p-value of test                       :    0.57
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:42.02
+CPU time used                    :  00:01:42.13
 
 Generator state:
 
@@ -1823,7 +1823,7 @@ p-value of test                       :    0.89
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:16.68
+CPU time used                    :  00:01:16.72
 
 Generator state:
 
@@ -1876,7 +1876,7 @@ p-value of test                       :    0.71
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:25.14
+CPU time used                    :  00:01:24.89
 
 Generator state:
 
@@ -1906,7 +1906,7 @@ Anderson-Darling statistic = A2       :    2.88
 p-value of test                       :    0.03
 
 -----------------------------------------------
-CPU time used                    :  00:01:25.35
+CPU time used                    :  00:01:24.39
 
 Generator state:
 
@@ -1936,7 +1936,7 @@ Anderson-Darling statistic = A2       :    0.43
 p-value of test                       :    0.82
 
 -----------------------------------------------
-CPU time used                    :  00:00:56.57
+CPU time used                    :  00:00:56.31
 
 Generator state:
 
@@ -1966,7 +1966,7 @@ Anderson-Darling statistic = A2       :    1.40
 p-value of test                       :    0.20
 
 -----------------------------------------------
-CPU time used                    :  00:01:10.93
+CPU time used                    :  00:01:10.64
 
 Generator state:
 
@@ -1996,7 +1996,7 @@ Anderson-Darling statistic = A2       :    0.85
 p-value of test                       :    0.45
 
 -----------------------------------------------
-CPU time used                    :  00:00:20.47
+CPU time used                    :  00:00:20.60
 
 Generator state:
 
@@ -2026,7 +2026,7 @@ Anderson-Darling statistic = A2       :    0.49
 p-value of test                       :    0.76
 
 -----------------------------------------------
-CPU time used                    :  00:00:20.81
+CPU time used                    :  00:00:20.89
 
 Generator state:
 
@@ -2101,7 +2101,7 @@ Normal statistic                      :    1.53
 p-value of test                       :    0.06
 
 -----------------------------------------------
-CPU time used                    :  00:01:06.63
+CPU time used                    :  00:01:03.40
 
 Generator state:
 
@@ -2130,7 +2130,7 @@ Normal statistic                      :    0.36
 p-value of test                       :    0.36
 
 -----------------------------------------------
-CPU time used                    :  00:01:03.10
+CPU time used                    :  00:01:02.89
 
 Generator state:
 
@@ -2250,7 +2250,7 @@ Chi-square statistic                  :   29.61
 p-value of test                       :    0.80
 
 -----------------------------------------------
-CPU time used                    :  00:00:32.13
+CPU time used                    :  00:00:32.14
 
 Generator state:
 
@@ -2274,7 +2274,7 @@ Chi-square statistic                  :   20.04
 p-value of test                       :    0.99
 
 -----------------------------------------------
-CPU time used                    :  00:00:32.11
+CPU time used                    :  00:00:32.13
 
 Generator state:
 
@@ -2298,7 +2298,7 @@ Chi-square statistic                  :   16.44
 p-value of test                       :    0.97
 
 -----------------------------------------------
-CPU time used                    :  00:01:02.34
+CPU time used                    :  00:01:02.35
 
 Generator state:
 
@@ -2368,7 +2368,7 @@ Chi-square statistic                  :   39.23
 p-value of test                       :    0.50
 
 -----------------------------------------------
-CPU time used                    :  00:00:52.69
+CPU time used                    :  00:00:52.22
 
 Generator state:
 
@@ -2392,7 +2392,7 @@ Chi-square statistic                  :    0.62
 p-value of test                       :    0.89
 
 -----------------------------------------------
-CPU time used                    :  00:01:35.30
+CPU time used                    :  00:01:35.46
 
 Generator state:
 
@@ -2416,7 +2416,7 @@ Chi-square statistic                  :    1.41
 p-value of test                       :    0.70
 
 -----------------------------------------------
-CPU time used                    :  00:01:35.25
+CPU time used                    :  00:01:35.38
 
 Generator state:
 
@@ -2440,7 +2440,7 @@ Chi-square statistic                  :    0.49
 p-value of test                       :    0.78
 
 -----------------------------------------------
-CPU time used                    :  00:01:07.92
+CPU time used                    :  00:01:08.43
 
 Generator state:
 
@@ -2464,7 +2464,7 @@ Chi-square statistic                  :    0.19
 p-value of test                       :    0.91
 
 -----------------------------------------------
-CPU time used                    :  00:00:52.28
+CPU time used                    :  00:00:53.98
 
 Generator state:
 
@@ -2499,7 +2499,7 @@ Chi-square statistic                  :  116.31
 p-value of test                       :    0.80
 
 -----------------------------------------------
-CPU time used                    :  00:00:19.80
+CPU time used                    :  00:00:19.78
 
 Generator state:
 
@@ -2537,7 +2537,7 @@ p-value of test                       :    0.32
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:27.46
+CPU time used                    :  00:01:27.47
 
 Generator state:
 
@@ -2597,7 +2597,7 @@ p-value of test                       :    0.69
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:29.59
+CPU time used                    :  00:00:29.60
 
 Generator state:
 
@@ -2657,7 +2657,7 @@ p-value of test                       :    0.32
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:29.72
+CPU time used                    :  00:00:29.68
 
 Generator state:
 
@@ -2717,7 +2717,7 @@ p-value of test                       :    0.62
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:38.06
+CPU time used                    :  00:00:38.07
 
 Generator state:
 
@@ -2777,7 +2777,7 @@ p-value of test                       :    0.68
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:38.06
+CPU time used                    :  00:00:38.09
 
 Generator state:
 
@@ -2837,7 +2837,7 @@ p-value of test                       :    0.57
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:31.89
+CPU time used                    :  00:00:32.00
 
 Generator state:
 
@@ -2897,7 +2897,7 @@ p-value of test                       :    0.41
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:31.88
+CPU time used                    :  00:00:31.93
 
 Generator state:
 
@@ -2929,7 +2929,7 @@ p-value of test                       :  3.8e-3
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:33.09
+CPU time used                    :  00:01:33.10
 
 Generator state:
 
@@ -2961,7 +2961,7 @@ p-value of test                       :    0.04
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:32.88
+CPU time used                    :  00:01:32.85
 
 Generator state:
 
@@ -2998,7 +2998,7 @@ Sample variance                       :    1.36
 p-value of test                       :    0.20
 
 -----------------------------------------------
-CPU time used                    :  00:00:55.03
+CPU time used                    :  00:00:52.30
 
 Generator state:
 
@@ -3035,7 +3035,7 @@ Sample variance                       :    1.83
 p-value of test                       :    0.06
 
 -----------------------------------------------
-CPU time used                    :  00:00:58.06
+CPU time used                    :  00:00:53.86
 
 Generator state:
 
@@ -3125,7 +3125,7 @@ p-value of test                       :    0.69
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:08.55
+CPU time used                    :  00:01:08.47
 
 Generator state:
 
@@ -3155,7 +3155,7 @@ p-value of test                       :    0.69
 
 
 -----------------------------------------------
-CPU time used                    :  00:01:08.06
+CPU time used                    :  00:01:07.92
 
 Generator state:
 
@@ -3190,7 +3190,7 @@ Chi-square statistic                  :  165.60
 p-value of test                       :    0.96
 
 -----------------------------------------------
-CPU time used                    :  00:01:37.39
+CPU time used                    :  00:01:37.07
 
 Generator state:
 
@@ -3225,7 +3225,7 @@ Chi-square statistic                  :  199.47
 p-value of test                       :    0.50
 
 -----------------------------------------------
-CPU time used                    :  00:01:36.27
+CPU time used                    :  00:01:35.81
 
 Generator state:
 
@@ -3260,7 +3260,7 @@ Chi-square statistic                  :10240.69
 p-value of test                       :    0.05
 
 -----------------------------------------------
-CPU time used                    :  00:00:32.13
+CPU time used                    :  00:00:32.06
 
 Generator state:
 
@@ -3295,7 +3295,7 @@ Chi-square statistic                  : 9875.43
 p-value of test                       :    0.81
 
 -----------------------------------------------
-CPU time used                    :  00:00:32.85
+CPU time used                    :  00:00:32.77
 
 Generator state:
 
@@ -3319,7 +3319,7 @@ Normal statistic                      :   -0.36
 p-value of test                       :    0.64
 
 -----------------------------------------------
-CPU time used                    :  00:00:43.05
+CPU time used                    :  00:00:42.40
 
 Generator state:
 
@@ -3343,7 +3343,7 @@ Normal statistic                      :   -0.54
 p-value of test                       :    0.70
 
 -----------------------------------------------
-CPU time used                    :  00:00:40.27
+CPU time used                    :  00:00:40.36
 
 Generator state:
 
@@ -3367,7 +3367,7 @@ Normal statistic                      :    0.32
 p-value of test                       :    0.37
 
 -----------------------------------------------
-CPU time used                    :  00:02:39.52
+CPU time used                    :  00:02:39.21
 
 Generator state:
 
@@ -3404,7 +3404,7 @@ Chi-square statistic                  : 4878.46
 p-value of test                       :    0.54
 
 -----------------------------------------------
-CPU time used                    :  00:01:03.23
+CPU time used                    :  00:01:03.07
 
 Generator state:
 
@@ -3441,7 +3441,7 @@ Chi-square statistic                  : 4859.32
 p-value of test                       :    0.62
 
 -----------------------------------------------
-CPU time used                    :  00:01:04.72
+CPU time used                    :  00:01:04.47
 
 Generator state:
 
@@ -3467,7 +3467,7 @@ Chi-square statistic                  : 3962.49
 p-value of test                       :    0.96
 
 -----------------------------------------------
-CPU time used                    :  00:00:46.14
+CPU time used                    :  00:00:46.02
 
 Generator state:
 
@@ -3493,7 +3493,7 @@ Chi-square statistic                  : 4181.89
 p-value of test                       :    0.24
 
 -----------------------------------------------
-CPU time used                    :  00:00:47.64
+CPU time used                    :  00:00:47.39
 
 Generator state:
 
@@ -3519,7 +3519,7 @@ Chi-square statistic                  :11993.01
 p-value of test                       :    0.14
 
 -----------------------------------------------
-CPU time used                    :  00:00:51.92
+CPU time used                    :  00:00:51.89
 
 Generator state:
 
@@ -3545,7 +3545,7 @@ Chi-square statistic                  :11674.62
 p-value of test                       :    0.84
 
 -----------------------------------------------
-CPU time used                    :  00:00:53.39
+CPU time used                    :  00:00:53.26
 
 Generator state:
 
@@ -3580,7 +3580,7 @@ p-value of test                       :    0.79
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:49.64
+CPU time used                    :  00:00:49.56
 
 Generator state:
 
@@ -3615,7 +3615,7 @@ p-value of test                       :    0.42
 
 
 -----------------------------------------------
-CPU time used                    :  00:00:49.59
+CPU time used                    :  00:00:49.50
 
 Generator state:
 
@@ -3652,7 +3652,7 @@ Sample variance                       :    0.77
 p-value of test                       :    0.64
 
 -----------------------------------------------
-CPU time used                    :  00:01:57.73
+CPU time used                    :  00:01:57.68
 
 Generator state:
 
@@ -3689,7 +3689,7 @@ Sample variance                       :    0.54
 p-value of test                       :    0.85
 
 -----------------------------------------------
-CPU time used                    :  00:01:42.85
+CPU time used                    :  00:01:42.68
 
 Generator state:
 
@@ -3726,7 +3726,7 @@ Sample variance                       :    0.81
 p-value of test                       :    0.61
 
 -----------------------------------------------
-CPU time used                    :  00:01:58.80
+CPU time used                    :  00:01:58.68
 
 Generator state:
 
@@ -3763,7 +3763,7 @@ Sample variance                       :    1.16
 p-value of test                       :    0.32
 
 -----------------------------------------------
-CPU time used                    :  00:01:44.72
+CPU time used                    :  00:01:44.64
 
 Generator state:
 
@@ -3776,7 +3776,7 @@ Generator state:
  Version:          TestU01 1.2.3
  Generator:        xorshift128plus lsb 32-bits 
  Number of statistics:  160
- Total CPU time:   02:15:39.93
+ Total CPU time:   02:15:26.82
  The following tests gave p-values outside [0.001, 0.9990]:
  (eps  means a value < 1.0e-300):
  (eps1 means a value < 1.0e-15):

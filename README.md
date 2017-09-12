@@ -211,6 +211,8 @@ Summary for aesctr lsb 32-bits (bit reverse) (4 crushes):
 - 1 unnoteworthy blips (#11)
 ```
 
+The xorshift32 generator fails very badly.
+
 ## PractRand results (512 GB)
 
 See practrand/results for detailed outputs.
@@ -265,7 +267,7 @@ Results will depend on your specific hardware and might be quite different on AR
 | xoroshiro128plus |  fails!     | fails!                 | 1.1                |
 | pcg64            |  :+1:     |    :+1:                | 1.4                |
 | pcg32            |  :+1:     |    :+1:                | 2.1                |
-| xorshift32       |  to be updated (failure expected)    | fails!                 | 2.5                |
+| xorshift32       |  fails   | fails!                 | 2.5                |
 
 ## Interpreting the results
 
