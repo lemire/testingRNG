@@ -8,7 +8,7 @@
 
 CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow -Wno-implicit-function-declaration
 
-EXECUTABLES=testwidynski testlehmer64 testsplitmix64 testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testmitchellmoore testmersennetwister testxorshift-k4 testxorshift-k5
+EXECUTABLES=testwidynski testlehmer64 testsplitmix64 testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testmitchellmoore testmersennetwister testxorshift-k4 testxorshift-k5 testxorshift1024star
 
 HEADERS=include/main.h
 
@@ -50,6 +50,10 @@ testlehmer64 : src/testlehmer64.c
 
 testsplitmix64 : src/testsplitmix64.c
 	$(CC) $(CFLAGS) -o testsplitmix64 src/testsplitmix64.c -I../source
+
+testxorshift1024star:  src/testxorshift1024star.c
+	$(CC) $(CFLAGS) -o testxorshift1024star src/testxorshift1024star.c  -I../source
+
 
 testxorshift128plus:  src/testxorshift128plus.c
 	$(CC) $(CFLAGS) -o testxorshift128plus src/testxorshift128plus.c  -I../source

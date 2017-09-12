@@ -10,13 +10,13 @@
 #include "TestU01.h"
 #include "util64bits32bits.h"
 
-unsigned int rng_lsb(void) { return lsb64(thisrng()); }
-unsigned int rng_lsb_reverse(void) { return bytereverse32(lsb64(thisrng())); }
-unsigned int rng_lsb_bitreverse(void) { return bitreverse32(lsb64(thisrng())); }
+static unsigned int rng_lsb(void) { return lsb64(thisrng()); }
+static unsigned int rng_lsb_reverse(void) { return bytereverse32(lsb64(thisrng())); }
+static unsigned int rng_lsb_bitreverse(void) { return bitreverse32(lsb64(thisrng())); }
 
-unsigned int rng_msb(void) { return msb64(thisrng()); }
-unsigned int rng_msb_reverse(void) { return bytereverse32(msb64(thisrng())); }
-unsigned int rng_msb_bitreverse(void) { return bitreverse32(msb64(thisrng())); }
+static unsigned int rng_msb(void) { return msb64(thisrng()); }
+static unsigned int rng_msb_reverse(void) { return bytereverse32(msb64(thisrng())); }
+static unsigned int rng_msb_bitreverse(void) { return bitreverse32(msb64(thisrng())); }
 
 
 #define number_of_rng 6

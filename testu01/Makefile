@@ -11,7 +11,7 @@ CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow -Wno-implicit-f
 LIBS=build/lib/libmylib.a build/lib/libprobdist.a build/lib/libtestu01.a
 LIBSCMD= build/lib/libtestu01.a  build/lib/libprobdist.a build/lib/libmylib.a  -lm
 LIBTARGET=build/lib/libmylib.a
-EXECUTABLES=testmersennetwister testlehmer64 testsplitmix64 testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr
+EXECUTABLES=testmersennetwister testlehmer64 testsplitmix64 testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testxorshift1024star
 
 HEADERS=include/main.h
 
@@ -30,7 +30,6 @@ $(LIBTARGET): TestU01-1.2.3
 testmersennetwister:  $(LIBTARGET) $(HEADERS)
 	$(CC) $(CFLAGS) -o testmersennetwister src/testmersennetwister.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
-
 testlehmer64:  $(LIBTARGET) $(HEADERS)
 	$(CC) $(CFLAGS) -o testlehmer64 src/testlehmer64.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
@@ -43,6 +42,8 @@ testsplitmix64 :  $(LIBTARGET) $(HEADERS)
 testxoroshiro128plus: $(LIBTARGET) $(HEADERS)
 	$(CC) $(CFLAGS) -o testxoroshiro128plus src/testxoroshiro128plus.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
+testxorshift1024star:  $(LIBTARGET) $(HEADERS)
+	$(CC) $(CFLAGS) -o testxorshift1024star src/testxorshift1024star.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
 testxorshift128plus: $(LIBTARGET) $(HEADERS)
 	$(CC) $(CFLAGS) -o testxorshift128plus src/testxorshift128plus.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude

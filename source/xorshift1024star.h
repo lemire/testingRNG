@@ -24,9 +24,9 @@ See <http://creativecommons.org/publicdomain/zero/1.0/>. */
    a 64-bit seed, we suggest to seed a splitmix64 generator and use its
    output to fill s. */
 
-const int xorshift1024star_size = 16;
-uint64_t xorshift1024star_s[xorshift1024star_size];
-int xorshift1024star_p;
+#define xorshift1024star_size 16
+static uint64_t xorshift1024star_s[xorshift1024star_size];
+static int xorshift1024star_p;
 
 // call once before calling xorshift1024star
 static inline void xorshift1024star_seed(uint64_t seed) {
@@ -37,12 +37,12 @@ static inline void xorshift1024star_seed(uint64_t seed) {
 
 // returns random number, modifies xorshift1024star_s and xorshift1024star_p
 static inline uint64_t xorshift1024star(void) {
-  const uint64_t s0 = xorshift1024star_s[p];
+  const uint64_t s0 = xorshift1024star_s[xorshift1024star_p];
   xorshift1024star_p = (xorshift1024star_p + 1) % xorshift1024star_size;
   uint64_t s1 = xorshift1024star_s[xorshift1024star_p];
   s1 ^= s1 << 31;                                            // a
-  xorshift1024star_s[p] = s1 ^ s0 ^ (s1 >> 11) ^ (s0 >> 30); // b,c
-  return xorshift1024star_s[p] * UINT64_C(1181783497276652981);
+  xorshift1024star_s[xorshift1024star_p] = s1 ^ s0 ^ (s1 >> 11) ^ (s0 >> 30); // b,c
+  return xorshift1024star_s[xorshift1024star_p] * UINT64_C(1181783497276652981);
 }
 
 #endif // XORSHIFT1024STAR_H

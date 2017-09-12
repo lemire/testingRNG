@@ -8,6 +8,7 @@
 #include "xorshift32.h"
 #include "pcg32.h"
 #include "xorshift128plus.h"
+#include "xorshift1024star.h"
 #include "xoroshiro128plus.h"
 #include "splitmix64.h"
 #include "pcg64.h"
@@ -33,12 +34,12 @@ const char *our32name[NUMBEROF32] = {
     "mitchellmoore", "widynski", "xorshift32",  "pcg32",
     "rand"};
 
-#define NUMBEROF64 6
+#define NUMBEROF64 7
 rand64fnc our64[NUMBEROF64] = {aesctr,           lehmer64,   xorshift128plus,
-                               xoroshiro128plus, splitmix64, pcg64};
+                               xoroshiro128plus, splitmix64, pcg64, xorshift1024star};
 const char *our64name[NUMBEROF64] = {"aesctr",          "lehmer64",
                                      "xorshift128plus", "xoroshiro128plus",
-                                     "splitmix64",      "pcg64"};
+                                     "splitmix64",      "pcg64", "xorshift1024star"};
 
 void populate32(rand32fnc rand, uint32_t *answer, size_t size) {
   for (size_t i = size; i != 0; i--) {
