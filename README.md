@@ -211,6 +211,27 @@ Summary for aesctr lsb 32-bits (bit reverse) (4 crushes):
 - 1 unnoteworthy blips (#11)
 ```
 
+```
+$ ./results/summarize.pl testxorshift1024star*.log
+reviewing xorshift1024star lsb 32-bits
+Summary for xorshift1024star lsb 32-bits (4 crushes):
+- #81: LinearComp, r = 29: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1) -- ALL CRUSHES FAIL!!
+
+reviewing xorshift1024star lsb 32-bits (bit reverse)
+Summary for xorshift1024star lsb 32-bits (bit reverse) (4 crushes):
+- #80: LinearComp, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1) -- ALL CRUSHES FAIL!!
+- 2 unnoteworthy blips (#9, #75)
+
+reviewing xorshift1024star msb 32-bits
+Summary for xorshift1024star msb 32-bits (4 crushes):
+- 2 unnoteworthy blips (#9, #48)
+
+reviewing xorshift1024star msb 32-bits (bit reverse)
+Summary for xorshift1024star msb 32-bits (bit reverse) (4 crushes):
+- 5 unnoteworthy blips (#7, #23, #78, #99, #104)
+```
+
+
 The xorshift32 generator fails very badly.
 
 ## PractRand results (512 GB)
@@ -268,7 +289,7 @@ Results will depend on your specific hardware and might be quite different on AR
 | xorshift128plus  |  fails!            | fails!                 | 1.0                |
 | xoroshiro128plus |  fails!            | fails!                 | 1.1                |
 | pcg64            |  :+1:              |    :+1:                | 1.4                |
-| xorshift1024star |  tests running     |    fails!              | 1.5                |
+| xorshift1024star |  fails!            |    fails!              | 1.5                |
 | pcg32            |  :+1:              |    :+1:                | 2.1                |
 | xorshift32       |  fails!            | fails!                 | 2.5                |
 
