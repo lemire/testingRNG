@@ -36,7 +36,8 @@ cd testu01
 ./bigcrushall.sh
 ```
 
-The TestU01 benchmark "big crush" (``bigcrush.sh``) might take days.
+The TestU01 benchmark "big crush" (``bigcrushall.sh``) might take days.
+A parallel version (``bigcrushallparallel.sh``) will test multiple generators at the same time, up to the number of detected CPU threads.
 
 #### Speed:
 It is interesting to assess running speed as well. This can be done quickly:
