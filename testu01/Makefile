@@ -11,7 +11,7 @@ CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow -Wno-implicit-f
 LIBS=build/lib/libmylib.a build/lib/libprobdist.a build/lib/libtestu01.a
 LIBSCMD= build/lib/libtestu01.a  build/lib/libprobdist.a build/lib/libmylib.a  -lm
 LIBTARGET=build/lib/libmylib.a
-EXECUTABLES=testmersennetwister testlehmer64 testsplitmix64 testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testxorshift1024star
+EXECUTABLES=testmersennetwister testlehmer64 testsplitmix64 testxoroshiro128plus testv8xorshift128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testxorshift1024star
 
 HEADERS=include/main.h
 
@@ -47,6 +47,10 @@ testxorshift1024star:  $(LIBTARGET) $(HEADERS)
 
 testxorshift128plus: $(LIBTARGET) $(HEADERS)
 	$(CC) $(CFLAGS) -o testxorshift128plus src/testxorshift128plus.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
+
+
+testv8xorshift128plus: $(LIBTARGET) $(HEADERS)
+	$(CC) $(CFLAGS) -o testv8xorshift128plus src/testv8xorshift128plus.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
 testxorshift32: $(LIBTARGET) $(HEADERS)
 	$(CC) $(CFLAGS) -o testxorshift32 src/testxorshift32.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude

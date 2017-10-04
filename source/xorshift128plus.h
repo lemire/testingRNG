@@ -29,6 +29,13 @@ static inline void xorshift128plus_seed(uint64_t seed) {
                        &global_xorshift128plus_key);
 }
 
+
+// this is the code as found on Vigna's site
+// http://xoroshiro.di.unimi.it/xorshift128plus.c (last checked October 4th 2017)
+// It is also the code that appears in
+// Further scramblings of Marsaglia’s xorshift generators
+// http://vigna.di.unimi.it/ftp/papers/xorshiftplus.pdf
+// Figure 1: The xorshift128+ generator used in the tests.
 uint64_t xorshift128plus_r(xorshift128plus_key_t *key) {
   uint64_t s1 = key->part1;
   const uint64_t s0 = key->part2;
@@ -38,8 +45,25 @@ uint64_t xorshift128plus_r(xorshift128plus_key_t *key) {
   return key->part2 + s0;
 }
 
+// this is the version found on Wikipedia
+// https://en.wikipedia.org/wiki/Xorshift#xorshift.2B (Oct 4th 2018)
+// as well as the version reported to be used by the v8 project
+// https://v8project.blogspot.ca/2015/12/theres-mathrandom-and-then-theres.html
+uint64_t v8xorshift128plus_r(xorshift128plus_key_t *key) {
+  uint64_t s1 = key->part1;
+  const uint64_t s0 = key->part2;
+  key->part1 = s0;
+  s1 ^= s1 << 23;                                // a
+  key->part2 = s1 ^ s0 ^ (s1 >> 17) ^ (s0 >> 26); // b, c
+  return key->part2 + s0;
+}
+
 static inline uint64_t xorshift128plus() {
   return xorshift128plus_r(&global_xorshift128plus_key);
+}
+
+static inline uint64_t v8xorshift128plus() {
+  return v8xorshift128plus_r(&global_xorshift128plus_key);
 }
 
 #endif
