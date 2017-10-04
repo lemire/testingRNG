@@ -1,0 +1,38 @@
+RNG_test using PractRand version 0.93
+RNG = RNG_stdin64, seed = 0x9aac59c3
+test set = normal, folding = standard (64 bit)
+
+rng=RNG_stdin64, seed=0x9aac59c3
+length= 256 megabytes (2^28 bytes), time= 2.9 seconds
+  no anomalies in 159 test result(s)
+
+rng=RNG_stdin64, seed=0x9aac59c3
+length= 512 megabytes (2^29 bytes), time= 6.2 seconds
+  Test Name                         Raw       Processed     Evaluation
+  [Low4/64]BCFN(2+1,13-4,T)         R=  +8.2  p =  1.6e-3   unusual          
+  ...and 168 test result(s) without anomalies
+
+rng=RNG_stdin64, seed=0x9aac59c3
+length= 1 gigabyte (2^30 bytes), time= 12.4 seconds
+  no anomalies in 180 test result(s)
+
+rng=RNG_stdin64, seed=0x9aac59c3
+length= 2 gigabytes (2^31 bytes), time= 24.3 seconds
+  no anomalies in 191 test result(s)
+
+rng=RNG_stdin64, seed=0x9aac59c3
+length= 4 gigabytes (2^32 bytes), time= 47.1 seconds
+  no anomalies in 201 test result(s)
+
+rng=RNG_stdin64, seed=0x9aac59c3
+length= 8 gigabytes (2^33 bytes), time= 92.9 seconds
+  Test Name                         Raw       Processed     Evaluation
+  BCFN(2+1,13-0,T)                  R= +15.2  p =  1.2e-7   very suspicious  
+  ...and 211 test result(s) without anomalies
+
+rng=RNG_stdin64, seed=0x9aac59c3
+length= 16 gigabytes (2^34 bytes), time= 184 seconds
+  Test Name                         Raw       Processed     Evaluation
+  BCFN(2+1,13-0,T)                  R= +28.7  p =  6.9e-15    FAIL !         
+  ...and 222 test result(s) without anomalies
+

@@ -56,7 +56,7 @@ Note  that the speed tests assume a recent x64 processor (e.g., they would not w
 - splitmix64 is a random number generator in widespread use and part of the standard Java API, we adapted a port to C produced by Vigna. It produces 64-bit numbers.
 - pcg32 and pcg64 are instances of the PCG family designed by O'Neill. They produce either 32-bit or 64-bit outputs.
 - xorshift32 is a classical xorshift random number generator. We do not expect it to do well.
-- xorshift128plus, xorshift1024star and xoroshiro128plus are recently proposed random number generator by Vigna.
+- xorshift128plus, xorshift1024star and xoroshiro128plus are recently proposed random number generator by Vigna. There are many parameters possible, but we used those recommended by Vigna. For xorshift128plus, the V8 JavaScript runtime opted for other constants, so we add a new generator "v8xorshift128plus" which relies on constants that Vigna recommended against using, but that are apparently used by V8.
 - rand is whatever random number number generator your C standard library provides. It is a useful point of reference when assessing speed.
 - lehmer64 is a simple (but fast) Multiplicative Linear Congruential Generator
 - aesctr is a random number generator based on the AES cipher (contributed by Samuel Neves)
@@ -245,6 +245,8 @@ Raw output:
 $ ./summarize.sh 
 testmersennetwister.log:  [Low16/64]BRank(12):12K(1)        R= +3016  p~=  6.7e-909   FAIL !!!!!!!
 testmitchellmoore.log:  [Low1/64]BRank(12):256(2)         R= +73.5  p~=  3.8e-23    FAIL !!
+testv8xorshift128plus-H.log:  BCFN(2+1,13-0,T)                  R= +28.7  p =  6.9e-15    FAIL !
+testv8xorshift128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
 testxoroshiro128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
 testxorshift1024star.log:  [Low4/64]BRank(12):1536(1)        R= +2650  p~=  9.8e-799   FAIL !!!!!!!
 testxorshift128plus-H.log:  BCFN(2+1,13-0,T)                  R= +27.9  p =  1.9e-14    FAIL
@@ -288,6 +290,7 @@ Results will depend on your specific hardware and might be quite different on AR
 | splitmix64       |  :+1:              |    :+1:                | 1.0                |
 | aes              | :+1:               |   :+1:                 | 1.0                |
 | xorshift128plus  |  fails!            | fails!                 | 1.0                |
+| v8xorshift128plus  |  (tests running)            | fails!                 | 1.0                |
 | xoroshiro128plus |  fails!            | fails!                 | 1.1                |
 | pcg64            |  :+1:              |    :+1:                | 1.4                |
 | xorshift1024star |  fails!            |    fails!              | 1.5                |
