@@ -178,6 +178,32 @@ reviewing xorshift128plus lsb 32-bits (byte reverse)
 Summary for xorshift128plus lsb 32-bits (byte reverse) (4 crushes):
 - #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
 ```
+```
+$ ./summarize.pl testv8xorshift128plus-*.logreviewing v8xorshift128plus lsb 32-bits
+Summary for v8xorshift128plus lsb 32-bits (4 crushes):
+- 2 unnoteworthy blips (#47, #50)
+
+reviewing v8xorshift128plus lsb 32-bits (bit reverse)
+Summary for v8xorshift128plus lsb 32-bits (bit reverse) (4 crushes):
+- #68: MatrixRank, L=1000, r=0: FAIL!! -- p-values too unlikely (eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
+- #80: LinearComp, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1) -- ALL CRUSHES FAIL!!
+- 3 unnoteworthy blips (#24, #43, #78)
+
+reviewing v8xorshift128plus lsb 32-bits (byte reverse)
+Summary for v8xorshift128plus lsb 32-bits (byte reverse) (4 crushes):
+- #71: MatrixRank, L=5000: FAIL!! -- p-values too unlikely (eps, eps, eps, eps) -- ALL CRUSHES FAIL!!
+- 2 unnoteworthy blips (#9, #102)
+
+reviewing v8xorshift128plus msb 32-bits (bit reverse)
+Summary for v8xorshift128plus msb 32-bits (bit reverse) (4 crushes):
+- 1 unnoteworthy blips (#11)
+
+reviewing v8xorshift128plus msb 32-bits (byte reverse)
+Summary for v8xorshift128plus msb 32-bits (byte reverse) (4 crushes):
+- 1 unnoteworthy blips (#48)
+```
+
 
 ```
 $ ./summarize.pl testlehmer64*.log
@@ -290,7 +316,7 @@ Results will depend on your specific hardware and might be quite different on AR
 | splitmix64       |  :+1:              |    :+1:                | 1.0                |
 | aes              | :+1:               |   :+1:                 | 1.0                |
 | xorshift128plus  |  fails!            | fails!                 | 1.0                |
-| v8xorshift128plus  |  (tests running)            | fails!                 | 1.0                |
+| v8xorshift128plus  |  fails!          | fails!                 | 1.0                |
 | xoroshiro128plus |  fails!            | fails!                 | 1.1                |
 | pcg64            |  :+1:              |    :+1:                | 1.4                |
 | xorshift1024star |  fails!            |    fails!              | 1.5                |
