@@ -274,6 +274,7 @@ testmitchellmoore.log:  [Low1/64]BRank(12):256(2)         R= +73.5  p~=  3.8e-23
 testv8xorshift128plus-H.log:  BCFN(2+1,13-0,T)                  R= +28.7  p =  6.9e-15    FAIL !
 testv8xorshift128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
 testxoroshiro128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
+testxorshift1024plus.log:  [Low1/64]BRank(12):1536(1)        R=+10916  p~=  3e-3287    FAIL !!!!!!!!
 testxorshift1024star.log:  [Low4/64]BRank(12):1536(1)        R= +2650  p~=  9.8e-799   FAIL !!!!!!!
 testxorshift128plus-H.log:  BCFN(2+1,13-0,T)                  R= +27.9  p =  1.9e-14    FAIL
 testxorshift128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
@@ -318,7 +319,7 @@ Results will depend on your specific hardware and might be quite different on AR
 | aes              | :+1:               |   :+1:                 | 1.0                |
 | xorshift128plus  |  fails!            | fails!                 | 1.0                |
 | v8xorshift128plus  |  fails!          | fails!                 | 1.0                |
-| xorshift1024plus |  running            |    running              | 1.0                |
+| xorshift1024plus |  running            |    fails!             | 1.0                |
 | xoroshiro128plus |  fails!            | fails!                 | 1.1                |
 | pcg64            |  :+1:              |    :+1:                | 1.4                |
 | xorshift1024star |  fails!            |    fails!              | 1.5                |

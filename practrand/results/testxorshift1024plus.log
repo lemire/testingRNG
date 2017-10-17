@@ -1,0 +1,32 @@
+RNG_test using PractRand version 0.93
+RNG = RNG_stdin64, seed = 0x3a132df8
+test set = normal, folding = standard (64 bit)
+
+rng=RNG_stdin64, seed=0x3a132df8
+length= 256 megabytes (2^28 bytes), time= 2.8 seconds
+  no anomalies in 159 test result(s)
+
+rng=RNG_stdin64, seed=0x3a132df8
+length= 512 megabytes (2^29 bytes), time= 6.1 seconds
+  no anomalies in 169 test result(s)
+
+rng=RNG_stdin64, seed=0x3a132df8
+length= 1 gigabyte (2^30 bytes), time= 12.3 seconds
+  Test Name                         Raw       Processed     Evaluation
+  [Low16/64]DC6-9x1Bytes-1          R=  +5.3  p =  8.4e-3   unusual          
+  ...and 179 test result(s) without anomalies
+
+rng=RNG_stdin64, seed=0x3a132df8
+length= 2 gigabytes (2^31 bytes), time= 23.9 seconds
+  no anomalies in 191 test result(s)
+
+rng=RNG_stdin64, seed=0x3a132df8
+length= 4 gigabytes (2^32 bytes), time= 46.4 seconds
+  no anomalies in 201 test result(s)
+
+rng=RNG_stdin64, seed=0x3a132df8
+length= 8 gigabytes (2^33 bytes), time= 91.6 seconds
+  Test Name                         Raw       Processed     Evaluation
+  [Low1/64]BRank(12):1536(1)        R=+10916  p~=  3e-3287    FAIL !!!!!!!!  
+  ...and 211 test result(s) without anomalies
+
