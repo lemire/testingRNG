@@ -56,7 +56,7 @@ Note  that the speed tests assume a recent x64 processor (e.g., they would not w
 - splitmix64 is a random number generator in widespread use and part of the standard Java API, we adapted a port to C produced by Vigna. It produces 64-bit numbers.
 - pcg32 and pcg64 are instances of the PCG family designed by O'Neill. They produce either 32-bit or 64-bit outputs.
 - xorshift32 is a classical xorshift random number generator. We do not expect it to do well.
-- xorshift128plus, xorshift1024star and xoroshiro128plus are recently proposed random number generator by Vigna. There are many parameters possible, but we used those recommended by Vigna. For xorshift128plus, the V8 JavaScript runtime opted for other constants, so we add a new generator "v8xorshift128plus" which relies on constants that Vigna recommended against using, but that are apparently used by V8.
+- xorshift128plus, xorshift1024star, xorshift1024plus and xoroshiro128plus are recently proposed random number generator by Vigna. There are many parameters possible, but we used those recommended by Vigna. For xorshift128plus, the V8 JavaScript runtime opted for other constants, so we add a new generator "v8xorshift128plus" which relies on constants that Vigna recommended against using, but that are apparently used by V8.
 - rand is whatever random number number generator your C standard library provides. It is a useful point of reference when assessing speed.
 - lehmer64 is a simple (but fast) Multiplicative Linear Congruential Generator
 - aesctr is a random number generator based on the AES cipher (contributed by Samuel Neves)
@@ -294,6 +294,7 @@ lehmer64:  1.04 cycles per byte
 splitmix64:  1.04 cycles per byte
 xorshift128plus:  1.04 cycles per byte
 aesctr:  1.07 cycles per byte
+xorshift1024plus: 1.08 cycles per byte
 xoroshiro128plus:  1.15 cycles per byte
 pcg64:  1.41 cycles per byte
 xorshift1024star:  1.51 cycles per byte
@@ -317,6 +318,7 @@ Results will depend on your specific hardware and might be quite different on AR
 | aes              | :+1:               |   :+1:                 | 1.0                |
 | xorshift128plus  |  fails!            | fails!                 | 1.0                |
 | v8xorshift128plus  |  fails!          | fails!                 | 1.0                |
+| xorshift1024plus |  running            |    running              | 1.0                |
 | xoroshiro128plus |  fails!            | fails!                 | 1.1                |
 | pcg64            |  :+1:              |    :+1:                | 1.4                |
 | xorshift1024star |  fails!            |    fails!              | 1.5                |
