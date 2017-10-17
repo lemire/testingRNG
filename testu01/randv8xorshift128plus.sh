@@ -1,7 +1,7 @@
 #!/bin/bash
 make -s
 wc="-b" #big crush
-t="./testxorshift1024star" # this is the command
+t="./testv8xorshift128plus" # this is the command
 
 i="0"
 

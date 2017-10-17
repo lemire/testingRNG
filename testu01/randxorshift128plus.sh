@@ -15,7 +15,7 @@ do
      filelog=$wf.log
      echo "# test $i out of 100 "
      echo "# RUNNING" $thiscommand  "Outputting result to " $filelog
-    ./$thiscommand  > $filelog
+    ./$thiscommand  > ./longresults/$filelog
     echo
     i=$[$i+1]
 done 

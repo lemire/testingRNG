@@ -1,11 +1,11 @@
 #!/bin/bash
 make -s
 wc="-b" #big crush
-t="./testxorshift1024star" # this is the command
+t="./testxoroshiro128plus" # this is the command
 
 i="0"
 
-while [ $i -lt 100 ] 
+while [ $i -lt 1 ] 
 do
     SEEDCMD="-S "$RANDOM
      order="-z"
