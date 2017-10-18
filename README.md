@@ -36,8 +36,12 @@ cd testu01
 ./bigcrushall.sh
 ```
 
-The TestU01 benchmark "big crush" (``bigcrushall.sh``) might take days.
+The TestU01 benchmark "big crush" (``bigcrushall.sh``) might take days. It outputs its results in the current
+directory (``testu1``, but we copied already computed in the ``results`` subdirectory.
 A parallel version (``bigcrushallparallel.sh``) will test multiple generators at the same time, up to the number of detected CPU threads.
+
+There are also extensive scripts that generate many (100) seeds and test generators, the script take
+the form ``rand*.sh``, one per generator. They output their results in their ``longresults`` subdirectory.
 
 #### Speed:
 It is interesting to assess running speed as well. This can be done quickly:
@@ -92,6 +96,8 @@ For PractRand, we do not need to truncate the produced random bits.
 
 See testu01/results for detailed outputs.
 Type ``./summarize.pl *.log |more``.
+There are also supplementary results in the ``longresults`` subdirectory for
+specific generators, to confirm beyond a doubt systematic failures.
 
 ```
 $ ./summarize.pl testsplitmix64-*.log
@@ -312,19 +318,19 @@ Results will depend on your specific hardware and might be quite different on AR
 
 ## Visual Summary
 
-|                  | TestU01 (big crush)| PractRand (64 GB)      | time (cycles/byte) |
-|------------------|--------------------|------------------------|--------------------|
-| lehmer64         | :+1:               |   :+1:                 | 1.0                |
-| splitmix64       |  :+1:              |    :+1:                | 1.0                |
-| aes              | :+1:               |   :+1:                 | 1.0                |
-| xorshift128plus  |  fails!            | fails!                 | 1.0                |
-| v8xorshift128plus  |  fails!          | fails!                 | 1.0                |
-| xorshift1024plus |  running            |    fails!             | 1.0                |
-| xoroshiro128plus |  fails!            | fails!                 | 1.1                |
-| pcg64            |  :+1:              |    :+1:                | 1.4                |
-| xorshift1024star |  fails!            |    fails!              | 1.5                |
-| pcg32            |  :+1:              |    :+1:                | 2.1                |
-| xorshift32       |  fails!            | fails!                 | 2.5                |
+|                  | TestU01 (big crush)| PractRand (64 GB)        | time (cycles/byte) |
+|------------------|--------------------|--------------------------|--------------------|
+| lehmer64         |  :+1:              |   :+1:                   | 1.0                |
+| splitmix64       |  :+1:              |   :+1:                   | 1.0                |
+| aes              |  :+1:              |   :+1:                   | 1.0                |
+| xorshift128plus  |  fails!            |   fails!                 | 1.0                |
+| v8xorshift128plus|  fails!            |   fails!                 | 1.0                |
+| xorshift1024plus |  fails!            |   fails!                 | 1.0                |
+| xoroshiro128plus |  fails!            |   fails!                 | 1.1                |
+| pcg64            |  :+1:              |   :+1:                   | 1.4                |
+| xorshift1024star |  fails!            |   fails!                 | 1.5                |
+| pcg32            |  :+1:              |   :+1:                   | 2.1                |
+| xorshift32       |  fails!            |   fails!                 | 2.5                |
 
 ## Interpreting the results
 
