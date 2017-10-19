@@ -263,7 +263,24 @@ reviewing xorshift1024star msb 32-bits (bit reverse)
 Summary for xorshift1024star msb 32-bits (bit reverse) (4 crushes):
 - 5 unnoteworthy blips (#7, #23, #78, #99, #104)
 ```
+```
+reviewing xorshift1024plus lsb 32-bits (bit reverse)
+Summary for xorshift1024plus lsb 32-bits (bit reverse) (4 crushes):
+- #80: LinearComp, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1) -- ALL CRUSHES FAIL!!
+- 1 unnoteworthy blips (#74)
 
+reviewing xorshift1024plus msb 32-bits
+Summary for xorshift1024plus msb 32-bits (4 crushes):
+- 2 unnoteworthy blips (#77, #85)
+
+reviewing xorshift1024plus msb 32-bits (bit reverse)
+Summary for xorshift1024plus msb 32-bits (bit reverse) (4 crushes):
+- 5 unnoteworthy blips (#18, #21, #25, #51, #55)
+
+reviewing xorshift1024plus msb 32-bits (byte reverse)
+Summary for xorshift1024plus msb 32-bits (byte reverse) (4 crushes):
+- 1 unnoteworthy blips (#95)
+```
 
 The xorshift32 generator fails very badly.
 
