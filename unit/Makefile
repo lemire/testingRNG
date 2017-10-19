@@ -6,7 +6,14 @@
 
 .PHONY: clean cleandist
 
-CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow -Wno-implicit-function-declaration
+PROCESSOR:=$(shell uname -m)
+ifeq ($(PROCESSOR), aarch64)
+OPTIFLAG = 
+else
+OPTIFLAG = -march=native
+endif
+
+CFLAGS = -fPIC -std=c99 -O3 $(OPTIFLAG) -Wall -Wextra -Wshadow -Wno-implicit-function-declaration
 
 EXECUTABLES=v8equiv
 

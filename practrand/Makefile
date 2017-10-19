@@ -5,8 +5,14 @@
 
 
 .PHONY: clean cleandist
+PROCESSOR:=$(shell uname -m)
+ifeq ($(PROCESSOR), aarch64)
+OPTIFLAG =
+else
+OPTIFLAG = -march=native
+endif
 
-CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow -Wno-implicit-function-declaration
+CFLAGS = -fPIC -std=c99 -O3 $(OPTIFLAG) -Wall -Wextra -Wshadow -Wno-implicit-function-declaration
 
 EXECUTABLES=testwidynski testlehmer64 testsplitmix64  testv8xorshift128plus testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testmitchellmoore testmersennetwister testxorshift-k4 testxorshift-k5 testxorshift1024star testxorshift1024plus
 
