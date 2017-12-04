@@ -16,7 +16,7 @@ We assume Linux or macOS. Under Windows 10, you can get the [Linux Subsystem](ht
 - If you have a mac, it is assumed that [you have installed a recent Xcode package](https://developer.apple.com/xcode/) to get
 the C (and C++) compiler. Make sure you have installed the command-line utilities.
 
-(Note: Some contributed schemes may assume a recent x64 processor. However, the bulk of the code is entirely portable.)
+(Note: We assume a recent x64 processor. TestU01, in particular, does not easily build on some ARM-based systems.)
 
 ## Usage
 
