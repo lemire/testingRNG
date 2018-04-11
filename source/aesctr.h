@@ -1,3 +1,10 @@
+/***
+* Daniel Baker has adapted this code to C++:
+* https://github.com/dnbaker/hll/blob/master/aesctr.h
+* He reports that UNROLL_COUNT of 8 (rather than 4) is measurably 
+* but not enormously faster. 
+***/
+
 #ifndef AESCTR_H
 #define AESCTR_H
 
