@@ -6,6 +6,7 @@
 
 #define buffer_size 512
 int main() {
+#ifdef __AES__
   uint64_t seedvalue = 12345678;
   aesctr_seed(seedvalue);
   uint64_t buffer[buffer_size];
@@ -15,4 +16,5 @@ int main() {
       buffer[k] = aesctr();
     fwrite((void *)buffer, sizeof(buffer), 1, stdout);
   }
+#endif // __AES__
 }

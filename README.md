@@ -16,7 +16,7 @@ We assume Linux or macOS. Under Windows 10, you can get the [Linux Subsystem](ht
 - If you have a mac, it is assumed that [you have installed a recent Xcode package](https://developer.apple.com/xcode/) to get
 the C (and C++) compiler. Make sure you have installed the command-line utilities.
 
-(Note: Some contributed schemes may assume a recent x64 processor. However, the bulk of the code is entirely portable.)
+(Note: We assume a recent x64 processor. TestU01, in particular, does not easily build on some ARM-based systems.)
 
 ## Usage
 
@@ -36,8 +36,12 @@ cd testu01
 ./bigcrushall.sh
 ```
 
-The TestU01 benchmark "big crush" (``bigcrushall.sh``) might take days.
+The TestU01 benchmark "big crush" (``bigcrushall.sh``) might take days. It outputs its results in the current
+directory (``testu1``, but we copied already computed in the ``results`` subdirectory.
 A parallel version (``bigcrushallparallel.sh``) will test multiple generators at the same time, up to the number of detected CPU threads.
+
+There are also extensive scripts that generate many (100) seeds and test generators, the script take
+the form ``rand*.sh``, one per generator. They output their results in their ``longresults`` subdirectory.
 
 #### Speed:
 It is interesting to assess running speed as well. This can be done quickly:
@@ -56,7 +60,7 @@ Note  that the speed tests assume a recent x64 processor (e.g., they would not w
 - splitmix64 is a random number generator in widespread use and part of the standard Java API, we adapted a port to C produced by Vigna. It produces 64-bit numbers.
 - pcg32 and pcg64 are instances of the PCG family designed by O'Neill. They produce either 32-bit or 64-bit outputs.
 - xorshift32 is a classical xorshift random number generator. We do not expect it to do well.
-- xorshift128plus, xorshift1024star and xoroshiro128plus are recently proposed random number generator by Vigna. There are many parameters possible, but we used those recommended by Vigna. For xorshift128plus, the V8 JavaScript runtime opted for other constants, so we add a new generator "v8xorshift128plus" which relies on constants that Vigna recommended against using, but that are apparently used by V8.
+- xorshift128plus, xorshift1024star, xorshift1024plus and xoroshiro128plus are recently proposed random number generator by Vigna. There are many parameters possible, but we used those recommended by Vigna. For xorshift128plus, the V8 JavaScript runtime opted for other constants, so we add a new generator "v8xorshift128plus" which relies on constants that Vigna recommended against using, but that are apparently used by V8.
 - rand is whatever random number number generator your C standard library provides. It is a useful point of reference when assessing speed.
 - lehmer64 is a simple (but fast) Multiplicative Linear Congruential Generator
 - aesctr is a random number generator based on the AES cipher (contributed by Samuel Neves)
@@ -92,6 +96,8 @@ For PractRand, we do not need to truncate the produced random bits.
 
 See testu01/results for detailed outputs.
 Type ``./summarize.pl *.log |more``.
+There are also supplementary results in the ``longresults`` subdirectory for
+specific generators, to confirm beyond a doubt systematic failures.
 
 ```
 $ ./summarize.pl testsplitmix64-*.log
@@ -257,7 +263,24 @@ reviewing xorshift1024star msb 32-bits (bit reverse)
 Summary for xorshift1024star msb 32-bits (bit reverse) (4 crushes):
 - 5 unnoteworthy blips (#7, #23, #78, #99, #104)
 ```
+```
+reviewing xorshift1024plus lsb 32-bits (bit reverse)
+Summary for xorshift1024plus lsb 32-bits (bit reverse) (4 crushes):
+- #80: LinearComp, r = 0: FAIL!! -- p-values too unlikely (1 - eps1, 1 - eps1, 1 - eps1, 1 - eps1) -- ALL CRUSHES FAIL!!
+- 1 unnoteworthy blips (#74)
 
+reviewing xorshift1024plus msb 32-bits
+Summary for xorshift1024plus msb 32-bits (4 crushes):
+- 2 unnoteworthy blips (#77, #85)
+
+reviewing xorshift1024plus msb 32-bits (bit reverse)
+Summary for xorshift1024plus msb 32-bits (bit reverse) (4 crushes):
+- 5 unnoteworthy blips (#18, #21, #25, #51, #55)
+
+reviewing xorshift1024plus msb 32-bits (byte reverse)
+Summary for xorshift1024plus msb 32-bits (byte reverse) (4 crushes):
+- 1 unnoteworthy blips (#95)
+```
 
 The xorshift32 generator fails very badly.
 
@@ -274,6 +297,7 @@ testmitchellmoore.log:  [Low1/64]BRank(12):256(2)         R= +73.5  p~=  3.8e-23
 testv8xorshift128plus-H.log:  BCFN(2+1,13-0,T)                  R= +28.7  p =  6.9e-15    FAIL !
 testv8xorshift128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
 testxoroshiro128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
+testxorshift1024plus.log:  [Low1/64]BRank(12):1536(1)        R=+10916  p~=  3e-3287    FAIL !!!!!!!!
 testxorshift1024star.log:  [Low4/64]BRank(12):1536(1)        R= +2650  p~=  9.8e-799   FAIL !!!!!!!
 testxorshift128plus-H.log:  BCFN(2+1,13-0,T)                  R= +27.9  p =  1.9e-14    FAIL
 testxorshift128plus.log:  [Low4/64]BRank(12):768(1)         R= +1272  p~=  5.4e-384   FAIL !!!!!!!
@@ -294,6 +318,7 @@ lehmer64:  1.04 cycles per byte
 splitmix64:  1.04 cycles per byte
 xorshift128plus:  1.04 cycles per byte
 aesctr:  1.07 cycles per byte
+xorshift1024plus: 1.08 cycles per byte
 xoroshiro128plus:  1.15 cycles per byte
 pcg64:  1.41 cycles per byte
 xorshift1024star:  1.51 cycles per byte
@@ -310,18 +335,19 @@ Results will depend on your specific hardware and might be quite different on AR
 
 ## Visual Summary
 
-|                  | TestU01 (big crush)| PractRand (64 GB)      | time (cycles/byte) |
-|------------------|--------------------|------------------------|--------------------|
-| lehmer64         | :+1:               |   :+1:                 | 1.0                |
-| splitmix64       |  :+1:              |    :+1:                | 1.0                |
-| aes              | :+1:               |   :+1:                 | 1.0                |
-| xorshift128plus  |  fails!            | fails!                 | 1.0                |
-| v8xorshift128plus  |  fails!          | fails!                 | 1.0                |
-| xoroshiro128plus |  fails!            | fails!                 | 1.1                |
-| pcg64            |  :+1:              |    :+1:                | 1.4                |
-| xorshift1024star |  fails!            |    fails!              | 1.5                |
-| pcg32            |  :+1:              |    :+1:                | 2.1                |
-| xorshift32       |  fails!            | fails!                 | 2.5                |
+|                  | TestU01 (big crush)| PractRand (64 GB)        | time (cycles/byte) |
+|------------------|--------------------|--------------------------|--------------------|
+| lehmer64         |  :+1:              |   :+1:                   | 1.0                |
+| splitmix64       |  :+1:              |   :+1:                   | 1.0                |
+| aes              |  :+1:              |   :+1:                   | 1.0                |
+| xorshift128plus  |  fails!            |   fails!                 | 1.0                |
+| v8xorshift128plus|  fails!            |   fails!                 | 1.0                |
+| xorshift1024plus |  fails!            |   fails!                 | 1.0                |
+| xoroshiro128plus |  fails!            |   fails!                 | 1.1                |
+| pcg64            |  :+1:              |   :+1:                   | 1.4                |
+| xorshift1024star |  fails!            |   fails!                 | 1.5                |
+| pcg32            |  :+1:              |   :+1:                   | 2.1                |
+| xorshift32       |  fails!            |   fails!                 | 2.5                |
 
 ## Interpreting the results
 

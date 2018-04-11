@@ -7,7 +7,7 @@
 
 #ifndef AESCTR_H
 #define AESCTR_H
-
+#ifdef __AES__ 
 // contributed by Samuel Neves
 
 #include <stddef.h>
@@ -111,5 +111,5 @@ static inline uint64_t aesctr() { return aesctr_r(&g_aesctr_state); }
 
 #undef AESCTR_UNROLL
 #undef AESCTR_ROUNDS
-
+#endif // __AES__
 #endif

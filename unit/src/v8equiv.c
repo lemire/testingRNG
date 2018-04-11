@@ -1,7 +1,7 @@
 #include "xorshift128plus.h"
 #include <stddef.h>
 #include <stdbool.h>
-
+#include <stdio.h>
 ////
 // this is the original code from Vigna's paper
 // http://vigna.di.unimi.it/ftp/papers/xorshiftplus.pdf

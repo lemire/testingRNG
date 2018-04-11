@@ -6,7 +6,7 @@ NC='\033[0m' # No Color
 echo "Testing "$MEM " of data per run"
 echo "Note: running the tests longer could expose new failures."
 
-declare -a commands=('testmitchellmoore' 'testmersennetwister' 'testxorshift-k4' 'testxorshift-k5' 'testwidynski' 'testaesctr' 'testv8xorshift128plus -H' 'testv8xorshift128plus' 'testxorshift128plus -H' 'testxorshift128plus' 'testxoroshiro128plus -H' 'testxoroshiro128plus' 'testpcg32' 'testpcg64 -H' 'testpcg64' 'testsplitmix64 -H' 'testsplitmix64' 'testxorshift32'  'testxorshift1024star' 'testxorshift1024star -H');
+declare -a commands=('testmitchellmoore' 'testmersennetwister' 'testxorshift-k4' 'testxorshift-k5' 'testwidynski' 'testaesctr' 'testv8xorshift128plus -H' 'testv8xorshift128plus' 'testxorshift128plus -H' 'testxorshift128plus' 'testxoroshiro128plus -H' 'testxoroshiro128plus' 'testpcg32' 'testpcg64 -H' 'testpcg64' 'testsplitmix64 -H' 'testsplitmix64' 'testxorshift32'  'testxorshift1024star' 'testxorshift1024star -H'  'testxorshift1024plus' 'testxorshift1024plus -H');
 for t in "${commands[@]}"; do
      wf=$(echo $t | sed 's/ //g')
      filelog=$wf.log

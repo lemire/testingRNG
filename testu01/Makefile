@@ -5,13 +5,19 @@
 
 
 .PHONY: clean cleandist
+PROCESSOR:=$(shell uname -m)
+ifeq ($(PROCESSOR), aarch64)
+OPTIFLAG =
+else
+OPTIFLAG = -march=native
+endif
 
-CFLAGS = -fPIC -std=c99 -O3 -march=native -Wall -Wextra -Wshadow -Wno-implicit-function-declaration
+CFLAGS = -fPIC -std=c99 -O3 $(OPTIFLAG) -Wall -Wextra -Wshadow -Wno-implicit-function-declaration
 
 LIBS=build/lib/libmylib.a build/lib/libprobdist.a build/lib/libtestu01.a
 LIBSCMD= build/lib/libtestu01.a  build/lib/libprobdist.a build/lib/libmylib.a  -lm
 LIBTARGET=build/lib/libmylib.a
-EXECUTABLES=testmersennetwister testlehmer64 testsplitmix64 testxoroshiro128plus testv8xorshift128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testxorshift1024star
+EXECUTABLES=testmersennetwister testlehmer64 testsplitmix64 testxoroshiro128plus testv8xorshift128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testxorshift1024star testxorshift1024plus
 
 HEADERS=include/main.h
 
@@ -44,6 +50,9 @@ testxoroshiro128plus: $(LIBTARGET) $(HEADERS)
 
 testxorshift1024star:  $(LIBTARGET) $(HEADERS)
 	$(CC) $(CFLAGS) -o testxorshift1024star src/testxorshift1024star.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
+
+testxorshift1024plus:  $(LIBTARGET) $(HEADERS)
+	$(CC) $(CFLAGS) -o testxorshift1024plus src/testxorshift1024plus.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
 testxorshift128plus: $(LIBTARGET) $(HEADERS)
 	$(CC) $(CFLAGS) -o testxorshift128plus src/testxorshift128plus.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
