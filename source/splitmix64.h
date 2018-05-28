@@ -59,4 +59,7 @@ static inline uint64_t splitmix64_stateless(uint64_t index) {
   return z ^ (z >> 31);
 }
 
+// splitmix64_stateless(x) == splitmix64() with seed = (x - 1) * 0x9e3779b97f4a7c15
+// splitmix64() w/ seed x == splitmix64_stateless(x * 0xf1de83e19937733d + 0x9e3779b97f4a7c15)
+
 #endif // SPLITMIX64_H
