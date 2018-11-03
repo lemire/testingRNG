@@ -8,6 +8,11 @@ It is fine to say that we can, in theory run these tests, but few of us will if
 it requires too much labor. The purpose of this project is to make it ridiculously
 easy to run your own tests if you have a mac or a Linux box with a recent C compiler.
 
+
+This project lead to the following publication:
+
+- [Xorshift1024*, Xorshift1024+, Xorshift128+ and Xoroshiro128+ fail statistical tests for linearity](https://www.sciencedirect.com/science/article/pii/S0377042718306265?dgcid=author), Journal of Computational and Applied Mathematics, to appear (Available online 22 October 2018)
+
 ## Prerequisites
 
 We assume Linux or macOS. Under Windows 10, you can get the [Linux Subsystem](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
