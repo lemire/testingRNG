@@ -19,6 +19,8 @@
 #include "xorshift-k4.h"
 #include "xorshift-k5.h"
 #include "widynski.h"
+#include "aesdragontamer.h"
+
 
 #ifndef __x86_64__
 #warning "Expecting an x64 processor."
@@ -35,10 +37,10 @@ const char *our32name[NUMBEROF32] = {
     "mitchellmoore", "widynski", "xorshift32",  "pcg32",
     "rand"};
 
-#define NUMBEROF64 8
-rand64fnc our64[NUMBEROF64] = {aesctr,           lehmer64,   xorshift128plus,
+#define NUMBEROF64 9
+rand64fnc our64[NUMBEROF64] = {aesdragontamer, aesctr,           lehmer64,   xorshift128plus,
                                xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus};
-const char *our64name[NUMBEROF64] = {"aesctr",          "lehmer64",
+const char *our64name[NUMBEROF64] = {"aesdragontamer","aesctr",          "lehmer64",
                                      "xorshift128plus", "xoroshiro128plus",
                                      "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus"};
 
