@@ -25,7 +25,7 @@ static inline void aesdragontamer_tobuffer_r(aesdragontamer_state *state) {
   state->state = _mm_add_epi64(state->state, state->increment);
   __m128i penultimate = _mm_aesenc_si128(state->state, state->increment); 
 	__m128i penultimate1 = _mm_aesenc_si128(penultimate, state->increment); 
-	__m128i penultimate2 = _mm_aesenc_si128(penultimate1, state->increment); 
+	__m128i penultimate2 = _mm_aesdec_si128(penultimate, state->increment); 
 
   _mm_storeu_si128((__m128i*)state->buffer,penultimate1); // stores 2 uint64_t
   _mm_storeu_si128((__m128i*)state->buffer + 1,penultimate2); // stores 2 uint64_t
