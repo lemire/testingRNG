@@ -1,8 +1,8 @@
 #ifndef XORSHIFT1024PLUS_H
 #define XORSHIFT1024PLUS_H
 
-#include <stdint.h>
 #include "splitmix64.h"
+#include <stdint.h>
 
 /* Figure 2 in Further scramblings of Marsaglia’s xorshift generators
  by Vigna.
@@ -21,10 +21,12 @@ static inline void xorshift1024plus_seed(uint64_t seed) {
 // returns random number, modifies xorshift1024plus_s and xorshift1024plus_p
 static inline uint64_t xorshift1024plus(void) {
   const uint64_t s0 = xorshift1024plus_s[xorshift1024plus_p];
-  uint64_t s1 = xorshift1024plus_s[xorshift1024plus_p = (xorshift1024plus_p + 1) & 15];
+  uint64_t s1 =
+      xorshift1024plus_s[xorshift1024plus_p = (xorshift1024plus_p + 1) & 15];
   const uint64_t result = s0 + s1;
   s1 ^= s1 << 31; // a
-  xorshift1024plus_s[xorshift1024plus_p] = s1 ^ s0 ^ (s1 >> 11) ^ (s0 >> 30); // b, c
+  xorshift1024plus_s[xorshift1024plus_p] =
+      s1 ^ s0 ^ (s1 >> 11) ^ (s0 >> 30); // b, c
   return result;
 }
 

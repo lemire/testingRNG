@@ -1,8 +1,8 @@
 #ifndef UTIL64BITS32BITS_H
 #define UTIL64BITS32BITS_H
 
-#include <stdlib.h>
 #include <stdint.h>
+#include <stdlib.h>
 
 #ifdef _MSC_VER
 // reverse the order of the bytes

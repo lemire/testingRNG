@@ -17,10 +17,10 @@ static inline void widynski_seed(uint64_t seed) {
 }
 
 static inline uint32_t widynski() {
-    g_widynski_x *= g_widynski_x;
-    g_widynski_x += (g_widynski_w += g_widynski_s);
-    g_widynski_x  = (g_widynski_x >> 32) | ( g_widynski_x << 32);
-    return g_widynski_x;
+  g_widynski_x *= g_widynski_x;
+  g_widynski_x += (g_widynski_w += g_widynski_s);
+  g_widynski_x = (g_widynski_x >> 32) | (g_widynski_x << 32);
+  return g_widynski_x;
 }
 
 #endif

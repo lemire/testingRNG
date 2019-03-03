@@ -2,8 +2,8 @@
 #define PCG32_H
 
 /* Modified by D. Lemire based on original code by M. O'Neill, August 2017 */
-#include <stdint.h>
 #include "splitmix64.h"
+#include <stdint.h>
 
 struct pcg_state_setseq_64 {
   uint64_t

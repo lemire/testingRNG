@@ -2,8 +2,8 @@
 #define XORSHIFT1024STAR_H
 
 /* Modified by D. Lemire, August 2017 */
-#include <stdint.h>
 #include "splitmix64.h"
+#include <stdint.h>
 
 /*  Written in 2014 by Sebastiano Vigna (vigna@acm.org)
 
@@ -40,8 +40,9 @@ static inline uint64_t xorshift1024star(void) {
   const uint64_t s0 = xorshift1024star_s[xorshift1024star_p];
   xorshift1024star_p = (xorshift1024star_p + 1) % xorshift1024star_size;
   uint64_t s1 = xorshift1024star_s[xorshift1024star_p];
-  s1 ^= s1 << 31;                                            // a
-  xorshift1024star_s[xorshift1024star_p] = s1 ^ s0 ^ (s1 >> 11) ^ (s0 >> 30); // b,c
+  s1 ^= s1 << 31; // a
+  xorshift1024star_s[xorshift1024star_p] =
+      s1 ^ s0 ^ (s1 >> 11) ^ (s0 >> 30); // b,c
   return xorshift1024star_s[xorshift1024star_p] * UINT64_C(1181783497276652981);
 }
 

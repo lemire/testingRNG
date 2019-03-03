@@ -2,8 +2,8 @@
 #define XOROSHIRO128PLUS_H
 
 /* Modified by D. Lemire, August 2017 */
-#include <stdint.h>
 #include "splitmix64.h"
+#include <stdint.h>
 
 // original documentation by Vigna:
 /* This is the successor to xorshift128+. It is the fastest full-period

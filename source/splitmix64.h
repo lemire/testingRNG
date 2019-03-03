@@ -4,7 +4,8 @@
 /* Modified by D. Lemire, August 2017 */
 /***
 Fast Splittable Pseudorandom Number Generators
-Steele Jr, Guy L., Doug Lea, and Christine H. Flood. "Fast splittable pseudorandom number generators." 
+Steele Jr, Guy L., Doug Lea, and Christine H. Flood. "Fast splittable
+pseudorandom number generators."
 ACM SIGPLAN Notices 49.10 (2014): 453-472.
 ***/
 

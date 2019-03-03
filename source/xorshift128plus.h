@@ -29,9 +29,9 @@ static inline void xorshift128plus_seed(uint64_t seed) {
                        &global_xorshift128plus_key);
 }
 
-
 // this is the code as found on Vigna's site
-// http://xoroshiro.di.unimi.it/xorshift128plus.c (last checked October 4th 2017)
+// http://xoroshiro.di.unimi.it/xorshift128plus.c (last checked October 4th
+// 2017)
 // It is also the code that appears in
 // Further scramblings of Marsaglia’s xorshift generators
 // http://vigna.di.unimi.it/ftp/papers/xorshiftplus.pdf
@@ -79,7 +79,7 @@ uint64_t v8xorshift128plus_r(xorshift128plus_key_t *key) {
   uint64_t s1 = key->part1;
   const uint64_t s0 = key->part2;
   key->part1 = s0;
-  s1 ^= s1 << 23;                                // a
+  s1 ^= s1 << 23;                                 // a
   key->part2 = s1 ^ s0 ^ (s1 >> 17) ^ (s0 >> 26); // b, c
   return key->part2 + s0;
 }

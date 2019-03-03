@@ -1,8 +1,8 @@
 #ifndef XORSHIFT32_H
 #define XORSHIFT32_H
 
-#include <stdint.h>
 #include "splitmix64.h"
+#include <stdint.h>
 
 static unsigned int xorshift_y;
 

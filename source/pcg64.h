@@ -2,8 +2,8 @@
 #define PCG64_H
 
 /* Modified by D. Lemire based on original code by M. O'Neill, August 2017 */
-#include <stdint.h>
 #include "splitmix64.h" // we are going to leverage splitmix64 to generate the seed
+#include <stdint.h>
 
 /***
 * start of the code copied verbatim from O'Neill's, except that we declare some

@@ -1,19 +1,19 @@
 /***
 * Daniel Baker has adapted this code to C++:
 * https://github.com/dnbaker/hll/blob/master/aesctr.h
-* He reports that UNROLL_COUNT of 8 (rather than 4) is measurably 
-* but not enormously faster. 
+* He reports that UNROLL_COUNT of 8 (rather than 4) is measurably
+* but not enormously faster.
 ***/
 
 #ifndef AESCTR_H
 #define AESCTR_H
-#ifdef __AES__ 
+#ifdef __AES__
 // contributed by Samuel Neves
 
+#include <immintrin.h>
 #include <stddef.h>
 #include <stdint.h>
 #include <string.h>
-#include <immintrin.h>
 
 #define AESCTR_UNROLL 4
 #define AESCTR_ROUNDS 10
