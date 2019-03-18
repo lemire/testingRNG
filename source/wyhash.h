@@ -1,4 +1,5 @@
 // adapted to this project by D. Lemire, from https://github.com/wangyi-fudan/wyhash/blob/master/wyhash.h
+// This uses mum hashing.
 
 // state for wyhash64
 uint64_t wyhash64_x; /* The state can be seeded with any value. */
@@ -6,7 +7,7 @@ uint64_t wyhash64_x; /* The state can be seeded with any value. */
 // call wyhash64_seed before calling wyhash64
 static inline void wyhash64_seed(uint64_t seed) { wyhash64_x = seed; }
 
-uint64_t wyhash64_stateless(uint64_t *seed) {
+static inline uint64_t wyhash64_stateless(uint64_t *seed) {
   *seed += UINT64_C(0x60bee2bee120fc15);
   __uint128_t tmp;
   tmp = (__uint128_t)*seed * UINT64_C(0xa3b195354a39b70d);
