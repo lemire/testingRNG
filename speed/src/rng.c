@@ -20,6 +20,7 @@
 #include "xorshift-k5.h"
 #include "widynski.h"
 #include "aesdragontamer.h"
+#include "wyhash.h"
 
 
 #ifndef __x86_64__
@@ -37,12 +38,12 @@ const char *our32name[NUMBEROF32] = {
     "mitchellmoore", "widynski", "xorshift32",  "pcg32",
     "rand"};
 
-#define NUMBEROF64 9
+#define NUMBEROF64 10
 rand64fnc our64[NUMBEROF64] = {aesdragontamer, aesctr,           lehmer64,   xorshift128plus,
-                               xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus};
+                               xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus, wyhash64};
 const char *our64name[NUMBEROF64] = {"aesdragontamer","aesctr",          "lehmer64",
                                      "xorshift128plus", "xoroshiro128plus",
-                                     "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus"};
+                                     "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus", "wyhash64"};
 
 void populate32(rand32fnc rand, uint32_t *answer, size_t size) {
   for (size_t i = size; i != 0; i--) {
