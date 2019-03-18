@@ -315,24 +315,28 @@ testxorshift-k5.log:  [Low4/64]BRank(12):768(1)         R=+583.3  p~=  1.2e-176 
 
 ## Speed results
 
-On a recent (Haswell) processor, on a Linux box, I got the following results:
+On a recent (Skylake) processor, on a Linux box, I got the following results:
 
 
 ```
-lehmer64:  1.04 cycles per byte
-splitmix64:  1.04 cycles per byte
-xorshift128plus:  1.04 cycles per byte
-aesctr:  1.07 cycles per byte
-xorshift1024plus: 1.08 cycles per byte
-xoroshiro128plus:  1.15 cycles per byte
-pcg64:  1.41 cycles per byte
-xorshift1024star:  1.51 cycles per byte
-pcg32:  2.10 cycles per byte
-widynski:  2.30 cycles per byte
-xorshift32:  2.53 cycles per byte
-mersennetwister:  2.61 cycles per byte
-mitchellmoore:  3.80 cycles per byte
-rand:  5.48 cycles per byte
+xorshift_k4:  1.26 cycles per byte
+xorshift_k5:  1.26 cycles per byte
+mersennetwister:  2.34 cycles per byte
+mitchellmoore:  3.49 cycles per byte
+widynski:  1.26 cycles per byte
+xorshift32:  2.51 cycles per byte
+pcg32:  1.51 cycles per byte
+rand:  4.74 cycles per byte
+aesdragontamer:  0.92 cycles per byte
+aesctr:  1.18 cycles per byte
+lehmer64:  0.63 cycles per byte
+xorshift128plus:  0.89 cycles per byte
+xoroshiro128plus:  0.83 cycles per byte
+splitmix64:  1.01 cycles per byte
+pcg64:  0.97 cycles per byte
+xorshift1024star:  1.74 cycles per byte
+xorshift1024plus:  1.03 cycles per byte
+wyhash64:  0.76 cycles per byte
 ```
 
 Results will depend on your specific hardware and might be quite different on ARM processors. Tweaking the benchmark could also change the results. In particular, our benchmark stresses throughput as opposed to latency.
