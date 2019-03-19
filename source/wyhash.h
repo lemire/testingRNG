@@ -1,6 +1,6 @@
 // adapted to this project by D. Lemire, from https://github.com/wangyi-fudan/wyhash/blob/master/wyhash.h
 // This uses mum hashing.
-
+#include <stdint.h>
 // state for wyhash64
 uint64_t wyhash64_x; /* The state can be seeded with any value. */
 

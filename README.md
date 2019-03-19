@@ -315,6 +315,8 @@ testxorshift-k5.log:  [Low4/64]BRank(12):768(1)         R=+583.3  p~=  1.2e-176 
 
 ## Speed results
 
+For a report on what might be the fastest generator, see [The fastest conventional random number generator that can pass Big Crush?](https://lemire.me/blog/2019/03/19/the-fastest-conventional-random-number-generator-that-can-pass-big-crush/)
+
 On a recent (Skylake) processor, on a Linux box, I got the following results:
 
 
