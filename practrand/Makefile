@@ -14,7 +14,7 @@ endif
 
 CFLAGS = -fPIC -std=c99 -O3 $(OPTIFLAG) -Wall -Wextra -Wshadow -Wno-implicit-function-declaration
 
-EXECUTABLES=testwidynski testlehmer64 testsplitmix64  testv8xorshift128plus testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testaesdragontamer testmitchellmoore testmersennetwister testxorshift-k4 testxorshift-k5 testxorshift1024star testxorshift1024plus
+EXECUTABLES=testwidynski testlehmer64 testsplitmix64  testv8xorshift128plus testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testaesdragontamer testmitchellmoore testmersennetwister testxorshift-k4 testxorshift-k5 testxorshift1024star testxorshift1024plus testwyhash
 
 HEADERS=include/main.h
 
@@ -32,6 +32,10 @@ RNG_test: practrand-0.93-bigbuffer.patch PractRand_0.93.zip
 
 testmitchellmoore: src/testmitchellmoore.c
 	$(CC) $(CFLAGS) -o testmitchellmoore src/testmitchellmoore.c -I../source
+
+testwyhash: src/testwyhash.c
+	$(CC) $(CFLAGS) -o testwyhash src/testwyhash.c -I../source
+
 
 testmersennetwister: src/testmersennetwister.c
 	$(CC) $(CFLAGS) -o testmersennetwister src/testmersennetwister.c -I../source
