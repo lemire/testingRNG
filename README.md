@@ -69,7 +69,7 @@ Note  that the speed tests assume a recent x64 processor (e.g., they would not w
 - rand is whatever random number number generator your C standard library provides. It is a useful point of reference when assessing speed.
 - lehmer64 is a simple (but fast) Multiplicative Linear Congruential Generator
 - aesctr is a random number generator based on the AES cipher (contributed by Samuel Neves)
-- wyhash and wyrand is random number generator based on the MUM hashing function
+- wyhash and wyrand are random number generators based on the MUM hashing function
 
 
 ## Methodology

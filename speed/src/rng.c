@@ -39,7 +39,7 @@ const char *our32name[NUMBEROF32] = {
     "mitchellmoore", "widynski", "xorshift32",  "pcg32",
     "rand"};
 
-#define NUMBEROF64 10
+#define NUMBEROF64 11
 rand64fnc our64[NUMBEROF64] = {aesdragontamer, aesctr,           lehmer64,   xorshift128plus,
                                xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus, wyhash64, wyrand};
 const char *our64name[NUMBEROF64] = {"aesdragontamer","aesctr",          "lehmer64",
