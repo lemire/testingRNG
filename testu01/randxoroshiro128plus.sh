@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 make -s
 wc="-b" #big crush
 t="./testxoroshiro128plus" # this is the command

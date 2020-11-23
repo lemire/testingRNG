@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Original script by Daniel Lemire <lemire@gmail.com>
 # Parallel version by Jeff Epler <jepler@gmail.com>
 

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 make -s
 if [ $# -eq 0 ]; then
     echo "No arguments provided"

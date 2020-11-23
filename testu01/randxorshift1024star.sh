@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 make -s
 wc="-b" #big crush
 t="./testxorshift1024star" # this is the command

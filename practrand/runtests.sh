@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 make -s
 MEM="512GB"
 RED='\033[0;31m'
