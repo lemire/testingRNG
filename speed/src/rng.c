@@ -22,6 +22,8 @@
 #include "aesdragontamer.h"
 #include "wyhash.h"
 #include "wyrand.h"
+#include "trivium32.h"
+#include "trivium64.h"
 
 
 #ifndef __x86_64__
@@ -30,19 +32,19 @@
 
 typedef uint32_t (*rand32fnc)(void);
 typedef uint64_t (*rand64fnc)(void);
-#define NUMBEROF32 8
-rand32fnc our32[NUMBEROF32] = {xorshift_k4,   xorshift_k5, mersennetwister,
+#define NUMBEROF32 9
+rand32fnc our32[NUMBEROF32] = {trivium32, xorshift_k4,   xorshift_k5, mersennetwister,
                                mitchellmoore, widynski, xorshift32,  pcg32,
                                rand};
 const char *our32name[NUMBEROF32] = {
-    "xorshift_k4",   "xorshift_k5", "mersennetwister",
+    "trivium", "xorshift_k4",   "xorshift_k5", "mersennetwister",
     "mitchellmoore", "widynski", "xorshift32",  "pcg32",
     "rand"};
 
-#define NUMBEROF64 11
-rand64fnc our64[NUMBEROF64] = {aesdragontamer, aesctr,           lehmer64,   xorshift128plus,
+#define NUMBEROF64 12
+rand64fnc our64[NUMBEROF64] = {trivium64, aesdragontamer, aesctr,           lehmer64,   xorshift128plus,
                                xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus, wyhash64, wyrand};
-const char *our64name[NUMBEROF64] = {"aesdragontamer","aesctr",          "lehmer64",
+const char *our64name[NUMBEROF64] = {"trivium64", "aesdragontamer","aesctr",          "lehmer64",
                                      "xorshift128plus", "xoroshiro128plus",
                                      "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus", "wyhash64", "wyrand"};
 
@@ -90,7 +92,7 @@ void populate64(rand64fnc rand, uint64_t *answer, size_t size) {
  */
 #define BEST_TIME(test, testname, pre, repeat, size)                           \
   do {                                                                         \
-    printf("%s: ", testname);                                                  \
+    printf("%-40s: ", testname);                                                  \
     fflush(NULL);                                                              \
     uint64_t cycles_start, cycles_final, cycles_diff;                          \
     uint64_t min_diff = (uint64_t)-1;                                          \
