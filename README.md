@@ -6,8 +6,7 @@ generators (RNG). Of particular interest are TestU01 and PractRand. We want to t
 
 This project lead to the following publication:
 
-- [Xorshift1024*, Xorshift1024+, Xorshift128+ and Xoroshiro128+ fail statistical tests for linearity](https://www.sciencedirect.com/science/article/pii/S0377042718306265?dgcid=author), Journal of Computational and Applied Mathematics, Volume 350,
-2019. (Available online 22 October 2018)
+- [Xorshift1024*, Xorshift1024+, Xorshift128+ and Xoroshiro128+ fail statistical tests for linearity](https://www.sciencedirect.com/science/article/pii/S0377042718306265?dgcid=author), Journal of Computational and Applied Mathematics, Volume 350, 2019. (Available online 22 October 2018)
 
 ## Scope Limitation
 
