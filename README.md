@@ -1,17 +1,21 @@
 # testingRNG : testing popular random-number generators
 
 There are several benchmarks that can be used to test (pseudo-)random number
-generators (RNG). Of particular interest are TestU01 and PractRand. We want to easily
-test popular RNGs.
-
-It is fine to say that we can, in theory run these tests, but few of us will if
-it requires too much labor. The purpose of this project is to make it ridiculously
-easy to run your own tests if you have a mac or a Linux box with a recent C compiler.
+generators (RNG). Of particular interest are TestU01 and PractRand. We want to test these popular RNGs.
 
 
 This project lead to the following publication:
 
-- [Xorshift1024*, Xorshift1024+, Xorshift128+ and Xoroshiro128+ fail statistical tests for linearity](https://www.sciencedirect.com/science/article/pii/S0377042718306265?dgcid=author), Journal of Computational and Applied Mathematics, to appear (Available online 22 October 2018)
+- [Xorshift1024*, Xorshift1024+, Xorshift128+ and Xoroshiro128+ fail statistical tests for linearity](https://www.sciencedirect.com/science/article/pii/S0377042718306265?dgcid=author), Journal of Computational and Applied Mathematics, Volume 350,
+2019. (Available online 22 October 2018)
+
+## Scope Limitation
+
+This project is meant to test some well-known non-cryptographic random number generators written in C/C++ using pre-existing frameworks (TestU01 and PractRand). If you would like to contribute new RNG functions, please open a pull request.
+
+This project is not a tutorial on how to use TestU01 and PractRand. If you have questions about how to use TestU01 and PractRand, or have issues with TestU01 and PractRand, please refer to the relevant projects. We have not modified, in the least, the TestU01 and PractRand frameworks.
+
+
 
 ## Prerequisites
 
