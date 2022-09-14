@@ -19,10 +19,10 @@ static pcg32_random_t pcg32_global; // global state
 
 // call this once before calling pcg32_random_r
 static inline void pcg32_seed(uint64_t seed) {
-  pcg32_global.state = splitmix64_stateless(seed);
+  pcg32_global.state = splitmix64_r(&seed);
   // we pick a sequence at random
   pcg32_global.inc =
-      (splitmix64_stateless(seed + 1)) | 1; // making sure it is odd
+      (splitmix64_r(&seed)) | 1; // making sure it is odd
 }
 
 static inline uint32_t pcg32_random_r(pcg32_random_t *rng) {

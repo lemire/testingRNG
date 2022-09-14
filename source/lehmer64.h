@@ -18,8 +18,8 @@ static __uint128_t g_lehmer64_state;
 */
 
 static inline void lehmer64_seed(uint64_t seed) {
-  g_lehmer64_state = (((__uint128_t)splitmix64_stateless(seed)) << 64) +
-                     splitmix64_stateless(seed + 1);
+  g_lehmer64_state = (((__uint128_t)splitmix64_stateless(seed, 0)) << 64) +
+                     splitmix64_stateless(seed, 1);
 }
 
 static inline uint64_t lehmer64() {

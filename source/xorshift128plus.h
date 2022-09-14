@@ -24,8 +24,8 @@ static inline void xorshift128plus_init(uint64_t key1, uint64_t key2,
 }
 
 static inline void xorshift128plus_seed(uint64_t seed) {
-  xorshift128plus_init(splitmix64_stateless(seed),
-                       splitmix64_stateless(seed + 1),
+  xorshift128plus_init(splitmix64_stateless(seed, 0),
+                       splitmix64_stateless(seed, 1),
                        &global_xorshift128plus_key);
 }
 

@@ -12,11 +12,11 @@ static uint32_t xorshift_k5_x, xorshift_k5_y, xorshift_k5_z, xorshift_k5_w,
     xorshift_k5_v;
 
 static inline void xorshift_k5_seed(uint64_t seed) {
-  xorshift_k5_x = splitmix64_stateless(seed);
-  xorshift_k5_y = splitmix64_stateless(seed + 1);
-  xorshift_k5_z = splitmix64_stateless(seed + 2);
-  xorshift_k5_w = splitmix64_stateless(seed + 3);
-  xorshift_k5_v = splitmix64_stateless(seed + 4);
+  xorshift_k5_x = splitmix64_r(&seed);
+  xorshift_k5_y = splitmix64_r(&seed);
+  xorshift_k5_z = splitmix64_r(&seed);
+  xorshift_k5_w = splitmix64_r(&seed);
+  xorshift_k5_v = splitmix64_r(&seed);
   return;
 }
 

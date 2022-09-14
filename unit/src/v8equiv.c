@@ -36,8 +36,9 @@ bool are_equiv(xorshift128plus_key_t *key) {
 int main() {
   for(size_t seed = 0; seed < 1000000; seed++) {
     xorshift128plus_key_t key;
-    key.part1 = splitmix64_stateless(seed);
-    key.part2 = splitmix64_stateless(seed + 1);
+    uint64_t rng_seed[1] = {seed};
+    key.part1 = splitmix64_r(rng_seed);
+    key.part2 = splitmix64_r(rng_seed);
     if(!are_equiv(&key)) {
       printf("Bug!\n");
       return -1;

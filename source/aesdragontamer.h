@@ -38,8 +38,8 @@ static inline void aesdragontamer_seed_r(aesdragontamer_state *state,
       _mm_set_epi8(0x2f, 0x2b, 0x29, 0x25, 0x1f, 0x1d, 0x17, 0x13, 0x11, 0x0D,
                    0x0B, 0x07, 0x05, 0x03, 0x02, 0x01);
   state->offset = 0;
-  state->state = _mm_set_epi64x(splitmix64_stateless(seed),
-                                splitmix64_stateless(seed + 1));
+  state->state = _mm_set_epi64x(splitmix64_stateless(seed, 0),
+                                splitmix64_stateless(seed, 1));
   aesdragontamer_tobuffer_r(state);
 }
 

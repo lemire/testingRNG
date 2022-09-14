@@ -16,7 +16,7 @@ static int xorshift1024plus_p;
 static inline void xorshift1024plus_seed(uint64_t seed) {
   xorshift1024plus_p = 0;
   for (int k = 0; k < xorshift1024plus_size; k++)
-    xorshift1024plus_s[k] = splitmix64_stateless(seed + k);
+    xorshift1024plus_s[k] = splitmix64_r(&seed);
 }
 // returns random number, modifies xorshift1024plus_s and xorshift1024plus_p
 static inline uint64_t xorshift1024plus(void) {

@@ -63,11 +63,11 @@ static pcg64_random_t pcg64_global; // global state
 
 // call this once before calling pcg64_random_r
 static inline void pcg64_seed(uint64_t seed) {
-  pcg128_t initstate = PCG_128BIT_CONSTANT(splitmix64_stateless(seed),
-                                           splitmix64_stateless(seed + 1));
+  pcg128_t initstate = PCG_128BIT_CONSTANT(splitmix64_stateless(seed, 0),
+                                           splitmix64_stateless(seed, 1));
   // we pick a sequence at random
-  pcg128_t initseq = PCG_128BIT_CONSTANT(splitmix64_stateless(seed + 2),
-                                         splitmix64_stateless(seed + 3));
+  pcg128_t initseq = PCG_128BIT_CONSTANT(splitmix64_stateless(seed, 2),
+                                         splitmix64_stateless(seed, 3));
   initseq |= 1; // should not be necessary, but let us be careful.
 
   pcg_setseq_128_srandom_r(&pcg64_global, initstate, initseq);

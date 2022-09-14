@@ -34,8 +34,8 @@ static inline uint64_t rotl(const uint64_t x, int k) {
 
 // call this one before calling xoroshiro128plus
 static inline void xoroshiro128plus_seed(uint64_t seed) {
-  xoroshiro128plus_s[0] = splitmix64_stateless(seed);
-  xoroshiro128plus_s[1] = splitmix64_stateless(seed + 1);
+  xoroshiro128plus_s[0] = splitmix64_r(&seed);
+  xoroshiro128plus_s[1] = splitmix64_r(&seed);
 }
 
 // returns random number, modifies xoroshiro128plus_s
