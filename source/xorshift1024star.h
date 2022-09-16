@@ -32,7 +32,7 @@ static int xorshift1024star_p;
 static inline void xorshift1024star_seed(uint64_t seed) {
   xorshift1024star_p = 0;
   for (int k = 0; k < xorshift1024star_size; k++)
-    xorshift1024star_s[k] = splitmix64_stateless(seed + k);
+    xorshift1024star_s[k] = splitmix64_r(&seed);
 }
 
 // returns random number, modifies xorshift1024star_s and xorshift1024star_p

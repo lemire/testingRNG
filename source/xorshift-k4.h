@@ -11,10 +11,10 @@
 static uint32_t xorshift_k4_x, xorshift_k4_y, xorshift_k4_z, xorshift_k4_w;
 
 static inline void xorshift_k4_seed(uint64_t seed) {
-  xorshift_k4_x = splitmix64_stateless(seed);
-  xorshift_k4_y = splitmix64_stateless(seed + 1);
-  xorshift_k4_z = splitmix64_stateless(seed + 2);
-  xorshift_k4_w = splitmix64_stateless(seed + 3);
+  xorshift_k4_x = splitmix64_r(&seed);
+  xorshift_k4_y = splitmix64_r(&seed);
+  xorshift_k4_z = splitmix64_r(&seed);
+  xorshift_k4_w = splitmix64_r(&seed);
   return;
 }
 
