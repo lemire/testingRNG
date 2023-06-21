@@ -141,7 +141,7 @@ void demo(int size) {
               , repeat, size);
   for (int k = 0; k < NUMBEROF128; k++)
       BEST_TIME(populate128(our128[k], prec, size / sizeof(__uint128_t)), our128name[k],
-          , repeat, size*3);
+          , repeat, size);
 
   free(prec);
   printf("\n");
