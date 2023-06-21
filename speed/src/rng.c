@@ -24,6 +24,7 @@
 #include "wyrand.h"
 #include "trivium32.h"
 #include "trivium64.h"
+#include "CG128.h"
 
 
 #ifndef __x86_64__
@@ -48,6 +49,10 @@ const char *our64name[NUMBEROF64] = {"trivium64", "aesdragontamer","aesctr",    
                                      "xorshift128plus", "xoroshiro128plus",
                                      "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus", "wyhash64", "wyrand"};
 
+#define NUMBEROF128 1
+rand128fnc our128[NUMBEROF128] = { CG128 };
+const char* our128name[NUMBEROF128] = { "CG128" };
+
 void populate32(rand32fnc rand, uint32_t *answer, size_t size) {
   for (size_t i = size; i != 0; i--) {
     answer[size - i] = rand();
@@ -58,6 +63,12 @@ void populate64(rand64fnc rand, uint64_t *answer, size_t size) {
   for (size_t i = size; i != 0; i--) {
     answer[size - i] = rand();
   }
+}
+
+void populate128(rand128fnc rand, __uint128_t* answer, size_t size) {
+    for (size_t i = size; i != 0; i--) {
+        answer[size - i] = rand();
+    }
 }
 
 #define RDTSC_START(cycles)                                                    \
