@@ -45,10 +45,10 @@ const char *our32name[NUMBEROF32] = {
 
 #define NUMBEROF64 12
 rand64fnc our64[NUMBEROF64] = {trivium64, aesdragontamer, aesctr,           lehmer64,   xorshift128plus,
-                               xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus, wyhash64, wyrand, CG128};
+                               xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus, wyhash64, wyrand};
 const char *our64name[NUMBEROF64] = {"trivium64", "aesdragontamer","aesctr",          "lehmer64",
                                      "xorshift128plus", "xoroshiro128plus",
-                                     "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus", "wyhash64", "wyrand", "CG128"};
+                                     "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus", "wyhash64", "wyrand"};
 
 #define NUMBEROF128 1
 rand128fnc our128[NUMBEROF128] = { CG128 };
@@ -139,6 +139,9 @@ void demo(int size) {
   for (int k = 0; k < NUMBEROF64; k++)
     BEST_TIME(populate64(our64[k], prec, size / sizeof(uint64_t)), our64name[k],
               , repeat, size);
+  for (int k = 0; k < NUMBEROF128; k++)
+      BEST_TIME(populate128(our128[k], prec, size / sizeof(__uint128_t)), our128name[k],
+          , repeat, size*3);
 
   free(prec);
   printf("\n");
