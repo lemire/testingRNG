@@ -33,6 +33,7 @@
 
 typedef uint32_t (*rand32fnc)(void);
 typedef uint64_t (*rand64fnc)(void);
+typedef __uint128_t(*rand128fnc)(void);
 #define NUMBEROF32 9
 rand32fnc our32[NUMBEROF32] = {trivium32, xorshift_k4,   xorshift_k5, mersennetwister,
                                mitchellmoore, widynski, xorshift32,  pcg32,
@@ -44,10 +45,10 @@ const char *our32name[NUMBEROF32] = {
 
 #define NUMBEROF64 12
 rand64fnc our64[NUMBEROF64] = {trivium64, aesdragontamer, aesctr,           lehmer64,   xorshift128plus,
-                               xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus, wyhash64, wyrand};
+                               xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus, wyhash64, wyrand, CG128};
 const char *our64name[NUMBEROF64] = {"trivium64", "aesdragontamer","aesctr",          "lehmer64",
                                      "xorshift128plus", "xoroshiro128plus",
-                                     "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus", "wyhash64", "wyrand"};
+                                     "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus", "wyhash64", "wyrand", "CG128"};
 
 #define NUMBEROF128 1
 rand128fnc our128[NUMBEROF128] = { CG128 };
