@@ -47,8 +47,8 @@ static inline void CG128_64_seed(uint64_t seed) {
 
 static inline __uint128_t CG128_64(void)
 {
-    CG_x = (CG_x | 1) * ((CG_k += CG_x) >> 1) ^ (CG_weyl += CG_s);
-    return CG_k >> 48 ^ CG_x;
+  CG_x = (CG_x | 1) * ((CG_k += CG_x) >> 1) ^ (CG_weyl += CG_s);
+  return CG_k >> 48 ^ CG_x;
 }
 
 #endif // CG128_64_H

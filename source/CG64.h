@@ -44,8 +44,8 @@ static inline void CG64_seed(uint64_t seed) {
 
 static inline uint64_t CG64(void)
 {
-    CG64_c[1] = (CG64_c[1] >> 1) * ((CG64_c[2] += CG64_c[1]) | 1) ^ (CG64_c[3] += CG64_c[0]);
-    return CG64_c[2] >> 48 ^ CG64_c[1];
+	CG64_c[1] = (CG64_c[1] >> 1) * ((CG64_c[2] += CG64_c[1]) | 1) ^ (CG64_c[3] += CG64_c[0]);
+	return CG64_c[2] >> 48 ^ CG64_c[1];
 }
 
 #endif // CG64_H
