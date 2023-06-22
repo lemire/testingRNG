@@ -21,9 +21,10 @@ For this purpose user may call initalizator(). Using initalizator(), each stream
 with any 64-bit odd number. Skipping the first few outputs is also required to fill all the state 
 of the generator by bits, however this can be also done by proper seed selection.
  
-For faster initialization user may seed a Splitmix64 generator and use its outputs to serially fill s. 
+For faster initialization user may use a Splitmix64 generator and a Splitmix63 generator 
+(a modified Splitmix64 generator) and use its outputs to serially fill x and s. */
 
-This is initalizator for the Collatz Generator. It is equivalent to 48 calls to next();
+/* This is initalizator for the Collatz Generator. It is equivalent to 48 calls to next();
 it could be used for initializing independent streams for parallel computations.
  
 void initializator(void)
