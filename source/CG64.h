@@ -6,10 +6,10 @@
 
 /* Written in 2023 by Tomasz R. Dziala (tomasz-dziala@wp.pl).
  
-This is 64-bit Collatz Generator: CG-64. All purpose pseudo random generator,
-with excellent statistical quality (it passes all test we aware of) and superb speed.
+This is 64-bit Collatz Generator: CG-64. All purpose pseudorandom generator,
+with excellent statistical quality (it passes all tests I'm aware of) and superb speed.
  
-The state may be seeded with any numbers, except c[0], which has to be odd, but we suggest
+The state may be seeded with any numbers, except c[0], which must be odd, but I suggest
 to seed c[0] by 64-bit odd number and set all other elements equal zero, for simplicity.
 It is suitable for large-scale parallel computations, since each generator seeded by unike odd c[0]
 produce separate stream of period at least 2^64. 
