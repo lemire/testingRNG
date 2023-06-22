@@ -45,7 +45,7 @@ static inline void CG128_64_seed(uint64_t seed) {
 
 /* This is Splitmix63, modified Splitmix64 written in 2015 by Sebastiano Vigna. The state of Splitmix63
 may be seeded with any value. Outputs of Splitmix63 may be used to to serially seed c[0] states
-of Collatz Generator by c[0] = (next_splitmix63() << 1) | 1; */
+of Collatz Generator by s = (next_splitmix63() << 1) | 1; */
 
 // call this to seed CG_s
 
