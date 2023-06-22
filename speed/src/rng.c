@@ -45,16 +45,16 @@ const char *our32name[NUMBEROF32] = {
     "mitchellmoore", "widynski", "xorshift32",  "pcg32",
     "rand"};
 
-#define NUMBEROF64 14
+#define NUMBEROF64 13
 rand64fnc our64[NUMBEROF64] = {trivium64, aesdragontamer, aesctr,           lehmer64,   xorshift128plus,
-                               xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus, wyhash64, wyrand, CG64, CG128_64};
+                               xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus, wyhash64, wyrand, CG64};
 const char *our64name[NUMBEROF64] = {"trivium64", "aesdragontamer","aesctr",          "lehmer64",
                                      "xorshift128plus", "xoroshiro128plus",
-                                     "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus", "wyhash64", "wyrand", "CG64", "CG128_64"};
+                                     "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus", "wyhash64", "wyrand", "CG64"};
 
-#define NUMBEROF128 1
-rand128fnc our128[NUMBEROF128] = { CG128 };
-const char* our128name[NUMBEROF128] = { "CG128" };
+#define NUMBEROF128 2
+rand128fnc our128[NUMBEROF128] = { CG128, CG128_64 };
+const char* our128name[NUMBEROF128] = { "CG128", "CG128_64" };
 
 void populate32(rand32fnc rand, uint32_t *answer, size_t size) {
   for (size_t i = size; i != 0; i--) {
