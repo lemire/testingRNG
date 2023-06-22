@@ -21,7 +21,8 @@ For this purpose user may call initalizator(). Using initalizator(), each stream
 with any 64-bit odd number. Skipping the first few outputs is also required to fill all the state
 of the generator by bits, however this can be also done by proper seed selection. 
  
-For faster initialization user may seed a Splitmix64 generator and use its outputs to serially fill c[0]. 
+For faster initialization user may seed a Splitmix63 generator (a modified Splitmix64 generator) 
+and use its outputs to serially fill c[0].
 
 This is initalizator for the Collatz Generator. It is equivalent to 48 calls to next();
 it could be used for initializing independent streams for parallel computations.
@@ -36,10 +37,20 @@ void initializator(void)
 
 static uint64_t CG64_c[4];
 
-// call this one before calling CG64
-static inline void CG64_seed(uint64_t seed) {
-  CG64_c[0] = splitmix64_r(&seed) | 1;
+/* This is Splitmix63, modified Splitmix64 written in 2015 by Sebastiano Vigna. The state of Splitmix63
+may be seeded with any value. Outputs of Splitmix63 may be used to to serially seed c[0] states
+of Collatz Generator by c[0] = (next_splitmix63() << 1) | 1; */
+ 
+static uint64_t CG64_x = 123;
+
+uint64_t next_splitmix63(void) {
+ uint64_t CG64_z = (CG64_x += 0x9e3779b97f4a7c15) & 0x7fffffffffffffff;
+	CG64_z = ((CG64_z ^ (CG64_z >> 30)) * 0xbf58476d1ce4e5b9) & 0x7fffffffffffffff;
+	CG64_z = ((CG64_z ^ (CG64_z >> 27)) * 0x94d049bb133111eb) & 0x7fffffffffffffff;
+	return CG64_z ^ (CG64_z >> 31);
 }
+
+CG64_c[0] = (next_splitmix63() << 1) | 1;
 
 static inline uint64_t CG64(void)
 {
