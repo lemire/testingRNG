@@ -2,6 +2,7 @@
 #define CG128_64_H
 
 #include "splitmix64.h"
+#include "splitmix63.h"
 #include <stdint.h>
 
 /* Written in 2023 by Tomasz R. Dziala (tomasz-dziala@wp.pl).
@@ -38,27 +39,11 @@ void initializator(void)
 static uint64_t CG_s, CG_k = 0, CG_weyl = 0;
 static __uint128_t CG_x;
 
-// call this to seed CG_x
+// call this to seed CG_x and CG_s
 static inline void CG128_64_seed(uint64_t seed) {
 	CG_x = ((__uint128_t)splitmix64_r(&seed) << 64) | (splitmix64_r(&seed) | 1);
+	CG_s = (splitmix63_r(&seed) << 1) | 1;
 }
-
-/* This is Splitmix63, modified Splitmix64 written in 2015 by Sebastiano Vigna. The state of Splitmix63
-may be seeded with any value. Outputs of Splitmix63 may be used to to serially seed c[0] states
-of Collatz Generator by s = (next_splitmix63() << 1) | 1; */
-
-// call this to seed CG_s
-
-static uint64_t CG64_128_y = 123;
-
-uint64_t CG64_128_next_splitmix63(void) {
- 	uint64_t CG64_128_z = (CG64_128_y += 0x9e3779b97f4a7c15) & 0x7fffffffffffffff;
-	CG64_128_z = ((CG64_128_z ^ (CG64_128_z >> 30)) * 0xbf58476d1ce4e5b9) & 0x7fffffffffffffff;
-	CG64_128_z = ((CG64_128_z ^ (CG64_128_z >> 27)) * 0x94d049bb133111eb) & 0x7fffffffffffffff;
-	return CG64_128_z ^ (CG64_128_z >> 31);
-}
-
-CG_s = (CG64_128_next_splitmix63() << 1) | 1;
 
 static inline __uint128_t CG128_64(void)
 {
