@@ -33,7 +33,7 @@ void initializator(void)
     {
         c[1] = (c[1] >> 1) * ((c[2] += c[1]) | 1) ^ (c[3] += c[0]);
     }
-}*/
+} */
 
 static __uint128_t CG128_c[4];
 
