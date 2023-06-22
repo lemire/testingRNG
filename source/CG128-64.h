@@ -6,7 +6,7 @@
 
 /* Written in 2023 by Tomasz R. Dziala (tomasz-dziala@wp.pl).
  
-This is a 128-64-bit Collatz Generator: CG-128-64. All purpose pseudo random generator,
+This is a 128-64-bit Collatz Generator: CG-128-64. All purpose pseudorandom generator,
 with excellent statistical quality (it passes all tests I'm aware of) and superb speed.
  
 The state may be seeded with any numbers, except s, which must be odd, but I suggest
