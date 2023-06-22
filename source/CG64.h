@@ -44,7 +44,7 @@ of Collatz Generator by c[0] = (next_splitmix63() << 1) | 1; */
 static uint64_t CG64_x = 123;
 
 uint64_t next_splitmix63(void) {
- uint64_t CG64_z = (CG64_x += 0x9e3779b97f4a7c15) & 0x7fffffffffffffff;
+ 	uint64_t CG64_z = (CG64_x += 0x9e3779b97f4a7c15) & 0x7fffffffffffffff;
 	CG64_z = ((CG64_z ^ (CG64_z >> 30)) * 0xbf58476d1ce4e5b9) & 0x7fffffffffffffff;
 	CG64_z = ((CG64_z ^ (CG64_z >> 27)) * 0x94d049bb133111eb) & 0x7fffffffffffffff;
 	return CG64_z ^ (CG64_z >> 31);
