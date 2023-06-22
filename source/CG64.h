@@ -12,14 +12,14 @@ with excellent statistical quality (it passes all tests I'm aware of) and superb
 The state may be seeded with any numbers, except c[0], which must be odd, but I suggest
 to seed c[0] by 64-bit odd number and set all other elements equal zero, for simplicity.
 It is suitable for large-scale parallel computations, since each generator seeded by unike odd c[0]
-produce separate stream of period at least 2^64. 
+produces separate stream of a period of at least 2^64. 
  
 For full independence of 2^64 streams, the first 48 outputs of each stream should be skipped, 
 otherwise minor correlations may occur in the first outputs on the low bits of successively 
 initialized streams, especially if one initalize streams by numbers 1, 3, 5, ... or other counter. 
-For this purpose user may call initalizator(). Using initalizator() every stream may be initialized 
+For this purpose user may call initalizator(). Using initalizator(), each stream may be initialized 
 with any 64-bit odd number. Skipping the first few outputs is also required to fill all the state
-of the generator by bits, however this can be also done by proper choose of the seed. 
+of the generator by bits, however this can be also done by proper seed selection. 
  
 For faster initialization user may seed a Splitmix64 generator and use its outputs to serially fill c[0]. 
 
