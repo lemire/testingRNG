@@ -398,6 +398,23 @@ As of 2017, these represent the state-of-the-art.
 
 - [Stanford Seminar - PCG: A Family of Better Random Number Generators](https://www.youtube.com/watch?v=45Oet5qjlms) (by O'Neill)
 
+## Cite this work
+
+If you use results or code from this repository in a publication, please consider citing the project as:
+
+```
+@misc{lemire2025testingRNG,
+  author = {Daniel Lemire},
+  title = {{testingRNG: testing popular random-number generators}},
+  year = {2025},
+  howpublished = {GitHub repository},
+  note = {Commit on 2025-12-22},
+  url = {https://github.com/dlemire/testingRNG}
+}
+```
+
+You can copy the BibTeX entry above into your references file.
+
 ## Links of interest (technical)
 
 - [PRNG shootout](http://xoroshiro.di.unimi.it) by Vigna
