@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
-make -s
+SCRIPTDIR="$(cd "$(dirname "$0")" && pwd)"
+BUILDDIR="${BUILDDIR:-$SCRIPTDIR/../build/testu01}"
+
+if [ ! -d "$BUILDDIR" ]; then
+    echo "Build directory $BUILDDIR not found."
+    echo "Run: cmake -B build && cmake --build build"
+    exit 1
+fi
+
 if [ $# -eq 0 ]; then
     echo "No arguments provided"
     exit 1
@@ -16,14 +24,14 @@ for SEEDCMD in "${seeds[@]}"; do
  for order in  "-z" "-r" "" ; do
      echo "--- using bit order flag: " $order
      echo "--- using seed flag: " $SEEDCMD
-     thiscommand=$t" "$SEEDCMD" "$order" "$wc 
+     thiscommand=$t" "$SEEDCMD" "$order" "$wc
      echo $thiscommand
      wf=$(echo $thiscommand | sed 's/ //g')
      filelog=$wf.log
      echo "# RUNNING" $thiscommand  "Outputting result to " $filelog
-    ./$thiscommand  > $filelog
+    $BUILDDIR/$thiscommand  > $filelog
     CMDRESULT=$?
-    if [ $CMDRESULT == 0 ]; then 
+    if [ $CMDRESULT == 0 ]; then
       grep -s "All tests were passed" $filelog > /dev/null
       RESULT=$?
       if [ $RESULT == 0 ]; then

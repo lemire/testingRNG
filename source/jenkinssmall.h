@@ -15,15 +15,6 @@ typedef struct jenkinssmall_ranctx {
 
 static jenkinssmall_ranctx jenkinssmall_y;
 
-void jenkinssmall_init(uint64_t seed) {
-  uint64_t i;
-  jenkinssmall_y.a = 0xf1ea5eed,
-  jenkinssmall_y.b = jenkinssmall_y.c = jenkinssmall_y.d = seed;
-  for (i = 0; i < 20; ++i) {
-    (void)ranval();
-  }
-}
-
 #define rot(x, k) (((x) << (k)) | ((x) >> (64 - (k))))
 
 uint64_t jenkinssmall(void) {
@@ -36,5 +27,14 @@ uint64_t jenkinssmall(void) {
 }
 
 #undef rot
+
+void jenkinssmall_init(uint64_t seed) {
+  uint64_t i;
+  jenkinssmall_y.a = 0xf1ea5eed,
+  jenkinssmall_y.b = jenkinssmall_y.c = jenkinssmall_y.d = seed;
+  for (i = 0; i < 20; ++i) {
+    (void)jenkinssmall();
+  }
+}
 
 #endif

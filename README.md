@@ -26,11 +26,36 @@ the C (and C++) compiler. Make sure you have installed the command-line utilitie
 
 (Note: We assume a recent x64 processor. TestU01, in particular, does not easily build on some ARM-based systems.)
 
+## Building
+
+We use CMake as our build system. From the project root:
+
+```
+cmake -B build
+cmake --build build
+ctest --test-dir build
+```
+
+By default, the build compiles in Release mode and builds everything: speed benchmarks, unit tests, PractRand test harnesses, entropy test harnesses, and TestU01 test harnesses. TestU01 is built automatically from the included `testu01/TestU01.zip` archive.
+
+### CMake options
+
+| Option | Default | Description |
+|--------|---------|-------------|
+| `BUILD_SPEED` | ON | Speed benchmarks |
+| `BUILD_UNIT` | ON | Unit tests |
+| `BUILD_PRACTRAND` | ON | PractRand test harnesses |
+| `BUILD_ENTROPY` | ON | Entropy test harnesses |
+| `BUILD_TESTU01` | ON | TestU01 test harnesses (built from included archive) |
+
 ## Usage
 
-You can run the tests by going to a bash shell (Terminal) and executing a few commands.
+### Speed:
+```
+./build/speed/rng
+```
 
-#### PractRand:
+### PractRand:
 ```
 cd practrand
 ./runtests.sh
@@ -38,30 +63,18 @@ cd practrand
 
 The PractRand benchmark takes some time to complete because we analyze a large volume of random numbers.
 
-#### TestU01:
+### TestU01:
 ```
 cd testu01
 ./bigcrushall.sh
 ```
 
 The TestU01 benchmark "big crush" (``bigcrushall.sh``) might take days. It outputs its results in the current
-directory (``testu1``, but we copied already computed in the ``results`` subdirectory.
+directory (``testu01``), but we copied already computed results in the ``results`` subdirectory.
 A parallel version (``bigcrushallparallel.sh``) will test multiple generators at the same time, up to the number of detected CPU threads.
 
-There are also extensive scripts that generate many (100) seeds and test generators, the script take
+There are also extensive scripts that generate many (100) seeds and test generators, the scripts take
 the form ``rand*.sh``, one per generator. They output their results in their ``longresults`` subdirectory.
-
-#### Speed:
-It is interesting to assess running speed as well. This can be done quickly:
-
-```
-cd speed
-make
-make test
-```
-
-Note  that the speed tests assume a recent x64 processor (e.g., they would not work
-  on ARM processors).
 
 ## The contenders
 

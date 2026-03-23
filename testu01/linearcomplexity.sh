@@ -1,5 +1,13 @@
 #!/usr/bin/env bash
-make -s
+SCRIPTDIR="$(cd "$(dirname "$0")" && pwd)"
+BUILDDIR="${BUILDDIR:-$SCRIPTDIR/../build/testu01}"
+
+if [ ! -d "$BUILDDIR" ]; then
+    echo "Build directory $BUILDDIR not found."
+    echo "Run: cmake -B build && cmake --build build"
+    exit 1
+fi
+
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m' # No Color
@@ -11,7 +19,7 @@ for order in  "-z" "-r" "" ; do
      wf=$(echo $t | sed 's/ //g')
      filelog=$wf$f$order.log
      echo "# RUNNING" $t $f $order "Outputting result to " $filelog
-    ./$t $f $order | grep . | egrep -v '^(HOST|Generator)' > $filelog
+    $BUILDDIR/$t $f $order | grep . | egrep -v '^(HOST|Generator)' > $filelog
     egrep -s "p-value of test (.*) \*\*\*\*\*" $filelog > /dev/null
     RESULT=$?
     if [ $RESULT == 0 ]; then

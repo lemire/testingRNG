@@ -1,9 +1,14 @@
 #!/usr/bin/env bash
+SCRIPTDIR="$(cd "$(dirname "$0")" && pwd)"
+export BUILDDIR="${BUILDDIR:-$SCRIPTDIR/../build/testu01}"
 
-make -s
-parent=$(dirname "$0")
+if [ ! -d "$BUILDDIR" ]; then
+    echo "Build directory $BUILDDIR not found."
+    echo "Run: cmake -B build && cmake --build build"
+    exit 1
+fi
 
-. "$parent/testlist.sh"
+. "$SCRIPTDIR/testlist.sh"
 for t in "${commands[@]}"; do
-   $parent/bigcrush.sh $t 
+   $SCRIPTDIR/bigcrush.sh $t
 done # for t in "${commands[@]}"; do
