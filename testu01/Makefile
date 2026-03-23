@@ -17,7 +17,7 @@ CFLAGS = -fPIC -std=c99 -O3 $(OPTIFLAG) -Wall -Wextra -Wshadow -Wno-implicit-fun
 LIBS=build/lib/libmylib.a build/lib/libprobdist.a build/lib/libtestu01.a
 LIBSCMD= build/lib/libtestu01.a  build/lib/libprobdist.a build/lib/libmylib.a  -lm
 LIBTARGET=build/lib/libmylib.a
-EXECUTABLES=testaesdragontamer testmersennetwister testlehmer64 testsplitmix64 testxoroshiro128plus testv8xorshift128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testxorshift1024star testxorshift1024plus testwyhash testwyrand
+EXECUTABLES=testaesdragontamer testmersennetwister testlehmer64 testsplitmix64 testxoroshiro128plus testv8xorshift128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testxorshift1024star testxorshift1024plus testwyhash testwyrand testw1rand
 
 HEADERS=include/main.h
 
@@ -65,6 +65,9 @@ testwyhash: $(LIBTARGET) $(HEADERS)
 
 testwyrand: $(LIBTARGET) $(HEADERS)
 	$(CC) $(CFLAGS) -o testwyrand src/testwyrand.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
+
+testw1rand: $(LIBTARGET) $(HEADERS)
+	$(CC) $(CFLAGS) -o testw1rand src/testw1rand.c $(LIBSCMD) -I../source -Ibuild/include/ -Iinclude
 
 
 testv8xorshift128plus: $(LIBTARGET) $(HEADERS)

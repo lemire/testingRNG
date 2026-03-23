@@ -14,7 +14,7 @@ endif
 
 CFLAGS = -fPIC -std=c99 -O3 $(OPTIFLAG) -Wall -Wextra -Wshadow -Wno-implicit-function-declaration
 
-EXECUTABLES=testwidynski testlehmer64 testsplitmix64  testv8xorshift128plus testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testaesdragontamer testmitchellmoore testmersennetwister testxorshift-k4 testxorshift-k5 testxorshift1024star testxorshift1024plus testwyhash testwyrand
+EXECUTABLES=testwidynski testlehmer64 testsplitmix64  testv8xorshift128plus testxoroshiro128plus testxorshift128plus testxorshift32 testpcg32 testpcg64 testaesctr testaesdragontamer testmitchellmoore testmersennetwister testxorshift-k4 testxorshift-k5 testxorshift1024star testxorshift1024plus testwyhash testwyrand testw1rand
 
 HEADERS=include/main.h
 
@@ -38,6 +38,9 @@ testwyhash: src/testwyhash.c
 
 testwyrand: src/testwyrand.c
 	$(CC) $(CFLAGS) -o testwyrand src/testwyrand.c -I../source
+
+testw1rand: src/testw1rand.c
+	$(CC) $(CFLAGS) -o testw1rand src/testw1rand.c -I../source
 
 
 testmersennetwister: src/testmersennetwister.c

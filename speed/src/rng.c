@@ -22,6 +22,7 @@
 #include "aesdragontamer.h"
 #include "wyhash.h"
 #include "wyrand.h"
+#include "w1rand.h"
 #include "trivium32.h"
 #include "trivium64.h"
 #include "CG128.h"
@@ -45,12 +46,12 @@ const char *our32name[NUMBEROF32] = {
     "mitchellmoore", "widynski", "xorshift32",  "pcg32",
     "rand"};
 
-#define NUMBEROF64 13
+#define NUMBEROF64 14
 rand64fnc our64[NUMBEROF64] = {trivium64, aesdragontamer, aesctr,           lehmer64,   xorshift128plus,
-                               xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus, wyhash64, wyrand, CG64};
+                               xoroshiro128plus, splitmix64, pcg64, xorshift1024star, xorshift1024plus, wyhash64, wyrand, w1rand, CG64};
 const char *our64name[NUMBEROF64] = {"trivium64", "aesdragontamer","aesctr",          "lehmer64",
                                      "xorshift128plus", "xoroshiro128plus",
-                                     "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus", "wyhash64", "wyrand", "CG64"};
+                                     "splitmix64",      "pcg64", "xorshift1024star", "xorshift1024plus", "wyhash64", "wyrand", "w1rand", "CG64"};
 
 #define NUMBEROF128 2
 rand128fnc our128[NUMBEROF128] = { CG128, CG128_64 };
