@@ -4,7 +4,8 @@
 #include <cstring>
 #include <cassert>
 #include <vector>
-#include <print>
+#include <format>
+#include <iostream>
 
 #include "counters/bench.h"
 
@@ -105,30 +106,30 @@ void populate128(rand128fnc f, __uint128_t *answer, size_t size) {
 
 void pretty_print(const char *name, size_t bytes,
                   counters::event_aggregate agg) {
-  std::print("{:<40} : ", name);
-  std::print(" {:5.2f} ns/byte ", agg.fastest_elapsed_ns() / double(bytes));
-  std::print(" {:5.2f} GB/s ",
+  std::cout << std::format("{:<40} : ", name);
+  std::cout << std::format(" {:5.2f} ns/byte ", agg.fastest_elapsed_ns() / double(bytes));
+  std::cout << std::format(" {:5.2f} GB/s ",
              double(bytes) / agg.fastest_elapsed_ns());
   if (counters::has_performance_counters()) {
-    std::print(" {:5.2f} GHz ", agg.cycles() / double(agg.elapsed_ns()));
-    std::print(" {:5.2f} c/b ", agg.fastest_cycles() / double(bytes));
-    std::print(" {:5.2f} i/b ", agg.fastest_instructions() / double(bytes));
-    std::print(" {:5.2f} i/c ",
+    std::cout << std::format(" {:5.2f} GHz ", agg.cycles() / double(agg.elapsed_ns()));
+    std::cout << std::format(" {:5.2f} c/b ", agg.fastest_cycles() / double(bytes));
+    std::cout << std::format(" {:5.2f} i/b ", agg.fastest_instructions() / double(bytes));
+    std::cout << std::format(" {:5.2f} i/c ",
                agg.fastest_instructions() / double(agg.fastest_cycles()));
   }
-  std::print("\n");
+  std::cout << "\n";
 }
 
 void run_benchmark(int size) {
-  std::print("Generating {} bytes of random numbers\n", size);
-  std::print("Time reported per byte.\n");
-  std::print("We store values to an array of size = {} kB.\n\n", size / 1024);
+  std::cout << std::format("Generating {} bytes of random numbers\n", size);
+  std::cout << "Time reported per byte.\n";
+  std::cout << std::format("We store values to an array of size = {} kB.\n\n", size / 1024);
 
   void *buf = malloc(size);
   assert(buf);
   assert(size % 8 == 0);
 
-  std::print("32-bit generators:\n");
+  std::cout << "32-bit generators:\n";
   for (auto &g : generators32) {
     auto fn = g.fn;
     auto results = counters::bench([&]() {
@@ -137,7 +138,7 @@ void run_benchmark(int size) {
     pretty_print(g.name, size, results);
   }
 
-  std::print("\n64-bit generators:\n");
+  std::cout << "\n64-bit generators:\n";
   for (auto &g : generators64) {
     auto fn = g.fn;
     auto results = counters::bench([&]() {
@@ -146,7 +147,7 @@ void run_benchmark(int size) {
     pretty_print(g.name, size, results);
   }
 
-  std::print("\n128-bit generators:\n");
+  std::cout << "\n128-bit generators:\n";
   for (auto &g : generators128) {
     auto fn = g.fn;
     auto results = counters::bench([&]() {
@@ -156,16 +157,16 @@ void run_benchmark(int size) {
   }
 
   free(buf);
-  std::print("\n");
+  std::cout << "\n";
 }
 
 int main() {
-  std::print("\n");
+  std::cout << "\n";
   if (counters::has_performance_counters()) {
-    std::print("Performance counters are available.\n");
+    std::cout << "Performance counters are available.\n";
   } else {
-    std::print("Performance counters are unavailable. Only timing will be reported.\n");
-    std::print("You may be able to get counters by running as root (sudo).\n");
+    std::cout << "Performance counters are unavailable. Only timing will be reported.\n";
+    std::cout << "You may be able to get counters by running as root (sudo).\n";
   }
   run_benchmark(4096);
   return EXIT_SUCCESS;

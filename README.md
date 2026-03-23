@@ -42,7 +42,7 @@ We assume Linux or macOS. Under Windows 10, you can get the [Linux Subsystem](ht
 - Our scripts should work out of the box on  most Linux boxes, except maybe when they are configured to act as secure servers (e.g., without a C compiler).
 - If you have a mac, it is assumed that [you have installed a recent Xcode package](https://developer.apple.com/xcode/) to get
 the C (and C++) compiler. Make sure you have installed the command-line utilities.
-- C++ compiler supporting C++23 (GCC 14+ or Clang 17+ recommended)
+- C++ compiler supporting C++20 (GCC 14+ or Clang 17+ recommended)
 - CMake (version 3.10 or later)
 - Perl interpreter (for summarizing TestU01 results)
 - Bash shell (for running test scripts)
