@@ -8,6 +8,6 @@ cmake --build build
 
 Then run the tests:
 ```
-cd practrand
+cd build/practrand
 ./runtests.sh
 ```

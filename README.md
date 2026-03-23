@@ -8,6 +8,28 @@ This project lead to the following publication:
 
 - [Xorshift1024*, Xorshift1024+, Xorshift128+ and Xoroshiro128+ fail statistical tests for linearity](https://www.sciencedirect.com/science/article/pii/S0377042718306265?dgcid=author), Journal of Computational and Applied Mathematics, Volume 350, 2019. (Available online 22 October 2018)
 
+## Table of contents
+
+- [Scope Limitation](#scope-limitation)
+- [Prerequisites](#prerequisites)
+- [Building](#building)
+- [Usage](#usage)
+- [The contenders](#the-contenders)
+- [Methodology](#methodology)
+- [TestU01 results](#testu01-results)
+- [PractRand results (512 GB)](#practrand-results-512-gb)
+- [Speed results](#speed-results)
+- [Visual Summary](#visual-summary)
+- [Interpreting the results](#interpreting-the-results)
+- [Contributing a new generator](#contributing-a-new-generator)
+- [Testing frameworks](#testing-frameworks)
+- [Academic references](#academic-references)
+- [Talks](#talks)
+- [Cite this work](#cite-this-work)
+- [Links of interest (technical)](#links-of-interest-technical)
+- [Blog posts](#blog-posts)
+- [More reading (interesting quotes)](#more-reading-interesting-quotes)
+
 ## Scope Limitation
 
 This project is meant to test some well-known non-cryptographic random number generators written in C/C++ using pre-existing frameworks (TestU01 and PractRand). If you would like to contribute new RNG functions, please open a pull request.
@@ -50,6 +72,8 @@ By default, the build compiles in Release mode and builds everything: speed benc
 
 ## Usage
 
+Scripts are copied into the build directory alongside the executables during configuration. After building, you can run them directly from there.
+
 ### Speed:
 ```
 ./build/speed/rng
@@ -57,7 +81,7 @@ By default, the build compiles in Release mode and builds everything: speed benc
 
 ### PractRand:
 ```
-cd practrand
+cd build/practrand
 ./runtests.sh
 ```
 
@@ -65,16 +89,22 @@ The PractRand benchmark takes some time to complete because we analyze a large v
 
 ### TestU01:
 ```
-cd testu01
+cd build/testu01
 ./bigcrushall.sh
 ```
 
 The TestU01 benchmark "big crush" (``bigcrushall.sh``) might take days. It outputs its results in the current
-directory (``testu01``), but we copied already computed results in the ``results`` subdirectory.
+directory, but we copied already computed results in the ``results`` subdirectory.
 A parallel version (``bigcrushallparallel.sh``) will test multiple generators at the same time, up to the number of detected CPU threads.
 
 There are also extensive scripts that generate many (100) seeds and test generators, the scripts take
 the form ``rand*.sh``, one per generator. They output their results in their ``longresults`` subdirectory.
+
+### Entropy:
+```
+cd build/entropy
+./runtests.sh
+```
 
 ## The contenders
 
@@ -334,28 +364,41 @@ testxorshift-k5.log:  [Low4/64]BRank(12):768(1)         R=+583.3  p~=  1.2e-176 
 
 For a report on what might be the fastest generator, see [The fastest conventional random number generator that can pass Big Crush?](https://lemire.me/blog/2019/03/19/the-fastest-conventional-random-number-generator-that-can-pass-big-crush/)
 
-On a recent (Skylake) processor, on a Linux box, I got the following results:
-
+On an Intel Xeon Gold 6548N (2.8 GHz) with GCC 14, we get the following results:
 
 ```
-xorshift_k4:  1.26 cycles per byte
-xorshift_k5:  1.26 cycles per byte
-mersennetwister:  2.34 cycles per byte
-mitchellmoore:  3.49 cycles per byte
-widynski:  1.26 cycles per byte
-xorshift32:  2.51 cycles per byte
-pcg32:  1.51 cycles per byte
-rand:  4.74 cycles per byte
-aesdragontamer:  0.92 cycles per byte
-aesctr:  1.18 cycles per byte
-lehmer64:  0.63 cycles per byte
-xorshift128plus:  0.89 cycles per byte
-xoroshiro128plus:  0.83 cycles per byte
-splitmix64:  1.01 cycles per byte
-pcg64:  0.97 cycles per byte
-xorshift1024star:  1.74 cycles per byte
-xorshift1024plus:  1.03 cycles per byte
-wyhash64:  0.76 cycles per byte
+32-bit generators:
+trivium                                  :   1.09 ns/byte   0.92 GB/s   3.42 GHz   3.82 c/b  20.26 i/b   5.31 i/c
+xorshift_k4                              :   0.64 ns/byte   1.55 GB/s   3.45 GHz   2.25 c/b   5.76 i/b   2.56 i/c
+xorshift_k5                              :   0.64 ns/byte   1.55 GB/s   3.47 GHz   2.25 c/b   6.76 i/b   3.00 i/c
+mersennetwister                          :   0.60 ns/byte   1.68 GB/s   3.46 GHz   2.09 c/b   7.75 i/b   3.71 i/c
+mitchellmoore                            :   0.61 ns/byte   1.64 GB/s   3.47 GHz   2.13 c/b  11.76 i/b   5.51 i/c
+widynski                                 :   0.72 ns/byte   1.40 GB/s   3.49 GHz   2.50 c/b   2.76 i/b   1.10 i/c
+xorshift32                               :   0.79 ns/byte   1.27 GB/s   3.49 GHz   2.76 c/b   4.26 i/b   1.54 i/c
+pcg32                                    :   0.65 ns/byte   1.55 GB/s   3.49 GHz   2.25 c/b   4.26 i/b   1.89 i/c
+rand                                     :   3.59 ns/byte   0.28 GB/s   3.49 GHz  12.55 c/b  15.25 i/b   1.22 i/c
+
+64-bit generators:
+trivium64                                :   0.63 ns/byte   1.58 GB/s   3.49 GHz   2.21 c/b   9.01 i/b   4.08 i/c
+aesdragontamer                           :   0.25 ns/byte   3.97 GB/s   3.49 GHz   0.88 c/b   1.82 i/b   2.06 i/c
+aesctr                                   :   0.18 ns/byte   5.50 GB/s   3.49 GHz   0.64 c/b   2.90 i/b   4.55 i/c
+lehmer64                                 :   0.32 ns/byte   3.10 GB/s   3.49 GHz   1.13 c/b   1.76 i/b   1.56 i/c
+xorshift128plus                          :   0.42 ns/byte   2.41 GB/s   3.49 GHz   1.45 c/b   2.63 i/b   1.81 i/c
+xoroshiro128plus                         :   0.39 ns/byte   2.54 GB/s   3.48 GHz   1.38 c/b   2.51 i/b   1.82 i/c
+splitmix64                               :   0.21 ns/byte   4.70 GB/s   3.49 GHz   0.74 c/b   2.76 i/b   3.70 i/c
+splitmix63                               :   0.22 ns/byte   4.50 GB/s   3.49 GHz   0.78 c/b   3.26 i/b   4.19 i/c
+pcg64                                    :   0.40 ns/byte   2.53 GB/s   3.49 GHz   1.38 c/b   3.26 i/b   2.36 i/c
+xorshift1024star                         :   0.49 ns/byte   2.03 GB/s   3.49 GHz   1.72 c/b   3.88 i/b   2.25 i/c
+xorshift1024plus                         :   0.32 ns/byte   3.10 GB/s   3.49 GHz   1.13 c/b   3.01 i/b   2.67 i/c
+wyhash64                                 :   0.23 ns/byte   4.28 GB/s   3.49 GHz   0.82 c/b   1.88 i/b   2.30 i/c
+wyrand                                   :   0.24 ns/byte   4.22 GB/s   3.49 GHz   0.83 c/b   1.76 i/b   2.12 i/c
+w1rand                                   :   0.24 ns/byte   4.19 GB/s   3.49 GHz   0.83 c/b   1.76 i/b   2.11 i/c
+jenkinssmall                             :   0.74 ns/byte   1.36 GB/s   3.49 GHz   2.58 c/b   3.26 i/b   1.26 i/c
+CG64                                     :   0.47 ns/byte   2.11 GB/s   3.49 GHz   1.66 c/b   2.76 i/b   1.66 i/c
+
+128-bit generators:
+CG128                                    :   0.27 ns/byte   3.70 GB/s   3.49 GHz   0.94 c/b   3.07 i/b   3.25 i/c
+CG128_64                                 :   0.22 ns/byte   4.56 GB/s   3.49 GHz   0.77 c/b   2.00 i/b   2.62 i/c
 ```
 
 Results will depend on your specific hardware and might be quite different on ARM processors. Tweaking the benchmark could also change the results. In particular, our benchmark stresses throughput as opposed to latency.
@@ -363,20 +406,22 @@ Results will depend on your specific hardware and might be quite different on AR
 
 ## Visual Summary
 
-|                  | TestU01 (big crush)| PractRand (64 GB)        | time (cycles/byte) |
-|------------------|--------------------|--------------------------|--------------------|
-| wyhash (MUM)     |  :+1:              |   :+1:                   | 1.0                |
-| lehmer64         |  :+1:              |   :+1:                   | 1.0                |
-| splitmix64       |  :+1:              |   :+1:                   | 1.0                |
-| aes              |  :+1:              |   :+1:                   | 1.0                |
-| xorshift128plus  |  fails!            |   fails!                 | 1.0                |
-| v8xorshift128plus|  fails!            |   fails!                 | 1.0                |
-| xorshift1024plus |  fails!            |   fails!                 | 1.0                |
-| xoroshiro128plus |  fails!            |   fails!                 | 1.1                |
-| pcg64            |  :+1:              |   :+1:                   | 1.4                |
-| xorshift1024star |  fails!            |   fails!                 | 1.5                |
-| pcg32            |  :+1:              |   :+1:                   | 2.1                |
-| xorshift32       |  fails!            |   fails!                 | 2.5                |
+|                   | TestU01 (big crush)| PractRand (512 GB)       | cycles/byte |  GB/s |
+|-------------------|--------------------|--------------------------| -----------:|------:|
+| aesctr            |  :+1:              |   :+1:                   | 0.64        |  5.50 |
+| splitmix64        |  :+1:              |   :+1:                   | 0.74        |  4.70 |
+| wyhash64          |  :+1:              |   :+1:                   | 0.82        |  4.28 |
+| wyrand            |  :+1:              |   :+1:                   | 0.83        |  4.22 |
+| w1rand            |  :+1:              |   :+1:                   | 0.83        |  4.19 |
+| aesdragontamer    |  :+1:              |   :+1:                   | 0.88        |  3.97 |
+| lehmer64          |  :+1:              |   :+1:                   | 1.13        |  3.10 |
+| xorshift1024plus  |  fails!            |   fails!                 | 1.13        |  3.10 |
+| pcg64             |  :+1:              |   :+1:                   | 1.38        |  2.53 |
+| xoroshiro128plus  |  fails!            |   fails!                 | 1.38        |  2.54 |
+| xorshift128plus   |  fails!            |   fails!                 | 1.45        |  2.41 |
+| xorshift1024star  |  fails!            |   fails!                 | 1.72        |  2.03 |
+| pcg32             |  :+1:              |   :+1:                   | 2.25        |  1.55 |
+| xorshift32        |  fails!            |   fails!                 | 2.76        |  1.27 |
 
 ## Interpreting the results
 
@@ -392,6 +437,95 @@ To summarize, caution is required when interpreting the results. It is not black
 Still, for convenience, it is necessary to express results in a comprehensible manner. Thus we often say that a generator "passes a given test" or does not.
 
 
+
+## Contributing a new generator
+
+To add a new random number generator, follow these steps:
+
+### 1. Create a header file in `source/`
+
+Create `source/mynewthing.h` following the existing pattern. Your header should provide:
+
+- A seed function (e.g., `mynewthing_seed(uint64_t seed)`)
+- A generation function that returns `uint32_t` or `uint64_t` (e.g., `mynewthing()`)
+- Use `static inline` functions and `static` global state
+- Use `splitmix64` for seeding (include `splitmix64.h`)
+
+Example skeleton for a 64-bit generator:
+```c
+#ifndef MYNEWTHING_H
+#define MYNEWTHING_H
+
+#include "splitmix64.h"
+
+static uint64_t g_mynewthing_state;
+
+static inline void mynewthing_seed(uint64_t seed) {
+  g_mynewthing_state = splitmix64_stateless(seed, 0);
+}
+
+static inline uint64_t mynewthing() {
+  // your generator logic here
+}
+
+#endif
+```
+
+### 2. Add to the speed benchmark
+
+Edit `speed/src/rng.cpp`: include your header and add an entry to the appropriate generators array (`generators32`, `generators64`, or `generators128`).
+
+### 3. Add a PractRand test harness
+
+Create `practrand/src/testmynewthing.c`:
+```c
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+
+#include "mynewthing.h"
+
+#define buffer_size 512
+int main() {
+  mynewthing_seed(12345678);
+  uint64_t buffer[buffer_size];
+  while (1) {
+    for (int k = 0; k < buffer_size; k++)
+      buffer[k] = mynewthing();
+    fwrite((void *)buffer, sizeof(buffer), 1, stdout);
+  }
+}
+```
+
+Then add `testmynewthing` to the list in `practrand/CMakeLists.txt`.
+
+### 4. Add a TestU01 test harness
+
+Create `testu01/src/testmynewthing.c`:
+```c
+#include "mynewthing.h"
+
+static inline void thisrng_seed(uint64_t seed) { mynewthing_seed(seed); }
+static inline uint64_t thisrng() { return mynewthing(); }
+const char *name = "mynewthing";
+
+#include "main.h"
+```
+
+Then add `testmynewthing` to the list in `testu01/CMakeLists.txt`.
+
+### 5. Build and verify
+
+```
+cmake -B build
+cmake --build build
+ctest --test-dir build
+./build/speed/rng
+```
+
+### 6. Open a pull request
+
+Please include the name of the generator, a reference to the original publication or source, and your benchmark results.
 
 ## Testing frameworks
 

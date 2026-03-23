@@ -10,7 +10,7 @@ TestU01 is built automatically from the included `TestU01.zip` archive.
 Then go to a bash shell and type:
 
 ```
-cd testu01
+cd build/testu01
 ./bigcrushall.sh
 ```
 This runs for a very long time. Testing a single

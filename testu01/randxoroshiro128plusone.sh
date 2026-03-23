@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 SCRIPTDIR="$(cd "$(dirname "$0")" && pwd)"
-BUILDDIR="${BUILDDIR:-$SCRIPTDIR/../build/testu01}"
+cd "$SCRIPTDIR"
 wc="-b" #big crush
 t="testxoroshiro128plus" # this is the command
 
@@ -16,7 +16,7 @@ do
      filelog=$wf.log
      echo "# test $i out of 100 "
      echo "# RUNNING" $thiscommand  "Outputting result to " $filelog
-    $BUILDDIR/$thiscommand  > ./longresults/$filelog
+    ./$thiscommand  > ./longresults/$filelog
     echo
     i=$[$i+1]
 done

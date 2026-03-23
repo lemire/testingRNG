@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 SCRIPTDIR="$(cd "$(dirname "$0")" && pwd)"
-BUILDDIR="${BUILDDIR:-$SCRIPTDIR/../build/practrand}"
-
-if [ ! -d "$BUILDDIR" ]; then
-    echo "Build directory $BUILDDIR not found."
-    echo "Run: cmake -B build && cmake --build build"
-    exit 1
-fi
+cd "$SCRIPTDIR"
 
 MEM="512GB"
 RED='\033[0;31m'
@@ -20,7 +14,7 @@ for t in "${commands[@]}"; do
      wf=$(echo $t | sed 's/ //g')
      filelog=$wf.log
      echo "# RUNNING" $t  "Outputting result to " $filelog
-    $BUILDDIR/$t | ./RNG_test stdin64 -tlmax $MEM > $filelog
+    ./$t | ./RNG_test stdin64 -tlmax $MEM > $filelog
     grep -s "FAIL" $filelog > /dev/null
     RESULT=$?
     if [ $RESULT == 1 ]; then

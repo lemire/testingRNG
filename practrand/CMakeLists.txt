@@ -40,3 +40,15 @@ foreach(test ${PRACTRAND_TESTS})
   target_include_directories(practrand_${test} PRIVATE ${SOURCE_DIR})
   set_target_properties(practrand_${test} PROPERTIES OUTPUT_NAME ${test})
 endforeach()
+
+# Copy scripts into the build directory
+file(COPY
+  ${CMAKE_CURRENT_SOURCE_DIR}/runtests.sh
+  DESTINATION ${CMAKE_CURRENT_BINARY_DIR}
+  FILE_PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE
+)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/results)
+  file(COPY ${CMAKE_CURRENT_SOURCE_DIR}/results
+    DESTINATION ${CMAKE_CURRENT_BINARY_DIR}
+  )
+endif()

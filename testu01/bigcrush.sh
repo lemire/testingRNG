@@ -1,12 +1,6 @@
 #!/usr/bin/env bash
 SCRIPTDIR="$(cd "$(dirname "$0")" && pwd)"
-BUILDDIR="${BUILDDIR:-$SCRIPTDIR/../build/testu01}"
-
-if [ ! -d "$BUILDDIR" ]; then
-    echo "Build directory $BUILDDIR not found."
-    echo "Run: cmake -B build && cmake --build build"
-    exit 1
-fi
+cd "$SCRIPTDIR"
 
 if [ $# -eq 0 ]; then
     echo "No arguments provided"
@@ -29,7 +23,7 @@ for SEEDCMD in "${seeds[@]}"; do
      wf=$(echo $thiscommand | sed 's/ //g')
      filelog=$wf.log
      echo "# RUNNING" $thiscommand  "Outputting result to " $filelog
-    $BUILDDIR/$thiscommand  > $filelog
+    ./$thiscommand  > $filelog
     CMDRESULT=$?
     if [ $CMDRESULT == 0 ]; then
       grep -s "All tests were passed" $filelog > /dev/null
