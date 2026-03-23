@@ -17,8 +17,8 @@ find_program(UNZIP unzip)
 if(UNZIP)
   # Build PractRand's RNG_test from the checked-in archive
   add_custom_target(RNG_test
-    COMMAND unzip -qo PractRand_0.93.zip -d build && cd build && ${CMAKE_CXX_COMPILER} -std=c++14 -c src/*.cpp src/RNGs/*.cpp src/RNGs/other/*.cpp -O3 -Iinclude -pthread && ar rcs libPractRand.a *.o && ${CMAKE_CXX_COMPILER} -std=c++14 -o RNG_test tools/RNG_test.cpp libPractRand.a -O3 -Iinclude -pthread && cp RNG_test ${CMAKE_CURRENT_BINARY_DIR}
-    DEPENDS PractRand_0.93.zip
+    COMMAND unzip -qo PractRand_0.96.zip -d build && cd build && ${CMAKE_CXX_COMPILER} -std=c++14 -c src/*.cpp src/RNGs/*.cpp src/RNGs/other/*.cpp -O3 -Iinclude -pthread && ar rcs libPractRand.a *.o && ${CMAKE_CXX_COMPILER} -std=c++14 -o RNG_test tools/RNG_test.cpp libPractRand.a -O3 -Iinclude -pthread && cp RNG_test ${CMAKE_CURRENT_BINARY_DIR}
+    DEPENDS PractRand_0.96.zip
     WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
     BYPRODUCTS RNG_test
   )

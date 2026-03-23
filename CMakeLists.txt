@@ -1,10 +1,22 @@
 cmake_minimum_required(VERSION 3.14)
 
+project(testingRNG C CXX)
+
+option(ENABLE_ASAN "Enable Address Sanitizer" OFF)
+
+if(ENABLE_ASAN)
+  set(CMAKE_BUILD_TYPE Debug CACHE STRING "Build type" FORCE)
+  set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fsanitize=address -fno-omit-frame-pointer")
+  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fsanitize=address -fno-omit-frame-pointer")
+  set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -fsanitize=address")
+  set(CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -fsanitize=address")
+endif()
+
 if(NOT CMAKE_BUILD_TYPE AND NOT CMAKE_CONFIGURATION_TYPES)
   set(CMAKE_BUILD_TYPE Release CACHE STRING "Build type" FORCE)
 endif()
 
-project(testingRNG C CXX)
+enable_testing()
 
 enable_testing()
 
