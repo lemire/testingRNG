@@ -5,37 +5,49 @@ generators (RNG). Of particular interest are TestU01 and PractRand. We want to t
 
 ## Table of contents
 
-- [Scope Limitation](#scope-limitation)
-- [Prerequisites](#prerequisites)
-- [Building](#building)
-- [Usage](#usage)
-- [The contenders](#the-contenders)
-- [Methodology](#methodology)
-- [TestU01 results](#testu01-results)
-- [PractRand results (512 GB)](#practrand-results-512-gb)
-- [Speed results](#speed-results)
-- [Visual Summary](#visual-summary)
-- [Interpreting the results](#interpreting-the-results)
-- [Contributing a new generator](#contributing-a-new-generator)
-- [Testing frameworks](#testing-frameworks)
-- [Academic references](#academic-references)
-- [Talks](#talks)
-- [Cite this work](#cite-this-work)
-- [Links of interest (technical)](#links-of-interest-technical)
-- [Blog posts](#blog-posts)
-- [More reading (interesting quotes)](#more-reading-interesting-quotes)
-- [Publications](#publications)
-- [How to cite?](#how-to-cite)
+- [Introduction](#introduction)
+  - [Scope Limitation](#scope-limitation)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Building](#building)
+  - [Usage](#usage)
+    - [Speed](#speed)
+    - [PractRand](#practrand)
+    - [TestU01](#testu01)
+    - [Entropy](#entropy)
+- [Generators](#generators)
+  - [The contenders](#the-contenders)
+  - [Methodology](#methodology)
+- [Results](#results)
+  - [TestU01 results](#testu01-results)
+  - [PractRand results (512 GB)](#practrand-results-512-gb)
+  - [Speed results](#speed-results)
+  - [Visual Summary](#visual-summary)
+  - [Interpreting the results](#interpreting-the-results)
+- [Contributing](#contributing)
+  - [Contributing a new generator](#contributing-a-new-generator)
+- [References](#references)
+  - [Testing frameworks](#testing-frameworks)
+  - [Academic references](#academic-references)
+  - [Talks](#talks)
+  - [Cite this work](#cite-this-work)
+  - [Links of interest (technical)](#links-of-interest-technical)
+  - [Blog posts](#blog-posts)
+  - [More reading (interesting quotes)](#more-reading-interesting-quotes)
+  - [Publications](#publications)
+  - [How to cite?](#how-to-cite)
 
-## Scope Limitation
+## Introduction
+
+### Scope Limitation
 
 This project is meant to test some well-known non-cryptographic random number generators written in C/C++ using pre-existing frameworks (TestU01 and PractRand). If you would like to contribute new RNG functions, please open a pull request.
 
 This project is not a tutorial on how to use TestU01 and PractRand. If you have questions about how to use TestU01 and PractRand, or have issues with TestU01 and PractRand, please refer to the relevant projects. We have not modified, in the least, the TestU01 and PractRand frameworks.
 
+## Getting Started
 
-
-## Prerequisites
+### Prerequisites
 
 We assume Linux or macOS. Under Windows 10, you can get the [Linux Subsystem](https://msdn.microsoft.com/en-us/commandline/wsl/install_guide).
 
@@ -49,7 +61,7 @@ the C (and C++) compiler. Make sure you have installed the command-line utilitie
 
 (Note: We assume a recent x64 processor. TestU01, in particular, does not easily build on some ARM-based systems.)
 
-## Building
+### Building
 
 We use CMake as our build system. From the project root:
 
@@ -61,7 +73,7 @@ ctest --test-dir build
 
 By default, the build compiles in Release mode and builds everything: speed benchmarks, unit tests, PractRand test harnesses, entropy test harnesses, and TestU01 test harnesses. TestU01 is built automatically from the included `testu01/TestU01.zip` archive.
 
-### CMake options
+#### CMake options
 
 | Option | Default | Description |
 |--------|---------|-------------|
@@ -71,11 +83,11 @@ By default, the build compiles in Release mode and builds everything: speed benc
 | `BUILD_ENTROPY` | ON | Entropy test harnesses |
 | `BUILD_TESTU01` | ON | TestU01 test harnesses (built from included archive) |
 
-## Usage
+### Usage
 
 Scripts are copied into the build directory alongside the executables during configuration. After building, you can run them directly from there.
 
-### Speed:
+#### Speed
 ```
 cmake -B build
 cmake --build build
@@ -85,7 +97,7 @@ cmake --build build
 If you can run `rng` in a privileged manner, you will get performance counters. On some systems,
 you may need to run `sudo ./build/speed/rng`.
 
-### PractRand:
+#### PractRand
 ```
 cmake -B build
 cmake --build build
@@ -98,7 +110,7 @@ To summarize the results, use the ``summarize.sh`` script in the ``results`` dir
 
 The PractRand benchmark takes some time to complete because we analyze a large volume of random numbers.
 
-### TestU01:
+#### TestU01
 
 ```
 cmake -B build
@@ -113,14 +125,16 @@ A parallel version (``bigcrushallparallel.sh``) will test multiple generators at
 To summarize the results, use the ``summarize.pl`` script in the ``results`` directory: ``./summarize.pl *.log``. After running the tests, the log files will be in ``build/testu01/``, and ``summarize.pl`` is located in ``build/testu01/results/`` (copied from ``testu01/results`` during build configuration). To summarize your test results, run ``cd build/testu01/results && ./summarize.pl ../*.log``.
 
 
-### Entropy:
+#### Entropy
 ```
 cmake -B build
 cmake --build build
 bash ./build/entropy/runtests.sh
 ```
 
-## The contenders
+## Generators
+
+### The contenders
 
 - splitmix64 is a random number generator in widespread use and part of the standard Java API, we adapted a port to C produced by Vigna. It produces 64-bit numbers.
 - splitmix63 is a 63-bit variant of splitmix64, masking the output to avoid the most significant bit.
@@ -141,7 +155,7 @@ bash ./build/entropy/runtests.sh
 - CG64, CG128, and CG128_64 are counter-based generators producing 64-bit, 128-bit, and 128-bit outputs respectively.
 
 
-## Methodology
+### Methodology
 
 For historical reasons, it appears that TestU01 is designed to test 32-bit numbers
 whereas many modern random number generators produce 64-bit numbers. Indeed, years ago,
@@ -167,7 +181,9 @@ the test fails with at least four seeds.
 
 For PractRand, we do not need to truncate the produced random bits.
 
-## TestU01 results
+## Results
+
+### TestU01 results
 
 See testu01/results for detailed outputs.
 Type ``./summarize.pl *.log |more``.
@@ -359,7 +375,7 @@ Summary for xorshift1024plus msb 32-bits (byte reverse) (4 crushes):
 
 The xorshift32 generator fails very badly.
 
-## PractRand results (512 GB)
+### PractRand results (512 GB)
 
 See practrand/results for detailed outputs.
 
@@ -383,7 +399,7 @@ testxorshift-k5.log:  [Low4/64]BRank(12):768(1)         R=+583.3  p~=  1.2e-176 
 
 
 
-## Speed results
+### Speed results
 
 For a report on what might be the fastest generator, see [The fastest conventional random number generator that can pass Big Crush?](https://lemire.me/blog/2019/03/19/the-fastest-conventional-random-number-generator-that-can-pass-big-crush/)
 
@@ -427,7 +443,7 @@ CG128_64                                 :   0.22 ns/byte   4.56 GB/s   3.49 GHz
 Results will depend on your specific hardware and might be quite different on ARM processors. Tweaking the benchmark could also change the results. In particular, our benchmark stresses throughput as opposed to latency.
 
 
-## Visual Summary
+### Visual Summary
 
 |                   | TestU01 (big crush)| PractRand (512 GB)       | cycles/byte |  GB/s |
 |-------------------|--------------------|--------------------------| -----------:|------:|
@@ -446,7 +462,7 @@ Results will depend on your specific hardware and might be quite different on AR
 | pcg32             |  :+1:              |   :+1:                   | 2.25        |  1.55 |
 | xorshift32        |  fails!            |   fails!                 | 2.76        |  1.27 |
 
-## Interpreting the results
+### Interpreting the results
 
 Tests are subject to both false positives and false negatives, and should be interpreted with care.
 
@@ -461,7 +477,9 @@ Still, for convenience, it is necessary to express results in a comprehensible m
 
 
 
-## Contributing a new generator
+## Contributing
+
+### Contributing a new generator
 
 To add a new random number generator, follow these steps:
 
@@ -550,7 +568,9 @@ ctest --test-dir build
 
 Please include the name of the generator, a reference to the original publication or source, and your benchmark results.
 
-## Testing frameworks
+## References
+
+### Testing frameworks
 
 We use the following testing framework:
 
@@ -559,16 +579,16 @@ We use the following testing framework:
 
 As of 2026, these represent the state-of-the-art.
 
-## Academic references
+### Academic references
 
 - D. H. Lehmer, Mathematical methods in large-scale computing units.  Proceedings of a Second Symposium on Large Scale Digital Calculating Machinery; Annals of the Computation Laboratory, Harvard Univ. 26 (1951), pp. 141-146.
 
 
-## Talks
+### Talks
 
 - [Stanford Seminar - PCG: A Family of Better Random Number Generators](https://www.youtube.com/watch?v=45Oet5qjlms) (by O'Neill)
 
-## Cite this work
+### Cite this work
 
 If you use results or code from this repository in a publication, please consider citing the project as:
 
@@ -585,12 +605,12 @@ If you use results or code from this repository in a publication, please conside
 
 You can copy the BibTeX entry above into your references file.
 
-## Links of interest (technical)
+### Links of interest (technical)
 
 - [PRNG shootout](http://xoroshiro.di.unimi.it) by Vigna
 - How to test PCG with  [PractRand](http://www.pcg-random.org/posts/how-to-test-with-practrand.html) and [TestU01](http://www.pcg-random.org/posts/how-to-test-with-testu01.html) (by O'Neill)
 
-## Blog posts
+### Blog posts
 
 - [Testing non-cryptographic random number generators: my results](https://lemire.me/blog/2017/08/22/testing-non-cryptographic-random-number-generators-my-results/) by Lemire
 - [Cracking random number generators (xoroshiro128+)](https://lemire.me/blog/2017/08/22/cracking-random-number-generators-xoroshiro128/) by Lemire
@@ -598,7 +618,7 @@ You can copy the BibTeX entry above into your references file.
 - [Testing RNGs with PractRand](https://www.johndcook.com/blog/2017/08/14/testing-rngs-with-practrand/), [Manipulating a random number generator](https://www.johndcook.com/blog/2017/08/16/manipulating-a-random-number-generator/) by Cook
 - [PCG Passes PractRand](http://www.pcg-random.org/posts/pcg-passes-practrand.html) by O'Neill
 
-## More reading (interesting quotes)
+### More reading (interesting quotes)
 
 > When a p-value is extremely close to 0 or to 1 (for example, if it is less than 10^−10), one can obviously conclude that the generator fails the test. If the p-value is suspicious but failure is not clear enough, (p = 0.0005, for example), then the test can be replicated independently until either failure becomes obvious or suspicion disappears (i.e., one finds that the suspect p-value was obtained only by chance). This approach is possible because there is no limit (other than CPU time) on the amount of data that can be produced by a RNG to increase the sample size and the power of the test. (TestU01 manual)
 
@@ -608,12 +628,12 @@ You can copy the BibTeX entry above into your references file.
 [Chris Doty-Humphrey, 2016-09-07](https://sourceforge.net/p/pracrand/discussion/366935/thread/2b43b548/#a33d)
 
 
-## Publications
+### Publications
 
 
 - [Xorshift1024*, Xorshift1024+, Xorshift128+ and Xoroshiro128+ fail statistical tests for linearity](https://www.sciencedirect.com/science/article/pii/S0377042718306265?dgcid=author), Journal of Computational and Applied Mathematics, Volume 350, 2019. (Available online 22 October 2018)
 
-## How to cite?
+### How to cite?
 
 If you use results or code from this repository in a publication, please consider citing the project as:
 
