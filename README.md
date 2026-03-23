@@ -456,8 +456,8 @@ Results will depend on your specific hardware and might be quite different on AR
 | aesdragontamer    |  :+1:              |   :+1:                   | 0.88        |  3.97 |
 | lehmer64          |  :+1:              |   :+1:                   | 1.13        |  3.10 |
 | xorshift1024plus  |  fails!            |   fails!                 | 1.13        |  3.10 |
-| pcg64             |  :+1:              |   :+1:                   | 1.38        |  2.53 |
 | xoroshiro128plus  |  fails!            |   fails!                 | 1.38        |  2.54 |
+| pcg64             |  :+1:              |   :+1:                   | 1.38        |  2.53 |
 | xorshift128plus   |  fails!            |   fails!                 | 1.45        |  2.41 |
 | xorshift1024star  |  fails!            |   fails!                 | 1.72        |  2.03 |
 | pcg32             |  :+1:              |   :+1:                   | 2.25        |  1.55 |
