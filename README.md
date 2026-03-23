@@ -92,6 +92,8 @@ cmake --build build
 bash build/practrand/runtests.sh
 ```
 
+**NOTE**. You may encounter issues with `PractRand` like memory corruption or the like. If you do, please do report the errors with the authors of the `PractRand` tool.
+
 To summarize the results, use the ``summarize.sh`` script in the ``results`` directory. After running the tests, the log files will be in ``build/practrand/``, and ``summarize.sh`` is located in ``build/practrand/results/`` (copied from ``practrand/results`` during build configuration). To summarize your test results, run ``cd build/practrand/results && ./summarize.sh``.
 
 The PractRand benchmark takes some time to complete because we analyze a large volume of random numbers.
