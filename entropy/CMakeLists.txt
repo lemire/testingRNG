@@ -1,5 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
 
+include(ExternalProject)
+
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
@@ -8,6 +10,15 @@ if(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|AMD64")
 endif()
 
 add_compile_options(-O3 -Wall -Wextra -Wshadow -Wno-implicit-function-declaration)
+
+# Build ENT entropy testing tool
+ExternalProject_Add(ent_lib
+  URL http://www.fourmilab.ch/random/random.zip
+  DOWNLOAD_EXTRACT_TIMESTAMP TRUE
+  CONFIGURE_COMMAND ""
+  BUILD_COMMAND sh -c "cd <SOURCE_DIR> && make"
+  INSTALL_COMMAND ${CMAKE_COMMAND} -E copy <SOURCE_DIR>/ent ${CMAKE_CURRENT_BINARY_DIR}/ent
+)
 
 # Entropy tests reuse practrand source files
 set(ENTROPY_TESTS
@@ -23,6 +34,7 @@ set(ENTROPY_TESTS
   testmersennetwister
   testxorshift-k4
   testxorshift-k5
+  testw1rand
 )
 
 # AES-based tests only on x86

@@ -3,11 +3,6 @@
 There are several benchmarks that can be used to test (pseudo-)random number
 generators (RNG). Of particular interest are TestU01 and PractRand. We want to test these popular RNGs.
 
-
-This project lead to the following publication:
-
-- [Xorshift1024*, Xorshift1024+, Xorshift128+ and Xoroshiro128+ fail statistical tests for linearity](https://www.sciencedirect.com/science/article/pii/S0377042718306265?dgcid=author), Journal of Computational and Applied Mathematics, Volume 350, 2019. (Available online 22 October 2018)
-
 ## Table of contents
 
 - [Scope Limitation](#scope-limitation)
@@ -29,6 +24,8 @@ This project lead to the following publication:
 - [Links of interest (technical)](#links-of-interest-technical)
 - [Blog posts](#blog-posts)
 - [More reading (interesting quotes)](#more-reading-interesting-quotes)
+- [Publications](#publications)
+- [How to cite?](#how-to-cite)
 
 ## Scope Limitation
 
@@ -45,6 +42,10 @@ We assume Linux or macOS. Under Windows 10, you can get the [Linux Subsystem](ht
 - Our scripts should work out of the box on  most Linux boxes, except maybe when they are configured to act as secure servers (e.g., without a C compiler).
 - If you have a mac, it is assumed that [you have installed a recent Xcode package](https://developer.apple.com/xcode/) to get
 the C (and C++) compiler. Make sure you have installed the command-line utilities.
+- C++ compiler supporting C++23 (GCC 14+ or Clang 17+ recommended)
+- CMake (version 3.10 or later)
+- Perl interpreter (for summarizing TestU01 results)
+- Bash shell (for running test scripts)
 
 (Note: We assume a recent x64 processor. TestU01, in particular, does not easily build on some ARM-based systems.)
 
@@ -76,46 +77,66 @@ Scripts are copied into the build directory alongside the executables during con
 
 ### Speed:
 ```
+cmake -B build
+cmake --build build
 ./build/speed/rng
 ```
 
+If you can run `rng` in a privileged manner, you will get performance counters. On some systems,
+you may need to run `sudo ./build/speed/rng`.
+
 ### PractRand:
 ```
-cd build/practrand
-./runtests.sh
+cmake -B build
+cmake --build build
+bash build/practrand/runtests.sh
 ```
+
+To summarize the results, use the ``summarize.sh`` script in the ``results`` directory. After running the tests, the log files will be in ``build/practrand/``, and ``summarize.sh`` is located in ``build/practrand/results/`` (copied from ``practrand/results`` during build configuration). To summarize your test results, run ``cd build/practrand/results && ./summarize.sh``.
 
 The PractRand benchmark takes some time to complete because we analyze a large volume of random numbers.
 
 ### TestU01:
+
 ```
-cd build/testu01
-./bigcrushall.sh
+cmake -B build
+cmake --build build
+bash build/testu01/bigcrushall.sh
 ```
 
 The TestU01 benchmark "big crush" (``bigcrushall.sh``) might take days. It outputs its results in the current
 directory, but we copied already computed results in the ``results`` subdirectory.
 A parallel version (``bigcrushallparallel.sh``) will test multiple generators at the same time, up to the number of detected CPU threads.
 
-There are also extensive scripts that generate many (100) seeds and test generators, the scripts take
-the form ``rand*.sh``, one per generator. They output their results in their ``longresults`` subdirectory.
+To summarize the results, use the ``summarize.pl`` script in the ``results`` directory: ``./summarize.pl *.log``. After running the tests, the log files will be in ``build/testu01/``, and ``summarize.pl`` is located in ``build/testu01/results/`` (copied from ``testu01/results`` during build configuration). To summarize your test results, run ``cd build/testu01/results && ./summarize.pl ../*.log``.
+
 
 ### Entropy:
 ```
-cd build/entropy
-./runtests.sh
+cmake -B build
+cmake --build build
+bash ./build/entropy/runtests.sh
 ```
 
 ## The contenders
 
 - splitmix64 is a random number generator in widespread use and part of the standard Java API, we adapted a port to C produced by Vigna. It produces 64-bit numbers.
+- splitmix63 is a 63-bit variant of splitmix64, masking the output to avoid the most significant bit.
 - pcg32 and pcg64 are instances of the PCG family designed by O'Neill. They produce either 32-bit or 64-bit outputs.
 - xorshift32 is a classical xorshift random number generator. We do not expect it to do well.
-- xorshift128plus, xorshift1024star, xorshift1024plus and xoroshiro128plus are recently proposed random number generator by Vigna. There are many parameters possible, but we used those recommended by Vigna. For xorshift128plus, the V8 JavaScript runtime opted for other constants, so we add a new generator "v8xorshift128plus" which relies on constants that Vigna recommended against using, but that are apparently used by V8.
-- rand is whatever random number number generator your C standard library provides. It is a useful point of reference when assessing speed.
-- lehmer64 is a simple (but fast) Multiplicative Linear Congruential Generator
-- aesctr is a random number generator based on the AES cipher (contributed by Samuel Neves)
-- wyhash and wyrand are random number generators based on the MUM hashing function
+- xorshift_k4 and xorshift_k5 are compact xorshift variants producing 32-bit outputs.
+- xorshift128plus, xorshift1024star, xorshift1024plus and xoroshiro128plus are recently proposed random number generators by Vigna. There are many parameters possible, but we used those recommended by Vigna. For xorshift128plus, the V8 JavaScript runtime opted for other constants, so we add a new generator "v8xorshift128plus" which relies on constants that Vigna recommended against using, but that are apparently used by V8.
+- trivium32 and trivium64 are stream ciphers adapted as random number generators.
+- rand is whatever random number generator your C standard library provides. It is a useful point of reference when assessing speed.
+- lehmer64 is a simple (but fast) Multiplicative Linear Congruential Generator.
+- mersennetwister is the classic Mersenne Twister random number generator.
+- mitchellmoore is Mitchell-Moore's generator.
+- widynski is Widynski's random number generator.
+- aesctr and aesdragontamer are random number generators based on the AES cipher (contributed by Samuel Neves).
+- wyhash64 is wyhash hashing function adapted as a random number generator.
+- wyrand and w1rand are random number generators based on the MUM hashing function, with w1rand being a slight modification.
+- jenkinssmall is Bob Jenkins' small PRNG.
+- CG64, CG128, and CG128_64 are counter-based generators producing 64-bit, 128-bit, and 128-bit outputs respectively.
 
 
 ## Methodology
@@ -583,3 +604,26 @@ You can copy the BibTeX entry above into your references file.
 
 > xoroshiro128plus seems like an interesting variation on LFSRs, it maintains the excessive linearity problem, but the variation in structure (compared to classic LFSRs) costs little and may significantly improve quality, not sure yet. In PractRand it quickly fails binary rank tests, and also eventually fails a short-medium range linear tests in the expanded test suite (DC6-5x4Byte-1). The author suggests avoiding reliance on the lowest bit to work around the binary rank problem, but the 2nd lowest bit also fails binary rank tests (though it takes substantially larger matrices to detect that). A non-linear output function could fix that stuff, but I'd also prefer a larger statespace. It's not clear how well this PRNG supports random access - a function to skip forward exactly 2^64 is provided, but there's no obvious way to skip forward/backward other amounts - I'd guess it's possible, but requires significant precomputation on a per-power-of-2 basis and might be slow at runtime for distances that are not neat powers of two. I think xoroshiro has a single cycle of length 2^128-1.
 [Chris Doty-Humphrey, 2016-09-07](https://sourceforge.net/p/pracrand/discussion/366935/thread/2b43b548/#a33d)
+
+
+## Publications
+
+
+- [Xorshift1024*, Xorshift1024+, Xorshift128+ and Xoroshiro128+ fail statistical tests for linearity](https://www.sciencedirect.com/science/article/pii/S0377042718306265?dgcid=author), Journal of Computational and Applied Mathematics, Volume 350, 2019. (Available online 22 October 2018)
+
+## How to cite?
+
+If you use results or code from this repository in a publication, please consider citing the project as:
+
+```
+@misc{lemire2026testingRNG,
+  author = {Daniel Lemire},
+  title = {{testingRNG: testing popular random-number generators}},
+  year = {2026},
+  howpublished = {GitHub repository},
+  url = {https://github.com/dlemire/testingRNG}
+}
+```
+
+You can copy the BibTeX entry above into your references file.
+
