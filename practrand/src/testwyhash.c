@@ -7,6 +7,8 @@
 
 #define buffer_size 512
 int main(int argc, char **argv) {
+  (void)argc;
+  (void)argv;
   uint64_t seedvalue = 12345678;
   wyhash64_seed(seedvalue);
   uint32_t buffer[buffer_size];
