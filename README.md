@@ -387,7 +387,7 @@ We use the following testing framework:
 - [Practically Random](https://sourceforge.net/projects/pracrand/)
 - [TestU01](http://simul.iro.umontreal.ca/testu01/)
 
-As of 2017, these represent the state-of-the-art.
+As of 2026, these represent the state-of-the-art.
 
 ## Academic references
 
