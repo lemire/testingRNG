@@ -1,4 +1,5 @@
 # testingRNG : testing popular random-number generators
+[![CI](https://github.com/lemire/testingRNG/actions/workflows/ci.yml/badge.svg)](https://github.com/lemire/testingRNG/actions/workflows/ci.yml)
 
 There are several benchmarks that can be used to test (pseudo-)random number
 generators (RNG). Of particular interest are TestU01 and PractRand. We want to test these popular RNGs.
