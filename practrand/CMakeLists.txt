@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.20)
 
 include(ExternalProject)
 
@@ -11,20 +11,13 @@ endif()
 
 add_compile_options(-O3 -Wall -Wextra -Wshadow -Wno-implicit-function-declaration)
 
-# Check for unzip to build PractRand's RNG_test
-find_program(UNZIP unzip)
-
-if(UNZIP)
-  # Build PractRand's RNG_test from the checked-in archive
-  add_custom_target(RNG_test
-    COMMAND unzip -qo PractRand_0.96.zip -d build && cd build && ${CMAKE_CXX_COMPILER} -std=c++14 -c src/*.cpp src/RNGs/*.cpp src/RNGs/other/*.cpp -O3 -Iinclude -pthread && ar rcs libPractRand.a *.o && ${CMAKE_CXX_COMPILER} -std=c++14 -o RNG_test tools/RNG_test.cpp libPractRand.a -O3 -Iinclude -pthread && cp RNG_test ${CMAKE_CURRENT_BINARY_DIR}
-    DEPENDS PractRand_0.96.zip
-    WORKING_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}
-    BYPRODUCTS RNG_test
-  )
-else()
-  message(STATUS "unzip not found, skipping RNG_test build")
-endif()
+# Build PractRand's RNG_test from the checked-in archive
+add_custom_target(RNG_test
+  COMMAND ${CMAKE_COMMAND} -D CMAKE_CURRENT_SOURCE_DIR=${CMAKE_CURRENT_SOURCE_DIR} -P ${CMAKE_CURRENT_SOURCE_DIR}/extract.cmake && cd build && ${CMAKE_CXX_COMPILER} -std=c++14 -c src/*.cpp src/RNGs/*.cpp src/RNGs/other/*.cpp -O3 -Iinclude -pthread && ar rcs libPractRand.a *.o && ${CMAKE_CXX_COMPILER} -std=c++14 -o RNG_test tools/RNG_test.cpp libPractRand.a -O3 -Iinclude -pthread && cp RNG_test ${CMAKE_CURRENT_BINARY_DIR}
+  DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/PractRand_0.93.zip
+  WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
+  BYPRODUCTS RNG_test
+)
 
 set(PRACTRAND_TESTS
   testwidynski
@@ -56,9 +49,7 @@ foreach(test ${PRACTRAND_TESTS})
   add_executable(practrand_${test} src/${test}.c)
   target_include_directories(practrand_${test} PRIVATE ${SOURCE_DIR})
   set_target_properties(practrand_${test} PROPERTIES OUTPUT_NAME ${test})
-  if(UNZIP)
-    add_dependencies(practrand_${test} RNG_test)
-  endif()
+  add_dependencies(practrand_${test} RNG_test)
 endforeach()
 
 # Copy scripts into the build directory
