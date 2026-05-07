@@ -1,12 +1,16 @@
 cmake_minimum_required(VERSION 3.20)
 
 include(ExternalProject)
+include(CheckCCompilerFlag)
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_C_STANDARD_REQUIRED ON)
 
 if(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|AMD64")
-  add_compile_options(-march=native)
+  check_c_compiler_flag("-march=native" COMPILER_SUPPORTS_MARCH_NATIVE)
+  if(COMPILER_SUPPORTS_MARCH_NATIVE)
+    add_compile_options(-march=native)
+  endif()
 endif()
 
 add_compile_options(-O3 -Wall -Wextra -Wshadow -Wno-implicit-function-declaration)
