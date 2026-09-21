@@ -23,7 +23,6 @@ generators (RNG). Of particular interest are TestU01 and PractRand. We want to t
   - [TestU01 results](#testu01-results)
   - [PractRand results (512 GB)](#practrand-results-512-gb)
   - [Speed results](#speed-results)
-  - [Visual Summary](#visual-summary)
   - [Interpreting the results](#interpreting-the-results)
 - [Contributing](#contributing)
   - [Contributing a new generator](#contributing-a-new-generator)
@@ -405,65 +404,44 @@ testxorshift-k5.log:  [Low4/64]BRank(12):768(1)         R=+583.3  p~=  1.2e-176 
 
 For a report on what might be the fastest generator, see [The fastest conventional random number generator that can pass Big Crush?](https://lemire.me/blog/2019/03/19/the-fastest-conventional-random-number-generator-that-can-pass-big-crush/)
 
-On an Intel Xeon Gold 6548N (2.8 GHz) with GCC 14, we get the following results:
+The following table was produced on an Intel Xeon Gold 6548N (2.8 GHz, turbo to 3.5 GHz) with GCC 14, using `./build/speed/rng`.
+Generators are sorted from slowest to fastest. The TestU01 and PractRand columns summarize
+the results reported above (✅ passes, ❌ fails, blank when we have no results). Note that "rand" is
+whatever the C standard library provides, and that trivium and aesctr are stream ciphers.
 
-```
-32-bit generators:
-trivium                                  :   1.09 ns/byte   0.92 GB/s   3.42 GHz   3.82 c/b  20.26 i/b   5.31 i/c
-xorshift_k4                              :   0.64 ns/byte   1.55 GB/s   3.45 GHz   2.25 c/b   5.76 i/b   2.56 i/c
-xorshift_k5                              :   0.64 ns/byte   1.55 GB/s   3.47 GHz   2.25 c/b   6.76 i/b   3.00 i/c
-mersennetwister                          :   0.60 ns/byte   1.68 GB/s   3.46 GHz   2.09 c/b   7.75 i/b   3.71 i/c
-mitchellmoore                            :   0.61 ns/byte   1.64 GB/s   3.47 GHz   2.13 c/b  11.76 i/b   5.51 i/c
-widynski                                 :   0.72 ns/byte   1.40 GB/s   3.49 GHz   2.50 c/b   2.76 i/b   1.10 i/c
-xorshift32                               :   0.79 ns/byte   1.27 GB/s   3.49 GHz   2.76 c/b   4.26 i/b   1.54 i/c
-pcg32                                    :   0.65 ns/byte   1.55 GB/s   3.49 GHz   2.25 c/b   4.26 i/b   1.89 i/c
-rand                                     :   3.59 ns/byte   0.28 GB/s   3.49 GHz  12.55 c/b  15.25 i/b   1.22 i/c
-
-64-bit generators:
-trivium64                                :   0.63 ns/byte   1.58 GB/s   3.49 GHz   2.21 c/b   9.01 i/b   4.08 i/c
-aesdragontamer                           :   0.25 ns/byte   3.97 GB/s   3.49 GHz   0.88 c/b   1.82 i/b   2.06 i/c
-aesctr                                   :   0.18 ns/byte   5.50 GB/s   3.49 GHz   0.64 c/b   2.90 i/b   4.55 i/c
-lehmer64                                 :   0.32 ns/byte   3.10 GB/s   3.49 GHz   1.13 c/b   1.76 i/b   1.56 i/c
-xorshift128plus                          :   0.42 ns/byte   2.41 GB/s   3.49 GHz   1.45 c/b   2.63 i/b   1.81 i/c
-xoroshiro128plus                         :   0.39 ns/byte   2.54 GB/s   3.48 GHz   1.38 c/b   2.51 i/b   1.82 i/c
-splitmix64                               :   0.21 ns/byte   4.70 GB/s   3.49 GHz   0.74 c/b   2.76 i/b   3.70 i/c
-splitmix63                               :   0.22 ns/byte   4.50 GB/s   3.49 GHz   0.78 c/b   3.26 i/b   4.19 i/c
-pcg64                                    :   0.40 ns/byte   2.53 GB/s   3.49 GHz   1.38 c/b   3.26 i/b   2.36 i/c
-xorshift1024star                         :   0.49 ns/byte   2.03 GB/s   3.49 GHz   1.72 c/b   3.88 i/b   2.25 i/c
-xorshift1024plus                         :   0.32 ns/byte   3.10 GB/s   3.49 GHz   1.13 c/b   3.01 i/b   2.67 i/c
-wyhash64                                 :   0.23 ns/byte   4.28 GB/s   3.49 GHz   0.82 c/b   1.88 i/b   2.30 i/c
-wyrand                                   :   0.24 ns/byte   4.22 GB/s   3.49 GHz   0.83 c/b   1.76 i/b   2.12 i/c
-w1rand                                   :   0.24 ns/byte   4.19 GB/s   3.49 GHz   0.83 c/b   1.76 i/b   2.11 i/c
-jenkinssmall                             :   0.74 ns/byte   1.36 GB/s   3.49 GHz   2.58 c/b   3.26 i/b   1.26 i/c
-CG64                                     :   0.47 ns/byte   2.11 GB/s   3.49 GHz   1.66 c/b   2.76 i/b   1.66 i/c
-
-128-bit generators:
-CG128                                    :   0.27 ns/byte   3.70 GB/s   3.49 GHz   0.94 c/b   3.07 i/b   3.25 i/c
-CG128_64                                 :   0.22 ns/byte   4.56 GB/s   3.49 GHz   0.77 c/b   2.00 i/b   2.62 i/c
-```
+| Generator | Output | TestU01 (big crush) | PractRand (512 GB) | ns/byte | GB/s | cycles/byte | instructions/byte |
+|-----------|-------:|:-------------------:|:------------------:|--------:|-----:|------------:|------------------:|
+| rand | 32-bit |  |  | 3.59 | 0.28 | 12.55 | 15.25 |
+| trivium | 32-bit |  |  | 1.09 | 0.92 | 3.82 | 20.26 |
+| xorshift32 | 32-bit | ❌ | ❌ | 0.79 | 1.27 | 2.76 | 4.26 |
+| jenkinssmall | 64-bit |  |  | 0.74 | 1.36 | 2.58 | 3.26 |
+| widynski | 32-bit |  | ✅ | 0.72 | 1.40 | 2.51 | 2.76 |
+| pcg32 | 32-bit | ✅ | ✅ | 0.65 | 1.55 | 2.26 | 4.25 |
+| xorshift_k4 | 32-bit |  | ❌ | 0.64 | 1.55 | 2.25 | 5.75 |
+| xorshift_k5 | 32-bit |  | ❌ | 0.64 | 1.55 | 2.25 | 6.75 |
+| trivium64 | 64-bit |  |  | 0.63 | 1.58 | 2.21 | 9.00 |
+| mitchellmoore | 32-bit |  | ❌ | 0.61 | 1.64 | 2.13 | 11.75 |
+| mersennetwister | 32-bit | ❌ | ❌ | 0.60 | 1.68 | 2.09 | 7.75 |
+| xorshift1024star | 64-bit | ❌ | ❌ | 0.49 | 2.03 | 1.72 | 3.88 |
+| CG64 | 64-bit |  |  | 0.47 | 2.11 | 1.66 | 2.75 |
+| xorshift128plus | 64-bit | ❌ | ❌ | 0.42 | 2.40 | 1.45 | 2.63 |
+| xoroshiro128plus | 64-bit | ❌ | ❌ | 0.40 | 2.50 | 1.40 | 2.50 |
+| pcg64 | 64-bit | ✅ | ✅ | 0.39 | 2.53 | 1.38 | 3.25 |
+| lehmer64 | 64-bit | ✅ | ✅ | 0.32 | 3.10 | 1.13 | 1.75 |
+| xorshift1024plus | 64-bit | ❌ | ❌ | 0.32 | 3.10 | 1.13 | 3.00 |
+| CG128 | 128-bit |  |  | 0.27 | 3.70 | 0.94 | 3.07 |
+| aesdragontamer | 64-bit | ✅ | ✅ | 0.26 | 3.85 | 0.91 | 1.82 |
+| w1rand | 64-bit |  |  | 0.24 | 4.19 | 0.83 | 1.75 |
+| wyrand | 64-bit | ✅ | ✅ | 0.24 | 4.22 | 0.83 | 1.75 |
+| wyhash64 | 64-bit | ✅ | ✅ | 0.24 | 4.25 | 0.82 | 1.88 |
+| sirius64 | 64-bit | ✅ | ✅ | 0.23 | 4.29 | 0.82 | 2.38 |
+| splitmix63 | 64-bit |  |  | 0.23 | 4.32 | 0.81 | 3.25 |
+| splitmix64 | 64-bit | ✅ | ✅ | 0.23 | 4.35 | 0.80 | 2.75 |
+| CG128_64 | 128-bit |  |  | 0.22 | 4.57 | 0.76 | 2.00 |
+| aesctr | 64-bit | ✅ | ✅ | 0.19 | 5.35 | 0.65 | 2.89 |
 
 Results will depend on your specific hardware and might be quite different on ARM processors. Tweaking the benchmark could also change the results. In particular, our benchmark stresses throughput as opposed to latency.
 
-
-### Visual Summary
-
-|                   | TestU01 (big crush)| PractRand (512 GB)       | cycles/byte |  GB/s |
-|-------------------|--------------------|--------------------------| -----------:|------:|
-| aesctr            |  :+1:              |   :+1:                   | 0.64        |  5.50 |
-| splitmix64        |  :+1:              |   :+1:                   | 0.74        |  4.70 |
-| wyhash64          |  :+1:              |   :+1:                   | 0.82        |  4.28 |
-| wyrand            |  :+1:              |   :+1:                   | 0.83        |  4.22 |
-| w1rand            |                    |                          | 0.83        |  4.19 |
-| sirius64          |  :+1:              |   :+1:                   |             |       |
-| aesdragontamer    |  :+1:              |   :+1:                   | 0.88        |  3.97 |
-| lehmer64          |  :+1:              |   :+1:                   | 1.13        |  3.10 |
-| xorshift1024plus  |  fails!            |   fails!                 | 1.13        |  3.10 |
-| xoroshiro128plus  |  fails!            |   fails!                 | 1.38        |  2.54 |
-| pcg64             |  :+1:              |   :+1:                   | 1.38        |  2.53 |
-| xorshift128plus   |  fails!            |   fails!                 | 1.45        |  2.41 |
-| xorshift1024star  |  fails!            |   fails!                 | 1.72        |  2.03 |
-| pcg32             |  :+1:              |   :+1:                   | 2.25        |  1.55 |
-| xorshift32        |  fails!            |   fails!                 | 2.76        |  1.27 |
 
 ### Interpreting the results
 
