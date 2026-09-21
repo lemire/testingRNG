@@ -1,0 +1,48 @@
+RNG_test using PractRand version 0.93
+RNG = RNG_stdin64, seed = 0xa0315ad7
+test set = normal, folding = standard (64 bit)
+
+rng=RNG_stdin64, seed=0xa0315ad7
+length= 1 gigabyte (2^30 bytes), time= 3.6 seconds
+  no anomalies in 180 test result(s)
+
+rng=RNG_stdin64, seed=0xa0315ad7
+length= 2 gigabytes (2^31 bytes), time= 7.3 seconds
+  no anomalies in 191 test result(s)
+
+rng=RNG_stdin64, seed=0xa0315ad7
+length= 4 gigabytes (2^32 bytes), time= 14.4 seconds
+  no anomalies in 201 test result(s)
+
+rng=RNG_stdin64, seed=0xa0315ad7
+length= 8 gigabytes (2^33 bytes), time= 29.0 seconds
+  Test Name                         Raw       Processed     Evaluation
+  [Low1/64]BCFN(2+1,13-3,T)         R=  -6.9  p =1-8.6e-4   unusual          
+  ...and 211 test result(s) without anomalies
+
+rng=RNG_stdin64, seed=0xa0315ad7
+length= 16 gigabytes (2^34 bytes), time= 58.3 seconds
+  no anomalies in 223 test result(s)
+
+rng=RNG_stdin64, seed=0xa0315ad7
+length= 32 gigabytes (2^35 bytes), time= 116 seconds
+  Test Name                         Raw       Processed     Evaluation
+  [Low16/64]DC6-9x1Bytes-1          R=  -4.9  p =1-3.7e-3   unusual          
+  ...and 232 test result(s) without anomalies
+
+rng=RNG_stdin64, seed=0xa0315ad7
+length= 64 gigabytes (2^36 bytes), time= 237 seconds
+  no anomalies in 244 test result(s)
+
+rng=RNG_stdin64, seed=0xa0315ad7
+length= 128 gigabytes (2^37 bytes), time= 476 seconds
+  no anomalies in 255 test result(s)
+
+rng=RNG_stdin64, seed=0xa0315ad7
+length= 256 gigabytes (2^38 bytes), time= 937 seconds
+  no anomalies in 265 test result(s)
+
+rng=RNG_stdin64, seed=0xa0315ad7
+length= 512 gigabytes (2^39 bytes), time= 1878 seconds
+  no anomalies in 276 test result(s)
+
