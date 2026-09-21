@@ -27,6 +27,7 @@
 #include "wyhash.h"
 #include "wyrand.h"
 #include "w1rand.h"
+#include "sirius64.h"
 #include "trivium32.h"
 #include "trivium64.h"
 #include "CG128.h"
@@ -77,6 +78,7 @@ gen64_entry generators64[] = {
     {wyhash64, "wyhash64"},
     {wyrand, "wyrand"},
     {w1rand, "w1rand"},
+    {sirius64, "sirius64"},
     {jenkinssmall, "jenkinssmall"},
     {CG64, "CG64"},
 };

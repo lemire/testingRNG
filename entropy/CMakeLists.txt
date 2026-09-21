@@ -39,6 +39,7 @@ set(ENTROPY_TESTS
   testxorshift-k4
   testxorshift-k5
   testw1rand
+  testsirius64
 )
 
 # AES-based tests only on x86

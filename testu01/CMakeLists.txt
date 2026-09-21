@@ -42,6 +42,7 @@ set(TESTU01_TESTS
   testwyhash
   testwyrand
   testw1rand
+  testsirius64
 )
 
 # AES-based tests only on x86

@@ -152,6 +152,7 @@ bash ./build/entropy/runtests.sh
 - aesctr and aesdragontamer are random number generators based on the AES cipher (contributed by Samuel Neves).
 - wyhash64 is wyhash hashing function adapted as a random number generator.
 - wyrand and w1rand are random number generators based on the MUM hashing function, with w1rand being a slight modification.
+- sirius64 is a 64-bit state, 64-bit output generator by Matteo Zapparoli: a golden-ratio Weyl sequence (as in splitmix64) with a multiply-xorshift-rotate output function. See [issue 30](https://github.com/lemire/testingRNG/issues/30).
 - jenkinssmall is Bob Jenkins' small PRNG.
 - CG64, CG128, and CG128_64 are counter-based generators producing 64-bit, 128-bit, and 128-bit outputs respectively.
 
@@ -453,6 +454,7 @@ Results will depend on your specific hardware and might be quite different on AR
 | wyhash64          |  :+1:              |   :+1:                   | 0.82        |  4.28 |
 | wyrand            |  :+1:              |   :+1:                   | 0.83        |  4.22 |
 | w1rand            |                    |                          | 0.83        |  4.19 |
+| sirius64          |  :+1:              |   :+1:                   |             |       |
 | aesdragontamer    |  :+1:              |   :+1:                   | 0.88        |  3.97 |
 | lehmer64          |  :+1:              |   :+1:                   | 1.13        |  3.10 |
 | xorshift1024plus  |  fails!            |   fails!                 | 1.13        |  3.10 |
