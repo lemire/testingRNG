@@ -454,7 +454,7 @@ Results will depend on your specific hardware and might be quite different on AR
 | wyhash64          |  :+1:              |   :+1:                   | 0.82        |  4.28 |
 | wyrand            |  :+1:              |   :+1:                   | 0.83        |  4.22 |
 | w1rand            |                    |                          | 0.83        |  4.19 |
-| sirius64          |                    |   :+1:                   |             |       |
+| sirius64          |  :+1:              |   :+1:                   |             |       |
 | aesdragontamer    |  :+1:              |   :+1:                   | 0.88        |  3.97 |
 | lehmer64          |  :+1:              |   :+1:                   | 1.13        |  3.10 |
 | xorshift1024plus  |  fails!            |   fails!                 | 1.13        |  3.10 |
